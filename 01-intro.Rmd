@@ -1,6 +1,6 @@
 --- 
 title: "Marine Genomics"
-site: bookdown::bookdown_site
+site: https://baylab.github.io/MarineGenomicsSemester/
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
