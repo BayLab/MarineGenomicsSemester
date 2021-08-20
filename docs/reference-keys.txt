@@ -1,7 +1,6 @@
-fig:nice-fig
-tab:nice-tab
 prerequisites
-intro
+introduction-to-marine-genomics
+cloud-computing-versus-individual-laptops
 literature
 methods
 applications
