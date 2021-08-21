@@ -531,21 +531,3 @@ The commands `cd`, and `cd ~` are very useful for quickly navigating back to you
 + Relative paths specify a location starting from the current location, while absolute paths specify a location from the root of the file system.
 
 ## Creature of the Week!
-
-![Spanish Shawl spotted in San Diego](./figs/creatures/seaslug.png)
-
-
-
-
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
