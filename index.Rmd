@@ -1,34 +1,30 @@
 --- 
-title: "A Minimal Book Example"
-author: "Yihui Xie"
-date: "`r Sys.Date()`"
+title: "Marine Genomics"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+description: ""
 ---
 
-# Prerequisites
+# Introduction to Marine Genomics Semester edition
 
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$.
+Welcome to Marine Genomics. This is a course on learning how to analyze genomic data for undergraduate and graduate students. We focused on marine organisms but these lessons can easily be applied to any taxa. We required that students have a background in biology and have completed the general biology series. Additionally, it is helpful if students have taken a course in Evolution, though this was not a requirement. We did not require any coding experience in R or Bash/UNIX. 
 
-The **bookdown** package can be installed from CRAN or Github:
+For most weeks, our course consists of one 75 min lecture and one 75 minute coding session per week. The lectures begin with a power point presentation where we introduce the weeks concept (for example, PCAs) and then are followed by a live coding demonstration carrier out by the instructor. The coding sessions provide an opportunity for the students to either repeat the same coding demonstration carried out during the lecture, or to extend the demonstration via coding exercises which we have written for each week and for which the solutions are available on our website (under each exercise). 
 
-```{r eval=FALSE}
-install.packages("bookdown")
-# or the development version
-# devtools::install_github("rstudio/bookdown")
-```
+The first 5 weeks are primarily training in bash/UNIX and R basics and are structured as 2 lectures a week that are broken up with exercises for the students to practice each skill they are shown in live-coding demonstrations. The exercises typically take 5-15 minutes to complete. The remaining weeks are focused on performing a specific analysis (PCA, GWAS, Fst outlier analyses, etc). 
 
-Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`.
+We provide all the data for the students to complete each weeks coding activities along with instructions for how to download the data. Additionally, the students found the website a phenomenally helpful resource.
 
-To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>.
+## Cloud computing versus individual laptops
 
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
+This course was designed to be carried out on the NSF funded Extreme Science and Engineering Discovery Environment (XSEDE) cloud computing resource [Jetstream](https://portal.xsede.org/jetstream). 
+
+Jetstream is a unique user-friendly cloud computing resource in that it provides the students with an environment with root privileges, making program installation less complicated. Jetstream also provides a Desktop simulator which allows students to transition between bash and R using the same exact directory paths as the instructor, reducing the confusion of students having unique file paths and providing a more streamlined approach to what for many students is their first coding class. 
+
+Jetstream educational allocations can be applied for through [XSEDE](https://portal.xsede.org/jetstream#allocations:education). The process of applying for a jetstream allocation for educational purposes is relatively straightforward and simply requires a course description, the number of students anticipated to participate, and a calculation of the computing resources required, and the instructors CV. Allocations are typically approved in two to three days and can be submitted ~2 weeks prior to the start of the course.
+
+Alternatively, these course materials can be used on students and instructors individual laptops. The file paths will need to be modified and we cannot guarantee that the installation of programs and R packages will proceed as they did on Jetstream. Thus, progam installation will need to be verified for each week by the instructor.
+
