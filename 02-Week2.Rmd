@@ -1,5 +1,5 @@
 ---
-title: "02-Week2"
+title: "Marine Genomics"
 author: "Data Carpentry, edited by Serena Caplins"
 date: "March 30th 2021"
 output:

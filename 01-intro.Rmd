@@ -1,5 +1,5 @@
 ---
-title: "Marine Genomics Semester Week 1"
+title: "Marine Genomics"
 author: 
 date:
 output:
