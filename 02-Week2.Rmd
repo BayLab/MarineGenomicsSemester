@@ -1799,4 +1799,3 @@ When to use awk?
 
 ## Creature of the Week!
 
-![California Sheepshead Wrasse smiling for a photo!](./figs/creatures/sheepshead_wrasse.jpg)
