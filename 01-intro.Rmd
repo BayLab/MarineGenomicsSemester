@@ -130,6 +130,26 @@ Select the black box on the bottom menu bar to access the command line. It will 
 knitr::include_graphics("./figs/jetstream/Fig14.png")
 ```
 
+## Best practices for Jetstream
+
+Once you launch your instance and it's "active" it's ready to use. 
+
+When you're done coding it's best to close your jetstream desktop and projects folder browser window. If you are going to step away from jetstream for a while (say over the weekend), it's best to 'Shelve' or 'Suspend' your instance.
+
+Once you're ready to code again you just have to select 'Resume' to start your instance again. This will take a few minutes. 
+
+If in doubt of whether you should 'shelve/suspend' or keep active, it's our recommendation to shelve/suspend your instance. This frees up resources for other users and should reduce the likelihood of your active instance freezing up and being inaccessible. 
+
+
+If you get an error while trying to log in or open the web shell or web desktop, follow these tips:
+
++ log out of the jetstream home page and log back in
++ relaunch your instance
++ reboot your instance
+
+If those options fail then it is likely best to delete the instance and relaunch a new instance. This will result in you losing your data or work, but that should not be terribly detrimental to the course as everything resets with new data each week. 
+
+
 
 ## Navigating your file system
 The part of the operating system responsible for managing files and directories is called the file system. It organizes our data into files, which hold information, and directories (also called “folders”), which hold files or other directories.
