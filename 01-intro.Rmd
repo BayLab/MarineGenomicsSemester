@@ -265,7 +265,7 @@ $ cd data
 $ ls -F
 ```
 ```html
-Week1 Week2 README.md
+Week1/
 ```
 Anything with a “/” after it is a directory. Things with a “*” after them are programs. If there are no decorations, it’s a file.
 
