@@ -149,7 +149,25 @@ If you get an error while trying to log in or open the web shell or web desktop,
 
 If those options fail then it is likely best to delete the instance and relaunch a new instance. This will result in you losing your data or work, but that should not be terribly detrimental to the course as everything resets with new data each week. 
 
+## Week 1 Objectives
 
+Questions to Answer:
+
++ How can I perform operations on files outside of my working directory?
+
++ What are some navigational shortcuts I can use to make my work more efficient?
+
+Main Tasks:
+
++ Use a single command to navigate multiple steps in your directory structure, including moving backwards (one level up).
+
++ Perform operations on files in directories outside your working directory.
+
++ Work with hidden directories and hidden files.
+
++ Interconvert between absolute and relative paths.
+
++ Employ navigational shortcuts to move around your file system.
 
 ## Navigating your file system
 The part of the operating system responsible for managing files and directories is called the file system. It organizes our data into files, which hold information, and directories (also called “folders”), which hold files or other directories.
@@ -213,7 +231,13 @@ It should be empty because we just created it and haven't put anything in it yet
 There are two main ways to do this. We can use the command `wget` which needs a link to the file that we want to download. If theres a file saved on a website somewhere (anywhere on the internet) `wget` will download it for you. If our data file is on github, which is where most of our data will be stored, we'll use the command `git-clone` In this example we're going to download all the material in the MarineGenomicsData folder and save it in a folder called data.
 
 ```html
-$ git clone https://github.com/BayLab/MarineGenomicsData.git data
+$ wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week1.tar.gz
+```
+
+We now need to untar that file so we can access the contents
+
+```html
+tar -xzvf week1.tar.gz
 ```
 
 Now that we have something in our MarineGenomics directory we can use the `ls` command a bit more.
@@ -337,25 +361,6 @@ In the next few episodes, we’ll be expanding on these skills and seeing how us
 
 This continues the shell module from Data Carpentry's introduction to the shell, which can be found here https://datacarpentry.org/shell-genomics/02-the-filesystem/index.html
 
-## Week 1 Objectives
-
-Questions to Answer:
-
-+ How can I perform operations on files outside of my working directory?
-
-+ What are some navigational shortcuts I can use to make my work more efficient?
-
-Main Tasks:
-
-+ Use a single command to navigate multiple steps in your directory structure, including moving backwards (one level up).
-
-+ Perform operations on files in directories outside your working directory.
-
-+ Work with hidden directories and hidden files.
-
-+ Interconvert between absolute and relative paths.
-
-+ Employ navigational shortcuts to move around your file system.
 
 ## Moving around the file system
 
@@ -409,9 +414,14 @@ $ ls ../../
 ```
 prints the contents of `/home`.
 
-Let's explore a few more properties of the `ls` function
+## Navigating practice and finding hidden directories
 
-Go back to your home directory.
+Go back to your home directory. From there list the contents of the home directory. There are hidden directories in our home directory. Explore the options for `ls` to find out how to see hidden directories. List the contents of the directory and identify the name of the text file in that directory. 
+
+Hint: hidden files and folders in Unix start with `.`, for example `.my_hidden_directory`
+
+<details><summary><span style="color: red;">Solution</span></summary>
+<p>
 
 ```html
 $ cd
@@ -431,6 +441,7 @@ $ ls -a
 ..  .Renviron      .Xauthority  .bash_history  .bashrc       .config  .emacs.d  .gnupg       .profile  .rstudio-desktop  .vnc  .xsession-errors  Documents  Music      Public    Videos
 
 ```
+
 You'll see there are many more files shown now that we can look at the hidden ones. 
 
 In most commands the flags can be combined together in no particular order to obtain the desired results/output.
@@ -439,6 +450,10 @@ In most commands the flags can be combined together in no particular order to ob
 $ ls -Fa
 $ ls -laF
 ```
+
+</p>
+</details>
+
 
 ## Examining the contents of other directories
 

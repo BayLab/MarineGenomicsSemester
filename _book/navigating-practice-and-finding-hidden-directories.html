@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Navigating practice and finding hidden directories | Marine Genomics</title>
+  <meta name="description" content="Chapter 3 Navigating practice and finding hidden directories | Marine Genomics" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Navigating practice and finding hidden directories | Marine Genomics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Navigating practice and finding hidden directories | Marine Genomics" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="week-1--welcome.html"/>
+<link rel="next" href="week-2-working-with-files.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction to Marine Genomics Semester edition</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#cloud-computing-versus-individual-laptops"><i class="fa fa-check"></i><b>1.1</b> Cloud computing versus individual laptops</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="week-1--welcome.html"><a href="week-1--welcome.html"><i class="fa fa-check"></i><b>2</b> Week 1- Welcome!</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="week-1--welcome.html"><a href="week-1--welcome.html#introduction-to-shell-computing-via-the-data-carpentry-tutorial"><i class="fa fa-check"></i><b>2.1</b> Introduction to shell computing via the data carpentry tutorial</a></li>
+<li class="chapter" data-level="2.2" data-path="week-1--welcome.html"><a href="week-1--welcome.html#how-to-access-the-shell"><i class="fa fa-check"></i><b>2.2</b> How to access the shell</a></li>
+<li class="chapter" data-level="2.3" data-path="week-1--welcome.html"><a href="week-1--welcome.html#best-practices-for-jetstream"><i class="fa fa-check"></i><b>2.3</b> Best practices for Jetstream</a></li>
+<li class="chapter" data-level="2.4" data-path="week-1--welcome.html"><a href="week-1--welcome.html#navigating-your-file-system"><i class="fa fa-check"></i><b>2.4</b> Navigating your file system</a></li>
+<li class="chapter" data-level="2.5" data-path="week-1--welcome.html"><a href="week-1--welcome.html#shortcut-tab-completion"><i class="fa fa-check"></i><b>2.5</b> Shortcut: Tab Completion</a></li>
+<li class="chapter" data-level="2.6" data-path="week-1--welcome.html"><a href="week-1--welcome.html#summary-key-points"><i class="fa fa-check"></i><b>2.6</b> Summary &amp; Key Points</a></li>
+<li class="chapter" data-level="2.7" data-path="week-1--welcome.html"><a href="week-1--welcome.html#navigating-files-and-directories"><i class="fa fa-check"></i><b>2.7</b> Navigating Files and Directories</a></li>
+<li class="chapter" data-level="2.8" data-path="week-1--welcome.html"><a href="week-1--welcome.html#week-1-objectives"><i class="fa fa-check"></i><b>2.8</b> Week 1 Objectives</a></li>
+<li class="chapter" data-level="2.9" data-path="week-1--welcome.html"><a href="week-1--welcome.html#moving-around-the-file-system"><i class="fa fa-check"></i><b>2.9</b> Moving around the file system</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="navigating-practice-and-finding-hidden-directories.html"><a href="navigating-practice-and-finding-hidden-directories.html"><i class="fa fa-check"></i><b>3</b> Navigating practice and finding hidden directories</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="navigating-practice-and-finding-hidden-directories.html"><a href="navigating-practice-and-finding-hidden-directories.html#examining-the-contents-of-other-directories"><i class="fa fa-check"></i><b>3.1</b> Examining the contents of other directories</a></li>
+<li class="chapter" data-level="3.2" data-path="navigating-practice-and-finding-hidden-directories.html"><a href="navigating-practice-and-finding-hidden-directories.html#full-vs-relative-paths"><i class="fa fa-check"></i><b>3.2</b> Full vs Relative Paths</a></li>
+<li class="chapter" data-level="3.3" data-path="navigating-practice-and-finding-hidden-directories.html"><a href="navigating-practice-and-finding-hidden-directories.html#navigational-shortcuts"><i class="fa fa-check"></i><b>3.3</b> Navigational shortcuts</a></li>
+<li class="chapter" data-level="3.4" data-path="navigating-practice-and-finding-hidden-directories.html"><a href="navigating-practice-and-finding-hidden-directories.html#key-points"><i class="fa fa-check"></i><b>3.4</b> Key Points</a></li>
+<li class="chapter" data-level="3.5" data-path="navigating-practice-and-finding-hidden-directories.html"><a href="navigating-practice-and-finding-hidden-directories.html#creature-of-the-week"><i class="fa fa-check"></i><b>3.5</b> Creature of the Week!</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html"><i class="fa fa-check"></i><b>4</b> Week 2-Working With Files</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#our-data-set-fastq-files"><i class="fa fa-check"></i><b>4.1</b> Our data set: FASTQ files</a></li>
+<li class="chapter" data-level="4.2" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#wildcards"><i class="fa fa-check"></i><b>4.2</b> Wildcards</a></li>
+<li class="chapter" data-level="4.3" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#command-history"><i class="fa fa-check"></i><b>4.3</b> Command History</a></li>
+<li class="chapter" data-level="4.4" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#examining-files"><i class="fa fa-check"></i><b>4.4</b> Examining Files</a></li>
+<li class="chapter" data-level="4.5" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#details-on-the-fastq-format"><i class="fa fa-check"></i><b>4.5</b> Details on the FASTQ format</a></li>
+<li class="chapter" data-level="4.6" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#creating-moving-copying-and-removing"><i class="fa fa-check"></i><b>4.6</b> Creating, moving, copying, and removing</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#copying-files"><i class="fa fa-check"></i><b>4.6.1</b> Copying Files</a></li>
+<li class="chapter" data-level="4.6.2" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#creating-directories"><i class="fa fa-check"></i><b>4.6.2</b> Creating Directories</a></li>
+<li class="chapter" data-level="4.6.3" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#moving-renaming"><i class="fa fa-check"></i><b>4.6.3</b> Moving / Renaming</a></li>
+<li class="chapter" data-level="4.6.4" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#file-permissions"><i class="fa fa-check"></i><b>4.6.4</b> File Permissions</a></li>
+<li class="chapter" data-level="4.6.5" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#removing"><i class="fa fa-check"></i><b>4.6.5</b> Removing</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#redirections"><i class="fa fa-check"></i><b>4.7</b> Redirections</a></li>
+<li class="chapter" data-level="4.8" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#searching-files"><i class="fa fa-check"></i><b>4.8</b> Searching files</a></li>
+<li class="chapter" data-level="4.9" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#redirecting-output"><i class="fa fa-check"></i><b>4.9</b> Redirecting output</a></li>
+<li class="chapter" data-level="4.10" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#writing-for-loops"><i class="fa fa-check"></i><b>4.10</b> Writing for loops</a></li>
+<li class="chapter" data-level="4.11" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#using-basename-in-for-loops"><i class="fa fa-check"></i><b>4.11</b> Using Basename in for loops</a></li>
+<li class="chapter" data-level="4.12" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#writing-scripts-and-working-with-data"><i class="fa fa-check"></i><b>4.12</b> Writing Scripts and Working with Data</a></li>
+<li class="chapter" data-level="4.13" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#writing-files"><i class="fa fa-check"></i><b>4.13</b> Writing files</a></li>
+<li class="chapter" data-level="4.14" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#writing-scripts"><i class="fa fa-check"></i><b>4.14</b> Writing scripts</a></li>
+<li class="chapter" data-level="4.15" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#moving-and-downloading-data"><i class="fa fa-check"></i><b>4.15</b> Moving and Downloading Data</a>
+<ul>
+<li class="chapter" data-level="4.15.1" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#getting-data-from-the-cloud"><i class="fa fa-check"></i><b>4.15.1</b> Getting data from the cloud</a></li>
+<li class="chapter" data-level="4.15.2" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#uploading-and-downloading-data-to-your-virtual-machine-with-scp---unix"><i class="fa fa-check"></i><b>4.15.2</b> Uploading and Downloading Data to your Virtual Machine with scp - UNIX</a></li>
+</ul></li>
+<li class="chapter" data-level="4.16" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#awk"><i class="fa fa-check"></i><b>4.16</b> Awk</a></li>
+<li class="chapter" data-level="4.17" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#creature-of-the-week-1"><i class="fa fa-check"></i><b>4.17</b> Creature of the Week!</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Marine Genomics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="navigating-practice-and-finding-hidden-directories" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Navigating practice and finding hidden directories</h1>
+<p>Go back to your home directory. From there list the contents of the home directory. There are hidden directories in our home directory. Explore the options for <code>ls</code> to find out how to see hidden directories. List the contents of the directory and identify the name of the text file in that directory.</p>
+<p>Hint: hidden files and folders in Unix start with <code>.</code>, for example <code>.my_hidden_directory</code></p>
+<details>
+<summary>
+<span style="color: red;">Solution</span>
+</summary>
+<p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb39-1"><a href="navigating-practice-and-finding-hidden-directories.html#cb39-1" aria-hidden="true" tabindex="-1"></a>$ cd</span></code></pre></div>
+<p>Let’s look at some of the options for the <code>ls</code> function using the <code>man</code> command (note this will print out several lines of text)</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb40-1"><a href="navigating-practice-and-finding-hidden-directories.html#cb40-1" aria-hidden="true" tabindex="-1"></a>$ man ls</span></code></pre></div>
+<p>The <code>-a</code> option is short for all and says that it causes <code>ls</code> to “not ignore entries starting with .” This is the option we want.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb41-1"><a href="navigating-practice-and-finding-hidden-directories.html#cb41-1" aria-hidden="true" tabindex="-1"></a>$ ls -a</span>
+<span id="cb41-2"><a href="navigating-practice-and-finding-hidden-directories.html#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="navigating-practice-and-finding-hidden-directories.html#cb41-3" aria-hidden="true" tabindex="-1"></a>.   .ICEauthority  .Rhistory    .ansible       .bash_logout  .cache   .dbus     .fontconfig  .local    .r                .ssh  .wget-hsts        Desktop    Downloads  Pictures  Templates</span>
+<span id="cb41-4"><a href="navigating-practice-and-finding-hidden-directories.html#cb41-4" aria-hidden="true" tabindex="-1"></a>..  .Renviron      .Xauthority  .bash_history  .bashrc       .config  .emacs.d  .gnupg       .profile  .rstudio-desktop  .vnc  .xsession-errors  Documents  Music      Public    Videos</span></code></pre></div>
+<p>You’ll see there are many more files shown now that we can look at the hidden ones.</p>
+<p>In most commands the flags can be combined together in no particular order to obtain the desired results/output.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb42-1"><a href="navigating-practice-and-finding-hidden-directories.html#cb42-1" aria-hidden="true" tabindex="-1"></a>$ ls -Fa</span>
+<span id="cb42-2"><a href="navigating-practice-and-finding-hidden-directories.html#cb42-2" aria-hidden="true" tabindex="-1"></a>$ ls -laF</span></code></pre></div>
+</p>
+</details>
+<div id="examining-the-contents-of-other-directories" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Examining the contents of other directories</h2>
+<p>By default, the <code>ls</code> commands lists the contents of the working directory (i.e. the directory you are in). You can always find the directory you are in using the <code>pwd</code> command. However, you can also give <code>ls</code> the names of other directories to view. Navigate to your home directory if you are not already there.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb43-1"><a href="navigating-practice-and-finding-hidden-directories.html#cb43-1" aria-hidden="true" tabindex="-1"></a>$ cd</span></code></pre></div>
+<p>Then enter the command:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb44-1"><a href="navigating-practice-and-finding-hidden-directories.html#cb44-1" aria-hidden="true" tabindex="-1"></a>$ ls MarineGenomics</span>
+<span id="cb44-2"><a href="navigating-practice-and-finding-hidden-directories.html#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="navigating-practice-and-finding-hidden-directories.html#cb44-3" aria-hidden="true" tabindex="-1"></a>data</span></code></pre></div>
+<p>This will list the contents of the MarineGenomics directory without you needing to navigate there.</p>
+<p>The <code>cd</code> command works in a similar way.</p>
+<p>Try entering:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb45-1"><a href="navigating-practice-and-finding-hidden-directories.html#cb45-1" aria-hidden="true" tabindex="-1"></a>$ cd</span>
+<span id="cb45-2"><a href="navigating-practice-and-finding-hidden-directories.html#cb45-2" aria-hidden="true" tabindex="-1"></a>$ cd MarineGenomics/data</span></code></pre></div>
+<p>This will take you to the MarineGenomics directory without having to go through the intermediate directory.</p>
+<p>Navigating practice</p>
+<p>Navigate to your home directory. From there, list the contents of the Week1 directory.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb46-1"><a href="navigating-practice-and-finding-hidden-directories.html#cb46-1" aria-hidden="true" tabindex="-1"></a>$ cd</span>
+<span id="cb46-2"><a href="navigating-practice-and-finding-hidden-directories.html#cb46-2" aria-hidden="true" tabindex="-1"></a>$ ls MarineGenomics/data/Week1</span>
+<span id="cb46-3"><a href="navigating-practice-and-finding-hidden-directories.html#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-4"><a href="navigating-practice-and-finding-hidden-directories.html#cb46-4" aria-hidden="true" tabindex="-1"></a>SRR6805880_1.fastq SRR6805880_2.fastq</span></code></pre></div>
+</div>
+<div id="full-vs-relative-paths" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Full vs Relative Paths</h2>
+<p>The <code>cd</code> command takes an argument which is a directory name. Directories can be specified using either a relative path or a full absolute path. The directories on the computer are arranged into a hierarchy. The full path tells you where a directory is in that hierarchy.</p>
+<p>Navigate to the home directory, then enter the <code>pwd</code> command.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb47-1"><a href="navigating-practice-and-finding-hidden-directories.html#cb47-1" aria-hidden="true" tabindex="-1"></a>$ cd</span>
+<span id="cb47-2"><a href="navigating-practice-and-finding-hidden-directories.html#cb47-2" aria-hidden="true" tabindex="-1"></a>$ pwd</span></code></pre></div>
+<p>You should see:</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb48-1"><a href="navigating-practice-and-finding-hidden-directories.html#cb48-1" aria-hidden="true" tabindex="-1"></a>/home/margeno</span></code></pre></div>
+<p>This is the full name of your home directory. This tells you that you are in a directory called <code>margeno</code>, which sits inside a directory called home which sits inside the very top directory in the hierarchy. The very top of the hierarchy is a directory called <code>/</code> which is usually referred to as the <code>root</code> directory. So, to summarize: margeno is a directory in <code>home</code> which is a directory in /. More on <code>root</code> and <code>home</code> in the next section.</p>
+<p>Now enter the following command:</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb49-1"><a href="navigating-practice-and-finding-hidden-directories.html#cb49-1" aria-hidden="true" tabindex="-1"></a>$ cd /home/margeno/MarineGenomics/data/Week1</span></code></pre></div>
+<p>This jumps several levels to the <code>Week1</code> directory. Now go back to the home directory.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb50-1"><a href="navigating-practice-and-finding-hidden-directories.html#cb50-1" aria-hidden="true" tabindex="-1"></a>$ cd </span></code></pre></div>
+<p>You can also navigate to the <code>Week1</code> directory using:</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb51-1"><a href="navigating-practice-and-finding-hidden-directories.html#cb51-1" aria-hidden="true" tabindex="-1"></a>$ cd MarineGenomics/data/Week1</span></code></pre></div>
+<p>These two commands have the same effect, they both take us to the <code>Week1</code> directory. The first uses the absolute path, giving the full address from the home directory. The second uses a relative path, giving only the address from the working directory. A full path always starts with a /. A relative path does not.</p>
+<p>A relative path is like getting directions from someone on the street. They tell you to “go right at the stop sign, and then turn left on Main Street.” That works great if you’re standing there together, but not so well if you’re trying to tell someone how to get there from another country. A full path is like GPS coordinates. It tells you exactly where something is no matter where you are right now.</p>
+<p>You can usually use either a full path or a relative path depending on what is most convenient. If we are in the home directory, it is more convenient to enter the full path. If we are in the working directory, it is more convenient to enter the relative path since it involves less typing.</p>
+<p>Over time, it will become easier for you to keep a mental note of the structure of the directories that you are using and how to quickly navigate amongst them.</p>
+</div>
+<div id="navigational-shortcuts" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Navigational shortcuts</h2>
+<p>The root directory is the highest level directory in your file system and contains files that are important for your computer to perform its daily work. While you will be using the root (/) at the beginning of your absolute paths, it is important that you avoid working with data in these higher-level directories, as your commands can permanently alter files that the operating system needs to function. In many cases, trying to run commands in root directories will require special permissions which will be discussed later, so it’s best to avoid them and work within your home directory. Dealing with the home directory is very common. The tilde character, ~, is a shortcut for your home directory. In our case, the root directory is two levels above our home directory, so cd or cd ~ will take you to <code>/home/margeno</code> and cd <code>/</code> will take you to <code>/</code>.</p>
+<p>Navigate to the MarineGenomics directory:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb52-1"><a href="navigating-practice-and-finding-hidden-directories.html#cb52-1" aria-hidden="true" tabindex="-1"></a>$ cd</span>
+<span id="cb52-2"><a href="navigating-practice-and-finding-hidden-directories.html#cb52-2" aria-hidden="true" tabindex="-1"></a>$ cd MarineGenomics</span></code></pre></div>
+<p>Then enter the command:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb53-1"><a href="navigating-practice-and-finding-hidden-directories.html#cb53-1" aria-hidden="true" tabindex="-1"></a>$ ls ~</span>
+<span id="cb53-2"><a href="navigating-practice-and-finding-hidden-directories.html#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-3"><a href="navigating-practice-and-finding-hidden-directories.html#cb53-3" aria-hidden="true" tabindex="-1"></a>Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos MarineGenomics</span></code></pre></div>
+<p>This prints the contents of your home directory, without you needing to type the full path.</p>
+<p>The commands <code>cd</code>, and <code>cd ~</code> are very useful for quickly navigating back to your home directory. We will be using the ~ character in later lessons to specify our home directory.</p>
+</div>
+<div id="key-points" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Key Points</h2>
+<ul>
+<li><p>The /, ~, and .. characters represent important navigational shortcuts.</p></li>
+<li><p>Hidden files and directories start with . and can be viewed using ls -a.</p></li>
+<li><p>Relative paths specify a location starting from the current location, while absolute paths specify a location from the root of the file system.</p></li>
+</ul>
+</div>
+<div id="creature-of-the-week" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Creature of the Week!</h2>
+<div class="figure">
+<img src="figs/creatures/spirula.jpg" alt="" />
+<p class="caption">Spirula spirula!</p>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="week-1--welcome.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="week-2-working-with-files.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Semester.pdf", "Semester.epub"],
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

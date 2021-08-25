@@ -4,12 +4,13 @@ week-1--welcome
 introduction-to-shell-computing-via-the-data-carpentry-tutorial
 how-to-access-the-shell
 best-practices-for-jetstream
+week-1-objectives
 navigating-your-file-system
 shortcut-tab-completion
 summary-key-points
 navigating-files-and-directories
-week-1-objectives
 moving-around-the-file-system
+navigating-practice-and-finding-hidden-directories
 examining-the-contents-of-other-directories
 full-vs-relative-paths
 navigational-shortcuts

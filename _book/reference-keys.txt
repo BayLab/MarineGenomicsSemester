@@ -47,3 +47,5 @@ getting-data-from-the-cloud
 uploading-and-downloading-data-to-your-virtual-machine-with-scp---unix
 awk
 creature-of-the-week-1
+best-practices-for-jetstream
+navigating-practice-and-finding-hidden-directories
