@@ -228,7 +228,7 @@ $ ls
 
 It should be empty because we just created it and haven't put anything in it yet. Let's download some data to work with. We'll put it in our MarineGenomics directory. 
 
-There are two main ways to do this. We can use the command `wget` which needs a link to the file that we want to download. If theres a file saved on a website somewhere (anywhere on the internet) `wget` will download it for you. If our data file is on github, which is where most of our data will be stored, we'll use the command `git-clone` In this example we're going to download all the material in the MarineGenomicsData folder and save it in a folder called data.
+There are many ways to do this. We can use the command `wget` which needs a link to the file that we want to download. If there's a file saved on a website somewhere (anywhere on the internet) `wget` will download it for you. 
 
 ```html
 $ wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week1.tar.gz
