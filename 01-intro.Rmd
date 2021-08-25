@@ -228,7 +228,14 @@ $ ls
 
 It should be empty because we just created it and haven't put anything in it yet. Let's download some data to work with. We'll put it in our MarineGenomics directory. 
 
-There are many ways to do this. We can use the command `wget` which needs a link to the file that we want to download. If there's a file saved on a website somewhere (anywhere on the internet) `wget` will download it for you. 
+Let's first navigate back to our home directory. 
+
+```html
+cd 
+```
+
+
+There are many ways to do transfer files and download data. We can use the command `wget` which needs a link to the file that we want to download. If there's a file saved on a website somewhere (anywhere on the internet) `wget` will download it for you. 
 
 ```html
 $ wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week1.tar.gz
