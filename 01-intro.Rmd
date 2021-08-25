@@ -255,13 +255,13 @@ We can make the ls output more comprehensible by using the flag -F, which tells 
 $ ls -F
 ```
 ```html
-data/
+week1/
 ```
 
 Great, it's there! Let's cd into the data directory and then use ls to see what's in that directory.
 
 ```html
-$ cd data
+$ cd week1
 $ ls -F
 ```
 ```html
@@ -288,7 +288,7 @@ No one can possibly learn all of these arguments, that’s what the manual page 
 Let’s go into the Week1 directory and see what is in there.
 
 ```html
-$ cd Week1
+$ cd week1
 $ ls -F
 ```
 
@@ -378,7 +378,6 @@ Use the commands we’ve learned so far to navigate to the `MarineGenomics/data/
 ```html
 $ cd
 $ cd MarineGenomics
-$ cd data
 $ cd Week1
 ```
 
@@ -486,7 +485,7 @@ Try entering:
 
 ```html
 $ cd
-$ cd MarineGenomics/data
+$ cd MarineGenomics/week1
 ```
 This will take you to the MarineGenomics directory without having to go through the intermediate directory.
 
@@ -496,7 +495,7 @@ Navigate to your home directory. From there, list the contents of the Week1 dire
 
 ```html
 $ cd
-$ ls MarineGenomics/data/Week1
+$ ls MarineGenomics/Week1
 
 SRR6805880_1.fastq SRR6805880_2.fastq
 ```
@@ -522,7 +521,7 @@ This is the full name of your home directory. This tells you that you are in a d
 Now enter the following command:
 
 ```html
-$ cd /home/margeno/MarineGenomics/data/Week1
+$ cd /home/margeno/MarineGenomics/Week1
 ```
 
 This jumps several levels to the `Week1` directory. Now go back to the home directory.
@@ -534,7 +533,7 @@ $ cd
 You can also navigate to the `Week1` directory using:
 
 ```html
-$ cd MarineGenomics/data/Week1
+$ cd MarineGenomics/Week1
 ```
 These two commands have the same effect, they both take us to the `Week1` directory. The first uses the absolute path, giving the full address from the home directory. The second uses a relative path, giving only the address from the working directory. A full path always starts with a /. A relative path does not.
 
