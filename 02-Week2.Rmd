@@ -224,6 +224,8 @@ You will be glad you learned this when you need to re-run very complicated comma
 For more information on advanced usage of `history`, read section 9.3 of
 [Bash manual](https://www.gnu.org/software/bash/manual/html_node/index.html).
 
+You can also do this with <kbd>Ctrl</kbd>+<kbd>R</kbd> and a search for `ls` which may be more of less usefull depending on how often you use the command `ls`
+
 
 ## Examining Files
 
@@ -252,8 +254,6 @@ the `./MarineGenomics/Week2/untrimmed_fastq` directory.
 <details><summary><span style="color: orange;">Solution</span></summary>
 <p>
 
-
-## Solution
  1. The last line of the file is `C:CCC::CCCCCCCC<8?6A:C28C<608'&&&,'$`.
  2. `cat ./data_week2/Week2/data_week2/untrimmed_fastq/*`
  
@@ -308,8 +308,6 @@ What are the next three nucleotides (characters) after the first instance of the
  
 <details><summary><span style="color: orange;">Solution</span></summary>
 <p>
-
-## Solution
 
 `CAC`
  
@@ -640,7 +638,6 @@ Starting in the `~/MarineGenomics/Week2/untrimmed_fastq/` directory, do the foll
 <details><summary><span style="color: orange;">Solution</span></summary>
 <p>
 
-## Solution
 
 1. `rm -r backup`  
 2. `cp SRR098026.fastq SRR098026-backup.fastq` and `cp SRR097977.fastq SRR097977-backup.fastq`  
@@ -764,7 +761,6 @@ that contains a match.
 <details><summary><span style="color: orange;">Solution</span></summary>
 <p>
 
- ### Solution  
  1. `grep -B1 GNATNACCACTTCC SRR098026.fastq` 
  
 ```
@@ -880,7 +876,6 @@ How many sequences are there in `SRR098026.fastq`? Remember that every sequence 
 <p>
 
 
-### Solution
 
 ```html
 $ wc -l SRR098026.fastq

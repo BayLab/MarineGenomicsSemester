@@ -24,9 +24,7 @@ using-echo
 command-history
 examining-files
 exercise-1
-solution
 exercise-2
-solution-1
 details-on-the-fastq-format
 creating-moving-copying-and-removing
 copying-files
@@ -35,13 +33,11 @@ moving-renaming
 file-permissions
 removing
 exercise-3
-solution-2
 redirections
 searching-files
 exercise-4
 redirecting-output
 exercise-5
-solution-3
 writing-for-loops
 using-basename-in-for-loops
 writing-scripts-and-working-with-data
