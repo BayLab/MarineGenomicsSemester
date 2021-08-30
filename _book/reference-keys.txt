@@ -49,3 +49,7 @@ awk
 creature-of-the-week-1
 best-practices-for-jetstream
 navigating-practice-and-finding-hidden-directories
+exercise
+using-echo
+exercise-1
+solution
