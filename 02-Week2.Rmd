@@ -1743,3 +1743,4 @@ When to use awk?
 
 ## Creature of the Week!
 
+![The Frilled shark!](./figs/creatures/Chlamydoselachus_anguineus_head.jpg)
