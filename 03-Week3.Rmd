@@ -1,0 +1,115 @@
+---
+title: "Marine Genomics"
+author:
+date: 
+output:
+  bookdown::html_book:
+    toc: yes
+    css: toc.css
+---
+# Moving and Downloading Data
+
+Below we'll show you some commands to download data onto your instance, or to move data between your computer and the cloud.
+
+## Getting data from the cloud
+
+There are two programs that will download data from a remote server to your local
+(or remote) machine: ``wget`` and ``curl``. They were designed to do slightly different
+tasks by default, so you'll need to give the programs somewhat different options to get
+the same behaviour, but they are mostly interchangeable.
+
+ - ``wget`` is short for "world wide web get", and it's basic function is to *download*
+ web pages or data at a web address.
+
+ - ``cURL`` is a pun, it is supposed to be read as "see URL", so its basic function is
+ to *display* webpages or data at a web address.
+
+Which one you need to use mostly depends on your operating system, as most computers will
+only have one or the other installed by default.
+
+Today we will use wget to download some data from Ensembl.
+
+
+<details><summary>Exercise</summary>
+<p>
+
+Before we can start our download, we need to know whether we're using ``curl`` or ``wget``.
+
+To see which program you have, type:
+ 
+```html
+$ which curl
+$ which wget
+```
+
+
+``which`` is a BASH program that looks through everything you have
+installed, and tells you what folder it is installed to. If it can't
+find the program you asked for, it returns nothing, i.e. gives you no
+results.
+
+On Mac OSX, you'll likely get the following output:
+
+
+```html
+$ which wget
+```
+
+
+```html
+$ /usr/bin/wget
+```
+
+Once you know whether you have ``curl`` or ``wget``, use one of the
+following commands to download the file:
+
+</p>
+</details>
+&nbsp;
+
+
+```html
+$ cd
+$ wget ftp://ftp.ensemblgenomes.org/pub/release-37/bacteria/species_EnsemblBacteria.txt
+```
+
+Let's see if the file from ensembl downloaded
+
+```html
+ls species_EnsemblBacteria.txt
+```
+
+it did!
+
+
+### Uploading and Downloading Data to your Virtual Machine with scp - UNIX
+
+This section is for your general knowledge.
+
+`scp` stands for 'secure copy protocol', and is a widely used UNIX tool for moving files
+between computers. The simplest way to use `scp` is to run it in your local terminal,
+and use it to copy a single file:
+
+```html
+scp <file I want to move> <where I want to move it>
+```
+
+In terminal,you can use the `scp` command to upload a file (e.g. local_file.txt) to the cluster home directory:
+
+```html
+$  scp local_file.txt UserName@cluster.address:/scratch/
+```
+
+If you wanted to download data from your virtual machine, we would put the location of the folder within the virtual machine in the location of <file I want to move>
+
+```html
+$  scp UserName@cluster.address:/scratch/VirtualMachine_file.txt /home/margeno/MarineGenomics/week2/untrimmed_fastq/
+```
+
+## Getting data from github
+
+section coming soon!
+
+## Downloading genomes from NCBI
+
+Coming soon!
