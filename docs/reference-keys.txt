@@ -48,10 +48,8 @@ exercise-8
 writing-scripts
 exercise-9
 making-the-script-into-a-program
-awk
 creature-of-the-week-1
+awk
 moving-and-downloading-data
 getting-data-from-the-cloud
 uploading-and-downloading-data-to-your-virtual-machine-with-scp---unix
-getting-data-from-github
-downloading-genomes-from-ncbi

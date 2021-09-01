@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="week-1--welcome.html"/>
-<link rel="next" href="moving-and-downloading-data.html"/>
+<link rel="next" href="awk.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -194,17 +194,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.25" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#writing-scripts"><i class="fa fa-check"></i><b>3.25</b> Writing scripts</a></li>
 <li class="chapter" data-level="3.26" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-9"><i class="fa fa-check"></i><b>3.26</b> Exercise</a></li>
 <li class="chapter" data-level="3.27" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#making-the-script-into-a-program"><i class="fa fa-check"></i><b>3.27</b> Making the script into a program</a></li>
-<li class="chapter" data-level="3.28" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#awk"><i class="fa fa-check"></i><b>3.28</b> Awk</a></li>
-<li class="chapter" data-level="3.29" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#creature-of-the-week-1"><i class="fa fa-check"></i><b>3.29</b> Creature of the Week!</a></li>
+<li class="chapter" data-level="3.28" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#creature-of-the-week-1"><i class="fa fa-check"></i><b>3.28</b> Creature of the Week!</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="moving-and-downloading-data.html"><a href="moving-and-downloading-data.html"><i class="fa fa-check"></i><b>4</b> Moving and Downloading Data</a>
+<li class="chapter" data-level="4" data-path="awk.html"><a href="awk.html"><i class="fa fa-check"></i><b>4</b> Awk</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="moving-and-downloading-data.html"><a href="moving-and-downloading-data.html#getting-data-from-the-cloud"><i class="fa fa-check"></i><b>4.1</b> Getting data from the cloud</a>
+<li class="chapter" data-level="4.1" data-path="awk.html"><a href="awk.html#moving-and-downloading-data"><i class="fa fa-check"></i><b>4.1</b> Moving and Downloading Data</a></li>
+<li class="chapter" data-level="4.2" data-path="awk.html"><a href="awk.html#getting-data-from-the-cloud"><i class="fa fa-check"></i><b>4.2</b> Getting data from the cloud</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="moving-and-downloading-data.html"><a href="moving-and-downloading-data.html#uploading-and-downloading-data-to-your-virtual-machine-with-scp---unix"><i class="fa fa-check"></i><b>4.1.1</b> Uploading and Downloading Data to your Virtual Machine with scp - UNIX</a></li>
+<li class="chapter" data-level="4.2.1" data-path="awk.html"><a href="awk.html#uploading-and-downloading-data-to-your-virtual-machine-with-scp---unix"><i class="fa fa-check"></i><b>4.2.1</b> Uploading and Downloading Data to your Virtual Machine with scp - UNIX</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="moving-and-downloading-data.html"><a href="moving-and-downloading-data.html#getting-data-from-github"><i class="fa fa-check"></i><b>4.2</b> Getting data from github</a></li>
-<li class="chapter" data-level="4.3" data-path="moving-and-downloading-data.html"><a href="moving-and-downloading-data.html#downloading-genomes-from-ncbi"><i class="fa fa-check"></i><b>4.3</b> Downloading genomes from NCBI</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -1268,69 +1266,8 @@ Script finished!</code></pre>
 <div class="sourceCode" id="cb158"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb158-1"><a href="week-2-working-with-files.html#cb158-1" aria-hidden="true" tabindex="-1"></a>$ ./bad-reads-script.sh</span></code></pre></div>
 <p>The script should run the same way as before, but now we’ve created our very own computer program!</p>
 </div>
-<div id="awk" class="section level2" number="3.28">
-<h2><span class="header-section-number">3.28</span> Awk</h2>
-<p><code>Awk</code> is a fast and versatile pattern matching programming language. <code>Awk</code> can do the same tasks that <code>sed</code>, <code>grep</code>, <code>cat</code>, and <code>wc</code>; and then it can do a lot more <a href="https://www.gnu.org/software/gawk/manual/gawk.html" class="uri">https://www.gnu.org/software/gawk/manual/gawk.html</a>. This program deserves a full class to go into details, so instead we just have this section to make you aware that the program exists.</p>
-<p>Let’s see how awk can behave like <code>wc</code>.</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb159-1"><a href="week-2-working-with-files.html#cb159-1" aria-hidden="true" tabindex="-1"></a>$ cd /home/margeno/MarineGenomics/week2/</span></code></pre></div>
-<div class="sourceCode" id="cb160"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb160-1"><a href="week-2-working-with-files.html#cb160-1" aria-hidden="true" tabindex="-1"></a>$ ls </span>
-<span id="cb160-2"><a href="week-2-working-with-files.html#cb160-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb160-3"><a href="week-2-working-with-files.html#cb160-3" aria-hidden="true" tabindex="-1"></a>TableS2_QTL_Bay_2017.txt  sra_metadata  untrimmed_fastq</span></code></pre></div>
-<p>This table is from the Bay et al. 2017 publication ~/MarineGenomics/week2/TableS2_QTL_Bay_2017.txt and we will use it as our example file for this section.</p>
-<p>We can look inside the file by using <code>cat</code> or <code>awk</code></p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb161-1"><a href="week-2-working-with-files.html#cb161-1" aria-hidden="true" tabindex="-1"></a>$ awk &#39;{print $0}&#39; TableS2_QTL_Bay_2017.txt</span></code></pre></div>
-<p>The instructions are enclosed in single quotes</p>
-<p>This command has the same output of “cat”: it prints each line from the example file TableS2_QTL_Bay_2017.txt</p>
-<p>The structure of the instruction is the following:
-- curly braces surround the set of instructions
-- print is the instruction that sends its arguments to the terminal
-- $0 is a variable, it means “the content of the current line”</p>
-<p>As you can see, the file contains a table.</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb162-1"><a href="week-2-working-with-files.html#cb162-1" aria-hidden="true" tabindex="-1"></a>Trait   n   LOD Chr Position (cM)   Nearest SNP </span>
-<span id="cb162-2"><a href="week-2-working-with-files.html#cb162-2" aria-hidden="true" tabindex="-1"></a>mate choice 200 4.5 14  22.43   chrXIV:1713227 </span>
-<span id="cb162-3"><a href="week-2-working-with-files.html#cb162-3" aria-hidden="true" tabindex="-1"></a>mate choice     200 4.61    21  8   chrXXI:9373717 </span>
-<span id="cb162-4"><a href="week-2-working-with-files.html#cb162-4" aria-hidden="true" tabindex="-1"></a>discriminant function   200 4.83    12  17  chrXII:7504339 </span>
-<span id="cb162-5"><a href="week-2-working-with-files.html#cb162-5" aria-hidden="true" tabindex="-1"></a>discriminant function   200 4.23    14  8.1 chrXIV:4632223 </span>
-<span id="cb162-6"><a href="week-2-working-with-files.html#cb162-6" aria-hidden="true" tabindex="-1"></a>PC2 200 4.04    4   30.76   chrIV:11367975 </span>
-<span id="cb162-7"><a href="week-2-working-with-files.html#cb162-7" aria-hidden="true" tabindex="-1"></a>PC2 200 6.67    7   47  chrVII:26448674 </span>
-<span id="cb162-8"><a href="week-2-working-with-files.html#cb162-8" aria-hidden="true" tabindex="-1"></a>centroid size   200 6.97    9   47.8    chrIX:19745222 </span>
-<span id="cb162-9"><a href="week-2-working-with-files.html#cb162-9" aria-hidden="true" tabindex="-1"></a>x2* 200 3.93    7   60  chrUn:29400087 </span>
-<span id="cb162-10"><a href="week-2-working-with-files.html#cb162-10" aria-hidden="true" tabindex="-1"></a>y2* 200 9.99    4   32  chrIV:11367975 </span>
-<span id="cb162-11"><a href="week-2-working-with-files.html#cb162-11" aria-hidden="true" tabindex="-1"></a>x3  200 4.45    1   32.3    chrI:15145305 </span>
-<span id="cb162-12"><a href="week-2-working-with-files.html#cb162-12" aria-hidden="true" tabindex="-1"></a>x4  200 5.13    16  30.9    chrXVI:12111717 </span>
-<span id="cb162-13"><a href="week-2-working-with-files.html#cb162-13" aria-hidden="true" tabindex="-1"></a>x5* 200 4.54    15  6   chrXV:505537 </span>
-<span id="cb162-14"><a href="week-2-working-with-files.html#cb162-14" aria-hidden="true" tabindex="-1"></a>y5  200 4.21    4   24.9    chrIV:15721538 </span>
-<span id="cb162-15"><a href="week-2-working-with-files.html#cb162-15" aria-hidden="true" tabindex="-1"></a>x6  200 3.96    16  29.5    chrXVI:13588796 </span>
-<span id="cb162-16"><a href="week-2-working-with-files.html#cb162-16" aria-hidden="true" tabindex="-1"></a>y6* 200 4.14    9   30.2    chrIX:18942598 </span>
-<span id="cb162-17"><a href="week-2-working-with-files.html#cb162-17" aria-hidden="true" tabindex="-1"></a>y15*    200 5.3 2   27  chrII:19324477 </span>
-<span id="cb162-18"><a href="week-2-working-with-files.html#cb162-18" aria-hidden="true" tabindex="-1"></a>x16 200 5.49    7   60  chrUn:29400087 </span>
-<span id="cb162-19"><a href="week-2-working-with-files.html#cb162-19" aria-hidden="true" tabindex="-1"></a>x17     200 4.92    1   32.8    chrI:14261764 </span>
-<span id="cb162-20"><a href="week-2-working-with-files.html#cb162-20" aria-hidden="true" tabindex="-1"></a>Table S2. Significant QTL loci for mate choice and morphology</span></code></pre></div>
-<p>Now let’s use <code>awk</code> to count the lines of a file, similarly to what <code>wc -l</code> would do.</p>
-<p>As you probably remember, -l is an option that asks for the number of lines only.</p>
-<p>However, wc counts the number of newlines in the file, if the last line does
-not contain a carriage return (i.e. there is no emptyline at the end of the file),
-the result is going be the actual number of lines minus one.</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb163-1"><a href="week-2-working-with-files.html#cb163-1" aria-hidden="true" tabindex="-1"></a>$ wc -l TableS2_QTL_Bay_2017.txt</span></code></pre></div>
-<div class="sourceCode" id="cb164"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb164-1"><a href="week-2-working-with-files.html#cb164-1" aria-hidden="true" tabindex="-1"></a>19 TableS2_QTL_Bay_2017.txt</span></code></pre></div>
-<p>A workaround is to use <code>awk</code>. <code>Awk</code> is command line program that takes as input a set
-of instructions and one or more files. The instructions are executed on each line
-of the input file(s).</p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb165-1"><a href="week-2-working-with-files.html#cb165-1" aria-hidden="true" tabindex="-1"></a>$ awk &#39;{print NR;}&#39; TableS2_QTL_Bay_2017.txt | tail -1</span></code></pre></div>
-<p><code>Awk</code> can also search within a file like <code>grep</code> can. Let’s see if there are any significant QTL loci in the chromosome “chrXIV”</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb166-1"><a href="week-2-working-with-files.html#cb166-1" aria-hidden="true" tabindex="-1"></a>$ awk &#39;/chrXIV/&#39; TableS2_QTL_Bay_2017.txt</span></code></pre></div>
-<p>This chromosome had two significant QTL Loci for mate choice and morphology.</p>
-</p>
-</details>
-<p> </p>
-<p>When to use awk?</p>
-<ul>
-<li>for search and replacement of large files (it’s fast!)</li>
-<li>when manipulating multiple large files</li>
-</ul>
-</div>
-<div id="creature-of-the-week-1" class="section level2" number="3.29">
-<h2><span class="header-section-number">3.29</span> Creature of the Week!</h2>
+<div id="creature-of-the-week-1" class="section level2" number="3.28">
+<h2><span class="header-section-number">3.28</span> Creature of the Week!</h2>
 <div class="figure">
 <img src="figs/creatures/Chlamydoselachus_anguineus_head.jpg" alt="" />
 <p class="caption">The Frilled shark!</p>
@@ -1344,7 +1281,7 @@ of the input file(s).</p>
         </div>
       </div>
 <a href="week-1--welcome.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="moving-and-downloading-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="awk.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

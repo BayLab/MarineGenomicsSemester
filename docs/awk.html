@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | Marine Genomics</title>
-  <meta name="description" content="Page not found | Marine Genomics" />
+  <title>Chapter 4 Awk | Marine Genomics</title>
+  <meta name="description" content="Chapter 4 Awk | Marine Genomics" />
   <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | Marine Genomics" />
+  <meta property="og:title" content="Chapter 4 Awk | Marine Genomics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | Marine Genomics" />
+  <meta name="twitter:title" content="Chapter 4 Awk | Marine Genomics" />
   
   
   
@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
+<link rel="prev" href="week-2-working-with-files.html"/>
 
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -224,18 +224,132 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="awk" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Awk</h1>
+<p><code>Awk</code> is a fast and versatile pattern matching programming language. <code>Awk</code> can do the same tasks that <code>sed</code>, <code>grep</code>, <code>cat</code>, and <code>wc</code>; and then it can do a lot more <a href="https://www.gnu.org/software/gawk/manual/gawk.html" class="uri">https://www.gnu.org/software/gawk/manual/gawk.html</a>. This program deserves a full class to go into details, so instead we just have this section to make you aware that the program exists.</p>
+<p>Let’s see how awk can behave like <code>wc</code>.</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb159-1"><a href="awk.html#cb159-1" aria-hidden="true" tabindex="-1"></a>$ cd /home/margeno/MarineGenomics/week2/</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb160-1"><a href="awk.html#cb160-1" aria-hidden="true" tabindex="-1"></a>$ ls </span>
+<span id="cb160-2"><a href="awk.html#cb160-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb160-3"><a href="awk.html#cb160-3" aria-hidden="true" tabindex="-1"></a>TableS2_QTL_Bay_2017.txt  sra_metadata  untrimmed_fastq</span></code></pre></div>
+<p>This table is from the Bay et al. 2017 publication ~/MarineGenomics/week2/TableS2_QTL_Bay_2017.txt and we will use it as our example file for this section.</p>
+<p>We can look inside the file by using <code>cat</code> or <code>awk</code></p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb161-1"><a href="awk.html#cb161-1" aria-hidden="true" tabindex="-1"></a>$ awk &#39;{print $0}&#39; TableS2_QTL_Bay_2017.txt</span></code></pre></div>
+<p>The instructions are enclosed in single quotes</p>
+<p>This command has the same output of “cat”: it prints each line from the example file TableS2_QTL_Bay_2017.txt</p>
+<p>The structure of the instruction is the following:
+- curly braces surround the set of instructions
+- print is the instruction that sends its arguments to the terminal
+- $0 is a variable, it means “the content of the current line”</p>
+<p>As you can see, the file contains a table.</p>
+<div class="sourceCode" id="cb162"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb162-1"><a href="awk.html#cb162-1" aria-hidden="true" tabindex="-1"></a>Trait   n   LOD Chr Position (cM)   Nearest SNP </span>
+<span id="cb162-2"><a href="awk.html#cb162-2" aria-hidden="true" tabindex="-1"></a>mate choice 200 4.5 14  22.43   chrXIV:1713227 </span>
+<span id="cb162-3"><a href="awk.html#cb162-3" aria-hidden="true" tabindex="-1"></a>mate choice     200 4.61    21  8   chrXXI:9373717 </span>
+<span id="cb162-4"><a href="awk.html#cb162-4" aria-hidden="true" tabindex="-1"></a>discriminant function   200 4.83    12  17  chrXII:7504339 </span>
+<span id="cb162-5"><a href="awk.html#cb162-5" aria-hidden="true" tabindex="-1"></a>discriminant function   200 4.23    14  8.1 chrXIV:4632223 </span>
+<span id="cb162-6"><a href="awk.html#cb162-6" aria-hidden="true" tabindex="-1"></a>PC2 200 4.04    4   30.76   chrIV:11367975 </span>
+<span id="cb162-7"><a href="awk.html#cb162-7" aria-hidden="true" tabindex="-1"></a>PC2 200 6.67    7   47  chrVII:26448674 </span>
+<span id="cb162-8"><a href="awk.html#cb162-8" aria-hidden="true" tabindex="-1"></a>centroid size   200 6.97    9   47.8    chrIX:19745222 </span>
+<span id="cb162-9"><a href="awk.html#cb162-9" aria-hidden="true" tabindex="-1"></a>x2* 200 3.93    7   60  chrUn:29400087 </span>
+<span id="cb162-10"><a href="awk.html#cb162-10" aria-hidden="true" tabindex="-1"></a>y2* 200 9.99    4   32  chrIV:11367975 </span>
+<span id="cb162-11"><a href="awk.html#cb162-11" aria-hidden="true" tabindex="-1"></a>x3  200 4.45    1   32.3    chrI:15145305 </span>
+<span id="cb162-12"><a href="awk.html#cb162-12" aria-hidden="true" tabindex="-1"></a>x4  200 5.13    16  30.9    chrXVI:12111717 </span>
+<span id="cb162-13"><a href="awk.html#cb162-13" aria-hidden="true" tabindex="-1"></a>x5* 200 4.54    15  6   chrXV:505537 </span>
+<span id="cb162-14"><a href="awk.html#cb162-14" aria-hidden="true" tabindex="-1"></a>y5  200 4.21    4   24.9    chrIV:15721538 </span>
+<span id="cb162-15"><a href="awk.html#cb162-15" aria-hidden="true" tabindex="-1"></a>x6  200 3.96    16  29.5    chrXVI:13588796 </span>
+<span id="cb162-16"><a href="awk.html#cb162-16" aria-hidden="true" tabindex="-1"></a>y6* 200 4.14    9   30.2    chrIX:18942598 </span>
+<span id="cb162-17"><a href="awk.html#cb162-17" aria-hidden="true" tabindex="-1"></a>y15*    200 5.3 2   27  chrII:19324477 </span>
+<span id="cb162-18"><a href="awk.html#cb162-18" aria-hidden="true" tabindex="-1"></a>x16 200 5.49    7   60  chrUn:29400087 </span>
+<span id="cb162-19"><a href="awk.html#cb162-19" aria-hidden="true" tabindex="-1"></a>x17     200 4.92    1   32.8    chrI:14261764 </span>
+<span id="cb162-20"><a href="awk.html#cb162-20" aria-hidden="true" tabindex="-1"></a>Table S2. Significant QTL loci for mate choice and morphology</span></code></pre></div>
+<p>Now let’s use <code>awk</code> to count the lines of a file, similarly to what <code>wc -l</code> would do.</p>
+<p>As you probably remember, -l is an option that asks for the number of lines only.</p>
+<p>However, wc counts the number of newlines in the file, if the last line does
+not contain a carriage return (i.e. there is no emptyline at the end of the file),
+the result is going be the actual number of lines minus one.</p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb163-1"><a href="awk.html#cb163-1" aria-hidden="true" tabindex="-1"></a>$ wc -l TableS2_QTL_Bay_2017.txt</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb164-1"><a href="awk.html#cb164-1" aria-hidden="true" tabindex="-1"></a>19 TableS2_QTL_Bay_2017.txt</span></code></pre></div>
+<p>A workaround is to use <code>awk</code>. <code>Awk</code> is command line program that takes as input a set
+of instructions and one or more files. The instructions are executed on each line
+of the input file(s).</p>
+<div class="sourceCode" id="cb165"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb165-1"><a href="awk.html#cb165-1" aria-hidden="true" tabindex="-1"></a>$ awk &#39;{print NR;}&#39; TableS2_QTL_Bay_2017.txt | tail -1</span></code></pre></div>
+<p><code>Awk</code> can also search within a file like <code>grep</code> can. Let’s see if there are any significant QTL loci in the chromosome “chrXIV”</p>
+<div class="sourceCode" id="cb166"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb166-1"><a href="awk.html#cb166-1" aria-hidden="true" tabindex="-1"></a>$ awk &#39;/chrXIV/&#39; TableS2_QTL_Bay_2017.txt</span></code></pre></div>
+<p>This chromosome had two significant QTL Loci for mate choice and morphology.</p>
+</p>
+</details>
+<p> </p>
+<p>When to use awk?</p>
+<ul>
+<li>for search and replacement of large files (it’s fast!)</li>
+<li>when manipulating multiple large files</li>
+</ul>
+<div id="moving-and-downloading-data" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Moving and Downloading Data</h2>
+<p>Below we’ll show you some commands to download data onto your instance, or to move data between your computer and the cloud.</p>
+</div>
+<div id="getting-data-from-the-cloud" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Getting data from the cloud</h2>
+<p>There are two programs that will download data from a remote server to your local
+(or remote) machine: <code>wget</code> and <code>curl</code>. They were designed to do slightly different
+tasks by default, so you’ll need to give the programs somewhat different options to get
+the same behaviour, but they are mostly interchangeable.</p>
+<ul>
+<li><p><code>wget</code> is short for “world wide web get,” and it’s basic function is to <em>download</em>
+web pages or data at a web address.</p></li>
+<li><p><code>cURL</code> is a pun, it is supposed to be read as “see URL,” so its basic function is
+to <em>display</em> webpages or data at a web address.</p></li>
+</ul>
+<p>Which one you need to use mostly depends on your operating system, as most computers will
+only have one or the other installed by default.</p>
+<p>Today we will use wget to download some data from Ensembl.</p>
+<details>
+<summary>
+Exercise
+</summary>
+<p>
+<p>Before we can start our download, we need to know whether we’re using <code>curl</code> or <code>wget</code>.</p>
+<p>To see which program you have, type:</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb167-1"><a href="awk.html#cb167-1" aria-hidden="true" tabindex="-1"></a>$ which curl</span>
+<span id="cb167-2"><a href="awk.html#cb167-2" aria-hidden="true" tabindex="-1"></a>$ which wget</span></code></pre></div>
+<p><code>which</code> is a BASH program that looks through everything you have
+installed, and tells you what folder it is installed to. If it can’t
+find the program you asked for, it returns nothing, i.e. gives you no
+results.</p>
+<p>On Mac OSX, you’ll likely get the following output:</p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb168-1"><a href="awk.html#cb168-1" aria-hidden="true" tabindex="-1"></a>$ which wget</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb169-1"><a href="awk.html#cb169-1" aria-hidden="true" tabindex="-1"></a>$ /usr/bin/wget</span></code></pre></div>
+<p>Once you know whether you have <code>curl</code> or <code>wget</code>, use one of the
+following commands to download the file:</p>
+</p>
+</details>
+<p> </p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb170-1"><a href="awk.html#cb170-1" aria-hidden="true" tabindex="-1"></a>$ cd</span>
+<span id="cb170-2"><a href="awk.html#cb170-2" aria-hidden="true" tabindex="-1"></a>$ wget ftp://ftp.ensemblgenomes.org/pub/release-37/bacteria/species_EnsemblBacteria.txt</span></code></pre></div>
+<p>Let’s see if the file from ensembl downloaded</p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb171-1"><a href="awk.html#cb171-1" aria-hidden="true" tabindex="-1"></a>ls species_EnsemblBacteria.txt</span></code></pre></div>
+<p>it did!</p>
+<div id="uploading-and-downloading-data-to-your-virtual-machine-with-scp---unix" class="section level3" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Uploading and Downloading Data to your Virtual Machine with scp - UNIX</h3>
+<p>This section is for your general knowledge.</p>
+<p><code>scp</code> stands for ‘secure copy protocol,’ and is a widely used UNIX tool for moving files
+between computers. The simplest way to use <code>scp</code> is to run it in your local terminal,
+and use it to copy a single file:</p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb172-1"><a href="awk.html#cb172-1" aria-hidden="true" tabindex="-1"></a>scp <span class="kw">&lt;file</span><span class="ot"> I want to move</span><span class="kw">&gt;</span> <span class="kw">&lt;where</span><span class="ot"> I want to move it</span><span class="kw">&gt;</span></span></code></pre></div>
+<p>In terminal,you can use the <code>scp</code> command to upload a file (e.g. local_file.txt) to the cluster home directory:</p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb173-1"><a href="awk.html#cb173-1" aria-hidden="true" tabindex="-1"></a>$  scp local_file.txt UserName@cluster.address:/scratch/</span></code></pre></div>
+<p>If you wanted to download data from your virtual machine, we would put the location of the folder within the virtual machine in the location of <file I want to move></p>
+<div class="sourceCode" id="cb174"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb174-1"><a href="awk.html#cb174-1" aria-hidden="true" tabindex="-1"></a>$  scp UserName@cluster.address:/scratch/VirtualMachine_file.txt /home/margeno/MarineGenomics/week2/untrimmed_fastq/</span></code></pre></div>
+
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
+<a href="week-2-working-with-files.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
