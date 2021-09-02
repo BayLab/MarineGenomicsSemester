@@ -49,7 +49,9 @@ writing-scripts
 exercise-9
 making-the-script-into-a-program
 creature-of-the-week-1
+week3-awk-and-how-to-download-files
 awk
 moving-and-downloading-data
 getting-data-from-the-cloud
+downloading-files-from-github
 uploading-and-downloading-data-to-your-virtual-machine-with-scp---unix

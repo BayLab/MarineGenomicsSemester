@@ -9,7 +9,27 @@ output:
 ---
 
 
-# Awk
+# Week3: Awk and how to download files
+
+For this week, we'll continue to use the data that you downloaded last week. If you need to download it again please use the wget link below to download the tar file. 
+
+
+```html
+cd /home/margeno/
+wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week2.tar.gz
+```
+
+use tar to uncompress and unzip the file
+
+```html
+
+tar -xzvf week2.tar.gz
+
+```
+
+This will create a week2 directory in your MarineGenomics directory (it will also create the MarineGenomics directory if you don't already have one). 
+
+## AWK
 
 `Awk` is a fast and versatile pattern matching programming language. `Awk` can do the same tasks that `sed`, `grep`, `cat`, and `wc`; and then it can do a lot more https://www.gnu.org/software/gawk/manual/gawk.html. This program deserves a full class to go into details, so instead we just have this section to make you aware that the program exists. 
 
@@ -183,6 +203,175 @@ ls species_EnsemblBacteria.txt
 ```
 
 it did!
+
+## Downloading files from Github
+
+Github is a useful place to store data files and scripts and it is widely used by researchers in many different fields, including genomics. There are a few useful tricks to understanding how to best transfer files from github to your own terminal. 
+
+There are two main ways to transfer files from github:
++ Use `git clone` to download an entire repository (Directory)
++ use wget to download a single file 
+
+
+If you're interested in getting a repository and all of its contents you can use `git clone`. This can be useful if you're interested in using data files and the scripts that come with them. 
+
+
+First navigate to your home directory with cd (leaving it blank takes you to your home automatically).
+
+And then use `git clone` to download the repository reallycoolrepo
+
+```html
+
+cd
+
+git clone https://github.com/SerenaCaplins/reallycoolrepo.git
+```
+
+This should make a new directory called reallycoolrepo. Let's ls in this directory to see what's in it.
+
+```html
+ls reallycoolrepo/
+
+files forloop.sh MarineGenomics.txt README.md
+
+```
+
+We have three files and one directory here. You can view the MarineGenomics.txt file with `cat`
+
+```html
+
+cat reallycoolrepo/MarineGenomics.txt
+
+  __  __                  _                     _____                                      _              
+ |  \/  |                (_)                   / ____|                                    (_)             
+ | \  / |   __ _   _ __   _   _ __     ___    | |  __    ___   _ __     ___    _ __ ___    _    ___   ___ 
+ | |\/| |  / _` | | '__| | | | '_ \   / _ \   | | |_ |  / _ \ | '_ \   / _ \  | '_ ` _ \  | |  / __| / __|
+ | |  | | | (_| | | |    | | | | | | |  __/   | |__| | |  __/ | | | | | (_) | | | | | | | | | | (__  \__ \
+ |_|  |_|  \__,_| |_|    |_| |_| |_|  \___|    \_____|  \___| |_| |_|  \___/  |_| |_| |_| |_|  \___| |___/
+                                                                                                          
+
+```
+
+Pretty cool huh?
+
+Using git clone to get an entire repository can be useful, but often we're just interested in getting a single file. We've already learned how to get files using wget, but this isn't as straightforward on git hub. To illustrate when it doesn't work let's navigate to a repository where there's a file that we're interested in:
+
+copy and paste this link into your browser:
+
+```html
+https://github.com/BayLab/MarineGenomicsData
+```
+
+This is the repository where we have been storing all of the data for the class. We typically download a single tar file each week instead of cloning the whole repository all at once (this allows us to make changes to each week without having to download the whole repo every week, which would also override your files).
+
+Say you wanted to get the week10.tar.gz file
+
+If you click on the file you can copy the file path from your browser. A few ways to do this but perhaps easiest is to click the file and copy the path that shows up in your browser.
+
+![Week3_gitpath.jpg](./figs/week3/Week3_gitpath.jpg)
+
+```html
+https://github.com/BayLab/MarineGenomicsData/blob/main/week10.tar.gz
+
+```
+
+Seems fine right? Let's use wget to try and import this into our home directory.
+
+```html
+wget https://github.com/BayLab/MarineGenomicsData/blob/main/week10.tar.gz
+
+```
+Now let's try and untar it
+
+```html
+
+tar -xvzf week10.tar.gz
+
+```
+
+This prints an error message:
+
+```html
+
+gzip: stdin: not in gzip format
+tar: Child returned status 1
+tar: Error is not recoverable: exiting now
+```
+
+What seems to have gone wrong. We get a clue if we use less to view the file (you normally wouldn't use less to view to a tar.gz file, but in this case it will tell us something useful). Useful tip: `less` does work on `.gz` files!
+
+
+```html
+
+less week10.tar.gz
+
+```
+
+You will see something like this:
+
+```
+
+<!DOCTYPE html>
+<html lang="en" data-color-mode="auto" data-light-theme="light" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+  <link rel="dns-prefetch" href="https://github.githubassets.com">
+  <link rel="dns-prefetch" href="https://avatars.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://github-cloud.s3.amazonaws.com">
+  <link rel="dns-prefetch" href="https://user-images.githubusercontent.com/">
+  <link rel="preconnect" href="https://github.githubassets.com" crossorigin>
+  <link rel="preconnect" href="https://avatars.githubusercontent.com">
+
+
+
+  <link crossorigin="anonymous" media="all" integrity="sha512-Xvl7qd6ZFq6aBrViMpY+7UKRL79QzxxYG1kyELGe/sH4sV3eCks8DDXxa3WolACcKPac42eqrfe6m0jazyAIPQ==" rel="stylesheet" href="https://github.githubassets.com/assets/frameworks-5ef97ba9de9916ae9a06b56232963eed.css" />
+  <link crossorigin="anonymous" media="all" integrity="sha512-24GJDHWJro3USSMV5JFy5QbE8eCNYG61UucNp7vJMTaeJMrBy6FLiLFgX9jXnWlddv2VRu/rTLIkxzuRDF9ZVA==" rel="stylesheet" href="https://github.githubassets.com/assets/colors-v2-db81890c7589ae8dd4492315e49172e5.css" />
+    <link crossorigin="anonymous" media="all" integrity="sha512-rcBopHrwspQORpXVLihZMP22sFwuIo3fL1DyFo5aXwWnV5FzV/nlAGnX/36fI9GQVc2VN7MiIT34RMCwq8jemg==" rel="stylesheet" href="https://github.githubassets.com/assets/behaviors-adc068a47af0b2940e4695d52e285930.css" />
+```    
+This is not what should be in the file. We're seeing html coding like what you would see for a website. The reason for this is because the link we got from github was to the html page showing the file, not the location of the actual file itself. 
+
+Let's remove this week10.tar.gz file
+
+```html
+
+rm week10.tar.gz
+```
+
+So all of the repositories are encoded as html files to make the github website, we need to get the actual file path of the file itself to use wget. 
+
+You can do this by copying the **raw** file path, which you will find by clicking `view raw` or by using control-c or right clicking and selecting copy link address (for pc users) the `download` tab.
+
+Let's try this again with our new link. It should say the word `raw` somewhere in the file path
+
+```html
+
+wget https://github.com/BayLab/MarineGenomicsData/raw/main/week10.tar.gz
+```
+
+Now untar it
+
+```html
+
+tar -xzvf week10.tar.gz
+```
+
+You should see something like this, which tells us that it worked!!
+
+```html
+MarineGenomicsData/Week10/
+MarineGenomicsData/Week10/candidate_fastas.fa
+```
+You can remove this as we won't be using it later in the course
+
+```html
+rm -r MarineGenomicsData
+```
+So we need to find that raw file path to use wget on any single file that we want in git hub. 
+
+
+
+
+
 
 
 ### Uploading and Downloading Data to your Virtual Machine with scp - UNIX

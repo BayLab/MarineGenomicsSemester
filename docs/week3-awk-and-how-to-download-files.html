@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Week3: Awk and how to download files | Marine Genomics</title>
+  <meta name="description" content="Chapter 4 Week3: Awk and how to download files | Marine Genomics" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Week3: Awk and how to download files | Marine Genomics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Week3: Awk and how to download files | Marine Genomics" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="week-2-working-with-files.html"/>
+
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction to Marine Genomics Semester edition</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#cloud-computing-versus-individual-laptops"><i class="fa fa-check"></i><b>1.1</b> Cloud computing versus individual laptops</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="week-1--welcome.html"><a href="week-1--welcome.html"><i class="fa fa-check"></i><b>2</b> Week 1- Welcome!</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="week-1--welcome.html"><a href="week-1--welcome.html#introduction-to-shell-computing-via-the-data-carpentry-tutorial"><i class="fa fa-check"></i><b>2.1</b> Introduction to shell computing via the data carpentry tutorial</a></li>
+<li class="chapter" data-level="2.2" data-path="week-1--welcome.html"><a href="week-1--welcome.html#how-to-access-the-shell"><i class="fa fa-check"></i><b>2.2</b> How to access the shell</a></li>
+<li class="chapter" data-level="2.3" data-path="week-1--welcome.html"><a href="week-1--welcome.html#best-practices-for-jetstream"><i class="fa fa-check"></i><b>2.3</b> Best practices for Jetstream</a></li>
+<li class="chapter" data-level="2.4" data-path="week-1--welcome.html"><a href="week-1--welcome.html#week-1-objectives"><i class="fa fa-check"></i><b>2.4</b> Week 1 Objectives</a></li>
+<li class="chapter" data-level="2.5" data-path="week-1--welcome.html"><a href="week-1--welcome.html#navigating-your-file-system"><i class="fa fa-check"></i><b>2.5</b> Navigating your file system</a></li>
+<li class="chapter" data-level="2.6" data-path="week-1--welcome.html"><a href="week-1--welcome.html#shortcut-tab-completion"><i class="fa fa-check"></i><b>2.6</b> Shortcut: Tab Completion</a></li>
+<li class="chapter" data-level="2.7" data-path="week-1--welcome.html"><a href="week-1--welcome.html#summary-key-points"><i class="fa fa-check"></i><b>2.7</b> Summary &amp; Key Points</a></li>
+<li class="chapter" data-level="2.8" data-path="week-1--welcome.html"><a href="week-1--welcome.html#navigating-files-and-directories"><i class="fa fa-check"></i><b>2.8</b> Navigating Files and Directories</a></li>
+<li class="chapter" data-level="2.9" data-path="week-1--welcome.html"><a href="week-1--welcome.html#moving-around-the-file-system"><i class="fa fa-check"></i><b>2.9</b> Moving around the file system</a></li>
+<li class="chapter" data-level="2.10" data-path="week-1--welcome.html"><a href="week-1--welcome.html#navigating-practice-and-finding-hidden-directories"><i class="fa fa-check"></i><b>2.10</b> Navigating practice and finding hidden directories</a></li>
+<li class="chapter" data-level="2.11" data-path="week-1--welcome.html"><a href="week-1--welcome.html#examining-the-contents-of-other-directories"><i class="fa fa-check"></i><b>2.11</b> Examining the contents of other directories</a></li>
+<li class="chapter" data-level="2.12" data-path="week-1--welcome.html"><a href="week-1--welcome.html#full-vs-relative-paths"><i class="fa fa-check"></i><b>2.12</b> Full vs Relative Paths</a></li>
+<li class="chapter" data-level="2.13" data-path="week-1--welcome.html"><a href="week-1--welcome.html#navigational-shortcuts"><i class="fa fa-check"></i><b>2.13</b> Navigational shortcuts</a></li>
+<li class="chapter" data-level="2.14" data-path="week-1--welcome.html"><a href="week-1--welcome.html#key-points"><i class="fa fa-check"></i><b>2.14</b> Key Points</a></li>
+<li class="chapter" data-level="2.15" data-path="week-1--welcome.html"><a href="week-1--welcome.html#creature-of-the-week"><i class="fa fa-check"></i><b>2.15</b> Creature of the Week!</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html"><i class="fa fa-check"></i><b>3</b> Week 2: Working With Files</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#our-data-set-fastq-files"><i class="fa fa-check"></i><b>3.1</b> Our data set: FASTQ files</a></li>
+<li class="chapter" data-level="3.2" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#wildcards"><i class="fa fa-check"></i><b>3.2</b> Wildcards</a></li>
+<li class="chapter" data-level="3.3" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise"><i class="fa fa-check"></i><b>3.3</b> Exercise</a></li>
+<li class="chapter" data-level="3.4" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#using-echo"><i class="fa fa-check"></i><b>3.4</b> Using echo</a></li>
+<li class="chapter" data-level="3.5" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#command-history"><i class="fa fa-check"></i><b>3.5</b> Command History</a></li>
+<li class="chapter" data-level="3.6" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#examining-files"><i class="fa fa-check"></i><b>3.6</b> Examining Files</a></li>
+<li class="chapter" data-level="3.7" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-1"><i class="fa fa-check"></i><b>3.7</b> Exercise</a></li>
+<li class="chapter" data-level="3.8" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-2"><i class="fa fa-check"></i><b>3.8</b> Exercise</a></li>
+<li class="chapter" data-level="3.9" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#details-on-the-fastq-format"><i class="fa fa-check"></i><b>3.9</b> Details on the FASTQ format</a></li>
+<li class="chapter" data-level="3.10" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#creating-moving-copying-and-removing"><i class="fa fa-check"></i><b>3.10</b> Creating, moving, copying, and removing</a>
+<ul>
+<li class="chapter" data-level="3.10.1" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#copying-files"><i class="fa fa-check"></i><b>3.10.1</b> Copying Files</a></li>
+<li class="chapter" data-level="3.10.2" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#creating-directories"><i class="fa fa-check"></i><b>3.10.2</b> Creating Directories</a></li>
+<li class="chapter" data-level="3.10.3" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#moving-renaming"><i class="fa fa-check"></i><b>3.10.3</b> Moving / Renaming</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#file-permissions"><i class="fa fa-check"></i><b>3.11</b> File Permissions</a></li>
+<li class="chapter" data-level="3.12" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#removing"><i class="fa fa-check"></i><b>3.12</b> Removing</a></li>
+<li class="chapter" data-level="3.13" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-3"><i class="fa fa-check"></i><b>3.13</b> Exercise</a></li>
+<li class="chapter" data-level="3.14" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#redirections"><i class="fa fa-check"></i><b>3.14</b> Redirections</a></li>
+<li class="chapter" data-level="3.15" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#searching-files"><i class="fa fa-check"></i><b>3.15</b> Searching files</a></li>
+<li class="chapter" data-level="3.16" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-4"><i class="fa fa-check"></i><b>3.16</b> Exercise</a></li>
+<li class="chapter" data-level="3.17" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#redirecting-output"><i class="fa fa-check"></i><b>3.17</b> Redirecting output</a>
+<ul>
+<li class="chapter" data-level="3.17.1" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-5"><i class="fa fa-check"></i><b>3.17.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.18" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#writing-for-loops"><i class="fa fa-check"></i><b>3.18</b> Writing for loops</a></li>
+<li class="chapter" data-level="3.19" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#using-basename-in-for-loops"><i class="fa fa-check"></i><b>3.19</b> Using Basename in for loops</a></li>
+<li class="chapter" data-level="3.20" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-6"><i class="fa fa-check"></i><b>3.20</b> Exercise</a></li>
+<li class="chapter" data-level="3.21" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-7"><i class="fa fa-check"></i><b>3.21</b> Exercise</a></li>
+<li class="chapter" data-level="3.22" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#writing-scripts-and-working-with-data"><i class="fa fa-check"></i><b>3.22</b> Writing Scripts and Working with Data</a></li>
+<li class="chapter" data-level="3.23" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#writing-files"><i class="fa fa-check"></i><b>3.23</b> Writing files</a></li>
+<li class="chapter" data-level="3.24" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-8"><i class="fa fa-check"></i><b>3.24</b> Exercise</a></li>
+<li class="chapter" data-level="3.25" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#writing-scripts"><i class="fa fa-check"></i><b>3.25</b> Writing scripts</a></li>
+<li class="chapter" data-level="3.26" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-9"><i class="fa fa-check"></i><b>3.26</b> Exercise</a></li>
+<li class="chapter" data-level="3.27" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#making-the-script-into-a-program"><i class="fa fa-check"></i><b>3.27</b> Making the script into a program</a></li>
+<li class="chapter" data-level="3.28" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#creature-of-the-week-1"><i class="fa fa-check"></i><b>3.28</b> Creature of the Week!</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="week3-awk-and-how-to-download-files.html"><a href="week3-awk-and-how-to-download-files.html"><i class="fa fa-check"></i><b>4</b> Week3: Awk and how to download files</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="week3-awk-and-how-to-download-files.html"><a href="week3-awk-and-how-to-download-files.html#awk"><i class="fa fa-check"></i><b>4.1</b> AWK</a></li>
+<li class="chapter" data-level="4.2" data-path="week3-awk-and-how-to-download-files.html"><a href="week3-awk-and-how-to-download-files.html#moving-and-downloading-data"><i class="fa fa-check"></i><b>4.2</b> Moving and Downloading Data</a></li>
+<li class="chapter" data-level="4.3" data-path="week3-awk-and-how-to-download-files.html"><a href="week3-awk-and-how-to-download-files.html#getting-data-from-the-cloud"><i class="fa fa-check"></i><b>4.3</b> Getting data from the cloud</a></li>
+<li class="chapter" data-level="4.4" data-path="week3-awk-and-how-to-download-files.html"><a href="week3-awk-and-how-to-download-files.html#downloading-files-from-github"><i class="fa fa-check"></i><b>4.4</b> Downloading files from Github</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="week3-awk-and-how-to-download-files.html"><a href="week3-awk-and-how-to-download-files.html#uploading-and-downloading-data-to-your-virtual-machine-with-scp---unix"><i class="fa fa-check"></i><b>4.4.1</b> Uploading and Downloading Data to your Virtual Machine with scp - UNIX</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Marine Genomics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="week3-awk-and-how-to-download-files" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Week3: Awk and how to download files</h1>
+<p>For this week, we’ll continue to use the data that you downloaded last week. If you need to download it again please use the wget link below to download the tar file.</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb159-1"><a href="week3-awk-and-how-to-download-files.html#cb159-1" aria-hidden="true" tabindex="-1"></a>cd /home/margeno/</span>
+<span id="cb159-2"><a href="week3-awk-and-how-to-download-files.html#cb159-2" aria-hidden="true" tabindex="-1"></a>wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week2.tar.gz</span></code></pre></div>
+<p>use tar to uncompress and unzip the file</p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb160-1"><a href="week3-awk-and-how-to-download-files.html#cb160-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb160-2"><a href="week3-awk-and-how-to-download-files.html#cb160-2" aria-hidden="true" tabindex="-1"></a>tar -xzvf week2.tar.gz</span></code></pre></div>
+<p>This will create a week2 directory in your MarineGenomics directory (it will also create the MarineGenomics directory if you don’t already have one).</p>
+<div id="awk" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> AWK</h2>
+<p><code>Awk</code> is a fast and versatile pattern matching programming language. <code>Awk</code> can do the same tasks that <code>sed</code>, <code>grep</code>, <code>cat</code>, and <code>wc</code>; and then it can do a lot more <a href="https://www.gnu.org/software/gawk/manual/gawk.html" class="uri">https://www.gnu.org/software/gawk/manual/gawk.html</a>. This program deserves a full class to go into details, so instead we just have this section to make you aware that the program exists.</p>
+<p>Let’s see how awk can behave like <code>wc</code>.</p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb161-1"><a href="week3-awk-and-how-to-download-files.html#cb161-1" aria-hidden="true" tabindex="-1"></a>$ cd /home/margeno/MarineGenomics/week2/</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb162-1"><a href="week3-awk-and-how-to-download-files.html#cb162-1" aria-hidden="true" tabindex="-1"></a>$ ls </span>
+<span id="cb162-2"><a href="week3-awk-and-how-to-download-files.html#cb162-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-3"><a href="week3-awk-and-how-to-download-files.html#cb162-3" aria-hidden="true" tabindex="-1"></a>TableS2_QTL_Bay_2017.txt  sra_metadata  untrimmed_fastq</span></code></pre></div>
+<p>This table is from the Bay et al. 2017 publication ~/MarineGenomics/week2/TableS2_QTL_Bay_2017.txt and we will use it as our example file for this section.</p>
+<p>We can look inside the file by using <code>cat</code> or <code>awk</code></p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb163-1"><a href="week3-awk-and-how-to-download-files.html#cb163-1" aria-hidden="true" tabindex="-1"></a>$ awk &#39;{print $0}&#39; TableS2_QTL_Bay_2017.txt</span></code></pre></div>
+<p>The instructions are enclosed in single quotes</p>
+<p>This command has the same output of “cat”: it prints each line from the example file TableS2_QTL_Bay_2017.txt</p>
+<p>The structure of the instruction is the following:
+- curly braces surround the set of instructions
+- print is the instruction that sends its arguments to the terminal
+- $0 is a variable, it means “the content of the current line”</p>
+<p>As you can see, the file contains a table.</p>
+<div class="sourceCode" id="cb164"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb164-1"><a href="week3-awk-and-how-to-download-files.html#cb164-1" aria-hidden="true" tabindex="-1"></a>Trait   n   LOD Chr Position (cM)   Nearest SNP </span>
+<span id="cb164-2"><a href="week3-awk-and-how-to-download-files.html#cb164-2" aria-hidden="true" tabindex="-1"></a>mate choice 200 4.5 14  22.43   chrXIV:1713227 </span>
+<span id="cb164-3"><a href="week3-awk-and-how-to-download-files.html#cb164-3" aria-hidden="true" tabindex="-1"></a>mate choice     200 4.61    21  8   chrXXI:9373717 </span>
+<span id="cb164-4"><a href="week3-awk-and-how-to-download-files.html#cb164-4" aria-hidden="true" tabindex="-1"></a>discriminant function   200 4.83    12  17  chrXII:7504339 </span>
+<span id="cb164-5"><a href="week3-awk-and-how-to-download-files.html#cb164-5" aria-hidden="true" tabindex="-1"></a>discriminant function   200 4.23    14  8.1 chrXIV:4632223 </span>
+<span id="cb164-6"><a href="week3-awk-and-how-to-download-files.html#cb164-6" aria-hidden="true" tabindex="-1"></a>PC2 200 4.04    4   30.76   chrIV:11367975 </span>
+<span id="cb164-7"><a href="week3-awk-and-how-to-download-files.html#cb164-7" aria-hidden="true" tabindex="-1"></a>PC2 200 6.67    7   47  chrVII:26448674 </span>
+<span id="cb164-8"><a href="week3-awk-and-how-to-download-files.html#cb164-8" aria-hidden="true" tabindex="-1"></a>centroid size   200 6.97    9   47.8    chrIX:19745222 </span>
+<span id="cb164-9"><a href="week3-awk-and-how-to-download-files.html#cb164-9" aria-hidden="true" tabindex="-1"></a>x2* 200 3.93    7   60  chrUn:29400087 </span>
+<span id="cb164-10"><a href="week3-awk-and-how-to-download-files.html#cb164-10" aria-hidden="true" tabindex="-1"></a>y2* 200 9.99    4   32  chrIV:11367975 </span>
+<span id="cb164-11"><a href="week3-awk-and-how-to-download-files.html#cb164-11" aria-hidden="true" tabindex="-1"></a>x3  200 4.45    1   32.3    chrI:15145305 </span>
+<span id="cb164-12"><a href="week3-awk-and-how-to-download-files.html#cb164-12" aria-hidden="true" tabindex="-1"></a>x4  200 5.13    16  30.9    chrXVI:12111717 </span>
+<span id="cb164-13"><a href="week3-awk-and-how-to-download-files.html#cb164-13" aria-hidden="true" tabindex="-1"></a>x5* 200 4.54    15  6   chrXV:505537 </span>
+<span id="cb164-14"><a href="week3-awk-and-how-to-download-files.html#cb164-14" aria-hidden="true" tabindex="-1"></a>y5  200 4.21    4   24.9    chrIV:15721538 </span>
+<span id="cb164-15"><a href="week3-awk-and-how-to-download-files.html#cb164-15" aria-hidden="true" tabindex="-1"></a>x6  200 3.96    16  29.5    chrXVI:13588796 </span>
+<span id="cb164-16"><a href="week3-awk-and-how-to-download-files.html#cb164-16" aria-hidden="true" tabindex="-1"></a>y6* 200 4.14    9   30.2    chrIX:18942598 </span>
+<span id="cb164-17"><a href="week3-awk-and-how-to-download-files.html#cb164-17" aria-hidden="true" tabindex="-1"></a>y15*    200 5.3 2   27  chrII:19324477 </span>
+<span id="cb164-18"><a href="week3-awk-and-how-to-download-files.html#cb164-18" aria-hidden="true" tabindex="-1"></a>x16 200 5.49    7   60  chrUn:29400087 </span>
+<span id="cb164-19"><a href="week3-awk-and-how-to-download-files.html#cb164-19" aria-hidden="true" tabindex="-1"></a>x17     200 4.92    1   32.8    chrI:14261764 </span>
+<span id="cb164-20"><a href="week3-awk-and-how-to-download-files.html#cb164-20" aria-hidden="true" tabindex="-1"></a>Table S2. Significant QTL loci for mate choice and morphology</span></code></pre></div>
+<p>Now let’s use <code>awk</code> to count the lines of a file, similarly to what <code>wc -l</code> would do.</p>
+<p>As you probably remember, -l is an option that asks for the number of lines only.</p>
+<p>However, wc counts the number of newlines in the file, if the last line does
+not contain a carriage return (i.e. there is no emptyline at the end of the file),
+the result is going be the actual number of lines minus one.</p>
+<div class="sourceCode" id="cb165"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb165-1"><a href="week3-awk-and-how-to-download-files.html#cb165-1" aria-hidden="true" tabindex="-1"></a>$ wc -l TableS2_QTL_Bay_2017.txt</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb166-1"><a href="week3-awk-and-how-to-download-files.html#cb166-1" aria-hidden="true" tabindex="-1"></a>19 TableS2_QTL_Bay_2017.txt</span></code></pre></div>
+<p>A workaround is to use <code>awk</code>. <code>Awk</code> is command line program that takes as input a set
+of instructions and one or more files. The instructions are executed on each line
+of the input file(s).</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb167-1"><a href="week3-awk-and-how-to-download-files.html#cb167-1" aria-hidden="true" tabindex="-1"></a>$ awk &#39;{print NR;}&#39; TableS2_QTL_Bay_2017.txt | tail -1</span></code></pre></div>
+<p><code>Awk</code> can also search within a file like <code>grep</code> can. Let’s see if there are any significant QTL loci in the chromosome “chrXIV”</p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb168-1"><a href="week3-awk-and-how-to-download-files.html#cb168-1" aria-hidden="true" tabindex="-1"></a>$ awk &#39;/chrXIV/&#39; TableS2_QTL_Bay_2017.txt</span></code></pre></div>
+<p>This chromosome had two significant QTL Loci for mate choice and morphology.</p>
+</p>
+</details>
+<p> </p>
+<p>When to use awk?</p>
+<ul>
+<li>for search and replacement of large files (it’s fast!)</li>
+<li>when manipulating multiple large files</li>
+</ul>
+</div>
+<div id="moving-and-downloading-data" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Moving and Downloading Data</h2>
+<p>Below we’ll show you some commands to download data onto your instance, or to move data between your computer and the cloud.</p>
+</div>
+<div id="getting-data-from-the-cloud" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Getting data from the cloud</h2>
+<p>There are two programs that will download data from a remote server to your local
+(or remote) machine: <code>wget</code> and <code>curl</code>. They were designed to do slightly different
+tasks by default, so you’ll need to give the programs somewhat different options to get
+the same behaviour, but they are mostly interchangeable.</p>
+<ul>
+<li><p><code>wget</code> is short for “world wide web get,” and it’s basic function is to <em>download</em>
+web pages or data at a web address.</p></li>
+<li><p><code>cURL</code> is a pun, it is supposed to be read as “see URL,” so its basic function is
+to <em>display</em> webpages or data at a web address.</p></li>
+</ul>
+<p>Which one you need to use mostly depends on your operating system, as most computers will
+only have one or the other installed by default.</p>
+<p>Today we will use wget to download some data from Ensembl.</p>
+<details>
+<summary>
+Exercise
+</summary>
+<p>
+<p>Before we can start our download, we need to know whether we’re using <code>curl</code> or <code>wget</code>.</p>
+<p>To see which program you have, type:</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb169-1"><a href="week3-awk-and-how-to-download-files.html#cb169-1" aria-hidden="true" tabindex="-1"></a>$ which curl</span>
+<span id="cb169-2"><a href="week3-awk-and-how-to-download-files.html#cb169-2" aria-hidden="true" tabindex="-1"></a>$ which wget</span></code></pre></div>
+<p><code>which</code> is a BASH program that looks through everything you have
+installed, and tells you what folder it is installed to. If it can’t
+find the program you asked for, it returns nothing, i.e. gives you no
+results.</p>
+<p>On Mac OSX, you’ll likely get the following output:</p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb170-1"><a href="week3-awk-and-how-to-download-files.html#cb170-1" aria-hidden="true" tabindex="-1"></a>$ which wget</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb171-1"><a href="week3-awk-and-how-to-download-files.html#cb171-1" aria-hidden="true" tabindex="-1"></a>$ /usr/bin/wget</span></code></pre></div>
+<p>Once you know whether you have <code>curl</code> or <code>wget</code>, use one of the
+following commands to download the file:</p>
+</p>
+</details>
+<p> </p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb172-1"><a href="week3-awk-and-how-to-download-files.html#cb172-1" aria-hidden="true" tabindex="-1"></a>$ cd</span>
+<span id="cb172-2"><a href="week3-awk-and-how-to-download-files.html#cb172-2" aria-hidden="true" tabindex="-1"></a>$ wget ftp://ftp.ensemblgenomes.org/pub/release-37/bacteria/species_EnsemblBacteria.txt</span></code></pre></div>
+<p>Let’s see if the file from ensembl downloaded</p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb173-1"><a href="week3-awk-and-how-to-download-files.html#cb173-1" aria-hidden="true" tabindex="-1"></a>ls species_EnsemblBacteria.txt</span></code></pre></div>
+<p>it did!</p>
+</div>
+<div id="downloading-files-from-github" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Downloading files from Github</h2>
+<p>Github is a useful place to store data files and scripts and it is widely used by researchers in many different fields, including genomics. There are a few useful tricks to understanding how to best transfer files from github to your own terminal.</p>
+<p>There are two main ways to transfer files from github:
++ Use <code>git clone</code> to download an entire repository (Directory)
++ use wget to download a single file</p>
+<p>If you’re interested in getting a repository and all of its contents you can use <code>git clone</code>. This can be useful if you’re interested in using data files and the scripts that come with them.</p>
+<p>First navigate to your home directory with cd (leaving it blank takes you to your home automatically).</p>
+<p>And then use <code>git clone</code> to download the repository reallycoolrepo</p>
+<div class="sourceCode" id="cb174"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb174-1"><a href="week3-awk-and-how-to-download-files.html#cb174-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb174-2"><a href="week3-awk-and-how-to-download-files.html#cb174-2" aria-hidden="true" tabindex="-1"></a>cd</span>
+<span id="cb174-3"><a href="week3-awk-and-how-to-download-files.html#cb174-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb174-4"><a href="week3-awk-and-how-to-download-files.html#cb174-4" aria-hidden="true" tabindex="-1"></a>git clone https://github.com/SerenaCaplins/reallycoolrepo.git</span></code></pre></div>
+<p>This should make a new directory called reallycoolrepo. Let’s ls in this directory to see what’s in it.</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb175-1"><a href="week3-awk-and-how-to-download-files.html#cb175-1" aria-hidden="true" tabindex="-1"></a>ls reallycoolrepo/</span>
+<span id="cb175-2"><a href="week3-awk-and-how-to-download-files.html#cb175-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb175-3"><a href="week3-awk-and-how-to-download-files.html#cb175-3" aria-hidden="true" tabindex="-1"></a>files forloop.sh MarineGenomics.txt README.md</span></code></pre></div>
+<p>We have three files and one directory here. You can view the MarineGenomics.txt file with <code>cat</code></p>
+<div class="sourceCode" id="cb176"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb176-1"><a href="week3-awk-and-how-to-download-files.html#cb176-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb176-2"><a href="week3-awk-and-how-to-download-files.html#cb176-2" aria-hidden="true" tabindex="-1"></a>cat reallycoolrepo/MarineGenomics.txt</span>
+<span id="cb176-3"><a href="week3-awk-and-how-to-download-files.html#cb176-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb176-4"><a href="week3-awk-and-how-to-download-files.html#cb176-4" aria-hidden="true" tabindex="-1"></a>  __  __                  _                     _____                                      _              </span>
+<span id="cb176-5"><a href="week3-awk-and-how-to-download-files.html#cb176-5" aria-hidden="true" tabindex="-1"></a> |  \/  |                (_)                   / ____|                                    (_)             </span>
+<span id="cb176-6"><a href="week3-awk-and-how-to-download-files.html#cb176-6" aria-hidden="true" tabindex="-1"></a> | \  / |   __ _   _ __   _   _ __     ___    | |  __    ___   _ __     ___    _ __ ___    _    ___   ___ </span>
+<span id="cb176-7"><a href="week3-awk-and-how-to-download-files.html#cb176-7" aria-hidden="true" tabindex="-1"></a> | |\/| |  / _` | | &#39;__| | | | &#39;_ \   / _ \   | | |_ |  / _ \ | &#39;_ \   / _ \  | &#39;_ ` _ \  | |  / __| / __|</span>
+<span id="cb176-8"><a href="week3-awk-and-how-to-download-files.html#cb176-8" aria-hidden="true" tabindex="-1"></a> | |  | | | (_| | | |    | | | | | | |  __/   | |__| | |  __/ | | | | | (_) | | | | | | | | | | (__  \__ \</span>
+<span id="cb176-9"><a href="week3-awk-and-how-to-download-files.html#cb176-9" aria-hidden="true" tabindex="-1"></a> |_|  |_|  \__,_| |_|    |_| |_| |_|  \___|    \_____|  \___| |_| |_|  \___/  |_| |_| |_| |_|  \___| |___/</span>
+<span id="cb176-10"><a href="week3-awk-and-how-to-download-files.html#cb176-10" aria-hidden="true" tabindex="-1"></a>                                                                                                          </span></code></pre></div>
+<p>Pretty cool huh?</p>
+<p>Using git clone to get an entire repository can be useful, but often we’re just interested in getting a single file. We’ve already learned how to get files using wget, but this isn’t as straightforward on git hub. To illustrate when it doesn’t work let’s navigate to a repository where there’s a file that we’re interested in:</p>
+<p>copy and paste this link into your browser:</p>
+<div class="sourceCode" id="cb177"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb177-1"><a href="week3-awk-and-how-to-download-files.html#cb177-1" aria-hidden="true" tabindex="-1"></a>https://github.com/BayLab/MarineGenomicsData</span></code></pre></div>
+<p>This is the repository where we have been storing all of the data for the class. We typically download a single tar file each week instead of cloning the whole repository all at once (this allows us to make changes to each week without having to download the whole repo every week, which would also override your files).</p>
+<p>Say you wanted to get the week10.tar.gz file</p>
+<p>If you click on the file you can copy the file path from your browser. A few ways to do this but perhaps easiest is to click the file and copy the path that shows up in your browser.</p>
+<div class="figure">
+<img src="figs/week3/Week3_gitpath.jpg" alt="" />
+<p class="caption">Week3_gitpath.jpg</p>
+</div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb178-1"><a href="week3-awk-and-how-to-download-files.html#cb178-1" aria-hidden="true" tabindex="-1"></a>https://github.com/BayLab/MarineGenomicsData/blob/main/week10.tar.gz</span></code></pre></div>
+<p>Seems fine right? Let’s use wget to try and import this into our home directory.</p>
+<div class="sourceCode" id="cb179"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb179-1"><a href="week3-awk-and-how-to-download-files.html#cb179-1" aria-hidden="true" tabindex="-1"></a>wget https://github.com/BayLab/MarineGenomicsData/blob/main/week10.tar.gz</span></code></pre></div>
+<p>Now let’s try and untar it</p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb180-1"><a href="week3-awk-and-how-to-download-files.html#cb180-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb180-2"><a href="week3-awk-and-how-to-download-files.html#cb180-2" aria-hidden="true" tabindex="-1"></a>tar -xvzf week10.tar.gz</span></code></pre></div>
+<p>This prints an error message:</p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb181-1"><a href="week3-awk-and-how-to-download-files.html#cb181-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb181-2"><a href="week3-awk-and-how-to-download-files.html#cb181-2" aria-hidden="true" tabindex="-1"></a>gzip: stdin: not in gzip format</span>
+<span id="cb181-3"><a href="week3-awk-and-how-to-download-files.html#cb181-3" aria-hidden="true" tabindex="-1"></a>tar: Child returned status 1</span>
+<span id="cb181-4"><a href="week3-awk-and-how-to-download-files.html#cb181-4" aria-hidden="true" tabindex="-1"></a>tar: Error is not recoverable: exiting now</span></code></pre></div>
+<p>What seems to have gone wrong. We get a clue if we use less to view the file (you normally wouldn’t use less to view to a tar.gz file, but in this case it will tell us something useful). Useful tip: <code>less</code> does work on <code>.gz</code> files!</p>
+<div class="sourceCode" id="cb182"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb182-1"><a href="week3-awk-and-how-to-download-files.html#cb182-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb182-2"><a href="week3-awk-and-how-to-download-files.html#cb182-2" aria-hidden="true" tabindex="-1"></a>less week10.tar.gz</span></code></pre></div>
+<p>You will see something like this:</p>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot; data-color-mode=&quot;auto&quot; data-light-theme=&quot;light&quot; data-dark-theme=&quot;dark&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;link rel=&quot;dns-prefetch&quot; href=&quot;https://github.githubassets.com&quot;&gt;
+  &lt;link rel=&quot;dns-prefetch&quot; href=&quot;https://avatars.githubusercontent.com&quot;&gt;
+  &lt;link rel=&quot;dns-prefetch&quot; href=&quot;https://github-cloud.s3.amazonaws.com&quot;&gt;
+  &lt;link rel=&quot;dns-prefetch&quot; href=&quot;https://user-images.githubusercontent.com/&quot;&gt;
+  &lt;link rel=&quot;preconnect&quot; href=&quot;https://github.githubassets.com&quot; crossorigin&gt;
+  &lt;link rel=&quot;preconnect&quot; href=&quot;https://avatars.githubusercontent.com&quot;&gt;
+
+
+
+  &lt;link crossorigin=&quot;anonymous&quot; media=&quot;all&quot; integrity=&quot;sha512-Xvl7qd6ZFq6aBrViMpY+7UKRL79QzxxYG1kyELGe/sH4sV3eCks8DDXxa3WolACcKPac42eqrfe6m0jazyAIPQ==&quot; rel=&quot;stylesheet&quot; href=&quot;https://github.githubassets.com/assets/frameworks-5ef97ba9de9916ae9a06b56232963eed.css&quot; /&gt;
+  &lt;link crossorigin=&quot;anonymous&quot; media=&quot;all&quot; integrity=&quot;sha512-24GJDHWJro3USSMV5JFy5QbE8eCNYG61UucNp7vJMTaeJMrBy6FLiLFgX9jXnWlddv2VRu/rTLIkxzuRDF9ZVA==&quot; rel=&quot;stylesheet&quot; href=&quot;https://github.githubassets.com/assets/colors-v2-db81890c7589ae8dd4492315e49172e5.css&quot; /&gt;
+    &lt;link crossorigin=&quot;anonymous&quot; media=&quot;all&quot; integrity=&quot;sha512-rcBopHrwspQORpXVLihZMP22sFwuIo3fL1DyFo5aXwWnV5FzV/nlAGnX/36fI9GQVc2VN7MiIT34RMCwq8jemg==&quot; rel=&quot;stylesheet&quot; href=&quot;https://github.githubassets.com/assets/behaviors-adc068a47af0b2940e4695d52e285930.css&quot; /&gt;</code></pre>
+<p>This is not what should be in the file. We’re seeing html coding like what you would see for a website. The reason for this is because the link we got from github was to the html page showing the file, not the location of the actual file itself.</p>
+<p>Let’s remove this week10.tar.gz file</p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb184-1"><a href="week3-awk-and-how-to-download-files.html#cb184-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-2"><a href="week3-awk-and-how-to-download-files.html#cb184-2" aria-hidden="true" tabindex="-1"></a>rm week10.tar.gz</span></code></pre></div>
+<p>So all of the repositories are encoded as html files to make the github website, we need to get the actual file path of the file itself to use wget.</p>
+<p>You can do this by copying the <strong>raw</strong> file path, which you will find by clicking <code>view raw</code> or by using control-c or right clicking and selecting copy link address (for pc users) the <code>download</code> tab.</p>
+<p>Let’s try this again with our new link. It should say the word <code>raw</code> somewhere in the file path</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb185-1"><a href="week3-awk-and-how-to-download-files.html#cb185-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb185-2"><a href="week3-awk-and-how-to-download-files.html#cb185-2" aria-hidden="true" tabindex="-1"></a>wget https://github.com/BayLab/MarineGenomicsData/raw/main/week10.tar.gz</span></code></pre></div>
+<p>Now untar it</p>
+<div class="sourceCode" id="cb186"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb186-1"><a href="week3-awk-and-how-to-download-files.html#cb186-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb186-2"><a href="week3-awk-and-how-to-download-files.html#cb186-2" aria-hidden="true" tabindex="-1"></a>tar -xzvf week10.tar.gz</span></code></pre></div>
+<p>You should see something like this, which tells us that it worked!!</p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb187-1"><a href="week3-awk-and-how-to-download-files.html#cb187-1" aria-hidden="true" tabindex="-1"></a>MarineGenomicsData/Week10/</span>
+<span id="cb187-2"><a href="week3-awk-and-how-to-download-files.html#cb187-2" aria-hidden="true" tabindex="-1"></a>MarineGenomicsData/Week10/candidate_fastas.fa</span></code></pre></div>
+<p>You can remove this as we won’t be using it later in the course</p>
+<div class="sourceCode" id="cb188"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb188-1"><a href="week3-awk-and-how-to-download-files.html#cb188-1" aria-hidden="true" tabindex="-1"></a>rm -r MarineGenomicsData</span></code></pre></div>
+<p>So we need to find that raw file path to use wget on any single file that we want in git hub.</p>
+<div id="uploading-and-downloading-data-to-your-virtual-machine-with-scp---unix" class="section level3" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Uploading and Downloading Data to your Virtual Machine with scp - UNIX</h3>
+<p>This section is for your general knowledge.</p>
+<p><code>scp</code> stands for ‘secure copy protocol,’ and is a widely used UNIX tool for moving files
+between computers. The simplest way to use <code>scp</code> is to run it in your local terminal,
+and use it to copy a single file:</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb189-1"><a href="week3-awk-and-how-to-download-files.html#cb189-1" aria-hidden="true" tabindex="-1"></a>scp <span class="kw">&lt;file</span><span class="ot"> I want to move</span><span class="kw">&gt;</span> <span class="kw">&lt;where</span><span class="ot"> I want to move it</span><span class="kw">&gt;</span></span></code></pre></div>
+<p>In terminal,you can use the <code>scp</code> command to upload a file (e.g. local_file.txt) to the cluster home directory:</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb190-1"><a href="week3-awk-and-how-to-download-files.html#cb190-1" aria-hidden="true" tabindex="-1"></a>$  scp local_file.txt UserName@cluster.address:/scratch/</span></code></pre></div>
+<p>If you wanted to download data from your virtual machine, we would put the location of the folder within the virtual machine in the location of <file I want to move></p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb191-1"><a href="week3-awk-and-how-to-download-files.html#cb191-1" aria-hidden="true" tabindex="-1"></a>$  scp UserName@cluster.address:/scratch/VirtualMachine_file.txt /home/margeno/MarineGenomics/week2/untrimmed_fastq/</span></code></pre></div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="week-2-working-with-files.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Semester.pdf", "Semester.epub"],
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
