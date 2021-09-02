@@ -53,3 +53,15 @@ exercise
 using-echo
 exercise-1
 solution
+exercise-2
+exercise-3
+exercise-4
+exercise-5
+exercise-6
+exercise-7
+exercise-8
+exercise-9
+making-the-script-into-a-program
+week3-awk-and-how-to-download-files
+downloading-files-from-github
+final-bash-wrap-up

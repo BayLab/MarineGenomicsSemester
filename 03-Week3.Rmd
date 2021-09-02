@@ -377,6 +377,7 @@ So we need to find that raw file path to use wget on any single file that we wan
 We've covered a lot of ground so far in the last 2 and a half weeks! It's a good time to review the commands we've learned and the skills we're starting to develop. 
 
 In week 1, we showed you:
+
 + how to access jetstream a cloud computing resourse
 + how to navigate the terminal with bash/UNIX commands such as `ls`, cd`, `mv`, `mkdir`, and `cp`
 + the differnce between full and relative file paths:
@@ -386,6 +387,7 @@ In week 1, we showed you:
 + the `man` command to see full parameters for bash commands
 
 In week 2, we covered:
+
 + how to view files using `less`, `cat`, `head`, `tail` 
 + how to view and modify file and directory permissions using `chmod`
 + how to use wildcards like `*` to view directory contents 
@@ -396,6 +398,7 @@ In week 2, we covered:
 + writing for loops
 
 Finally in week3, we learned 
+
 + how to use Awk to edit the contents of a file
 + how to move and download data
 
