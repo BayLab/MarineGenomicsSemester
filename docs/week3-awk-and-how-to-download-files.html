@@ -201,10 +201,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="week3-awk-and-how-to-download-files.html"><a href="week3-awk-and-how-to-download-files.html#awk"><i class="fa fa-check"></i><b>4.1</b> AWK</a></li>
 <li class="chapter" data-level="4.2" data-path="week3-awk-and-how-to-download-files.html"><a href="week3-awk-and-how-to-download-files.html#moving-and-downloading-data"><i class="fa fa-check"></i><b>4.2</b> Moving and Downloading Data</a></li>
 <li class="chapter" data-level="4.3" data-path="week3-awk-and-how-to-download-files.html"><a href="week3-awk-and-how-to-download-files.html#getting-data-from-the-cloud"><i class="fa fa-check"></i><b>4.3</b> Getting data from the cloud</a></li>
-<li class="chapter" data-level="4.4" data-path="week3-awk-and-how-to-download-files.html"><a href="week3-awk-and-how-to-download-files.html#downloading-files-from-github"><i class="fa fa-check"></i><b>4.4</b> Downloading files from Github</a>
-<ul>
-<li class="chapter" data-level="4.4.1" data-path="week3-awk-and-how-to-download-files.html"><a href="week3-awk-and-how-to-download-files.html#uploading-and-downloading-data-to-your-virtual-machine-with-scp---unix"><i class="fa fa-check"></i><b>4.4.1</b> Uploading and Downloading Data to your Virtual Machine with scp - UNIX</a></li>
-</ul></li>
+<li class="chapter" data-level="4.4" data-path="week3-awk-and-how-to-download-files.html"><a href="week3-awk-and-how-to-download-files.html#downloading-files-from-github"><i class="fa fa-check"></i><b>4.4</b> Downloading files from Github</a></li>
+<li class="chapter" data-level="4.5" data-path="week3-awk-and-how-to-download-files.html"><a href="week3-awk-and-how-to-download-files.html#final-bash-wrap-up"><i class="fa fa-check"></i><b>4.5</b> Final bash wrap-up</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -419,6 +417,10 @@ following commands to download the file:</p>
 <span id="cb184-2"><a href="week3-awk-and-how-to-download-files.html#cb184-2" aria-hidden="true" tabindex="-1"></a>rm week10.tar.gz</span></code></pre></div>
 <p>So all of the repositories are encoded as html files to make the github website, we need to get the actual file path of the file itself to use wget.</p>
 <p>You can do this by copying the <strong>raw</strong> file path, which you will find by clicking <code>view raw</code> or by using control-c or right clicking and selecting copy link address (for pc users) the <code>download</code> tab.</p>
+<div class="figure">
+<img src="figs/week3/Week3_rawgitpath.jpg" alt="" />
+<p class="caption">Week3_rawgitpath.jpg</p>
+</div>
 <p>Let’s try this again with our new link. It should say the word <code>raw</code> somewhere in the file path</p>
 <div class="sourceCode" id="cb185"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb185-1"><a href="week3-awk-and-how-to-download-files.html#cb185-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb185-2"><a href="week3-awk-and-how-to-download-files.html#cb185-2" aria-hidden="true" tabindex="-1"></a>wget https://github.com/BayLab/MarineGenomicsData/raw/main/week10.tar.gz</span></code></pre></div>
@@ -431,19 +433,31 @@ following commands to download the file:</p>
 <p>You can remove this as we won’t be using it later in the course</p>
 <div class="sourceCode" id="cb188"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb188-1"><a href="week3-awk-and-how-to-download-files.html#cb188-1" aria-hidden="true" tabindex="-1"></a>rm -r MarineGenomicsData</span></code></pre></div>
 <p>So we need to find that raw file path to use wget on any single file that we want in git hub.</p>
-<div id="uploading-and-downloading-data-to-your-virtual-machine-with-scp---unix" class="section level3" number="4.4.1">
-<h3><span class="header-section-number">4.4.1</span> Uploading and Downloading Data to your Virtual Machine with scp - UNIX</h3>
-<p>This section is for your general knowledge.</p>
-<p><code>scp</code> stands for ‘secure copy protocol,’ and is a widely used UNIX tool for moving files
-between computers. The simplest way to use <code>scp</code> is to run it in your local terminal,
-and use it to copy a single file:</p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb189-1"><a href="week3-awk-and-how-to-download-files.html#cb189-1" aria-hidden="true" tabindex="-1"></a>scp <span class="kw">&lt;file</span><span class="ot"> I want to move</span><span class="kw">&gt;</span> <span class="kw">&lt;where</span><span class="ot"> I want to move it</span><span class="kw">&gt;</span></span></code></pre></div>
-<p>In terminal,you can use the <code>scp</code> command to upload a file (e.g. local_file.txt) to the cluster home directory:</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb190-1"><a href="week3-awk-and-how-to-download-files.html#cb190-1" aria-hidden="true" tabindex="-1"></a>$  scp local_file.txt UserName@cluster.address:/scratch/</span></code></pre></div>
-<p>If you wanted to download data from your virtual machine, we would put the location of the folder within the virtual machine in the location of <file I want to move></p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb191-1"><a href="week3-awk-and-how-to-download-files.html#cb191-1" aria-hidden="true" tabindex="-1"></a>$  scp UserName@cluster.address:/scratch/VirtualMachine_file.txt /home/margeno/MarineGenomics/week2/untrimmed_fastq/</span></code></pre></div>
-
 </div>
+<div id="final-bash-wrap-up" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Final bash wrap-up</h2>
+<p>We’ve covered a lot of ground so far in the last 2 and a half weeks! It’s a good time to review the commands we’ve learned and the skills we’re starting to develop.</p>
+<p>In week 1, we showed you:
++ how to access jetstream a cloud computing resourse
++ how to navigate the terminal with bash/UNIX commands such as <code>ls</code>, cd<code>,</code>mv<code>,</code>mkdir<code>, and</code>cp<code>+ the differnce between full and relative file paths:   ++ full path example: /home/margeno/MarineGenomics/week2/README.txt   ++ relative path from the MarineGenomics directroy: week2/README.txt + how to use</code>Tab<code>to autofill commands and file paths + the</code>man` command to see full parameters for bash commands</p>
+<p>In week 2, we covered:
++ how to view files using <code>less</code>, <code>cat</code>, <code>head</code>, <code>tail</code>
++ how to view and modify file and directory permissions using <code>chmod</code>
++ how to use wildcards like <code>*</code> to view directory contents
++ to oh so cautiously use <code>rm</code> to permanently delete a file
++ use <code>grep</code> to search a file and <code>&gt;&gt;</code> to append search results to a new file
++ how to write a script using a text editor <code>nano</code> in our case
++ executing a script from a saved file with <code>bash</code> or by making it an executable program with <code>chmod</code>
++ writing for loops</p>
+<p>Finally in week3, we learned
++ how to use Awk to edit the contents of a file
++ how to move and download data</p>
+<p>At this point if you haven’t already it’s a good time to make a cheat sheet of the commands we’ve learned to keep by your computer so you can reference them at anytime.</p>
+<p>There are several very good bash/Unix cheat sheets available online. Here are links to a few of them:</p>
+<p><a href="https://cheatography.com/gregcheater/cheat-sheets/bash/" class="uri">https://cheatography.com/gregcheater/cheat-sheets/bash/</a></p>
+<p><a href="https://cheatography.com/davechild/cheat-sheets/linux-command-line/" class="uri">https://cheatography.com/davechild/cheat-sheets/linux-command-line/</a></p>
+<p><a href="https://www.loggly.com/blog/the-essential-cheat-sheet-for-linux-admins/?utm_source=LinkInPDF&amp;utm_medium=social-media&amp;utm_campaign=SocialPush" class="uri">https://www.loggly.com/blog/the-essential-cheat-sheet-for-linux-admins/?utm_source=LinkInPDF&amp;utm_medium=social-media&amp;utm_campaign=SocialPush</a></p>
+
 </div>
 </div>
             </section>
