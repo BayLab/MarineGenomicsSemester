@@ -1,7 +1,7 @@
 ---
-title: 'Marine Genomics: Mapping and Calling Variants'
-author: "Serena Caplins"
-date: "4/13/2021"
+title: 
+author: 
+date: 
 output:
   bookdown::html_book:
     toc: yes
