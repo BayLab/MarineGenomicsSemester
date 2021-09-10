@@ -55,3 +55,12 @@ moving-and-downloading-data
 getting-data-from-the-cloud
 downloading-files-from-github
 final-bash-wrap-up
+week-4--what-is-a-genetic-variant
+to-get-started-lets-download-the-data-and-install-a-few-programs
+raw-read-quality-control
+trimming-to-remove-adapters
+building-an-index-of-our-genome
+map-reads-to-the-genome
+sam-to-bam-file-conversion
+genotype-likelihoods
+creature-of-the-week-2
