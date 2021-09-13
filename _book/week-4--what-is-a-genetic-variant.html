@@ -239,19 +239,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 5</span> Week 4- What is a Genetic Variant?</h1>
 <p>You’ll find the lecture discussing the definition and identification of genetic variation <a href="https://github.com/BayLab/MarineGenomicsSemester/blob/main/ppt/MarineGenomics_Lecture_W4.pdf">here</a></p>
 <p>We’ll be working on the terminal in jetstream for the entirety of this lesson.</p>
+<p>Here is the road map of our actions for this class (as shown in lecture):</p>
+<div class="figure">
+<img src="figs/week4/roadmap_mapping.png" alt="" />
+<p class="caption">mapping variants</p>
+</div>
 <div id="to-get-started-lets-download-the-data-and-install-a-few-programs" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> To get started lets download the data and install a few programs</h2>
-<p>Download the data from the MarineGenomicsData repository on git hub. We’ll be working in the Week4_semester.tar.gz file</p>
+<p>Download the data from the MarineGenomicsData repository on git hub. We’ll be working in the week4_semester.tar.gz file</p>
 <p>The data for this week comes from an excellent marine genomics study on sea cucumber population genetics (<a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/mec.14589">Xuereb et al. 2018</a>). I have taken a sub-sample of the reference genome used in the paper (from the closely related sea cucumber Parastichopus parvimensis). I have also sub-sampled raw reads from 5 individuals of the study species Parastichopus californicus from the paper.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="week-4--what-is-a-genetic-variant.html#cb1-1" aria-hidden="true" tabindex="-1"></a>wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week4_semester.tar.gz</span></code></pre></div>
 <p>Uncompress the file using tar:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="week-4--what-is-a-genetic-variant.html#cb2-1" aria-hidden="true" tabindex="-1"></a>tar -xzvf week4_semester.tar.gz</span></code></pre></div>
 <p>Next we need to install a few programs that will allow us to do what we need to do. This will all take a few minutes!</p>
-<p>*The programs that we are installing
-+ samtools: allows us to filter and view our mapped data
-+ bowtie2: to map our reads to the reference genome
-+ cutadapt: will trim adaptor sequences from the reads
-+ fastqc: used to view the quality of the read files</p>
+<p>The programs that we are installing:</p>
+<ul>
+<li>samtools: allows us to filter and view our mapped data</li>
+<li>bowtie2: to map our reads to the reference genome</li>
+<li>cutadapt: will trim adaptor sequences from the reads</li>
+<li>fastqc: used to view the quality of the read files</li>
+</ul>
 <div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="week-4--what-is-a-genetic-variant.html#cb3-1" aria-hidden="true" tabindex="-1"></a>  sudo apt-get -y update <span class="er">&amp;&amp;</span> \</span>
 <span id="cb3-2"><a href="week-4--what-is-a-genetic-variant.html#cb3-2" aria-hidden="true" tabindex="-1"></a>  sudo apt-get -y install samtools bowtie2 cutadapt fastqc </span>
 <span id="cb3-3"><a href="week-4--what-is-a-genetic-variant.html#cb3-3" aria-hidden="true" tabindex="-1"></a>  </span></code></pre></div>
