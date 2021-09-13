@@ -18,18 +18,24 @@ You'll find the lecture discussing the definition and identification of genetic 
 
 We'll be working on the terminal in jetstream for the entirety of this lesson.
 
+Here is the road map of our actions for this class (as shown in lecture):
+
+![How to map variants diagramed](./figs/week4/roadmap_mapping.png)
+
 ## To get started lets download the data and install a few programs
 
-Download the data from the MarineGenomicsData repository on git hub. We'll be working in the Week_3 folder
+Download the data from the MarineGenomicsData repository on git hub. We'll be working in the Week4_semester.tar.gz file
+
+The data for this week comes from an excellent marine genomics study on sea cucumber population genetics ([Xuereb et al. 2018](https://onlinelibrary.wiley.com/doi/abs/10.1111/mec.14589)). I have taken a sub-sample of the reference genome used in the paper (from the closely related sea cucumber Parastichopus parvimensis). I have also sub-sampled raw reads from 5 individuals of the study species  Parastichopus californicus from the paper. 
 
 ```html
-wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week4tar.gz
+wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week4_semester.tar.gz
 ```
 
 Uncompress the file using tar:
 
 ```html
-tar -xzvf week4.tar.gz
+tar -xzvf week4_semester.tar.gz
 
 ```
 
@@ -64,10 +70,16 @@ $ ls
 
 
 ```
-Change directories to the one that has the data MarineGenomicsData/Week4. If you `ls` into this directory you should see 6 files with a `.fastq.gz` extension and 1 tiny genome file with a `.fna.gz` extension.
+Change directories to the one that has the data MarineGenomics/week4. If you `ls` into this directory you should see 6 files with a `.fastq.gz` extension and 1 tiny genome file with a `.fna.gz` extension.
 
 
 ## Raw read quality control
+
+For the sake of time we've make this an optional activity for you to pursue on your own time
+
+<details><summary>Raw read quality control</summary>
+<p>
+
 
 Next let's use the program fastqc to check the quality of our data files
 
@@ -103,9 +115,13 @@ You'll see you initially get an error message because fastqc doesn't see the .fa
 
 To view the output of fastqc, we'll minimize our terminal and look at our `Home` folder on our jetstream desktop. This is the same home directory that we've been working in through the terminal. Go to the directory where you were running fastqc and find an .html file. Double click it and it should open a web browser with the output data. We'll go over how to interpret this file in class.
 
+</p>
+</details>
+&nbsp;
+
 ## Trimming to remove adapters
 
-There are many programs to trim sequence files. We'll use the same paper that was used in the Xuereb et al. 2018 paper [here]. Cutadapt is relatively easy to run with the code below, once we have identified our adaptor sequence and takes the general form below.
+There are many programs that can be used to trim sequence files. We'll use the same paper that was used in the Xuereb et al. 2018 paper [here](https://onlinelibrary.wiley.com/doi/abs/10.1111/mec.14589). Cutadapt is relatively easy to run with the code below, once we have identified our adaptor sequence and takes the general form below.
 
 
 ```html
@@ -176,7 +192,7 @@ done
 
 You should see a bunch of text telling you all about how well our reads mapped to the genome. For this example we're getting a low percentage (20-30%) because of how the genome and reads were subset for this exercise. The full genome and full read files have a much higher mapping rate (70-80%) than our subset. 
 
-You'll also notice that we have made a bunch of .sam files. THis stands for Sequence Alignment Map file. Let's use `less` to look at one of these files using `less`
+You'll also notice that we have made a bunch of .sam files. .sam stands for Sequence Alignment Map file. Let's use `less` to look at one of these files using `less`
 
 There are several columns of data in a sam file
 
@@ -231,57 +247,66 @@ This will generate two files, one with a .arg extension, this has a record of th
 
 > A possible answer is located beneath each activity, but it's possible you will correctly perform the suggestion in a different way. 
 
-> 1. Run fastqc on our .trimmed reads and compare the html with the untrimmed files. 
+
+> 1. map the untrimmed files to the genome. How do the alignments compare?
+
 <details><summary><span style="color: purple;">Solution</span></summary>
 <p>
 
-> 1. We should no longer see the red error flag for the per base sequence quality or base pairs conten. code: fastqc *trimmed.fastq.gz 
-</p>
-</details>
-&nbsp;
-
-
-> 2. map the untrimmed files to the genome. How do the alignments compare?
-<details><summary><span style="color: purple;">Solution</span></summary>
-<p>
-
-> 2. As a for loop:
+> 1. As a for loop:
 > `for filename in *tiny.fastq.gz; do; base=$(basename $filename .tiny.fastq.gz); echo=${base}; bowtie2 -x Ppar_tinygenome.fna.gz -U ${base}.tiny.fastq.gz -S ${base}.nottrimmed.sam; done`
+
 </p>
 </details>
 &nbsp;
 
 
 
-> 3. Run the mapping for loop as a shell script using bash (i.e., store the for loop in a text editor (NANOs or other) and execute the .sh script with bash)
+> 2. Run the mapping for loop as a shell script using bash (i.e., store the for loop in a text editor (NANOs or other) and execute the .sh script with bash)
+
 <details><summary><span style="color: purple;">Solution</span></summary>
 <p>
 
-> 3. this can be done by copying and pasting the for loop in a text editor that you save as for example `map_samples_bowtie2.sh`. This script is then executed by `bash map_samples_bowtie2.sh`
+> 2. this can be done by copying and pasting the for loop in a text editor that you save as for example `map_samples_bowtie2.sh`. This script is then executed by `bash map_samples_bowtie2.sh`
+
 </p>
 </details>
 &nbsp;
 
 
-> 4. use cutadapt to trim the sequences to 70 bp like they did in the Xuereb et al. 2018 paper. Write the output of cutadapt to an .70bp.trimmed.fastq.gz and then map these 70bp, trimmed reads to the genome. How do they compare to our .trimmed reads?
+> 3. use cutadapt to trim the sequences to 70 bp like they did in the Xuereb et al. 2018 paper. Write the output of cutadapt to an .70bp.trimmed.fastq.gz and then map these 70bp, trimmed reads to the genome. How do they compare to our .trimmed reads?
+
 <details><summary><span style="color: purple;">Solution</span></summary>
 <p>
-> 4. to find the parameter for maximum read length in cutadapt: `cutadapt - help` There are a few ways to do this.
+> 3. to find the parameter for maximum read length in cutadapt: `cutadapt - help` There are a few ways to do this.
 > `cutadapt -g TGCAG ${base}.tiny.fastq.gz -u 70 -o ${base}.tiny_70bp_trimmed.fastq.gz` 
+
 </p>
 </details>
 &nbsp;
 
 
-> 5. change the parameters of the angsd genotype likelihoods command. How many more/less SNPs do we recover if we lower or raise the SNP p-value? To see what the other parameters do run `../../angsd/angsd -h
+> 4. change the parameters of the angsd genotype likelihoods command. How many more/less SNPs do we recover if we lower or raise the SNP p-value? To see what the other parameters do run `../../angsd/angsd -h
+
 <details><summary><span style="color: purple;">Solution</span></summary>
 <p>
 
-> 5. If we remove the `-SNP_pval` command entirely we get ~72000 sites retained! Wow! That seems like a lot given our ~20% maping rate. If you instead increase the p-value threshold to 1e-3 we find 3 SNPs. 
+> 4. If we remove the `-SNP_pval` command entirely we get ~72000 sites retained! Wow! That seems like a lot given our ~20% maping rate. If you instead increase the p-value threshold to 1e-3 we find 3 SNPs.
+
 </p>
 </details>
 &nbsp;
 
+> 5. Run fastqc on our .trimmed reads and compare the html with the untrimmed files. 
+
+<details><summary><span style="color: purple;">Solution</span></summary>
+<p>
+
+> 5. We should no longer see the red error flag for the per base sequence quality or base pairs conten. code: fastqc *trimmed.fastq.gz 
+
+</p>
+</details>
+&nbsp;
 
 
 ## Creature of the Week!
