@@ -243,7 +243,7 @@ This will generate two files, one with a .arg extension, this has a record of th
 
 
 
-> ### Suggested Exercises
+### Suggested Exercises
 > For our coding session you can re-run through the above code as it is written. You can also do the below suggestions to extend or modify what we did in Tuesdays class. 
 
 > A possible answer is located beneath each activity, but it's possible you will correctly perform the suggestion in a different way. 
@@ -256,6 +256,10 @@ This will generate two files, one with a .arg extension, this has a record of th
 
 > 1. As a for loop:
 > `for filename in *tiny.fastq.gz; do base=$(basename $filename .tiny.fastq.gz); echo=${base}; bowtie2 -x Ppar_tinygenome -U ${base}.tiny.fastq.gz -S ${base}.nottrimmed.sam; done`
+
+> You should see something that by trimming the adapters off we get a higher overall mapping rate:
+
+> ![results](./figs/week4/trimm_notrimm_thatisthequestion.jpg)
 
 </p>
 </details>

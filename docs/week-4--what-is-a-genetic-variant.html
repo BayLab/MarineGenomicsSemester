@@ -212,7 +212,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#building-an-index-of-our-genome"><i class="fa fa-check"></i><b>5.4</b> Building an index of our genome</a></li>
 <li class="chapter" data-level="5.5" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#map-reads-to-the-genome"><i class="fa fa-check"></i><b>5.5</b> Map reads to the genome</a></li>
 <li class="chapter" data-level="5.6" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#sam-to-bam-file-conversion"><i class="fa fa-check"></i><b>5.6</b> sam to bam file conversion</a></li>
-<li class="chapter" data-level="5.7" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#genotype-likelihoods"><i class="fa fa-check"></i><b>5.7</b> Genotype likelihoods</a></li>
+<li class="chapter" data-level="5.7" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#genotype-likelihoods"><i class="fa fa-check"></i><b>5.7</b> Genotype likelihoods</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#suggested-exercises"><i class="fa fa-check"></i><b>5.7.1</b> Suggested Exercises</a></li>
+</ul></li>
 <li class="chapter" data-level="5.8" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#creature-of-the-week-2"><i class="fa fa-check"></i><b>5.8</b> Creature of the Week!</a></li>
 </ul></li>
 <li class="divider"></li>
@@ -377,8 +380,9 @@ Raw read quality control
 <div class="sourceCode" id="cb206"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb206-1"><a href="week-4--what-is-a-genetic-variant.html#cb206-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb206-2"><a href="week-4--what-is-a-genetic-variant.html#cb206-2" aria-hidden="true" tabindex="-1"></a>../../angsd/angsd -bam bam.filelist -GL 1 -out genotype_likelihoods -doMaf 2 -SNP_pval 1e-2 -doMajorMinor 1</span></code></pre></div>
 <p>This will generate two files, one with a .arg extension, this has a record of the script we ran to generate the output, and a .maf file that will give you the minor allele frequencies and is the main output file. If you see these two files, Yay!! We did it!</p>
+<div id="suggested-exercises" class="section level3" number="5.7.1">
+<h3><span class="header-section-number">5.7.1</span> Suggested Exercises</h3>
 <blockquote>
-<h3 id="suggested-exercises">Suggested Exercises</h3>
 <p>For our coding session you can re-run through the above code as it is written. You can also do the below suggestions to extend or modify what we did in Tuesdays class.</p>
 </blockquote>
 <blockquote>
@@ -399,6 +403,15 @@ Raw read quality control
 <li>As a for loop:
 <code>for filename in *tiny.fastq.gz; do base=$(basename $filename .tiny.fastq.gz); echo=${base}; bowtie2 -x Ppar_tinygenome -U ${base}.tiny.fastq.gz -S ${base}.nottrimmed.sam; done</code></li>
 </ol>
+</blockquote>
+<blockquote>
+<p>You should see something that by trimming the adapters off we get a higher overall mapping rate:</p>
+</blockquote>
+<blockquote>
+<div class="figure">
+<img src="figs/week4/trimm_notrimm_thatisthequestion.jpg" alt="" />
+<p class="caption">results</p>
+</div>
 </blockquote>
 </p>
 </details>
@@ -476,6 +489,7 @@ Raw read quality control
 </p>
 </details>
 <p> </p>
+</div>
 </div>
 <div id="creature-of-the-week-2" class="section level2" number="5.8">
 <h2><span class="header-section-number">5.8</span> Creature of the Week!</h2>

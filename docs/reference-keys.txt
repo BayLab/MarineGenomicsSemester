@@ -63,4 +63,5 @@ building-an-index-of-our-genome
 map-reads-to-the-genome
 sam-to-bam-file-conversion
 genotype-likelihoods
+suggested-exercises
 creature-of-the-week-2
