@@ -255,7 +255,7 @@ This will generate two files, one with a .arg extension, this has a record of th
 <p>
 
 > 1. As a for loop:
-> `for filename in *tiny.fastq.gz; do; base=$(basename $filename .tiny.fastq.gz); echo=${base}; bowtie2 -x Ppar_tinygenome.fna.gz -U ${base}.tiny.fastq.gz -S ${base}.nottrimmed.sam; done`
+> `for filename in *tiny.fastq.gz; do base=$(basename $filename .tiny.fastq.gz); echo=${base}; bowtie2 -x Ppar_tinygenome -U ${base}.tiny.fastq.gz -S ${base}.nottrimmed.sam; done`
 
 </p>
 </details>
