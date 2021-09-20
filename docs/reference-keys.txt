@@ -64,4 +64,16 @@ map-reads-to-the-genome
 sam-to-bam-file-conversion
 genotype-likelihoods
 suggested-exercises
-creature-of-the-week-2
+week-5--the-r-environment
+lesson-1-orientation-to-r
+manipulating-a-vector-object
+operations-act-on-each-element-of-a-vector
+operations-can-also-work-with-two-vectors
+a-few-tips-below-for-working-with-objects
+practice-r-operations
+characterizing-a-dataframe
+how-to-access-parts-of-the-data
+data-manipulation
+practice-exploring-a-dataframe
+subsetting-datasets-logicals
+practice-subsetting-datasetslogicals
