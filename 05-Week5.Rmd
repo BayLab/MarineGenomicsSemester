@@ -18,7 +18,7 @@ This lesson is modified from materials of the STEMinist_R lessons produced by se
 
 These materials are evenly divided between live coding examples performed by the instructor and exercises performed by the students. 
 
-This class will take place with students typing directly into an R script for the exercises all of which can be found in the Week 4 file [here](https://github.com/BayLab/MarineGenomicsData.git) 
+This class will take place with students typing directly into an R script for the exercises all of which can be found in the Week 5 semester file [here](https://github.com/BayLab/MarineGenomicsData.git) 
 
 You can download the R files for this week via wget in the terminal with the following link:
 
