@@ -1,4 +1,4 @@
-introduction-to-marine-genomics-semester-edition
+marine-genomics-semester-edition
 cloud-computing-versus-individual-laptops
 assessment
 final-demonstration
@@ -19,6 +19,7 @@ navigational-shortcuts
 key-points
 creature-of-the-week
 week-2-working-with-files
+week-2-working-with-files-1
 our-data-set-fastq-files
 wildcards
 exercise
@@ -58,6 +59,7 @@ getting-data-from-the-cloud
 downloading-files-from-github
 final-bash-wrap-up
 week-4--what-is-a-genetic-variant
+week-4--what-is-a-genetic-variant-1
 to-get-started-lets-download-the-data-and-install-a-few-programs
 raw-read-quality-control
 trimming-to-remove-adapters

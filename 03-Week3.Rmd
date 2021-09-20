@@ -8,9 +8,11 @@ output:
     css: toc.css
 ---
 
+# Week3: Awk and how to download files
+
 ![Bash logo](./figs/fig_week2/1200px-Bash_Logo_Colored.svg.png)
 
-# Week3: Awk and how to download files
+
 
 For this week, we'll continue to use the data that you downloaded last week. If you need to download it again please use the wget link below to download the tar file. 
 

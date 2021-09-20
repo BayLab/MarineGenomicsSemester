@@ -1,5 +1,5 @@
 --- 
-title: "Marine Genomics"
+title: 
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -7,13 +7,12 @@ biblio-style: apalike
 link-citations: yes
 description: ""
 ---
+# Marine Genomics Semester edition
 
-# Introduction to Marine Genomics Semester edition
+<img src="figs/intro/MarineGenomics_Icon.jpg" width="200" height="200" />
 
-![Marine genomics icon](./figs/intro/MarineGenomics_Icon.jpg)
-# Introduction to Marine Genomics Semester edition
 
-Welcome to Marine Genomics. This is a course on learning how to analyze genomic data for undergraduate and graduate students. We focused on marine organisms but these lessons can easily be applied to any taxa. We required that students have a background in biology and have completed the general biology series. Additionally, it is helpful if students have taken a course in Evolution, though this was not a requirement. We did not require any coding experience in R or Bash/UNIX. 
+Welcome to Marine Genomics! This is a course on learning how to analyze genomic data for undergraduate and graduate students. We focused on marine organisms but these lessons can easily be applied to any taxa. We required that students have a background in biology and have completed the general biology series. Additionally, it is helpful if students have taken a course in Evolution, though this was not a requirement. We did not require any coding experience in R or Bash/UNIX. 
 
 For most weeks, our course consists of one 75 min lecture and one 75 minute coding session per week. The lectures begin with a power point presentation where we introduce the weeks concept (for example, PCAs) and then are followed by a live coding demonstration carrier out by the instructor. The coding sessions provide an opportunity for the students to either repeat the same coding demonstration carried out during the lecture, or to extend the demonstration via coding exercises which we have written for each week and for which the solutions are available on our website (under each exercise). 
 
