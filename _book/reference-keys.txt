@@ -91,3 +91,4 @@ data-manipulation
 practice-exploring-a-dataframe
 subsetting-datasets-logicals
 practice-subsetting-datasetslogicals
+marine-genomics-semester-edition
