@@ -14,6 +14,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Week 5- The R environment
 
+![](./figs/week5/R_icon.png)
+# Week 5- The R environment
+
 This lesson is modified from materials of the STEMinist_R lessons produced by several UC Davis graduate student and which can be found [here](https://github.com/ecalfee/STEMinist_R.git). The lessons were shortened here to fit into two sessions 75 minute sessions.
 
 These materials are evenly divided between live coding examples performed by the instructor and exercises performed by the students. 

@@ -12,6 +12,8 @@ output:
 knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6)
 ```
 
+![](./figs/week4/Icon_SNP.png)
+
 # Week 4- What is a Genetic Variant?
 
 You'll find the lecture discussing the definition and identification of genetic variation [here](https://github.com/BayLab/MarineGenomicsSemester/blob/main/ppt/MarineGenomics_Lecture_w4.pdf)

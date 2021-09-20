@@ -8,6 +8,7 @@ output:
     css: toc.css
 ---
 
+![](./figs/fig_week2/1200px-Bash_Logo_Colored.svg.png)
 
 # Week3: Awk and how to download files
 

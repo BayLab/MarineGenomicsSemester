@@ -1,5 +1,7 @@
 introduction-to-marine-genomics-semester-edition
 cloud-computing-versus-individual-laptops
+assessment
+final-demonstration
 week-1--welcome
 introduction-to-shell-computing-via-the-data-carpentry-tutorial
 how-to-access-the-shell
