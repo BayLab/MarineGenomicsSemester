@@ -14,7 +14,7 @@ knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6)
 
 # Week 4- What is a Genetic Variant?
 
-You'll find the lecture discussing the definition and identification of genetic variation [here](https://github.com/BayLab/MarineGenomicsSemester/blob/main/ppt/MarineGenomics_Lecture_W4.pdf)
+You'll find the lecture discussing the definition and identification of genetic variation [here](https://github.com/BayLab/MarineGenomicsSemester/blob/main/ppt/MarineGenomics_Lecture_w4.pdf)
 
 We'll be working on the terminal in jetstream for the entirety of this lesson.
 
