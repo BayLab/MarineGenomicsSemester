@@ -12,7 +12,7 @@ output:
 knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6)
 ```
 
-![](./figs/fig_week2/1200px-Bash_Logo_Colored.svg.png)
+![Bash logo 2](./figs/fig_week2/1200px-Bash_Logo_Colored.svg.png)
 
 # Week 2: Working With Files
 

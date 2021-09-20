@@ -10,7 +10,7 @@ description: ""
 
 # Introduction to Marine Genomics Semester edition
 
-![](./figs/intro/MarineGenomics_Icon.jpg)
+![Marine genomics icon](./figs/intro/MarineGenomics_Icon.jpg)
 # Introduction to Marine Genomics Semester edition
 
 Welcome to Marine Genomics. This is a course on learning how to analyze genomic data for undergraduate and graduate students. We focused on marine organisms but these lessons can easily be applied to any taxa. We required that students have a background in biology and have completed the general biology series. Additionally, it is helpful if students have taken a course in Evolution, though this was not a requirement. We did not require any coding experience in R or Bash/UNIX. 
