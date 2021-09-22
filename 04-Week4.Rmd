@@ -11,9 +11,12 @@ output:
 ```{r setup4, include=FALSE}
 knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6)
 ```
-# Week 4- What is a Genetic Variant?
 
-![example of a SNP](./figs/week4/Icon_SNP.png)
+<center>
+
+<img src="figs/week4/Icon_SNP.png" width="300" height="300" />
+
+</center>
 
 # Week 4- What is a Genetic Variant?
 

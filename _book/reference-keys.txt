@@ -92,3 +92,7 @@ practice-exploring-a-dataframe
 subsetting-datasets-logicals
 practice-subsetting-datasetslogicals
 marine-genomics-semester-edition
+exercise-1.1
+exercise-1.2
+exercise-1.3-indexing-by-logical-statements
+week-2-working-with-files-1

@@ -10,7 +10,11 @@ output:
 
 # Week3: Awk and how to download files
 
-![Bash logo](./figs/fig_week2/1200px-Bash_Logo_Colored.svg.png)
+<center>
+
+<img src="figs/fig_week2/1200px-Bash_Logo_Colored.svg.png" width="300" height="300" />
+
+</center>
 
 
 

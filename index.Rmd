@@ -7,10 +7,17 @@ biblio-style: apalike
 link-citations: yes
 description: ""
 ---
+```{r setupintro, include=FALSE}
+knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6, fig.align = "center")
+```
+
 # Marine Genomics Semester edition
+
+<center>
 
 <img src="figs/intro/MarineGenomics_Icon.jpg" width="300" height="300" />
 
+</center>
 
 Welcome to Marine Genomics! This is a course on learning how to analyze genomic data for undergraduate and graduate students. We focused on marine organisms but these lessons can easily be applied to any taxa. We required that students have a background in biology and have completed the general biology series. Additionally, it is helpful if students have taken a course in Evolution, though this was not a requirement. We did not require any coding experience in R or Bash/UNIX. 
 
@@ -35,6 +42,7 @@ Alternatively, these course materials can be used on students and instructors in
 We will be using a transparent module-based form of assessment. For each section of material covered in the course, a module will be released which will consist of several quizzes with multiple-choice questions relevant to that module’s material. These modules will reinforce your understanding of the material and you will be able to take each quiz multiple times to ensure accurate completion. There will be nine modules throughout the course. You will also have the option of submitting short recorded demonstrations that can be recorded through Zoom, for additional graded credit. There is no need to have sound or video showing during these recordings; further instructions will be provided on how to make and submit a recording. The option of submitting a final recorded project demonstration that will showcase multiple skills learned throughout the course will be discussed later in the course, for maximum graded credit. 
 
 ![grade breakdown](./figs/intro/Assesment _figure.jpg)
+
 ## Short recorded demonstrations
 
 The purpose of these demonstrations is to showcase the skills you have learned in the course. There will be a list of possible demonstrations for each module once the assessment for that module is released. These demonstrations will include no more than four related skills per recording. For example, in the bash/UNIX module you could record a demonstration of yourself changing directories, making a new directory, and generating a new file in that new directory, and editing that file. These recordings are expected to be no more than 5-10 minutes long (and many could be recorded in much less time). You are free to choose which module(s) you would like to prepare a demonstration for, with the only restriction being that your three recorded demonstrations must each come from a different module. 

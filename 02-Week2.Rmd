@@ -9,14 +9,17 @@ output:
 ---
 
 ```{r setup2, include=FALSE}
-knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6)
+knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6, fig.align = "center")
 ```
 
 # Week 2: Working With Files
 
-![Bash logo 2](./figs/fig_week2/1200px-Bash_Logo_Colored.svg.png)
+<center>
 
-# Week 2: Working With Files
+<img src="figs/fig_week2/1200px-Bash_Logo_Colored.svg.png" width="300" height="300" />
+
+</center>
+
 
 Before we start, make sure to clone or update the github folder MarineGenomics in the user directory 
 
