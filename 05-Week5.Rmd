@@ -133,10 +133,11 @@ rm(numbers)
 # and make sure it got rid of them
 ls()
 ```
-## Practice R Operations
-> ## EXERCISE 1.1 # 
+
+## EXERCISE 1.1 # 
 
 > 01. Open Rstudio and perform an arithmetic calculation in the command line.
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
@@ -165,7 +166,6 @@ y <- x * 10
 sum(x) - sum(y)
 ```
 
-
 </p>
 </details>        
 
@@ -173,6 +173,7 @@ sum(x) - sum(y)
 > 03. Call the help files for the functions ls() and rm()
 > + What are the arguments for the ls() function?
 > + What does the 'sorted' argument do? 
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
@@ -324,13 +325,12 @@ msleep$total_rem<-msleep$sleep_total/msleep$sleep_rem
 head(msleep)
 ```
 
-
-## Practice exploring a dataframe
-> ## EXERCISE 1.2 
+## EXERCISE 1.2 
 > Reminder of those useful commands: dataframename[row , col], str(), dim(), nrow(), unique(), length(), rownames(), summary(), min(), max(), mean(), range(), levels(), factor(), as.factor(), class(), ncol(), nrow(), table(), sum(), quantile(), var()
 > We'll use the built-in 'iris' dataset. the command: `data(iris)` # this loads the 'iris' dataset. You can view more information about this dataset with `help(iris)` or `?iris`
 
 > 01. How many rows are in the dataset?
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
@@ -344,6 +344,7 @@ nrow(iris)
 
 
 > 02. What are three distinct ways to figure this out? 
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
@@ -357,6 +358,7 @@ nrow(iris)
 &nbsp;
 
 > 03. How many species of flowers are in the dataset?
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
@@ -369,6 +371,7 @@ levels(iris$Species)
 
 
 > 04. What class is iris?
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
@@ -381,6 +384,7 @@ class(iris)
 
 
 > 05. How many columns does this data frame have? What are their names?
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 ```{r, echo=T}
@@ -392,6 +396,7 @@ colnames(iris)
 &nbsp;
 
 > 06. What class did R assign to each column?
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 ```{r, echo=T}
@@ -403,6 +408,7 @@ str(iris)
 
 
 > 07. Assign the first flower's petal's width and length to new objects called setosa1.petalwidth and setosa1.petallength
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 ```{r, echo=T}
@@ -414,6 +420,7 @@ setosa1.petallength<-iris[1,3]
 &nbsp;
 
 > 08. Calculate the approximate area of the petal of the first flower, setosa1 (assume petal area can be approximated by a rectangle).
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 ```{r, echo=T}
@@ -426,6 +433,7 @@ setosa1area2<-setosa1.petalwidth*setosa1.petallength
 
 
 > 09. Calculate the petal area of each flower in the iris dataset and assign this to a new column named PetalArea.
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 ```{r, echo=T}
@@ -437,6 +445,7 @@ iris$PetalArea<-iris$Petal.Length*iris$Petal.Width
 
 
 > 10. What is the maximum sepal length of the irises?
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
@@ -449,6 +458,7 @@ max(iris$Sepal.Length)
 
 
 > 11. What is the average sepal length among all flowers in the dataset?
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 ```{r, echo=T}
@@ -460,6 +470,7 @@ mean(iris$Sepal.Length)
 
 
 > 12. How about the minimum and median sepal length? 
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 ```{r, echo=T}
@@ -473,7 +484,6 @@ median(iris$Sepal.Length)
           
            
 
-We'll continue with this material on Thursday!
 
 ## 1.3 Subsetting datasets & logicals
 
@@ -542,11 +552,14 @@ msleep[which(msleep[,"sleep_total"]>18),]
 # what if we only want to see the bats that sleep more than 18 hours per 24 hour period?
 msleep[which(msleep[,"sleep_total"]>18 & msleep[,"order"] == "Chiroptera"),]
 ```
-## Practice Subsetting datasets/logicals
 
-> ## EXERCISE 1.3 indexing by logical statements
+
+
+## EXERCISE 1.3 indexing by logical statements
+
 > A few useful commands:  "==", "!=", ">", "<", "&", "|", sum(), which(), table(), !
 > 1. Create your own logical vector with three TRUEs and three FALSEs
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
@@ -558,6 +571,7 @@ a ## let's print to screen and make sure it is stored in this variable
 </details>
 
 > 2. Produce a vector of the index number of the `TRUE` values
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
@@ -569,6 +583,7 @@ which(a == TRUE)   ## but sometimes it's reassuring to state exactly what you're
 </details>
 
 > 3. Produce a second vector which indexes the numbers of the falses
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
@@ -581,6 +596,7 @@ which(a == FALSE)
 
 >  Go back to the iris dataset, which can be loaded with data(iris)
 > 4. How many irises have sepals less than 5.5 cm?
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
@@ -593,6 +609,7 @@ length(which(iris[,'Sepal.Length']<5.5))  ## here, which() will only return the 
 </details>
 
 > 5. Which iris individual has the largest petal length? What is the width of it's petal? 
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
@@ -607,6 +624,7 @@ iris[which(iris[,'Petal.Length'] == max(iris[,'Petal.Length'])) , 'Petal.Width']
 </details>
 
 > 6.  How many of the irises are in this dataset belong to the species versicolor?
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
@@ -618,6 +636,7 @@ table(iris[,'Species']) ## this gets us all three species
 </details>
 
 > 7. How many irises have petals longer than 6cm?
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
@@ -628,6 +647,7 @@ sum(iris[,'Petal.Length'] > 6)
 </details>
 
 > 8. Create a vector of species name for each iris with sepals longer than 6cm.
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
@@ -639,6 +659,7 @@ iris[iris[,'Sepal.Length']>6, 'Species'] ## alternatively, we can put the logica
 </details>
 
 > 9. How many irises have sepals shorter than 5cm, but wider than 3cm?
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
@@ -649,6 +670,7 @@ sum( iris[,'Sepal.Length'] < 5 & iris[,'Sepal.Width'] > 3 )
 </details>
 
 > 10. How many irises have petals narrower than 0.2cm or shorter than 1.5cm?
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
@@ -659,6 +681,7 @@ sum( iris[,'Petal.Width'] < 0.2 | iris[,'Petal.Length'] < 1.5 )
 </details>
 
 > 11. What is the average width of *setosa iris* sepals that are longer than 5cm?
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
@@ -670,6 +693,7 @@ mean( iris[iris[,'Sepal.Length'] > 5, 'Sepal.Width'][iris[,'Species']=='setosa']
 </details>
 
 > 12. What is the difference between the longest and shortest petal lengths of the species *virginica*?
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
@@ -679,6 +703,7 @@ max(iris[,'Petal.Length'][iris[,'Species']=='virginica']) - min(iris[,'Petal.Len
 </p>
 </details>
 > 13. What proportion of flowers in the dataset have petals wider than 1cm?
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
@@ -692,6 +717,7 @@ sum(iris[,'Petal.Width'] > 1 ) / nrow(iris) ## here, we're counting up how many 
 >       Subset short values of this column, and set their values to 'short'
 >       (Short sepals are those less than 5.5 cm)
 >       How many plants with short sepals are there? How many long?
+
 <details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 

@@ -74,10 +74,10 @@ manipulating-a-vector-object
 operations-act-on-each-element-of-a-vector
 operations-can-also-work-with-two-vectors
 a-few-tips-below-for-working-with-objects
-practice-r-operations
+exercise-1.1
 characterizing-a-dataframe
 how-to-access-parts-of-the-data
 data-manipulation
-practice-exploring-a-dataframe
+exercise-1.2
 subsetting-datasets-logicals
-practice-subsetting-datasetslogicals
+exercise-1.3-indexing-by-logical-statements
