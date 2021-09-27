@@ -12,7 +12,7 @@ knitr::opts_chunk$set(fig.width = 8, collapse = TRUE)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# For loops and the apply family of functions
+# Week 7 For loops and the apply family of functions
 
 A few useful commands: function(), is.na, which, var, length, for(){ }, 
  points, print, paste, plot, unique, sample

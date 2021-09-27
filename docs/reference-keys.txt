@@ -87,7 +87,7 @@ customizing-your-plot
 exercise-2.1
 plotting-with-ggplot2
 exercise-2.2-plotting-in-ggplot2
-for-loops-and-the-apply-family-of-functions
+week-7-for-loops-and-the-apply-family-of-functions
 apply
 lapply-list-apply
 tapply---per-type-apply
