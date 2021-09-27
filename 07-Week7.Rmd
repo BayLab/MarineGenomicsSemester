@@ -7,6 +7,10 @@ output:
     toc: yes
     css: toc.css
 ---
+```{r setupweek7, include=FALSE}
+knitr::opts_chunk$set(fig.width = 8, collapse = TRUE)
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 # For loops and the apply family of functions
 

@@ -80,12 +80,13 @@ data-manipulation
 exercise-1.2
 subsetting-datasets-logicals
 exercise-1.3-indexing-by-logical-statements
-week-5--r-continued
+week-6--r-continued
 plotting
 scatterplots
 customizing-your-plot
 exercise-2.1
 plotting-with-ggplot2
+exercise-2.2-plotting-in-ggplot2
 for-loops-and-the-apply-family-of-functions
 apply
 lapply-list-apply

@@ -9,11 +9,14 @@ output:
 ---
 
 ```{r setupweek6, include=FALSE}
-knitr::opts_chunk$set(fig.width = 8, collapse = TRUE)
+knitr::opts_chunk$set(fig.width = 6, collapse = TRUE)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Week 5- R Continued
+# Week 6- R Continued
+
+![R icon](./figs/week5/R_icon.png)
+
 We're again drawing some of this material from the STEMinist_R materials which can be found [here](https://github.com/ecalfee/STEMinist_R.git)
 
 ## 2.1 Plotting 
@@ -25,12 +28,12 @@ This class will take place with students typing directly into an R script for th
 
 You can download just the R files for just this week via wget with the following link
 ```{html
-wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week5.tar.gz
+wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week6_semester.tar.gz
 ```
 
 this is a compressed file which can be uncompressed via:
 ```
-tar -xzvf week5.tar.gz
+tar -xzvf week6_semester.tar.gz
 ```
 
 * A few useful commands that we will cover include:
@@ -194,7 +197,7 @@ boxplot(weight ~ Diet,
 #install.packages("RColorBrewer")
 library("RColorBrewer")
 ```
-> 4. Define a color pallete with 10 colors and re-plot the histogram of the weights of the chicks at the final day of the experiments in these colors
+> 5. Define a color pallete with 10 colors and re-plot the histogram of the weights of the chicks at the final day of the experiments in these colors
 Note: if histogram has n breaks and n is less than 10, it will just use first n colors. If n is greater than 10, it will reuse colors.
 
 <details><summary><span style="color: red;">Solution</span></summary>
@@ -308,8 +311,9 @@ ggplot(ChickWeight, aes(x=Time, y=weight, group=Diet, color=Diet))+
   stat_summary(fun.data = mean_se, geom = "errorbar", 
                aes(width=0.1), size=0.5)
 ```
-## Practice Problems 2.2
-> # Exercise 2.2 Plotting in ggplot
+
+## Exercise 2.2 Plotting in ggplot2
+
 > 1. Add best fit lines to our msleep plot for each order.
 
 <details><summary><span style="color: red;">Solution</span></summary>

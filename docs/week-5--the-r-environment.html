@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="week-4--what-is-a-genetic-variant.html"/>
-<link rel="next" href="week-5--r-continued.html"/>
+<link rel="next" href="week-6--r-continued.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -235,13 +235,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.11" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#subsetting-datasets-logicals"><i class="fa fa-check"></i><b>6.11</b> 1.3 Subsetting datasets &amp; logicals</a></li>
 <li class="chapter" data-level="6.12" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#exercise-1.3-indexing-by-logical-statements"><i class="fa fa-check"></i><b>6.12</b> EXERCISE 1.3 indexing by logical statements</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="week-5--r-continued.html"><a href="week-5--r-continued.html"><i class="fa fa-check"></i><b>7</b> Week 5- R Continued</a>
+<li class="chapter" data-level="7" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html"><i class="fa fa-check"></i><b>7</b> Week 6- R Continued</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="week-5--r-continued.html"><a href="week-5--r-continued.html#plotting"><i class="fa fa-check"></i><b>7.1</b> 2.1 Plotting</a></li>
-<li class="chapter" data-level="7.2" data-path="week-5--r-continued.html"><a href="week-5--r-continued.html#scatterplots"><i class="fa fa-check"></i><b>7.2</b> Scatterplots</a></li>
-<li class="chapter" data-level="7.3" data-path="week-5--r-continued.html"><a href="week-5--r-continued.html#customizing-your-plot"><i class="fa fa-check"></i><b>7.3</b> Customizing your plot</a></li>
-<li class="chapter" data-level="7.4" data-path="week-5--r-continued.html"><a href="week-5--r-continued.html#exercise-2.1"><i class="fa fa-check"></i><b>7.4</b> Exercise 2.1</a></li>
-<li class="chapter" data-level="7.5" data-path="week-5--r-continued.html"><a href="week-5--r-continued.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>7.5</b> 2.2 plotting with ggplot2</a></li>
+<li class="chapter" data-level="7.1" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html#plotting"><i class="fa fa-check"></i><b>7.1</b> 2.1 Plotting</a></li>
+<li class="chapter" data-level="7.2" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html#scatterplots"><i class="fa fa-check"></i><b>7.2</b> Scatterplots</a></li>
+<li class="chapter" data-level="7.3" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html#customizing-your-plot"><i class="fa fa-check"></i><b>7.3</b> Customizing your plot</a></li>
+<li class="chapter" data-level="7.4" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html#exercise-2.1"><i class="fa fa-check"></i><b>7.4</b> Exercise 2.1</a></li>
+<li class="chapter" data-level="7.5" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>7.5</b> 2.2 plotting with ggplot2</a></li>
+<li class="chapter" data-level="7.6" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html#exercise-2.2-plotting-in-ggplot2"><i class="fa fa-check"></i><b>7.6</b> Exercise 2.2 Plotting in ggplot2</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="for-loops-and-the-apply-family-of-functions.html"><a href="for-loops-and-the-apply-family-of-functions.html"><i class="fa fa-check"></i><b>8</b> For loops and the apply family of functions</a>
 <ul>
@@ -354,103 +355,129 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">6.5</span> A few tips below for working with objects:</h2>
 <p>We can keep track of what objects R is using, with the functions <code>ls()</code> and <code>objects()</code></p>
 <div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="week-5--the-r-environment.html#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
-<pre><code>#&gt;  [1] &quot;a&quot;                         &quot;animals&quot;                   &quot;c&quot;                        
-#&gt;  [4] &quot;calc_prop&quot;                 &quot;cat&quot;                       &quot;chl_mean&quot;                 
-#&gt;  [7] &quot;chl_range&quot;                 &quot;colors&quot;                    &quot;data&quot;                     
-#&gt; [10] &quot;dif_att_mean&quot;              &quot;dog&quot;                       &quot;ENv&quot;                      
-#&gt; [13] &quot;F1_sal&quot;                    &quot;Family&quot;                    &quot;fig_5&quot;                    
-#&gt; [16] &quot;fig2a&quot;                     &quot;fig2b&quot;                     &quot;fig3a&quot;                    
-#&gt; [19] &quot;fig3b&quot;                     &quot;fig5_data_sel_bs&quot;          &quot;fig5_data_sel_high&quot;       
-#&gt; [22] &quot;fig5_data_sel_low&quot;         &quot;fig5_ID_mean&quot;              &quot;fig5_ID_mean_tog&quot;         
-#&gt; [25] &quot;fig5_mean&quot;                 &quot;fig5_prop_l_150&quot;           &quot;find_modes&quot;               
-#&gt; [28] &quot;freq_150&quot;                  &quot;freq_150_bs&quot;               &quot;freq_150_high&quot;            
-#&gt; [31] &quot;freq_150_low&quot;              &quot;freq_l_150_fams&quot;           &quot;fst&quot;                      
-#&gt; [34] &quot;gen&quot;                       &quot;getmode&quot;                   &quot;high_fam_mean_id_uni&quot;     
-#&gt; [37] &quot;high_mean_id_uni&quot;          &quot;HvL&quot;                       &quot;i&quot;                        
-#&gt; [40] &quot;ID_mean&quot;                   &quot;ID_mean_tog&quot;               &quot;ID_mean_tog_uni&quot;          
-#&gt; [43] &quot;iris&quot;                      &quot;lat&quot;                       &quot;latlongs&quot;                 
-#&gt; [46] &quot;lay&quot;                       &quot;long&quot;                      &quot;low_fam_mean_id_uni&quot;      
-#&gt; [49] &quot;low_mean_id_uni&quot;           &quot;map_pop&quot;                   &quot;map_pop_eggmean&quot;          
-#&gt; [52] &quot;map_pop_eggmean_test&quot;      &quot;map_pop_eggmean_tog&quot;       &quot;map_pop_eggmean_tog_fin&quot;  
-#&gt; [55] &quot;mean_fam&quot;                  &quot;msleep&quot;                    &quot;mymodes&quot;                  
-#&gt; [58] &quot;n&quot;                         &quot;nitr&quot;                      &quot;number&quot;                   
-#&gt; [61] &quot;numbers&quot;                   &quot;p_map_pop&quot;                 &quot;par_mean&quot;                 
-#&gt; [64] &quot;ph&quot;                        &quot;project&quot;                   &quot;prop_data&quot;                
-#&gt; [67] &quot;prop_l_150&quot;                &quot;prop_l_150_l&quot;              &quot;prop_l_final&quot;             
-#&gt; [70] &quot;prop_l_sel&quot;                &quot;prop_sel&quot;                  &quot;setosa1.petallength&quot;      
-#&gt; [73] &quot;setosa1.petalwidth&quot;        &quot;setosa1area2&quot;              &quot;sites&quot;                    
-#&gt; [76] &quot;splity&quot;                    &quot;subsleep&quot;                  &quot;SvN&quot;                      
-#&gt; [79] &quot;test&quot;                      &quot;test.env&quot;                  &quot;the_fams&quot;                 
-#&gt; [82] &quot;tr_msleep&quot;                 &quot;type_150&quot;                  &quot;urch.24inds.snmf&quot;         
-#&gt; [85] &quot;urchin_environ_24&quot;         &quot;urchin_snps_prelim_geno24&quot; &quot;urchin_snps_prelim_lfmm24&quot;
-#&gt; [88] &quot;v&quot;                         &quot;x&quot;                         &quot;y&quot;</code></pre>
+<pre><code>#&gt;   [1] &quot;a&quot;                         &quot;animals&quot;                   &quot;areaCircle&quot;               
+#&gt;   [4] &quot;c&quot;                         &quot;calc_prop&quot;                 &quot;cat&quot;                      
+#&gt;   [7] &quot;ChickWeight&quot;               &quot;chl_mean&quot;                  &quot;chl_range&quot;                
+#&gt;  [10] &quot;colors&quot;                    &quot;data&quot;                      &quot;data_to_plot&quot;             
+#&gt;  [13] &quot;df1&quot;                       &quot;df2&quot;                       &quot;df3&quot;                      
+#&gt;  [16] &quot;df4&quot;                       &quot;dif_att_mean&quot;              &quot;dog&quot;                      
+#&gt;  [19] &quot;ENv&quot;                       &quot;F1_sal&quot;                    &quot;Family&quot;                   
+#&gt;  [22] &quot;fig_5&quot;                     &quot;fig2a&quot;                     &quot;fig2b&quot;                    
+#&gt;  [25] &quot;fig3a&quot;                     &quot;fig3b&quot;                     &quot;fig5_data_sel_bs&quot;         
+#&gt;  [28] &quot;fig5_data_sel_high&quot;        &quot;fig5_data_sel_low&quot;         &quot;fig5_ID_mean&quot;             
+#&gt;  [31] &quot;fig5_ID_mean_tog&quot;          &quot;fig5_mean&quot;                 &quot;fig5_prop_l_150&quot;          
+#&gt;  [34] &quot;find_modes&quot;                &quot;freq_150&quot;                  &quot;freq_150_bs&quot;              
+#&gt;  [37] &quot;freq_150_high&quot;             &quot;freq_150_low&quot;              &quot;freq_l_150_fams&quot;          
+#&gt;  [40] &quot;fst&quot;                       &quot;g&quot;                         &quot;gen&quot;                      
+#&gt;  [43] &quot;getmode&quot;                   &quot;high_fam_mean_id_uni&quot;      &quot;high_mean_id_uni&quot;         
+#&gt;  [46] &quot;HvL&quot;                       &quot;i&quot;                         &quot;ID_mean&quot;                  
+#&gt;  [49] &quot;ID_mean_tog&quot;               &quot;ID_mean_tog_uni&quot;           &quot;il&quot;                       
+#&gt;  [52] &quot;iris&quot;                      &quot;lat&quot;                       &quot;latlongs&quot;                 
+#&gt;  [55] &quot;lay&quot;                       &quot;listy&quot;                     &quot;livability&quot;               
+#&gt;  [58] &quot;long&quot;                      &quot;low_fam_mean_id_uni&quot;       &quot;low_mean_id_uni&quot;          
+#&gt;  [61] &quot;map_pop&quot;                   &quot;map_pop_eggmean&quot;           &quot;map_pop_eggmean_test&quot;     
+#&gt;  [64] &quot;map_pop_eggmean_tog&quot;       &quot;map_pop_eggmean_tog_fin&quot;   &quot;mean_fam&quot;                 
+#&gt;  [67] &quot;msleep&quot;                    &quot;my.colors&quot;                 &quot;my.new&quot;                   
+#&gt;  [70] &quot;my_colors&quot;                 &quot;my_list&quot;                   &quot;mymodes&quot;                  
+#&gt;  [73] &quot;n&quot;                         &quot;nitr&quot;                      &quot;number&quot;                   
+#&gt;  [76] &quot;numbers&quot;                   &quot;p_map_pop&quot;                 &quot;par_mean&quot;                 
+#&gt;  [79] &quot;ph&quot;                        &quot;project&quot;                   &quot;prop_data&quot;                
+#&gt;  [82] &quot;prop_l_150&quot;                &quot;prop_l_150_l&quot;              &quot;prop_l_final&quot;             
+#&gt;  [85] &quot;prop_l_sel&quot;                &quot;prop_sel&quot;                  &quot;setosa1.petallength&quot;      
+#&gt;  [88] &quot;setosa1.petalwidth&quot;        &quot;setosa1area2&quot;              &quot;sites&quot;                    
+#&gt;  [91] &quot;splity&quot;                    &quot;squares&quot;                   &quot;state.abb&quot;                
+#&gt;  [94] &quot;state.area&quot;                &quot;state.center&quot;              &quot;state.division&quot;           
+#&gt;  [97] &quot;state.name&quot;                &quot;state.region&quot;              &quot;state.x77&quot;                
+#&gt; [100] &quot;states&quot;                    &quot;states_standardized&quot;       &quot;subsleep&quot;                 
+#&gt; [103] &quot;SvN&quot;                       &quot;test&quot;                      &quot;test.env&quot;                 
+#&gt; [106] &quot;the_fams&quot;                  &quot;tr_msleep&quot;                 &quot;type_150&quot;                 
+#&gt; [109] &quot;urch.24inds.snmf&quot;          &quot;urchin_environ_24&quot;         &quot;urchin_snps_prelim_geno24&quot;
+#&gt; [112] &quot;urchin_snps_prelim_lfmm24&quot; &quot;v&quot;                         &quot;x&quot;                        
+#&gt; [115] &quot;y&quot;</code></pre>
 <div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="week-5--the-r-environment.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="fu">objects</span>() <span class="co">#returns the same results as ls() in this case. because we only have objects in our environment.</span></span></code></pre></div>
-<pre><code>#&gt;  [1] &quot;a&quot;                         &quot;animals&quot;                   &quot;c&quot;                        
-#&gt;  [4] &quot;calc_prop&quot;                 &quot;cat&quot;                       &quot;chl_mean&quot;                 
-#&gt;  [7] &quot;chl_range&quot;                 &quot;colors&quot;                    &quot;data&quot;                     
-#&gt; [10] &quot;dif_att_mean&quot;              &quot;dog&quot;                       &quot;ENv&quot;                      
-#&gt; [13] &quot;F1_sal&quot;                    &quot;Family&quot;                    &quot;fig_5&quot;                    
-#&gt; [16] &quot;fig2a&quot;                     &quot;fig2b&quot;                     &quot;fig3a&quot;                    
-#&gt; [19] &quot;fig3b&quot;                     &quot;fig5_data_sel_bs&quot;          &quot;fig5_data_sel_high&quot;       
-#&gt; [22] &quot;fig5_data_sel_low&quot;         &quot;fig5_ID_mean&quot;              &quot;fig5_ID_mean_tog&quot;         
-#&gt; [25] &quot;fig5_mean&quot;                 &quot;fig5_prop_l_150&quot;           &quot;find_modes&quot;               
-#&gt; [28] &quot;freq_150&quot;                  &quot;freq_150_bs&quot;               &quot;freq_150_high&quot;            
-#&gt; [31] &quot;freq_150_low&quot;              &quot;freq_l_150_fams&quot;           &quot;fst&quot;                      
-#&gt; [34] &quot;gen&quot;                       &quot;getmode&quot;                   &quot;high_fam_mean_id_uni&quot;     
-#&gt; [37] &quot;high_mean_id_uni&quot;          &quot;HvL&quot;                       &quot;i&quot;                        
-#&gt; [40] &quot;ID_mean&quot;                   &quot;ID_mean_tog&quot;               &quot;ID_mean_tog_uni&quot;          
-#&gt; [43] &quot;iris&quot;                      &quot;lat&quot;                       &quot;latlongs&quot;                 
-#&gt; [46] &quot;lay&quot;                       &quot;long&quot;                      &quot;low_fam_mean_id_uni&quot;      
-#&gt; [49] &quot;low_mean_id_uni&quot;           &quot;map_pop&quot;                   &quot;map_pop_eggmean&quot;          
-#&gt; [52] &quot;map_pop_eggmean_test&quot;      &quot;map_pop_eggmean_tog&quot;       &quot;map_pop_eggmean_tog_fin&quot;  
-#&gt; [55] &quot;mean_fam&quot;                  &quot;msleep&quot;                    &quot;mymodes&quot;                  
-#&gt; [58] &quot;n&quot;                         &quot;nitr&quot;                      &quot;number&quot;                   
-#&gt; [61] &quot;numbers&quot;                   &quot;p_map_pop&quot;                 &quot;par_mean&quot;                 
-#&gt; [64] &quot;ph&quot;                        &quot;project&quot;                   &quot;prop_data&quot;                
-#&gt; [67] &quot;prop_l_150&quot;                &quot;prop_l_150_l&quot;              &quot;prop_l_final&quot;             
-#&gt; [70] &quot;prop_l_sel&quot;                &quot;prop_sel&quot;                  &quot;setosa1.petallength&quot;      
-#&gt; [73] &quot;setosa1.petalwidth&quot;        &quot;setosa1area2&quot;              &quot;sites&quot;                    
-#&gt; [76] &quot;splity&quot;                    &quot;subsleep&quot;                  &quot;SvN&quot;                      
-#&gt; [79] &quot;test&quot;                      &quot;test.env&quot;                  &quot;the_fams&quot;                 
-#&gt; [82] &quot;tr_msleep&quot;                 &quot;type_150&quot;                  &quot;urch.24inds.snmf&quot;         
-#&gt; [85] &quot;urchin_environ_24&quot;         &quot;urchin_snps_prelim_geno24&quot; &quot;urchin_snps_prelim_lfmm24&quot;
-#&gt; [88] &quot;v&quot;                         &quot;x&quot;                         &quot;y&quot;</code></pre>
+<pre><code>#&gt;   [1] &quot;a&quot;                         &quot;animals&quot;                   &quot;areaCircle&quot;               
+#&gt;   [4] &quot;c&quot;                         &quot;calc_prop&quot;                 &quot;cat&quot;                      
+#&gt;   [7] &quot;ChickWeight&quot;               &quot;chl_mean&quot;                  &quot;chl_range&quot;                
+#&gt;  [10] &quot;colors&quot;                    &quot;data&quot;                      &quot;data_to_plot&quot;             
+#&gt;  [13] &quot;df1&quot;                       &quot;df2&quot;                       &quot;df3&quot;                      
+#&gt;  [16] &quot;df4&quot;                       &quot;dif_att_mean&quot;              &quot;dog&quot;                      
+#&gt;  [19] &quot;ENv&quot;                       &quot;F1_sal&quot;                    &quot;Family&quot;                   
+#&gt;  [22] &quot;fig_5&quot;                     &quot;fig2a&quot;                     &quot;fig2b&quot;                    
+#&gt;  [25] &quot;fig3a&quot;                     &quot;fig3b&quot;                     &quot;fig5_data_sel_bs&quot;         
+#&gt;  [28] &quot;fig5_data_sel_high&quot;        &quot;fig5_data_sel_low&quot;         &quot;fig5_ID_mean&quot;             
+#&gt;  [31] &quot;fig5_ID_mean_tog&quot;          &quot;fig5_mean&quot;                 &quot;fig5_prop_l_150&quot;          
+#&gt;  [34] &quot;find_modes&quot;                &quot;freq_150&quot;                  &quot;freq_150_bs&quot;              
+#&gt;  [37] &quot;freq_150_high&quot;             &quot;freq_150_low&quot;              &quot;freq_l_150_fams&quot;          
+#&gt;  [40] &quot;fst&quot;                       &quot;g&quot;                         &quot;gen&quot;                      
+#&gt;  [43] &quot;getmode&quot;                   &quot;high_fam_mean_id_uni&quot;      &quot;high_mean_id_uni&quot;         
+#&gt;  [46] &quot;HvL&quot;                       &quot;i&quot;                         &quot;ID_mean&quot;                  
+#&gt;  [49] &quot;ID_mean_tog&quot;               &quot;ID_mean_tog_uni&quot;           &quot;il&quot;                       
+#&gt;  [52] &quot;iris&quot;                      &quot;lat&quot;                       &quot;latlongs&quot;                 
+#&gt;  [55] &quot;lay&quot;                       &quot;listy&quot;                     &quot;livability&quot;               
+#&gt;  [58] &quot;long&quot;                      &quot;low_fam_mean_id_uni&quot;       &quot;low_mean_id_uni&quot;          
+#&gt;  [61] &quot;map_pop&quot;                   &quot;map_pop_eggmean&quot;           &quot;map_pop_eggmean_test&quot;     
+#&gt;  [64] &quot;map_pop_eggmean_tog&quot;       &quot;map_pop_eggmean_tog_fin&quot;   &quot;mean_fam&quot;                 
+#&gt;  [67] &quot;msleep&quot;                    &quot;my.colors&quot;                 &quot;my.new&quot;                   
+#&gt;  [70] &quot;my_colors&quot;                 &quot;my_list&quot;                   &quot;mymodes&quot;                  
+#&gt;  [73] &quot;n&quot;                         &quot;nitr&quot;                      &quot;number&quot;                   
+#&gt;  [76] &quot;numbers&quot;                   &quot;p_map_pop&quot;                 &quot;par_mean&quot;                 
+#&gt;  [79] &quot;ph&quot;                        &quot;project&quot;                   &quot;prop_data&quot;                
+#&gt;  [82] &quot;prop_l_150&quot;                &quot;prop_l_150_l&quot;              &quot;prop_l_final&quot;             
+#&gt;  [85] &quot;prop_l_sel&quot;                &quot;prop_sel&quot;                  &quot;setosa1.petallength&quot;      
+#&gt;  [88] &quot;setosa1.petalwidth&quot;        &quot;setosa1area2&quot;              &quot;sites&quot;                    
+#&gt;  [91] &quot;splity&quot;                    &quot;squares&quot;                   &quot;state.abb&quot;                
+#&gt;  [94] &quot;state.area&quot;                &quot;state.center&quot;              &quot;state.division&quot;           
+#&gt;  [97] &quot;state.name&quot;                &quot;state.region&quot;              &quot;state.x77&quot;                
+#&gt; [100] &quot;states&quot;                    &quot;states_standardized&quot;       &quot;subsleep&quot;                 
+#&gt; [103] &quot;SvN&quot;                       &quot;test&quot;                      &quot;test.env&quot;                 
+#&gt; [106] &quot;the_fams&quot;                  &quot;tr_msleep&quot;                 &quot;type_150&quot;                 
+#&gt; [109] &quot;urch.24inds.snmf&quot;          &quot;urchin_environ_24&quot;         &quot;urchin_snps_prelim_geno24&quot;
+#&gt; [112] &quot;urchin_snps_prelim_lfmm24&quot; &quot;v&quot;                         &quot;x&quot;                        
+#&gt; [115] &quot;y&quot;</code></pre>
 <div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="week-5--the-r-environment.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="co"># how to get help for a function; you can also write help()</span></span>
 <span id="cb243-2"><a href="week-5--the-r-environment.html#cb243-2" aria-hidden="true" tabindex="-1"></a>?ls</span>
 <span id="cb243-3"><a href="week-5--the-r-environment.html#cb243-3" aria-hidden="true" tabindex="-1"></a><span class="co"># you can get rid of objects you don&#39;t want</span></span>
 <span id="cb243-4"><a href="week-5--the-r-environment.html#cb243-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(numbers)</span>
 <span id="cb243-5"><a href="week-5--the-r-environment.html#cb243-5" aria-hidden="true" tabindex="-1"></a><span class="co"># and make sure it got rid of them</span></span>
 <span id="cb243-6"><a href="week-5--the-r-environment.html#cb243-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
-<pre><code>#&gt;  [1] &quot;a&quot;                         &quot;animals&quot;                   &quot;c&quot;                        
-#&gt;  [4] &quot;calc_prop&quot;                 &quot;cat&quot;                       &quot;chl_mean&quot;                 
-#&gt;  [7] &quot;chl_range&quot;                 &quot;colors&quot;                    &quot;data&quot;                     
-#&gt; [10] &quot;dif_att_mean&quot;              &quot;dog&quot;                       &quot;ENv&quot;                      
-#&gt; [13] &quot;F1_sal&quot;                    &quot;Family&quot;                    &quot;fig_5&quot;                    
-#&gt; [16] &quot;fig2a&quot;                     &quot;fig2b&quot;                     &quot;fig3a&quot;                    
-#&gt; [19] &quot;fig3b&quot;                     &quot;fig5_data_sel_bs&quot;          &quot;fig5_data_sel_high&quot;       
-#&gt; [22] &quot;fig5_data_sel_low&quot;         &quot;fig5_ID_mean&quot;              &quot;fig5_ID_mean_tog&quot;         
-#&gt; [25] &quot;fig5_mean&quot;                 &quot;fig5_prop_l_150&quot;           &quot;find_modes&quot;               
-#&gt; [28] &quot;freq_150&quot;                  &quot;freq_150_bs&quot;               &quot;freq_150_high&quot;            
-#&gt; [31] &quot;freq_150_low&quot;              &quot;freq_l_150_fams&quot;           &quot;fst&quot;                      
-#&gt; [34] &quot;gen&quot;                       &quot;getmode&quot;                   &quot;high_fam_mean_id_uni&quot;     
-#&gt; [37] &quot;high_mean_id_uni&quot;          &quot;HvL&quot;                       &quot;i&quot;                        
-#&gt; [40] &quot;ID_mean&quot;                   &quot;ID_mean_tog&quot;               &quot;ID_mean_tog_uni&quot;          
-#&gt; [43] &quot;iris&quot;                      &quot;lat&quot;                       &quot;latlongs&quot;                 
-#&gt; [46] &quot;lay&quot;                       &quot;long&quot;                      &quot;low_fam_mean_id_uni&quot;      
-#&gt; [49] &quot;low_mean_id_uni&quot;           &quot;map_pop&quot;                   &quot;map_pop_eggmean&quot;          
-#&gt; [52] &quot;map_pop_eggmean_test&quot;      &quot;map_pop_eggmean_tog&quot;       &quot;map_pop_eggmean_tog_fin&quot;  
-#&gt; [55] &quot;mean_fam&quot;                  &quot;msleep&quot;                    &quot;mymodes&quot;                  
-#&gt; [58] &quot;n&quot;                         &quot;nitr&quot;                      &quot;number&quot;                   
-#&gt; [61] &quot;p_map_pop&quot;                 &quot;par_mean&quot;                  &quot;ph&quot;                       
-#&gt; [64] &quot;project&quot;                   &quot;prop_data&quot;                 &quot;prop_l_150&quot;               
-#&gt; [67] &quot;prop_l_150_l&quot;              &quot;prop_l_final&quot;              &quot;prop_l_sel&quot;               
-#&gt; [70] &quot;prop_sel&quot;                  &quot;setosa1.petallength&quot;       &quot;setosa1.petalwidth&quot;       
-#&gt; [73] &quot;setosa1area2&quot;              &quot;sites&quot;                     &quot;splity&quot;                   
-#&gt; [76] &quot;subsleep&quot;                  &quot;SvN&quot;                       &quot;test&quot;                     
-#&gt; [79] &quot;test.env&quot;                  &quot;the_fams&quot;                  &quot;tr_msleep&quot;                
-#&gt; [82] &quot;type_150&quot;                  &quot;urch.24inds.snmf&quot;          &quot;urchin_environ_24&quot;        
-#&gt; [85] &quot;urchin_snps_prelim_geno24&quot; &quot;urchin_snps_prelim_lfmm24&quot; &quot;v&quot;                        
-#&gt; [88] &quot;x&quot;                         &quot;y&quot;</code></pre>
+<pre><code>#&gt;   [1] &quot;a&quot;                         &quot;animals&quot;                   &quot;areaCircle&quot;               
+#&gt;   [4] &quot;c&quot;                         &quot;calc_prop&quot;                 &quot;cat&quot;                      
+#&gt;   [7] &quot;ChickWeight&quot;               &quot;chl_mean&quot;                  &quot;chl_range&quot;                
+#&gt;  [10] &quot;colors&quot;                    &quot;data&quot;                      &quot;data_to_plot&quot;             
+#&gt;  [13] &quot;df1&quot;                       &quot;df2&quot;                       &quot;df3&quot;                      
+#&gt;  [16] &quot;df4&quot;                       &quot;dif_att_mean&quot;              &quot;dog&quot;                      
+#&gt;  [19] &quot;ENv&quot;                       &quot;F1_sal&quot;                    &quot;Family&quot;                   
+#&gt;  [22] &quot;fig_5&quot;                     &quot;fig2a&quot;                     &quot;fig2b&quot;                    
+#&gt;  [25] &quot;fig3a&quot;                     &quot;fig3b&quot;                     &quot;fig5_data_sel_bs&quot;         
+#&gt;  [28] &quot;fig5_data_sel_high&quot;        &quot;fig5_data_sel_low&quot;         &quot;fig5_ID_mean&quot;             
+#&gt;  [31] &quot;fig5_ID_mean_tog&quot;          &quot;fig5_mean&quot;                 &quot;fig5_prop_l_150&quot;          
+#&gt;  [34] &quot;find_modes&quot;                &quot;freq_150&quot;                  &quot;freq_150_bs&quot;              
+#&gt;  [37] &quot;freq_150_high&quot;             &quot;freq_150_low&quot;              &quot;freq_l_150_fams&quot;          
+#&gt;  [40] &quot;fst&quot;                       &quot;g&quot;                         &quot;gen&quot;                      
+#&gt;  [43] &quot;getmode&quot;                   &quot;high_fam_mean_id_uni&quot;      &quot;high_mean_id_uni&quot;         
+#&gt;  [46] &quot;HvL&quot;                       &quot;i&quot;                         &quot;ID_mean&quot;                  
+#&gt;  [49] &quot;ID_mean_tog&quot;               &quot;ID_mean_tog_uni&quot;           &quot;il&quot;                       
+#&gt;  [52] &quot;iris&quot;                      &quot;lat&quot;                       &quot;latlongs&quot;                 
+#&gt;  [55] &quot;lay&quot;                       &quot;listy&quot;                     &quot;livability&quot;               
+#&gt;  [58] &quot;long&quot;                      &quot;low_fam_mean_id_uni&quot;       &quot;low_mean_id_uni&quot;          
+#&gt;  [61] &quot;map_pop&quot;                   &quot;map_pop_eggmean&quot;           &quot;map_pop_eggmean_test&quot;     
+#&gt;  [64] &quot;map_pop_eggmean_tog&quot;       &quot;map_pop_eggmean_tog_fin&quot;   &quot;mean_fam&quot;                 
+#&gt;  [67] &quot;msleep&quot;                    &quot;my.colors&quot;                 &quot;my.new&quot;                   
+#&gt;  [70] &quot;my_colors&quot;                 &quot;my_list&quot;                   &quot;mymodes&quot;                  
+#&gt;  [73] &quot;n&quot;                         &quot;nitr&quot;                      &quot;number&quot;                   
+#&gt;  [76] &quot;p_map_pop&quot;                 &quot;par_mean&quot;                  &quot;ph&quot;                       
+#&gt;  [79] &quot;project&quot;                   &quot;prop_data&quot;                 &quot;prop_l_150&quot;               
+#&gt;  [82] &quot;prop_l_150_l&quot;              &quot;prop_l_final&quot;              &quot;prop_l_sel&quot;               
+#&gt;  [85] &quot;prop_sel&quot;                  &quot;setosa1.petallength&quot;       &quot;setosa1.petalwidth&quot;       
+#&gt;  [88] &quot;setosa1area2&quot;              &quot;sites&quot;                     &quot;splity&quot;                   
+#&gt;  [91] &quot;squares&quot;                   &quot;state.abb&quot;                 &quot;state.area&quot;               
+#&gt;  [94] &quot;state.center&quot;              &quot;state.division&quot;            &quot;state.name&quot;               
+#&gt;  [97] &quot;state.region&quot;              &quot;state.x77&quot;                 &quot;states&quot;                   
+#&gt; [100] &quot;states_standardized&quot;       &quot;subsleep&quot;                  &quot;SvN&quot;                      
+#&gt; [103] &quot;test&quot;                      &quot;test.env&quot;                  &quot;the_fams&quot;                 
+#&gt; [106] &quot;tr_msleep&quot;                 &quot;type_150&quot;                  &quot;urch.24inds.snmf&quot;         
+#&gt; [109] &quot;urchin_environ_24&quot;         &quot;urchin_snps_prelim_geno24&quot; &quot;urchin_snps_prelim_lfmm24&quot;
+#&gt; [112] &quot;v&quot;                         &quot;x&quot;                         &quot;y&quot;</code></pre>
 </div>
 <div id="exercise-1.1" class="section level2" number="6.6">
 <h2><span class="header-section-number">6.6</span> EXERCISE 1.1</h2>
@@ -1389,7 +1416,7 @@ How many plants with short sepals are there? How many long?</li>
         </div>
       </div>
 <a href="week-4--what-is-a-genetic-variant.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="week-5--r-continued.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="week-6--r-continued.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
