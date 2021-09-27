@@ -9,7 +9,7 @@ output:
 ---
 
 ```{r setup4, include=FALSE}
-knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6)
+knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=4)
 ```
 # Week 4- What is a Genetic Variant?
 
