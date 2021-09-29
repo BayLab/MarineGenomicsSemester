@@ -83,8 +83,12 @@ We can change the axes and title labels using "xlab", "ylab", and "main" argumen
 #Choose a pch and make the color blue and give it a bottom+left border
 plot(msleep$sleep_total~msleep$sleep_rem, pch = 16, col="blue", bty="L", xlab="REM Sleep (hours)", ylab= "Total Sleep (hours)") 
 ```
+
 You may want to find out which points are on a plot. You can use `identify()` in place of `plot()` to identify specific points within your plot. This function prints out the row numbers for the points that you selected. 
+
+
 We can also add lines to an existing plot with `ablines()`. Let's add a line fit from a linear model to our plot.
+
 ```{r, label='5-5', echo=T}
 #first make a plot
 plot(msleep$sleep_total~msleep$sleep_rem, pch = 16, col="blue", bty="L", xlab="REM Sleep (hours)", ylab= "Total Sleep (hours)") 
@@ -314,7 +318,7 @@ ggplot(ChickWeight, aes(x=Time, y=weight, group=Diet, color=Diet))+
 
 ## Exercise 2.2 Plotting in ggplot2
 
-> 1. Add best fit lines to our msleep plot for each order.
+> 1. Add best fit lines to our msleep plot for each vore.
 
 <details><summary><span style="color: red;">Solution</span></summary>
 <p>

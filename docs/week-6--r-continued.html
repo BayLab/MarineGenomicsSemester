@@ -334,9 +334,9 @@ Let’s remake the total_sleep against sleep_rem plot and add-in some modifiers<
 We can change the axes and title labels using “xlab,” “ylab,” and “main” arguments. Let’s add labels to our plot.</p>
 <div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="week-6--r-continued.html#cb428-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Choose a pch and make the color blue and give it a bottom+left border</span></span>
 <span id="cb428-2"><a href="week-6--r-continued.html#cb428-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(msleep<span class="sc">$</span>sleep_total<span class="sc">~</span>msleep<span class="sc">$</span>sleep_rem, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">bty=</span><span class="st">&quot;L&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;REM Sleep (hours)&quot;</span>, <span class="at">ylab=</span> <span class="st">&quot;Total Sleep (hours)&quot;</span>) </span></code></pre></div>
-<p><img src="Semester_files/figure-html/5-4-1.png" width="576" style="display: block; margin: auto;" />
-You may want to find out which points are on a plot. You can use <code>identify()</code> in place of <code>plot()</code> to identify specific points within your plot. This function prints out the row numbers for the points that you selected.
-We can also add lines to an existing plot with <code>ablines()</code>. Let’s add a line fit from a linear model to our plot.</p>
+<p><img src="Semester_files/figure-html/5-4-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>You may want to find out which points are on a plot. You can use <code>identify()</code> in place of <code>plot()</code> to identify specific points within your plot. This function prints out the row numbers for the points that you selected.</p>
+<p>We can also add lines to an existing plot with <code>ablines()</code>. Let’s add a line fit from a linear model to our plot.</p>
 <div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="week-6--r-continued.html#cb429-1" aria-hidden="true" tabindex="-1"></a><span class="co">#first make a plot</span></span>
 <span id="cb429-2"><a href="week-6--r-continued.html#cb429-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(msleep<span class="sc">$</span>sleep_total<span class="sc">~</span>msleep<span class="sc">$</span>sleep_rem, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">bty=</span><span class="st">&quot;L&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;REM Sleep (hours)&quot;</span>, <span class="at">ylab=</span> <span class="st">&quot;Total Sleep (hours)&quot;</span>) </span>
 <span id="cb429-3"><a href="week-6--r-continued.html#cb429-3" aria-hidden="true" tabindex="-1"></a><span class="co">#then add a line. The function lm runs a linear model on our x, y values.</span></span>
@@ -576,7 +576,7 @@ Here’s a plot looking at the mean chickweight by diet.</p>
 <h2><span class="header-section-number">7.6</span> Exercise 2.2 Plotting in ggplot2</h2>
 <blockquote>
 <ol style="list-style-type: decimal">
-<li>Add best fit lines to our msleep plot for each order.</li>
+<li>Add best fit lines to our msleep plot for each vore.</li>
 </ol>
 </blockquote>
 <details>
