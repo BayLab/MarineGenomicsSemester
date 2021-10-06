@@ -220,3 +220,19 @@ sapply(colnames(states), function(x)hist(states[ , x],main = x, xlab = x,col = "
 ```
 </p>
 </details>
+
+
+For the final day covering basics in R we will have a coding session where we tackle a challenge exercise on a dataset. 
+
+Please download the exercise here 
+```html
+wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/R_Final_Challenges/chickWeightChallenge_week7_semester.R
+```
+
+
+And the solutions are here
+
+```html
+
+wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/R_Final_Challenges/ChickWeight_Challenge_SOLUTIONS.pdf
+```
