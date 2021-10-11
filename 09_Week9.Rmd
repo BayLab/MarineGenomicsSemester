@@ -1,0 +1,285 @@
+---
+title: 
+author: 
+date: 
+output:
+  bookdown::html_book:
+    toc: yes
+    css: toc.css
+---
+
+```{r setupweek9, include=FALSE}
+knitr::opts_chunk$set(fig.width = 8, echo=F, error=T, message=F)
+knitr::opts_knit$set(root.dir = "C:/Users/SAPCaps/MarineGenomicsSemester/data/Week9_fstouts")
+```
+
+# Week 7- F<sub>st</sub> and outlier analysis
+
+The lecture for this week focused on *F<sub>st</sub>** and outlier analysis can be found [here](https://github.com/BayLab/MarineGenomics/blob/main/ppt/Week7.pdf).
+
+Last week we used PCA to take a broad look at whether populations were genetically distinct. This week we learn how to identify particular SNPs that are driving patterns of divergence between populations. These SNPs could represent signals of selection.
+
+We will import the data and take a first look in **bash** and then we will do analysis and generate the plots in **RStudio**.
+
+## Download the data
+
+We first need to download the data. Use the link below to download it to jetstream, and then us the tar command to un-compress it.
+
+``` {.html}
+wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week9_semester.tar.gz
+tar -xzvf week7.tar.gz
+```
+
+Again this week we are using the data from the [Xuereb et al. paper on P. californicus](https://onlinelibrary.wiley.com/doi/full/10.1111/mec.14589). Our data consists of a SNP file in [VCF format](https://samtools.github.io/hts-specs/VCFv4.2.pdf) and a metadata file which tells you which site each sample came from.
+
+Let's navigate into the Week 7 directory and take a look at the vcf file:
+
+``` {.html}
+cd MarineGenomicsData/Week7/
+head filtered_3699snps_californicus.vcf
+```
+
+## Getting R set up
+
+Now move off of Terminal and open R Studio. The first thing we need to do is download a few different packages. You only need to do this the first time you use each package on your machine.
+
+Today we will be using two different packages: **pcadapt** and **OutFLANK** and both of them have some other packages they need (dependencies). While many packages can be downloaded in R using the `install.packages` function, some cannot because they are stored in specialty repositories. You can see that pcadapt can be downloaded from CRAN using the standard command, but OutFLANK and qvalue need to be downloaded from other sources.
+
+To save all of the progress we make today, first create your own script in the Week7 folder for this week named "Week7Script.R"
+
+```{r, eval=F}
+install.packages("devtools")
+install.packages(c("BiocManager","vcfR","pcadapt"))
+# type "yes" when prompted
+```
+If you have an error reading "Warning in install.packages :
+  package ?BiocManager? is not available for this version of R" Go to "Help", then "Check for Updates" and update your R version. You also may need to restart your R.
+
+```{r, eval=F}
+BiocManager::install("qvalue") 
+# When prompted, type "a" - this will take some time
+library(devtools)
+install_github("whitlock/OutFLANK")
+```
+
+After you have successfully downloaded all the packages needed for today, go ahead and get a new R script started. Remember to do lots of commenting with `#` so it is easy to come back to your code later!
+
+## Finding outliers using pcadapt
+
+Today we will use two different methods to find outliers. The first is based on PCA, which you learned about last week. For this you will use the **pcadapt** package. We will just use a few functions, but you can do a lot with this package; the documentation is found [here](https://bcm-uga.github.io/pcadapt/articles/pcadapt.html#:~:text=pcadapt%20has%20been%20developed%20to,Principal%20Component%20Analysis%20(PCA).&text=A%20total%20of%20150%20individuals,genotyped%20at%201%2C500%20diploid%20markers.)
+
+I always like to call the different R packages I plan to use at the very top of the script so I just have to call them once:
+
+```{r, echo=T}
+library(pcadapt)
+library(qvalue)
+```
+
+Lets start by setting a working directory. I'm going to set it to where we downloaded the data for week 9. I also like to define the paths to my input files at the top of the script, that way if I want to use a slightly different input file or if I want to share my script it's easy to see how to change it.
+
+```{r, eval=F}
+vcf.path="filtered_3699snps_californicus.vcf"
+meta.path="californicus_metadata.csv"
+```
+```{r, include=F}
+vcf.path="filtered_3699snps_californicus.vcf"
+meta.path="californicus_metadata.csv"
+```
+
+Let's read in the genetic data from the VCF file. Because VCF is a common file format for SNP data, pcadapt comes with a special function for reading this type of file. You will get a warning message if you run on your own computer, but don't worry about it.
+
+```{r, warning=F}
+genos <- read.pcadapt(vcf.path,type=c("vcf"))
+```
+
+
+Now let's read in the metadata. This is a CSV (comma separated values) file, which is a spreadsheet-style format that can be output from programs like Excel. The columns are separated with commas. Once you load the file, take a minute to examine the contents.
+
+```{r, echo=T}
+meta <- read.csv(meta.path)
+head(meta)
+```
+
+IMPORTANT NOTE: Here the samples in the VCF are in the same order as the samples in the metadata file. Triple check ahead of time that this is the case otherwise you may get some weird results!
+
+
+Now that we've read in all the data, the first step for pcadapt is to make a PCA. Last week you used PCAngsd to do this, but there are many other packages that work as well. Here's how we do it in pcadapt:
+
+```{r, label='7-1', echo=T, warning=F}
+x <- pcadapt(input=genos,K=5)
+plot(x,option="screeplot")
+```
+
+We can see from this plot that the vast majority of genetic variation can be explained by the first two principal components axes. Now we can plot the actual PCA. Here I will color by the `Group`.
+```{r, label='7-2', echo=T, warning=F}
+plot(x,option="scores",pop=meta$Group)
+```
+
+You can see that there is separation between the North and South Groups, but it is not perfect. Now we want to see which of the >3000 SNPs is driving the variation we see on the PCA
+
+```{r, label='7-3', echo=T}
+plot(x,option="manhattan")
+```
+
+This gives us a visual idea of which SNPs might be associated with population differences. If we want to identify statistical outliers, we first need to adjust the p-values:
+```{r,echo=T}
+qval <- qvalue(x$pvalues)$qvalues
+outliers <- which(qval<0.1)
+length(outliers)
+```
+
+
+## pcadapt Exercises
+
+> # Practice Questions
+>
+> 1.  Perhaps we are particularly interested in SNPs associated with latitude. A first step might be to ask whether either of our PC axes represent latitudinal variation. `x$scores` gives you the PC loadings for each sample along the first and second PC axes. Combine these with the metadata to see whether either PC axes are correlated with latitude (for our purposes you can just visualize the relationship, you don't have to run the statistics.)
+
+<details><summary><span style="color: DarkCyan;">Solution</span></summary>
+<p>
+
+```{r, label='7-4', echo=T}
+plot(x$scores[,1]~meta$LAT,pch=19,col="gray")
+```
+```{r, label='7-5', echo=T}
+plot(x$scores[,2]~meta$LAT,pch=19,col="gray")
+```
+
+</p>
+</details>
+
+> 2.  If we are only interested in SNPs associated with a single principal component, we can get pcadapt to give us correlation scores for each PC axis independently. Using the guidance provided in the documentation [here](https://bcm-uga.github.io/pcadapt/articles/pcadapt.html#h-4-component-wise-genome-scans) make a manhattan plot of SNPs driving variation along the first principal component only
+
+<details><summary><span style="color: DarkCyan;">Solution</span></summary>
+<p>
+
+```{r, label='7-6', echo=T}
+x_cw <- pcadapt(genos,K=2,method ="componentwise")
+plot(x_cw,option="manhattan",K=2)
+```
+</p>
+</details>
+
+## Using F<sub>st</sub> to find outliers
+
+Another way to look for signals of selection is to use F<sub>st</sub>. F<sub>st</sub> is a measure of genetic differentiation between populations. When we use F<sub>st</sub> to test for signals of selection, we ask if any SNPs are more divergent than expected given the genome-wide differentiation.
+
+Let's start by loading a couple libraries:
+```{r, echo=T}
+library(OutFLANK)
+library(vcfR)
+```
+
+We use the *vcfR* library to load the vcf file and extract just the genotypes. Remember there is a lot of information in VCF files, probably more than we want. vcfR has many different functions for extracting just some information so that you can use it any way you want
+
+```{r, echo=T}
+data <- read.vcfR(vcf.path)
+geno <- extract.gt(data)
+dim(geno)
+head(geno[,1:10])
+```
+
+Check out the OutFLANK manual [here](https://htmlpreview.github.io/?https://github.com/whitlock/OutFLANK/blob/master/inst/doc/OutFLANKAnalysis.html). Notice that as our genotypes look like `0/0`, `0/1`, and `1/1`. But OutFLANK wants them to be 0, 1, or 2. The code below fixes this problem:
+
+```{r, echo=T}
+G <- geno  #we are doing this because we will be running a lot of different things with G, and if we mess up we want to be able to go back to geno
+G[geno %in% c("0/0")] <- 0
+G[geno  %in% c("0/1")] <- 1
+G[geno %in% c("1/1")] <- 2
+G[is.na(G)] <- 9
+tG <- t(G)
+dim(tG)
+```
+Now `tG` should be in the input format OutFLANK needs, with SNPs as columns and individuals as rows. Now we can calculate F<sub>st</sub> for each SNP.
+
+For this analysis we are just going to calculate F<sub>st</sub> between the northernmost and the southernmost populations. This is a good time to practice our subsetting skills!
+
+For the second command: we are only taking the rows of tG that are "true", or only taking the rows of tG that have one of these two populations "TBL" or "AK4"
+
+In the third command we are just using a slightly different method for subsetting with the command "subset". If we subset "meta" we should end up with 62 rows (SNPs) and 2 columns (populations). 
+```{r, echo=T}
+subpops <- c("TBL","AK4")
+subgen <- tG[meta$SITE%in%subpops,] #subset method 1
+submeta <- subset(meta,SITE%in%subpops) #subset method 2
+```
+
+Now we should check if these two vectors are identical:
+```{r, echo=T}
+identical(rownames(subgen),as.character(submeta$ID))
+```
+
+Since our genotype matrix and our metadata matrix are in the same order, we can combine them.
+
+
+Now we can calculate F<sub>st</sub> between these two populations:
+locusNames= names our loci 1,2,3 etc
+popNames= names our populations with the "SITE" labels
+```{r, echo=T}
+fst <- MakeDiploidFSTMat(subgen,locusNames=1:ncol(subgen),popNames=submeta$SITE)
+head(fst)
+```
+```{r, label='7-7', echo=T}
+hist(fst$FST,breaks=50)
+summary(fst$FST) #highest FST is higher than the mean (which is a good sign)
+```
+**Reminder:**
+He= heterozygosity
+FST= measure of differentiation
+
+Once we've calculated F<sub>st</sub> between the two populations for each SNP individually, we want to determine whether some SNPs are **statistical outliers** - that is, more differentiated than we would expect. OutFLANK does this by fitting a Chi-Squared distribution to the data and looking to see if the tails of the Chi-Squared distribution have more SNPs than expected:
+
+```{r, label='7-8', echo=T}
+OF <- OutFLANK(fst,LeftTrimFraction=0.01,RightTrimFraction=0.01,
+         Hmin=0.05,NumberOfSamples=2,qthreshold=0.01)
+OutFLANKResultsPlotter(OF,withOutliers=T,
+                       NoCorr=T,Hmin=0.1,binwidth=0.005,
+                       Zoom=F,RightZoomFraction=0.05,titletext=NULL)
+```
+FSTbar=mean FST across the whole genome
+The yellow bars are the histogram of the FST values
+The blue line is the Chi-Squared Distribution fit to the data
+*It is hard to fit the Chi-Squared Distribution to a population with high gene flow, aka this method doesn't work great for marine species* We will just progress forward, but keep this in mind for any future work you may do.
+
+It's a little hard to tell from these plots, but there may be some SNPs with high F<sub>st</sub> even where the distribution predicts there should be none. To find these SNPs, we ask **which SNPs are statistical outliers?**
+
+```{r, echo=T}
+P1 <- pOutlierFinderChiSqNoCorr(fst,Fstbar=OF$FSTNoCorrbar,
+                                dfInferred=OF$dfInferred,qthreshold=0.05,Hmin=0.1)
+outliers <- P1$OutlierFlag==TRUE #which of the SNPs are outliers?
+table(outliers)
+```
+This doesn't add up to 3699... so some of the SNPs were not even tested. This is okay because there is an internal program that doesn't test any SNPs with extremely low heterozygosity.
+
+
+Looks like there are **17 outlier SNPs.** Now we can make a manhattan plot! We can even plot the outliers in a different color:
+```{r, label='7-9', echo=T}
+plot(P1$LocusName,P1$FST,xlab="Position",ylab="FST",col=rgb(0,0,0,alpha=0.1))
+points(P1$LocusName[outliers],P1$FST[outliers],col="magenta")
+```
+
+## OutFLANK Practice
+
+> # Practice Questions
+>
+> 1.  We tested for Fst outliers between just the northernmost and southernmost sampling sites. Do we get more outliers that we expect between any two sites? Choose two sites within the northern and southern groups and see if there are any outliers.
+
+<details><summary><span style="color: DarkCyan;">Solution</span></summary>
+<p>
+
+```{r, echo=T}
+subpops <- c("AK3","AK4")
+subgen <- tG[meta$SITE%in%subpops,]
+submeta <- subset(meta,SITE%in%subpops)
+identical(rownames(subgen),as.character(submeta$ID))
+fst <- MakeDiploidFSTMat(subgen,locusNames=1:ncol(subgen),popNames=submeta$SITE)
+OF <- OutFLANK(fst,LeftTrimFraction=0.01,RightTrimFraction=0.01,
+         Hmin=0.05,NumberOfSamples=2,qthreshold=0.01)
+P1 <- pOutlierFinderChiSqNoCorr(fst,Fstbar=OF$FSTNoCorrbar,
+                                dfInferred=OF$dfInferred,qthreshold=0.05,Hmin=0.1)
+outliers <- P1$OutlierFlag==TRUE
+table(outliers)
+#FALSE  TRUE 
+# 1284     1 
+```
+</p>
+</details>
