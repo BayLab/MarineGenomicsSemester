@@ -10,6 +10,7 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6)
+knitr::opts_knit$set(root.dir = "C:/Users/SAPCaps/MarineGenomicsSemester/")
 ```
 
 # Week 1- Welcome!
