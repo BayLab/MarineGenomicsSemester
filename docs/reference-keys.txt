@@ -99,7 +99,7 @@ run-pcangsd-on-our-data
 setting-up-a-new-project-in-r
 reading-data-into-r
 exercises
-week-7--fst-and-outlier-analysis
+week-9--fst-and-outlier-analysis
 download-the-data-1
 getting-r-set-up
 finding-outliers-using-pcadapt

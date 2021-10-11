@@ -13,7 +13,7 @@ knitr::opts_chunk$set(fig.width = 8, echo=F, error=T, message=F)
 knitr::opts_knit$set(root.dir = "C:/Users/SAPCaps/MarineGenomicsSemester/data/Week9_fstouts")
 ```
 
-# Week 7- F<sub>st</sub> and outlier analysis
+# Week 9- F<sub>st</sub> and outlier analysis
 
 The lecture for this week focused on *F<sub>st</sub>** and outlier analysis can be found [here](https://github.com/BayLab/MarineGenomics/blob/main/ppt/Week7.pdf).
 
@@ -32,10 +32,10 @@ tar -xzvf week7.tar.gz
 
 Again this week we are using the data from the [Xuereb et al. paper on P. californicus](https://onlinelibrary.wiley.com/doi/full/10.1111/mec.14589). Our data consists of a SNP file in [VCF format](https://samtools.github.io/hts-specs/VCFv4.2.pdf) and a metadata file which tells you which site each sample came from.
 
-Let's navigate into the Week 7 directory and take a look at the vcf file:
+Let's navigate into the Week 9 directory and take a look at the vcf file:
 
 ``` {.html}
-cd MarineGenomicsData/Week7/
+cd MarineGenomics/Week9
 head filtered_3699snps_californicus.vcf
 ```
 
