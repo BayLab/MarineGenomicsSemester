@@ -388,19 +388,6 @@ Hint use the command <code>read.table(gzfile("path/to/genotypelikelihoodfile/), 
 <span style="color: goldenrod;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="week-8--principle-component-analyses.html#cb344-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read in the data</span></span>
-<span id="cb344-2"><a href="week-8--principle-component-analyses.html#cb344-2" aria-hidden="true" tabindex="-1"></a><span class="co">#read in genotype likelihood data and filter by all individuals</span></span>
-<span id="cb344-3"><a href="week-8--principle-component-analyses.html#cb344-3" aria-hidden="true" tabindex="-1"></a>gen<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="fu">gzfile</span>(<span class="st">&quot;genolike_beagle.mafs.gz&quot;</span>), <span class="at">header=</span>T)</span>
-<span id="cb344-4"><a href="week-8--principle-component-analyses.html#cb344-4" aria-hidden="true" tabindex="-1"></a><span class="co">#filter by nind == 15</span></span>
-<span id="cb344-5"><a href="week-8--principle-component-analyses.html#cb344-5" aria-hidden="true" tabindex="-1"></a>gen_allIND<span class="ot">&lt;-</span>gen[gen<span class="sc">$</span>nInd<span class="sc">==</span><span class="dv">15</span>,]</span>
-<span id="cb344-6"><a href="week-8--principle-component-analyses.html#cb344-6" aria-hidden="true" tabindex="-1"></a><span class="co">#find how many SNPs we had in the first dataset</span></span>
-<span id="cb344-7"><a href="week-8--principle-component-analyses.html#cb344-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(gen)</span>
-<span id="cb344-8"><a href="week-8--principle-component-analyses.html#cb344-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 282950      7</span></span>
-<span id="cb344-9"><a href="week-8--principle-component-analyses.html#cb344-9" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 282950      7</span></span>
-<span id="cb344-10"><a href="week-8--principle-component-analyses.html#cb344-10" aria-hidden="true" tabindex="-1"></a><span class="co">#how many do we have in the filtered dataset?</span></span>
-<span id="cb344-11"><a href="week-8--principle-component-analyses.html#cb344-11" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(gen_allIND)</span>
-<span id="cb344-12"><a href="week-8--principle-component-analyses.html#cb344-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 31905     7</span></span>
-<span id="cb344-13"><a href="week-8--principle-component-analyses.html#cb344-13" aria-hidden="true" tabindex="-1"></a><span class="co">#[1] 31905     7</span></span></code></pre></div>
 </p>
 </details>
 <blockquote>
@@ -416,16 +403,6 @@ Hint use the command <code>read.table(gzfile("path/to/genotypelikelihoodfile/), 
 <span style="color: goldenrod;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="week-8--principle-component-analyses.html#cb345-1" aria-hidden="true" tabindex="-1"></a><span class="do">## read in the beagle formatted data</span></span>
-<span id="cb345-2"><a href="week-8--principle-component-analyses.html#cb345-2" aria-hidden="true" tabindex="-1"></a>beag<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="fu">gzfile</span>(<span class="st">&quot;genolike_beagle.beagle.gz&quot;</span>), <span class="at">header=</span>T)</span>
-<span id="cb345-3"><a href="week-8--principle-component-analyses.html#cb345-3" aria-hidden="true" tabindex="-1"></a><span class="co">#look at the column names between the two datasets</span></span>
-<span id="cb345-4"><a href="week-8--principle-component-analyses.html#cb345-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(gen)</span>
-<span id="cb345-5"><a href="week-8--principle-component-analyses.html#cb345-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;chromo&quot;   &quot;position&quot; &quot;major&quot;    &quot;minor&quot;    &quot;knownEM&quot;  &quot;pK.EM&quot;    &quot;nInd&quot;</span></span>
-<span id="cb345-6"><a href="week-8--principle-component-analyses.html#cb345-6" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(beag)</span>
-<span id="cb345-7"><a href="week-8--principle-component-analyses.html#cb345-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;marker&quot;  &quot;allele1&quot; &quot;allele2&quot; &quot;Ind0&quot;    &quot;Ind0.1&quot;  &quot;Ind0.2&quot;  &quot;Ind1&quot;    &quot;Ind1.1&quot;  &quot;Ind1.2&quot;  &quot;Ind2&quot;    &quot;Ind2.1&quot;  &quot;Ind2.2&quot;  &quot;Ind3&quot;    &quot;Ind3.1&quot; </span></span>
-<span id="cb345-8"><a href="week-8--principle-component-analyses.html#cb345-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [15] &quot;Ind3.2&quot;  &quot;Ind4&quot;    &quot;Ind4.1&quot;  &quot;Ind4.2&quot;  &quot;Ind5&quot;    &quot;Ind5.1&quot;  &quot;Ind5.2&quot;  &quot;Ind6&quot;    &quot;Ind6.1&quot;  &quot;Ind6.2&quot;  &quot;Ind7&quot;    &quot;Ind7.1&quot;  &quot;Ind7.2&quot;  &quot;Ind8&quot;   </span></span>
-<span id="cb345-9"><a href="week-8--principle-component-analyses.html#cb345-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [29] &quot;Ind8.1&quot;  &quot;Ind8.2&quot;  &quot;Ind9&quot;    &quot;Ind9.1&quot;  &quot;Ind9.2&quot;  &quot;Ind10&quot;   &quot;Ind10.1&quot; &quot;Ind10.2&quot; &quot;Ind11&quot;   &quot;Ind11.1&quot; &quot;Ind11.2&quot; &quot;Ind12&quot;   &quot;Ind12.1&quot; &quot;Ind12.2&quot;</span></span>
-<span id="cb345-10"><a href="week-8--principle-component-analyses.html#cb345-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [43] &quot;Ind13&quot;   &quot;Ind13.1&quot; &quot;Ind13.2&quot; &quot;Ind14&quot;   &quot;Ind14.1&quot; &quot;Ind14.2&quot;</span></span></code></pre></div>
 <p>annoyingly the beagle formatted data merges the chromo and position columns of the maf dataframe</p>
 <p>two solutions:
 1. we could split the columns in beag to match chromo and position
@@ -433,49 +410,12 @@ Hint use the command <code>read.table(gzfile("path/to/genotypelikelihoodfile/), 
 <p>since we need the beagle format to run pcangsd lets do option 2.</p>
 <p>we’ll use the paste() function to to this</p>
 <p>we’ll make a new column in gen that is labeled marker to match the beagle column</p>
-<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="week-8--principle-component-analyses.html#cb346-1" aria-hidden="true" tabindex="-1"></a>gen_allIND<span class="sc">$</span>marker<span class="ot">&lt;-</span><span class="fu">paste</span>(gen_allIND<span class="sc">$</span>chromo, gen_allIND<span class="sc">$</span>position, <span class="at">sep=</span><span class="st">&quot;_&quot;</span>)</span>
-<span id="cb346-2"><a href="week-8--principle-component-analyses.html#cb346-2" aria-hidden="true" tabindex="-1"></a><span class="co">#then merge them by the marker column</span></span>
-<span id="cb346-3"><a href="week-8--principle-component-analyses.html#cb346-3" aria-hidden="true" tabindex="-1"></a>beag_allIND<span class="ot">&lt;-</span><span class="fu">merge</span>(gen_allIND, beag, <span class="at">by=</span><span class="st">&quot;marker&quot;</span>)</span>
-<span id="cb346-4"><a href="week-8--principle-component-analyses.html#cb346-4" aria-hidden="true" tabindex="-1"></a><span class="co">#that should return a dataframe with 31905 rows and 55 columns</span></span>
-<span id="cb346-5"><a href="week-8--principle-component-analyses.html#cb346-5" aria-hidden="true" tabindex="-1"></a><span class="co">#pcangsd doesn&#39;t want those extra columns that came from our merge</span></span>
-<span id="cb346-6"><a href="week-8--principle-component-analyses.html#cb346-6" aria-hidden="true" tabindex="-1"></a><span class="co">#lets get rid of them to leave the 48 columns that beagle needs.</span></span>
-<span id="cb346-7"><a href="week-8--principle-component-analyses.html#cb346-7" aria-hidden="true" tabindex="-1"></a><span class="co">#use colnames to see which ones we want</span></span>
-<span id="cb346-8"><a href="week-8--principle-component-analyses.html#cb346-8" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(beag_allIND)</span>
-<span id="cb346-9"><a href="week-8--principle-component-analyses.html#cb346-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;marker&quot;   &quot;chromo&quot;   &quot;position&quot; &quot;major&quot;    &quot;minor&quot;    &quot;knownEM&quot;  &quot;pK.EM&quot;    &quot;nInd&quot;     &quot;allele1&quot;  &quot;allele2&quot;  &quot;Ind0&quot;     &quot;Ind0.1&quot;  </span></span>
-<span id="cb346-10"><a href="week-8--principle-component-analyses.html#cb346-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [13] &quot;Ind0.2&quot;   &quot;Ind1&quot;     &quot;Ind1.1&quot;   &quot;Ind1.2&quot;   &quot;Ind2&quot;     &quot;Ind2.1&quot;   &quot;Ind2.2&quot;   &quot;Ind3&quot;     &quot;Ind3.1&quot;   &quot;Ind3.2&quot;   &quot;Ind4&quot;     &quot;Ind4.1&quot;  </span></span>
-<span id="cb346-11"><a href="week-8--principle-component-analyses.html#cb346-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [25] &quot;Ind4.2&quot;   &quot;Ind5&quot;     &quot;Ind5.1&quot;   &quot;Ind5.2&quot;   &quot;Ind6&quot;     &quot;Ind6.1&quot;   &quot;Ind6.2&quot;   &quot;Ind7&quot;     &quot;Ind7.1&quot;   &quot;Ind7.2&quot;   &quot;Ind8&quot;     &quot;Ind8.1&quot;  </span></span>
-<span id="cb346-12"><a href="week-8--principle-component-analyses.html#cb346-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [37] &quot;Ind8.2&quot;   &quot;Ind9&quot;     &quot;Ind9.1&quot;   &quot;Ind9.2&quot;   &quot;Ind10&quot;    &quot;Ind10.1&quot;  &quot;Ind10.2&quot;  &quot;Ind11&quot;    &quot;Ind11.1&quot;  &quot;Ind11.2&quot;  &quot;Ind12&quot;    &quot;Ind12.1&quot; </span></span>
-<span id="cb346-13"><a href="week-8--principle-component-analyses.html#cb346-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [49] &quot;Ind12.2&quot;  &quot;Ind13&quot;    &quot;Ind13.1&quot;  &quot;Ind13.2&quot;  &quot;Ind14&quot;    &quot;Ind14.1&quot;  &quot;Ind14.2&quot;</span></span>
-<span id="cb346-14"><a href="week-8--principle-component-analyses.html#cb346-14" aria-hidden="true" tabindex="-1"></a><span class="co">#we want the first column and then columns 9-55</span></span>
-<span id="cb346-15"><a href="week-8--principle-component-analyses.html#cb346-15" aria-hidden="true" tabindex="-1"></a>beag_allIND_final<span class="ot">&lt;-</span>beag_allIND[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">9</span><span class="sc">:</span><span class="dv">55</span>)]</span>
-<span id="cb346-16"><a href="week-8--principle-component-analyses.html#cb346-16" aria-hidden="true" tabindex="-1"></a><span class="co">#now we have a dataframe with 31905 rows and 48 columns</span></span>
-<span id="cb346-17"><a href="week-8--principle-component-analyses.html#cb346-17" aria-hidden="true" tabindex="-1"></a><span class="co">#let&#39;s write a table that we can use to run in pcangsd</span></span>
-<span id="cb346-18"><a href="week-8--principle-component-analyses.html#cb346-18" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(beag_allIND_final, <span class="st">&quot;geno_like_filt_allIND.beagle&quot;</span>, </span>
-<span id="cb346-19"><a href="week-8--principle-component-analyses.html#cb346-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,</span>
-<span id="cb346-20"><a href="week-8--principle-component-analyses.html#cb346-20" aria-hidden="true" tabindex="-1"></a>            <span class="at">row.names =</span> F)</span>
-<span id="cb346-21"><a href="week-8--principle-component-analyses.html#cb346-21" aria-hidden="true" tabindex="-1"></a><span class="co">#by default write.table outputs a dataframe with row names we dont want that</span></span>
-<span id="cb346-22"><a href="week-8--principle-component-analyses.html#cb346-22" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb346-23"><a href="week-8--principle-component-analyses.html#cb346-23" aria-hidden="true" tabindex="-1"></a><span class="do">### This writes a file to our Marine Genomics data directory. </span></span>
-<span id="cb346-24"><a href="week-8--principle-component-analyses.html#cb346-24" aria-hidden="true" tabindex="-1"></a><span class="co"># pcangsd needs the file to be gzipped</span></span></code></pre></div>
-<div class="sourceCode" id="cb347"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb347-1"><a href="week-8--principle-component-analyses.html#cb347-1" aria-hidden="true" tabindex="-1"></a>$ gzip geno_like_filt_allIND.beagle</span>
-<span id="cb347-2"><a href="week-8--principle-component-analyses.html#cb347-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb347-3"><a href="week-8--principle-component-analyses.html#cb347-3" aria-hidden="true" tabindex="-1"></a># and now we can run our pcangsd code</span>
-<span id="cb347-4"><a href="week-8--principle-component-analyses.html#cb347-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb347-5"><a href="week-8--principle-component-analyses.html#cb347-5" aria-hidden="true" tabindex="-1"></a>$ python3 ../../pcangsd/pcangsd.py -beagle geno_like_filt_allIND.beagle.gz -o pca_out_allind -threads 28</span></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb344-1"><a href="week-8--principle-component-analyses.html#cb344-1" aria-hidden="true" tabindex="-1"></a>$ gzip geno_like_filt_allIND.beagle</span>
+<span id="cb344-2"><a href="week-8--principle-component-analyses.html#cb344-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb344-3"><a href="week-8--principle-component-analyses.html#cb344-3" aria-hidden="true" tabindex="-1"></a># and now we can run our pcangsd code</span>
+<span id="cb344-4"><a href="week-8--principle-component-analyses.html#cb344-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb344-5"><a href="week-8--principle-component-analyses.html#cb344-5" aria-hidden="true" tabindex="-1"></a>$ python3 ../../pcangsd/pcangsd.py -beagle geno_like_filt_allIND.beagle.gz -o pca_out_allind -threads 28</span></code></pre></div>
 <p>and then we can go back to R and rerun our code to calculate the eigenvalues and eigenvectors for this covariance matrix.</p>
-<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="week-8--principle-component-analyses.html#cb348-1" aria-hidden="true" tabindex="-1"></a><span class="co">#read in the new covariance matrix                               </span></span>
-<span id="cb348-2"><a href="week-8--principle-component-analyses.html#cb348-2" aria-hidden="true" tabindex="-1"></a>cov_allind<span class="ot">&lt;-</span><span class="fu">as.matrix</span>(<span class="fu">read.table</span>(<span class="st">&quot;pca_out_allind.cov&quot;</span>))</span>
-<span id="cb348-3"><a href="week-8--principle-component-analyses.html#cb348-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning in file(file, &quot;rt&quot;): cannot open file &#39;pca_out_allind.cov&#39;: No such file or directory</span></span>
-<span id="cb348-4"><a href="week-8--principle-component-analyses.html#cb348-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;as.matrix&#39;: cannot open the connection</span></span>
-<span id="cb348-5"><a href="week-8--principle-component-analyses.html#cb348-5" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate eigenvalues</span></span>
-<span id="cb348-6"><a href="week-8--principle-component-analyses.html#cb348-6" aria-hidden="true" tabindex="-1"></a>e_allind<span class="ot">&lt;-</span><span class="fu">eigen</span>(cov_allind)</span>
-<span id="cb348-7"><a href="week-8--principle-component-analyses.html#cb348-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in as.matrix(x): object &#39;cov_allind&#39; not found</span></span></code></pre></div>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="week-8--principle-component-analyses.html#cb349-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plot the data</span></span>
-<span id="cb349-2"><a href="week-8--principle-component-analyses.html#cb349-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(e_allind<span class="sc">$</span>vectors[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
-<span id="cb349-3"><a href="week-8--principle-component-analyses.html#cb349-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;plot&#39;: object &#39;e_allind&#39; not found</span></span>
-<span id="cb349-4"><a href="week-8--principle-component-analyses.html#cb349-4" aria-hidden="true" tabindex="-1"></a><span class="co">#how much variance does our pc explain</span></span>
-<span id="cb349-5"><a href="week-8--principle-component-analyses.html#cb349-5" aria-hidden="true" tabindex="-1"></a>e_allind<span class="sc">$</span>values<span class="sc">/</span><span class="fu">sum</span>(e_allind<span class="sc">$</span>values)                              </span>
-<span id="cb349-6"><a href="week-8--principle-component-analyses.html#cb349-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in eval(expr, envir, enclos): object &#39;e_allind&#39; not found</span></span></code></pre></div>
 </p>
 </details>
 <blockquote>
@@ -488,19 +428,6 @@ Hint use the command <code>read.table(gzfile("path/to/genotypelikelihoodfile/), 
 <span style="color: goldenrod;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="week-8--principle-component-analyses.html#cb350-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we need to use the function as.data.frame to make our matrix a dataframe.</span></span>
-<span id="cb350-2"><a href="week-8--principle-component-analyses.html#cb350-2" aria-hidden="true" tabindex="-1"></a>M<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(e_allind<span class="sc">$</span>vectors[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>])</span>
-<span id="cb350-3"><a href="week-8--principle-component-analyses.html#cb350-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;as.data.frame&#39;: object &#39;e_allind&#39; not found</span></span>
-<span id="cb350-4"><a href="week-8--principle-component-analyses.html#cb350-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb350-5"><a href="week-8--principle-component-analyses.html#cb350-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>M, <span class="fu">aes</span>(<span class="at">y=</span>V1, <span class="at">x=</span>V2, <span class="at">group=</span><span class="fu">as.factor</span>(names<span class="sc">$</span>V3), <span class="at">color=</span><span class="fu">as.factor</span>(names<span class="sc">$</span>V3)))<span class="sc">+</span></span>
-<span id="cb350-6"><a href="week-8--principle-component-analyses.html#cb350-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb350-7"><a href="week-8--principle-component-analyses.html#cb350-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
-<span id="cb350-8"><a href="week-8--principle-component-analyses.html#cb350-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name=</span><span class="st">&quot;Region&quot;</span>, </span>
-<span id="cb350-9"><a href="week-8--principle-component-analyses.html#cb350-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;North&quot;</span>, </span>
-<span id="cb350-10"><a href="week-8--principle-component-analyses.html#cb350-10" aria-hidden="true" tabindex="-1"></a>                                <span class="st">&quot;South&quot;</span>), <span class="at">values =</span></span>
-<span id="cb350-11"><a href="week-8--principle-component-analyses.html#cb350-11" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">c</span>(<span class="st">&quot;a&quot;</span><span class="ot">=</span><span class="st">&quot;slateblue&quot;</span>, </span>
-<span id="cb350-12"><a href="week-8--principle-component-analyses.html#cb350-12" aria-hidden="true" tabindex="-1"></a>                         <span class="st">&quot;b&quot;</span><span class="ot">=</span><span class="st">&quot;green&quot;</span>)) </span>
-<span id="cb350-13"><a href="week-8--principle-component-analyses.html#cb350-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in ggplot(data = M, aes(y = V1, x = V2, group = as.factor(names$V3), : object &#39;M&#39; not found</span></span></code></pre></div>
 </p>
 </details>
 

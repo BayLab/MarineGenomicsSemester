@@ -173,7 +173,7 @@ Hint use the command `read.table(gzfile("path/to/genotypelikelihoodfile/), heade
 <details><summary><span style="color: goldenrod;">Solution</span></summary>
 <p>
 
-```{r, echo=T}
+```{r eval=FALSE, include=FALSE}
 # read in the data
 #read in genotype likelihood data and filter by all individuals
 gen<-read.table(gzfile("genolike_beagle.mafs.gz"), header=T)
@@ -196,7 +196,7 @@ dim(gen_allIND)
 <details><summary><span style="color: goldenrod;">Solution</span></summary>
 <p>
 
-```{r, echo=T}
+```{r eval=FALSE, include=FALSE}
 ## read in the beagle formatted data
 beag<-read.table(gzfile("genolike_beagle.beagle.gz"), header=T)
 #look at the column names between the two datasets
@@ -216,7 +216,7 @@ we'll use the paste() function to to this
 
 we'll make a new column in gen that is labeled marker to match the beagle column
 
-```{r, echo=T}
+```{r eval=FALSE, include=FALSE}
 gen_allIND$marker<-paste(gen_allIND$chromo, gen_allIND$position, sep="_")
 #then merge them by the marker column
 beag_allIND<-merge(gen_allIND, beag, by="marker")
@@ -246,14 +246,14 @@ $ gzip geno_like_filt_allIND.beagle
 $ python3 ../../pcangsd/pcangsd.py -beagle geno_like_filt_allIND.beagle.gz -o pca_out_allind -threads 28
 ```
  and then we can go back to R and rerun our code to calculate the eigenvalues and eigenvectors for this covariance matrix. 
-```{r, echo=T}
+```{r eval=FALSE, include=FALSE}
 #read in the new covariance matrix                               
 cov_allind<-as.matrix(read.table("pca_out_allind.cov"))
 #calculate eigenvalues
 e_allind<-eigen(cov_allind)
 ```
 
-```{r, label='6-3', echo=T}
+```{r eval=FALSE, include=FALSE, label='6-3'}
 #plot the data
 plot(e_allind$vectors[,1:2])
 #how much variance does our pc explain
@@ -269,7 +269,7 @@ e_allind$values/sum(e_allind$values)
 <details><summary><span style="color: goldenrod;">Solution</span></summary>
 <p>
 
-```{r, label='6-4', echo=T}
+```{r eval=FALSE, include=FALSE, label='6-4'}
 # we need to use the function as.data.frame to make our matrix a dataframe.
 M<-as.data.frame(e_allind$vectors[,1:3])
 library(ggplot2)
