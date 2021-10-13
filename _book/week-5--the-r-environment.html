@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Week 5- The R environment | Semester.knit</title>
+  <title>6 Week 5- The R environment | Semester.knit</title>
   <meta name="description" content="" />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Week 5- The R environment | Semester.knit" />
+  <meta property="og:title" content="6 Week 5- The R environment | Semester.knit" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Week 5- The R environment | Semester.knit" />
+  <meta name="twitter:title" content="6 Week 5- The R environment | Semester.knit" />
   
   
   
@@ -30,9 +30,10 @@
   
   
 <link rel="prev" href="week-4--what-is-a-genetic-variant.html"/>
-
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<link rel="next" href="week-6--r-continued.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -40,7 +41,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -132,10 +132,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Marine Genomics Semester</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction to Marine Genomics Semester edition</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Marine Genomics Semester edition</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#cloud-computing-versus-individual-laptops"><i class="fa fa-check"></i><b>1.1</b> Cloud computing versus individual laptops</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#assessment"><i class="fa fa-check"></i><b>1.2</b> Assessment</a></li>
@@ -227,13 +227,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#operations-act-on-each-element-of-a-vector"><i class="fa fa-check"></i><b>6.3</b> Operations act on each element of a vector:</a></li>
 <li class="chapter" data-level="6.4" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#operations-can-also-work-with-two-vectors"><i class="fa fa-check"></i><b>6.4</b> Operations can also work with two vectors:</a></li>
 <li class="chapter" data-level="6.5" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#a-few-tips-below-for-working-with-objects"><i class="fa fa-check"></i><b>6.5</b> A few tips below for working with objects:</a></li>
-<li class="chapter" data-level="6.6" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#practice-r-operations"><i class="fa fa-check"></i><b>6.6</b> Practice R Operations</a></li>
+<li class="chapter" data-level="6.6" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#exercise-1.1"><i class="fa fa-check"></i><b>6.6</b> EXERCISE 1.1</a></li>
 <li class="chapter" data-level="6.7" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#characterizing-a-dataframe"><i class="fa fa-check"></i><b>6.7</b> 1.2 Characterizing a dataframe</a></li>
 <li class="chapter" data-level="6.8" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#how-to-access-parts-of-the-data"><i class="fa fa-check"></i><b>6.8</b> How to access parts of the data:</a></li>
 <li class="chapter" data-level="6.9" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#data-manipulation"><i class="fa fa-check"></i><b>6.9</b> Data Manipulation</a></li>
-<li class="chapter" data-level="6.10" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#practice-exploring-a-dataframe"><i class="fa fa-check"></i><b>6.10</b> Practice exploring a dataframe</a></li>
+<li class="chapter" data-level="6.10" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#exercise-1.2"><i class="fa fa-check"></i><b>6.10</b> EXERCISE 1.2</a></li>
 <li class="chapter" data-level="6.11" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#subsetting-datasets-logicals"><i class="fa fa-check"></i><b>6.11</b> 1.3 Subsetting datasets &amp; logicals</a></li>
-<li class="chapter" data-level="6.12" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#practice-subsetting-datasetslogicals"><i class="fa fa-check"></i><b>6.12</b> Practice Subsetting datasets/logicals</a></li>
+<li class="chapter" data-level="6.12" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#exercise-1.3-indexing-by-logical-statements"><i class="fa fa-check"></i><b>6.12</b> EXERCISE 1.3 indexing by logical statements</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html"><i class="fa fa-check"></i><b>7</b> Week 6- R Continued</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html#plotting"><i class="fa fa-check"></i><b>7.1</b> 2.1 Plotting</a></li>
+<li class="chapter" data-level="7.2" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html#scatterplots"><i class="fa fa-check"></i><b>7.2</b> Scatterplots</a></li>
+<li class="chapter" data-level="7.3" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html#customizing-your-plot"><i class="fa fa-check"></i><b>7.3</b> Customizing your plot</a></li>
+<li class="chapter" data-level="7.4" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html#exercise-2.1"><i class="fa fa-check"></i><b>7.4</b> Exercise 2.1</a></li>
+<li class="chapter" data-level="7.5" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>7.5</b> 2.2 plotting with ggplot2</a></li>
+<li class="chapter" data-level="7.6" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html#exercise-2.2-plotting-in-ggplot2"><i class="fa fa-check"></i><b>7.6</b> Exercise 2.2 Plotting in ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="week-7-for-loops-and-the-apply-family-of-functions.html"><a href="week-7-for-loops-and-the-apply-family-of-functions.html"><i class="fa fa-check"></i><b>8</b> Week 7 For loops and the apply family of functions</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="week-7-for-loops-and-the-apply-family-of-functions.html"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#apply-family"><i class="fa fa-check"></i><b>8.1</b> apply family</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="week-7-for-loops-and-the-apply-family-of-functions.html"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#sapply"><i class="fa fa-check"></i><b>8.1.1</b> sapply</a></li>
+<li class="chapter" data-level="8.1.2" data-path="week-7-for-loops-and-the-apply-family-of-functions.html"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#apply"><i class="fa fa-check"></i><b>8.1.2</b> apply</a></li>
+<li class="chapter" data-level="8.1.3" data-path="week-7-for-loops-and-the-apply-family-of-functions.html"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#lapply-list-apply"><i class="fa fa-check"></i><b>8.1.3</b> lapply – “list” apply</a></li>
+<li class="chapter" data-level="8.1.4" data-path="week-7-for-loops-and-the-apply-family-of-functions.html"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#tapply---per-type-apply"><i class="fa fa-check"></i><b>8.1.4</b> tapply - “per Type” apply</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="week-7-for-loops-and-the-apply-family-of-functions.html"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#exercise-2.3-apply-and-tapply"><i class="fa fa-check"></i><b>8.2</b> Exercise 2.3 apply and tapply</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="week-8--principle-component-analyses.html"><a href="week-8--principle-component-analyses.html"><i class="fa fa-check"></i><b>9</b> Week 8- Principle Component Analyses</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="week-8--principle-component-analyses.html"><a href="week-8--principle-component-analyses.html#download-the-data"><i class="fa fa-check"></i><b>9.1</b> Download the data</a></li>
+<li class="chapter" data-level="9.2" data-path="week-8--principle-component-analyses.html"><a href="week-8--principle-component-analyses.html#installing-programs"><i class="fa fa-check"></i><b>9.2</b> Installing programs</a></li>
+<li class="chapter" data-level="9.3" data-path="week-8--principle-component-analyses.html"><a href="week-8--principle-component-analyses.html#run-pcangsd-on-our-data"><i class="fa fa-check"></i><b>9.3</b> Run pcangsd on our data</a></li>
+<li class="chapter" data-level="9.4" data-path="week-8--principle-component-analyses.html"><a href="week-8--principle-component-analyses.html#setting-up-a-new-project-in-r"><i class="fa fa-check"></i><b>9.4</b> Setting up a new project in R</a></li>
+<li class="chapter" data-level="9.5" data-path="week-8--principle-component-analyses.html"><a href="week-8--principle-component-analyses.html#reading-data-into-r"><i class="fa fa-check"></i><b>9.5</b> Reading data into R</a></li>
+<li class="chapter" data-level="9.6" data-path="week-8--principle-component-analyses.html"><a href="week-8--principle-component-analyses.html#exercises"><i class="fa fa-check"></i><b>9.6</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="week-9--fst-and-outlier-analysis.html"><a href="week-9--fst-and-outlier-analysis.html"><i class="fa fa-check"></i><b>10</b> Week 9- F<sub>st</sub> and outlier analysis</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="week-9--fst-and-outlier-analysis.html"><a href="week-9--fst-and-outlier-analysis.html#download-the-data-1"><i class="fa fa-check"></i><b>10.1</b> Download the data</a></li>
+<li class="chapter" data-level="10.2" data-path="week-9--fst-and-outlier-analysis.html"><a href="week-9--fst-and-outlier-analysis.html#getting-r-set-up"><i class="fa fa-check"></i><b>10.2</b> Getting R set up</a></li>
+<li class="chapter" data-level="10.3" data-path="week-9--fst-and-outlier-analysis.html"><a href="week-9--fst-and-outlier-analysis.html#finding-outliers-using-pcadapt"><i class="fa fa-check"></i><b>10.3</b> Finding outliers using pcadapt</a></li>
+<li class="chapter" data-level="10.4" data-path="week-9--fst-and-outlier-analysis.html"><a href="week-9--fst-and-outlier-analysis.html#pcadapt-exercises"><i class="fa fa-check"></i><b>10.4</b> pcadapt Exercises</a></li>
+<li class="chapter" data-level="10.5" data-path="week-9--fst-and-outlier-analysis.html"><a href="week-9--fst-and-outlier-analysis.html#using-fst-to-find-outliers"><i class="fa fa-check"></i><b>10.5</b> Using F<sub>st</sub> to find outliers</a></li>
+<li class="chapter" data-level="10.6" data-path="week-9--fst-and-outlier-analysis.html"><a href="week-9--fst-and-outlier-analysis.html#outflank-practice"><i class="fa fa-check"></i><b>10.6</b> OutFLANK Practice</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -256,10 +294,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="week-5--the-r-environment" class="section level1" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Week 5- The R environment</h1>
+<h1><span class="header-section-number">6</span> Week 5- The R environment</h1>
 <div class="figure">
 <img src="figs/week5/R_icon.png" alt="" />
-<p class="caption">R_icon</p>
+<p class="caption">R icon</p>
 </div>
 <p>This lesson is modified from materials of the STEMinist_R lessons produced by several UC Davis graduate student and which can be found <a href="https://github.com/ecalfee/STEMinist_R.git">here</a>. The lessons were shortened here to fit into two sessions 75 minute sessions.</p>
 <p>These materials are evenly divided between live coding examples performed by the instructor and exercises performed by the students.</p>
@@ -351,21 +389,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb39-4"><a href="week-5--the-r-environment.html#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;animals&quot; &quot;cat&quot;     &quot;dog&quot;     &quot;n&quot;       &quot;number&quot;  &quot;y&quot;</code></pre>
 </div>
-<div id="practice-r-operations" class="section level2" number="6.6">
-<h2><span class="header-section-number">6.6</span> Practice R Operations</h2>
-<blockquote>
-<h2 id="exercise-1.1">EXERCISE 1.1</h2>
-</blockquote>
+<div id="exercise-1.1" class="section level2" number="6.6">
+<h2><span class="header-section-number">6.6</span> EXERCISE 1.1</h2>
 <blockquote>
 <ol style="list-style-type: decimal">
-<li>Open Rstudio and perform an arithmetic calculation in the command line.
+<li>Open Rstudio and perform an arithmetic calculation in the command line.</li>
+</ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
-<p></li>
-</ol>
-</blockquote>
+<p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="week-5--the-r-environment.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">#this can be whatever you decide to do!</span></span>
 <span id="cb41-2"><a href="week-5--the-r-environment.html#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">*</span><span class="dv">134</span></span></code></pre></div>
 <pre><code>## [1] 670</code></pre>
@@ -404,14 +439,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <ul>
 <li>What are the arguments for the ls() function?</li>
-<li>What does the ‘sorted’ argument do?
+<li>What does the ‘sorted’ argument do?</li>
+</ul>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
-<p></li>
-</ul>
-</blockquote>
+<p>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="week-5--the-r-environment.html#cb49-1" aria-hidden="true" tabindex="-1"></a>?ls</span>
 <span id="cb49-2"><a href="week-5--the-r-environment.html#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="co">#From the help file:    sorted is a logical indicating if the resulting character should be sorted alphabetically. Note that this is part of ls() may take most of the time.</span></span></code></pre></div>
 </p>
@@ -680,23 +715,22 @@ Think about “rc cola” or “remote control car” to remember that [5,] mean
 ## 6 Three-~ Brad~ herbi Pilo~ &lt;NA&gt;                14.4       2.2       0.767   9.6
 ## # ... with 3 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;, total_rem &lt;dbl&gt;</code></pre>
 </div>
-<div id="practice-exploring-a-dataframe" class="section level2" number="6.10">
-<h2><span class="header-section-number">6.10</span> Practice exploring a dataframe</h2>
+<div id="exercise-1.2" class="section level2" number="6.10">
+<h2><span class="header-section-number">6.10</span> EXERCISE 1.2</h2>
 <blockquote>
-<h2 id="exercise-1.2">EXERCISE 1.2</h2>
 <p>Reminder of those useful commands: dataframename[row , col], str(), dim(), nrow(), unique(), length(), rownames(), summary(), min(), max(), mean(), range(), levels(), factor(), as.factor(), class(), ncol(), nrow(), table(), sum(), quantile(), var()
 We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code> # this loads the ‘iris’ dataset. You can view more information about this dataset with <code>help(iris)</code> or <code>?iris</code></p>
 </blockquote>
 <blockquote>
 <ol style="list-style-type: decimal">
-<li>How many rows are in the dataset?
+<li>How many rows are in the dataset?</li>
+</ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
-<p></li>
-</ol>
-</blockquote>
+<p>
 <div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="week-5--the-r-environment.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
 <span id="cb98-2"><a href="week-5--the-r-environment.html#cb98-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(iris)</span></code></pre></div>
 <pre><code>## [1] 150</code></pre>
@@ -705,14 +739,14 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <p> </p>
 <blockquote>
 <ol start="2" style="list-style-type: decimal">
-<li>What are three distinct ways to figure this out?
+<li>What are three distinct ways to figure this out?</li>
+</ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
-<p></li>
-</ol>
-</blockquote>
+<p>
 <div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="week-5--the-r-environment.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co">#nrows</span></span>
 <span id="cb100-2"><a href="week-5--the-r-environment.html#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="co">#str</span></span>
 <span id="cb100-3"><a href="week-5--the-r-environment.html#cb100-3" aria-hidden="true" tabindex="-1"></a><span class="co">#dim</span></span></code></pre></div>
@@ -721,14 +755,14 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <p> </p>
 <blockquote>
 <ol start="3" style="list-style-type: decimal">
-<li>How many species of flowers are in the dataset?
+<li>How many species of flowers are in the dataset?</li>
+</ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
-<p></li>
-</ol>
-</blockquote>
+<p>
 <div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="week-5--the-r-environment.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(iris<span class="sc">$</span>Species)</span></code></pre></div>
 <pre><code>## [1] &quot;setosa&quot;     &quot;versicolor&quot; &quot;virginica&quot;</code></pre>
 </p>
@@ -736,14 +770,14 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <p> </p>
 <blockquote>
 <ol start="4" style="list-style-type: decimal">
-<li>What class is iris?
+<li>What class is iris?</li>
+</ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
-<p></li>
-</ol>
-</blockquote>
+<p>
 <div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="week-5--the-r-environment.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(iris)</span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
 </p>
@@ -751,14 +785,14 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <p> </p>
 <blockquote>
 <ol start="5" style="list-style-type: decimal">
-<li>How many columns does this data frame have? What are their names?
+<li>How many columns does this data frame have? What are their names?</li>
+</ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
-<p></li>
-</ol>
-</blockquote>
+<p>
 <div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="week-5--the-r-environment.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(iris)</span></code></pre></div>
 <pre><code>## [1] &quot;Sepal.Length&quot; &quot;Sepal.Width&quot;  &quot;Petal.Length&quot; &quot;Petal.Width&quot;  &quot;Species&quot;</code></pre>
 </p>
@@ -766,14 +800,14 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <p> </p>
 <blockquote>
 <ol start="6" style="list-style-type: decimal">
-<li>What class did R assign to each column?
+<li>What class did R assign to each column?</li>
+</ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
-<p></li>
-</ol>
-</blockquote>
+<p>
 <div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="week-5--the-r-environment.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(iris)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    150 obs. of  5 variables:
 ##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
@@ -786,14 +820,14 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <p> </p>
 <blockquote>
 <ol start="7" style="list-style-type: decimal">
-<li>Assign the first flower’s petal’s width and length to new objects called setosa1.petalwidth and setosa1.petallength
+<li>Assign the first flower’s petal’s width and length to new objects called setosa1.petalwidth and setosa1.petallength</li>
+</ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
-<p></li>
-</ol>
-</blockquote>
+<p>
 <div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="week-5--the-r-environment.html#cb109-1" aria-hidden="true" tabindex="-1"></a>setosa1.petalwidth<span class="ot">&lt;-</span>iris[<span class="dv">1</span>,<span class="dv">2</span>]</span>
 <span id="cb109-2"><a href="week-5--the-r-environment.html#cb109-2" aria-hidden="true" tabindex="-1"></a>setosa1.petallength<span class="ot">&lt;-</span>iris[<span class="dv">1</span>,<span class="dv">3</span>]</span></code></pre></div>
 </p>
@@ -801,14 +835,14 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <p> </p>
 <blockquote>
 <ol start="8" style="list-style-type: decimal">
-<li>Calculate the approximate area of the petal of the first flower, setosa1 (assume petal area can be approximated by a rectangle).
+<li>Calculate the approximate area of the petal of the first flower, setosa1 (assume petal area can be approximated by a rectangle).</li>
+</ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
-<p></li>
-</ol>
-</blockquote>
+<p>
 <div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="week-5--the-r-environment.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="co">#using our premade objects</span></span>
 <span id="cb110-2"><a href="week-5--the-r-environment.html#cb110-2" aria-hidden="true" tabindex="-1"></a>setosa1area2<span class="ot">&lt;-</span>setosa1.petalwidth<span class="sc">*</span>setosa1.petallength</span></code></pre></div>
 </p>
@@ -816,28 +850,28 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <p> </p>
 <blockquote>
 <ol start="9" style="list-style-type: decimal">
-<li>Calculate the petal area of each flower in the iris dataset and assign this to a new column named PetalArea.
+<li>Calculate the petal area of each flower in the iris dataset and assign this to a new column named PetalArea.</li>
+</ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
-<p></li>
-</ol>
-</blockquote>
+<p>
 <div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="week-5--the-r-environment.html#cb111-1" aria-hidden="true" tabindex="-1"></a>iris<span class="sc">$</span>PetalArea<span class="ot">&lt;-</span>iris<span class="sc">$</span>Petal.Length<span class="sc">*</span>iris<span class="sc">$</span>Petal.Width</span></code></pre></div>
 </p>
 </details>
 <p> </p>
 <blockquote>
 <ol start="10" style="list-style-type: decimal">
-<li>What is the maximum sepal length of the irises?
+<li>What is the maximum sepal length of the irises?</li>
+</ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
-<p></li>
-</ol>
-</blockquote>
+<p>
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="week-5--the-r-environment.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(iris<span class="sc">$</span>Sepal.Length)</span></code></pre></div>
 <pre><code>## [1] 7.9</code></pre>
 </p>
@@ -845,14 +879,14 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <p> </p>
 <blockquote>
 <ol start="11" style="list-style-type: decimal">
-<li>What is the average sepal length among all flowers in the dataset?
+<li>What is the average sepal length among all flowers in the dataset?</li>
+</ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
-<p></li>
-</ol>
-</blockquote>
+<p>
 <div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="week-5--the-r-environment.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(iris<span class="sc">$</span>Sepal.Length)</span></code></pre></div>
 <pre><code>## [1] 5.843333</code></pre>
 </p>
@@ -860,14 +894,14 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <p> </p>
 <blockquote>
 <ol start="12" style="list-style-type: decimal">
-<li>How about the minimum and median sepal length?
+<li>How about the minimum and median sepal length?</li>
+</ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
-<p></li>
-</ol>
-</blockquote>
+<p>
 <div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="week-5--the-r-environment.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(iris<span class="sc">$</span>Sepal.Length)</span></code></pre></div>
 <pre><code>## [1] 4.3</code></pre>
 <div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="week-5--the-r-environment.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(iris<span class="sc">$</span>Sepal.Length)</span></code></pre></div>
@@ -875,7 +909,6 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 </p>
 </details>
 <p> </p>
-<p>We’ll continue with this material on Thursday!</p>
 </div>
 <div id="subsetting-datasets-logicals" class="section level2" number="6.11">
 <h2><span class="header-section-number">6.11</span> 1.3 Subsetting datasets &amp; logicals</h2>
@@ -1047,18 +1080,17 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 ## 2 Littl~ Myotis inse~ Chir~ &lt;NA&gt;                19.9       2         0.2     4.1
 ## # ... with 3 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;, total_rem &lt;dbl&gt;</code></pre>
 </div>
-<div id="practice-subsetting-datasetslogicals" class="section level2" number="6.12">
-<h2><span class="header-section-number">6.12</span> Practice Subsetting datasets/logicals</h2>
+<div id="exercise-1.3-indexing-by-logical-statements" class="section level2" number="6.12">
+<h2><span class="header-section-number">6.12</span> EXERCISE 1.3 indexing by logical statements</h2>
 <blockquote>
-<h2 id="exercise-1.3-indexing-by-logical-statements">EXERCISE 1.3 indexing by logical statements</h2>
-A few useful commands: “==,” “!=,” “&gt;,” “&lt;,” “&amp;,” “|,” sum(), which(), table(), !
-1. Create your own logical vector with three TRUEs and three FALSEs
+<p>A few useful commands: “==,” “!=,” “&gt;,” “&lt;,” “&amp;,” “|,” sum(), which(), table(), !
+1. Create your own logical vector with three TRUEs and three FALSEs</p>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-</blockquote>
 <div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="week-5--the-r-environment.html#cb172-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">=</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
 <span id="cb172-2"><a href="week-5--the-r-environment.html#cb172-2" aria-hidden="true" tabindex="-1"></a>a <span class="do">## let&#39;s print to screen and make sure it is stored in this variable</span></span></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE FALSE FALSE  TRUE FALSE</code></pre>
@@ -1066,14 +1098,14 @@ A few useful commands: “==,” “!=,” “&gt;,” “&lt;,” “&amp;,” 
 </details>
 <blockquote>
 <ol start="2" style="list-style-type: decimal">
-<li>Produce a vector of the index number of the <code>TRUE</code> values
+<li>Produce a vector of the index number of the <code>TRUE</code> values</li>
+</ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
-<p></li>
-</ol>
-</blockquote>
+<p>
 <div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="week-5--the-r-environment.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(a)  <span class="do">## which gives you the index of TRUE values automatically</span></span></code></pre></div>
 <pre><code>## [1] 1 2 5</code></pre>
 <div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="week-5--the-r-environment.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(a <span class="sc">==</span> <span class="cn">TRUE</span>)   <span class="do">## but sometimes it&#39;s reassuring to state exactly what you&#39;re doing</span></span></code></pre></div>
@@ -1082,14 +1114,14 @@ A few useful commands: “==,” “!=,” “&gt;,” “&lt;,” “&amp;,” 
 </details>
 <blockquote>
 <ol start="3" style="list-style-type: decimal">
-<li>Produce a second vector which indexes the numbers of the falses
+<li>Produce a second vector which indexes the numbers of the falses</li>
+</ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
-<p></li>
-</ol>
-</blockquote>
+<p>
 <div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="week-5--the-r-environment.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="sc">!</span>a)</span></code></pre></div>
 <pre><code>## [1] 3 4 6</code></pre>
 <div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="week-5--the-r-environment.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(a <span class="sc">==</span> <span class="cn">FALSE</span>)</span></code></pre></div>
@@ -1097,14 +1129,14 @@ A few useful commands: “==,” “!=,” “&gt;,” “&lt;,” “&amp;,” 
 </p>
 </details>
 <blockquote>
-Go back to the iris dataset, which can be loaded with data(iris)
-4. How many irises have sepals less than 5.5 cm?
+<p>Go back to the iris dataset, which can be loaded with data(iris)
+4. How many irises have sepals less than 5.5 cm?</p>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-</blockquote>
 <div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="week-5--the-r-environment.html#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)  <span class="do">## this reloads the data set in case you&#39;ve closed R since using iris</span></span>
 <span id="cb182-2"><a href="week-5--the-r-environment.html#cb182-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(iris[,<span class="st">&#39;Sepal.Length&#39;</span>]<span class="sc">&lt;</span><span class="fl">5.5</span>)  <span class="do">## remember TRUE&#39;s are 1 and FALSE&#39;s are 0</span></span></code></pre></div>
 <pre><code>## [1] 52</code></pre>
@@ -1114,14 +1146,14 @@ Go back to the iris dataset, which can be loaded with data(iris)
 </details>
 <blockquote>
 <ol start="5" style="list-style-type: decimal">
-<li>Which iris individual has the largest petal length? What is the width of it’s petal?
+<li>Which iris individual has the largest petal length? What is the width of it’s petal?</li>
+</ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
-<p></li>
-</ol>
-</blockquote>
+<p>
 <div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="week-5--the-r-environment.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>])  <span class="do">## this gives us the length of the longest petal</span></span></code></pre></div>
 <pre><code>## [1] 6.9</code></pre>
 <div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="week-5--the-r-environment.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>] <span class="sc">==</span> <span class="fu">max</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>]))  <span class="do">## this gives us the index of the individual with the longest petal</span></span></code></pre></div>
@@ -1135,14 +1167,14 @@ Go back to the iris dataset, which can be loaded with data(iris)
 </details>
 <blockquote>
 <ol start="6" style="list-style-type: decimal">
-<li>How many of the irises are in this dataset belong to the species versicolor?
+<li>How many of the irises are in this dataset belong to the species versicolor?</li>
+</ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
-<p></li>
-</ol>
-</blockquote>
+<p>
 <div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="week-5--the-r-environment.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(iris[,<span class="st">&#39;Species&#39;</span>]<span class="sc">==</span><span class="st">&#39;versicolor&#39;</span>)</span></code></pre></div>
 <pre><code>## [1] 50</code></pre>
 <div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="week-5--the-r-environment.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(iris[,<span class="st">&#39;Species&#39;</span>]) <span class="do">## this gets us all three species</span></span></code></pre></div>
@@ -1153,28 +1185,28 @@ Go back to the iris dataset, which can be loaded with data(iris)
 </details>
 <blockquote>
 <ol start="7" style="list-style-type: decimal">
-<li>How many irises have petals longer than 6cm?
+<li>How many irises have petals longer than 6cm?</li>
+</ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
-<p></li>
-</ol>
-</blockquote>
+<p>
 <div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="week-5--the-r-environment.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>] <span class="sc">&gt;</span> <span class="dv">6</span>)</span></code></pre></div>
 <pre><code>## [1] 9</code></pre>
 </p>
 </details>
 <blockquote>
 <ol start="8" style="list-style-type: decimal">
-<li>Create a vector of species name for each iris with sepals longer than 6cm.
+<li>Create a vector of species name for each iris with sepals longer than 6cm.</li>
+</ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
-<p></li>
-</ol>
-</blockquote>
+<p>
 <div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="week-5--the-r-environment.html#cb200-1" aria-hidden="true" tabindex="-1"></a>iris[,<span class="st">&#39;Species&#39;</span>][iris[,<span class="st">&#39;Sepal.Length&#39;</span>]<span class="sc">&gt;</span><span class="dv">6</span>]</span></code></pre></div>
 <pre><code>##  [1] versicolor versicolor versicolor versicolor versicolor versicolor
 ##  [7] versicolor versicolor versicolor versicolor versicolor versicolor
@@ -1205,42 +1237,42 @@ Go back to the iris dataset, which can be loaded with data(iris)
 </details>
 <blockquote>
 <ol start="9" style="list-style-type: decimal">
-<li>How many irises have sepals shorter than 5cm, but wider than 3cm?
+<li>How many irises have sepals shorter than 5cm, but wider than 3cm?</li>
+</ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
-<p></li>
-</ol>
-</blockquote>
+<p>
 <div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="week-5--the-r-environment.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>( iris[,<span class="st">&#39;Sepal.Length&#39;</span>] <span class="sc">&lt;</span> <span class="dv">5</span> <span class="sc">&amp;</span> iris[,<span class="st">&#39;Sepal.Width&#39;</span>] <span class="sc">&gt;</span> <span class="dv">3</span> )</span></code></pre></div>
 <pre><code>## [1] 13</code></pre>
 </p>
 </details>
 <blockquote>
 <ol start="10" style="list-style-type: decimal">
-<li>How many irises have petals narrower than 0.2cm or shorter than 1.5cm?
+<li>How many irises have petals narrower than 0.2cm or shorter than 1.5cm?</li>
+</ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
-<p></li>
-</ol>
-</blockquote>
+<p>
 <div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="week-5--the-r-environment.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>( iris[,<span class="st">&#39;Petal.Width&#39;</span>] <span class="sc">&lt;</span> <span class="fl">0.2</span> <span class="sc">|</span> iris[,<span class="st">&#39;Petal.Length&#39;</span>] <span class="sc">&lt;</span> <span class="fl">1.5</span> )</span></code></pre></div>
 <pre><code>## [1] 26</code></pre>
 </p>
 </details>
 <blockquote>
 <ol start="11" style="list-style-type: decimal">
-<li>What is the average width of <em>setosa iris</em> sepals that are longer than 5cm?
+<li>What is the average width of <em>setosa iris</em> sepals that are longer than 5cm?</li>
+</ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
-<p></li>
-</ol>
-</blockquote>
+<p>
 <div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="week-5--the-r-environment.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>( iris[,<span class="st">&#39;Sepal.Width&#39;</span>][iris[,<span class="st">&#39;Sepal.Length&#39;</span>] <span class="sc">&gt;</span> <span class="dv">5</span>][iris[,<span class="st">&#39;Species&#39;</span>]<span class="sc">==</span><span class="st">&#39;setosa&#39;</span>]) <span class="do">## convince yourself the second part is a logical vector that subsets iris[,&#39;Sepal.Width&#39;]</span></span></code></pre></div>
 <pre><code>## [1] 3.22</code></pre>
 <div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="week-5--the-r-environment.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>( iris[iris[,<span class="st">&#39;Sepal.Length&#39;</span>] <span class="sc">&gt;</span> <span class="dv">5</span>, <span class="st">&#39;Sepal.Width&#39;</span>][iris[,<span class="st">&#39;Species&#39;</span>]<span class="sc">==</span><span class="st">&#39;setosa&#39;</span>]) <span class="do">## again, we can alternatively subset using logical vectors in the row position</span></span></code></pre></div>
@@ -1249,28 +1281,28 @@ Go back to the iris dataset, which can be loaded with data(iris)
 </details>
 <blockquote>
 <ol start="12" style="list-style-type: decimal">
-<li>What is the difference between the longest and shortest petal lengths of the species <em>virginica</em>?
+<li>What is the difference between the longest and shortest petal lengths of the species <em>virginica</em>?</li>
+</ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
-<p></li>
-</ol>
-</blockquote>
+<p>
 <div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="week-5--the-r-environment.html#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>][iris[,<span class="st">&#39;Species&#39;</span>]<span class="sc">==</span><span class="st">&#39;virginica&#39;</span>]) <span class="sc">-</span> <span class="fu">min</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>][iris[,<span class="st">&#39;Species&#39;</span>]<span class="sc">==</span><span class="st">&#39;virginica&#39;</span>])</span></code></pre></div>
 <pre><code>## [1] 2.4</code></pre>
 </p>
 </details>
 <blockquote>
 <ol start="13" style="list-style-type: decimal">
-<li>What proportion of flowers in the dataset have petals wider than 1cm?
+<li>What proportion of flowers in the dataset have petals wider than 1cm?</li>
+</ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
-<p></li>
-</ol>
-</blockquote>
+<p>
 <div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="week-5--the-r-environment.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(iris[,<span class="st">&#39;Petal.Width&#39;</span>] <span class="sc">&gt;</span> <span class="dv">1</span> ) <span class="sc">/</span> <span class="fu">nrow</span>(iris) <span class="do">## here, we&#39;re counting up how many are wider than 1 cm, and dividing by the total number of flowers to get a proportion</span></span></code></pre></div>
 <pre><code>## [1] 0.62</code></pre>
 </p>
@@ -1280,14 +1312,14 @@ Go back to the iris dataset, which can be loaded with data(iris)
 <li>Create a new column within your dataframe, called sepalCategory, and set all values equal to ‘long’
 Subset short values of this column, and set their values to ‘short’
 (Short sepals are those less than 5.5 cm)
-How many plants with short sepals are there? How many long?
+How many plants with short sepals are there? How many long?</li>
+</ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: blue;">Solution</span>
 </summary>
-<p></li>
-</ol>
-</blockquote>
+<p>
 <div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="week-5--the-r-environment.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="co"># new column for long</span></span>
 <span id="cb216-2"><a href="week-5--the-r-environment.html#cb216-2" aria-hidden="true" tabindex="-1"></a>iris[,<span class="st">&#39;sepalCategory&#39;</span>] <span class="ot">=</span> <span class="st">&#39;long&#39;</span>  <span class="do">## this sets ever entry in the column equal to &#39;long&#39;</span></span>
 <span id="cb216-3"><a href="week-5--the-r-environment.html#cb216-3" aria-hidden="true" tabindex="-1"></a><span class="co"># new column for short (&lt; 5.5 cm)</span></span>
@@ -1307,12 +1339,11 @@ How many plants with short sepals are there? How many long?
           </div>
         </div>
       </div>
-<a href="week-4--what-is-a-genetic-variant.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="week-4--what-is-a-genetic-variant.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="week-6--r-continued.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1353,7 +1384,7 @@ gitbook.start({
 },
 "download": ["Semester.pdf", "Semester.epub"],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {

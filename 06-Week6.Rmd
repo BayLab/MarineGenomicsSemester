@@ -27,12 +27,12 @@ These lessons are evenly divided between live coding and performed by the instru
 This class will take place with students typing directly into an R script for the exercises all of which can be found in the Week 4 file [here](https://github.com/BayLab/MarineGenomicsData.git) 
 
 You can download just the R files for just this week via wget with the following link
-```{html
+```html
 wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week6_semester.tar.gz
 ```
 
 this is a compressed file which can be uncompressed via:
-```
+```html
 tar -xzvf week6_semester.tar.gz
 ```
 
@@ -48,16 +48,17 @@ tar -xzvf week6_semester.tar.gz
 ## Scatterplots
 Within our `msleep` dataframe let's plot sleep_total by bodywt (bodyweight)
 
-```{r, echo=T}
+```{r, label='5-1', echo=T}
+
 library(ggplot2)
 data(msleep)
-```
 
-``````{r, label='5-1', echo=T}
 plot(msleep$sleep_total,msleep$sleep_rem)
 # or plot response variable as a function "~" of the predictor variable
 ```
-``````{r, label='5-2', echo=T}
+
+
+```{r, label='5-2', echo=T}
 plot(msleep$sleep_total~msleep$sleep_rem) #you'll notice this swaps the x and y axis
 ```
 
@@ -118,6 +119,8 @@ hist(msleep$sleep_total, col=rainbow(10))
 #using plot
 #plot(msleep$sleep_total~as.factor(msleep$order), col=rainbow(19)) #this is commented out simply to avoid ploting the same plot twice
 ```
+
+
 ```{r, label='5-8', echo=T}
 #or boxplot
 boxplot(msleep$sleep_total~as.factor(msleep$order), col=rainbow(19)) 
