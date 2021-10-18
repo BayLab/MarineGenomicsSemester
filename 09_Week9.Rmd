@@ -15,7 +15,7 @@ knitr::opts_knit$set(root.dir = "C:/Users/SAPCaps/MarineGenomicsSemester/data/We
 
 # Week 9- F<sub>st</sub> and outlier analysis
 
-The lecture for this week focused on *F<sub>st</sub>** and outlier analysis can be found [here](https://github.com/BayLab/MarineGenomics/blob/main/ppt/Week7.pdf).
+The lecture for this week focused on *F<sub>st</sub>** and outlier analysis can be found [here](https://github.com/BayLab/MarineGenomicsSemester/blob/main/ppt/MarineGenomics_Lecture_w9.pdf).
 
 Last week we used PCA to take a broad look at whether populations were genetically distinct. This week we learn how to identify particular SNPs that are driving patterns of divergence between populations. These SNPs could represent signals of selection.
 
@@ -27,7 +27,7 @@ We first need to download the data. Use the link below to download it to jetstre
 
 ``` {.html}
 wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week9_semester.tar.gz
-tar -xzvf week7.tar.gz
+tar -xzvf week9_semester.tar.gz
 ```
 
 Again this week we are using the data from the [Xuereb et al. paper on P. californicus](https://onlinelibrary.wiley.com/doi/full/10.1111/mec.14589). Our data consists of a SNP file in [VCF format](https://samtools.github.io/hts-specs/VCFv4.2.pdf) and a metadata file which tells you which site each sample came from.

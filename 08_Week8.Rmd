@@ -16,7 +16,7 @@ knitr::opts_knit$set(root.dir = "C:/Users/SAPCaps/MarineGenomicsSemester/data/We
 # Week 8- Principle Component Analyses 
 
 
-The lecture for this week focused on **Plotting a PCA** can be found [here](https://github.com/BayLab/MarineGenomicsSemester/blob/main/ppt/MarineGenomics_Lecture_week8.pdf).
+The lecture for this week focused on **Plotting a PCA** can be found [here](https://github.com/BayLab/MarineGenomicsSemester/blob/main/ppt/MarineGenomics_Lecture_w8.pdf).
 
 In week 5 we mapped reads to a genome so we could call our genetic variants (SNPs) and generated bam files for each read file (= sequence data from an individual). Now that we know how to do some R basics we can use those SNPs to plot patterns of population structure via a principal component analysis. 
 
@@ -31,7 +31,7 @@ We first need to download the data. Use the link below to download it to jetstre
 
 wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week8_semester.tar.gz
 
-tar -xzvf week8_semester.tar.gz
+tar -xzvf week9_semester.tar.gz
 
 ```
 

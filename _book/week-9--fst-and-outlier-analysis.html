@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>10 Week 9- Fst and outlier analysis | Semester.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="10 Week 9- Fst and outlier analysis | Semester.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="10 Week 9- Fst and outlier analysis | Semester.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="week-8--principle-component-analyses.html"/>
+
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Marine Genomics Semester</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Marine Genomics Semester edition</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#cloud-computing-versus-individual-laptops"><i class="fa fa-check"></i><b>1.1</b> Cloud computing versus individual laptops</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#assessment"><i class="fa fa-check"></i><b>1.2</b> Assessment</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#short-recorded-demonstrations"><i class="fa fa-check"></i><b>1.3</b> Short recorded demonstrations</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#final-demonstration"><i class="fa fa-check"></i><b>1.4</b> Final demonstration</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="week-1--welcome.html"><a href="week-1--welcome.html"><i class="fa fa-check"></i><b>2</b> Week 1- Welcome!</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="week-1--welcome.html"><a href="week-1--welcome.html#introduction-to-shell-computing-via-the-data-carpentry-tutorial"><i class="fa fa-check"></i><b>2.1</b> Introduction to shell computing via the data carpentry tutorial</a></li>
+<li class="chapter" data-level="2.2" data-path="week-1--welcome.html"><a href="week-1--welcome.html#how-to-access-the-shell"><i class="fa fa-check"></i><b>2.2</b> How to access the shell</a></li>
+<li class="chapter" data-level="2.3" data-path="week-1--welcome.html"><a href="week-1--welcome.html#best-practices-for-jetstream"><i class="fa fa-check"></i><b>2.3</b> Best practices for Jetstream</a></li>
+<li class="chapter" data-level="2.4" data-path="week-1--welcome.html"><a href="week-1--welcome.html#week-1-objectives"><i class="fa fa-check"></i><b>2.4</b> Week 1 Objectives</a></li>
+<li class="chapter" data-level="2.5" data-path="week-1--welcome.html"><a href="week-1--welcome.html#navigating-your-file-system"><i class="fa fa-check"></i><b>2.5</b> Navigating your file system</a></li>
+<li class="chapter" data-level="2.6" data-path="week-1--welcome.html"><a href="week-1--welcome.html#shortcut-tab-completion"><i class="fa fa-check"></i><b>2.6</b> Shortcut: Tab Completion</a></li>
+<li class="chapter" data-level="2.7" data-path="week-1--welcome.html"><a href="week-1--welcome.html#summary-key-points"><i class="fa fa-check"></i><b>2.7</b> Summary &amp; Key Points</a></li>
+<li class="chapter" data-level="2.8" data-path="week-1--welcome.html"><a href="week-1--welcome.html#navigating-files-and-directories"><i class="fa fa-check"></i><b>2.8</b> Navigating Files and Directories</a></li>
+<li class="chapter" data-level="2.9" data-path="week-1--welcome.html"><a href="week-1--welcome.html#moving-around-the-file-system"><i class="fa fa-check"></i><b>2.9</b> Moving around the file system</a></li>
+<li class="chapter" data-level="2.10" data-path="week-1--welcome.html"><a href="week-1--welcome.html#navigating-practice-and-finding-hidden-directories"><i class="fa fa-check"></i><b>2.10</b> Navigating practice and finding hidden directories</a></li>
+<li class="chapter" data-level="2.11" data-path="week-1--welcome.html"><a href="week-1--welcome.html#examining-the-contents-of-other-directories"><i class="fa fa-check"></i><b>2.11</b> Examining the contents of other directories</a></li>
+<li class="chapter" data-level="2.12" data-path="week-1--welcome.html"><a href="week-1--welcome.html#full-vs-relative-paths"><i class="fa fa-check"></i><b>2.12</b> Full vs Relative Paths</a></li>
+<li class="chapter" data-level="2.13" data-path="week-1--welcome.html"><a href="week-1--welcome.html#navigational-shortcuts"><i class="fa fa-check"></i><b>2.13</b> Navigational shortcuts</a></li>
+<li class="chapter" data-level="2.14" data-path="week-1--welcome.html"><a href="week-1--welcome.html#key-points"><i class="fa fa-check"></i><b>2.14</b> Key Points</a></li>
+<li class="chapter" data-level="2.15" data-path="week-1--welcome.html"><a href="week-1--welcome.html#creature-of-the-week"><i class="fa fa-check"></i><b>2.15</b> Creature of the Week!</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html"><i class="fa fa-check"></i><b>3</b> Week 2: Working With Files</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#our-data-set-fastq-files"><i class="fa fa-check"></i><b>3.1</b> Our data set: FASTQ files</a></li>
+<li class="chapter" data-level="3.2" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#wildcards"><i class="fa fa-check"></i><b>3.2</b> Wildcards</a></li>
+<li class="chapter" data-level="3.3" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise"><i class="fa fa-check"></i><b>3.3</b> Exercise</a></li>
+<li class="chapter" data-level="3.4" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#using-echo"><i class="fa fa-check"></i><b>3.4</b> Using echo</a></li>
+<li class="chapter" data-level="3.5" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#command-history"><i class="fa fa-check"></i><b>3.5</b> Command History</a></li>
+<li class="chapter" data-level="3.6" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#examining-files"><i class="fa fa-check"></i><b>3.6</b> Examining Files</a></li>
+<li class="chapter" data-level="3.7" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-1"><i class="fa fa-check"></i><b>3.7</b> Exercise</a></li>
+<li class="chapter" data-level="3.8" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-2"><i class="fa fa-check"></i><b>3.8</b> Exercise</a></li>
+<li class="chapter" data-level="3.9" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#details-on-the-fastq-format"><i class="fa fa-check"></i><b>3.9</b> Details on the FASTQ format</a></li>
+<li class="chapter" data-level="3.10" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#creating-moving-copying-and-removing"><i class="fa fa-check"></i><b>3.10</b> Creating, moving, copying, and removing</a>
+<ul>
+<li class="chapter" data-level="3.10.1" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#copying-files"><i class="fa fa-check"></i><b>3.10.1</b> Copying Files</a></li>
+<li class="chapter" data-level="3.10.2" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#creating-directories"><i class="fa fa-check"></i><b>3.10.2</b> Creating Directories</a></li>
+<li class="chapter" data-level="3.10.3" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#moving-renaming"><i class="fa fa-check"></i><b>3.10.3</b> Moving / Renaming</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#file-permissions"><i class="fa fa-check"></i><b>3.11</b> File Permissions</a></li>
+<li class="chapter" data-level="3.12" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#removing"><i class="fa fa-check"></i><b>3.12</b> Removing</a></li>
+<li class="chapter" data-level="3.13" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-3"><i class="fa fa-check"></i><b>3.13</b> Exercise</a></li>
+<li class="chapter" data-level="3.14" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#redirections"><i class="fa fa-check"></i><b>3.14</b> Redirections</a></li>
+<li class="chapter" data-level="3.15" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#searching-files"><i class="fa fa-check"></i><b>3.15</b> Searching files</a></li>
+<li class="chapter" data-level="3.16" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-4"><i class="fa fa-check"></i><b>3.16</b> Exercise</a></li>
+<li class="chapter" data-level="3.17" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#redirecting-output"><i class="fa fa-check"></i><b>3.17</b> Redirecting output</a>
+<ul>
+<li class="chapter" data-level="3.17.1" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-5"><i class="fa fa-check"></i><b>3.17.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.18" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#writing-for-loops"><i class="fa fa-check"></i><b>3.18</b> Writing for loops</a></li>
+<li class="chapter" data-level="3.19" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#using-basename-in-for-loops"><i class="fa fa-check"></i><b>3.19</b> Using Basename in for loops</a></li>
+<li class="chapter" data-level="3.20" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-6"><i class="fa fa-check"></i><b>3.20</b> Exercise</a></li>
+<li class="chapter" data-level="3.21" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-7"><i class="fa fa-check"></i><b>3.21</b> Exercise</a></li>
+<li class="chapter" data-level="3.22" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#writing-scripts-and-working-with-data"><i class="fa fa-check"></i><b>3.22</b> Writing Scripts and Working with Data</a></li>
+<li class="chapter" data-level="3.23" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#writing-files"><i class="fa fa-check"></i><b>3.23</b> Writing files</a></li>
+<li class="chapter" data-level="3.24" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-8"><i class="fa fa-check"></i><b>3.24</b> Exercise</a></li>
+<li class="chapter" data-level="3.25" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#writing-scripts"><i class="fa fa-check"></i><b>3.25</b> Writing scripts</a></li>
+<li class="chapter" data-level="3.26" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-9"><i class="fa fa-check"></i><b>3.26</b> Exercise</a></li>
+<li class="chapter" data-level="3.27" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#making-the-script-into-a-program"><i class="fa fa-check"></i><b>3.27</b> Making the script into a program</a></li>
+<li class="chapter" data-level="3.28" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#creature-of-the-week-1"><i class="fa fa-check"></i><b>3.28</b> Creature of the Week!</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="week3-awk-and-how-to-download-files.html"><a href="week3-awk-and-how-to-download-files.html"><i class="fa fa-check"></i><b>4</b> Week3: Awk and how to download files</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="week3-awk-and-how-to-download-files.html"><a href="week3-awk-and-how-to-download-files.html#awk"><i class="fa fa-check"></i><b>4.1</b> AWK</a></li>
+<li class="chapter" data-level="4.2" data-path="week3-awk-and-how-to-download-files.html"><a href="week3-awk-and-how-to-download-files.html#moving-and-downloading-data"><i class="fa fa-check"></i><b>4.2</b> Moving and Downloading Data</a></li>
+<li class="chapter" data-level="4.3" data-path="week3-awk-and-how-to-download-files.html"><a href="week3-awk-and-how-to-download-files.html#getting-data-from-the-cloud"><i class="fa fa-check"></i><b>4.3</b> Getting data from the cloud</a></li>
+<li class="chapter" data-level="4.4" data-path="week3-awk-and-how-to-download-files.html"><a href="week3-awk-and-how-to-download-files.html#downloading-files-from-github"><i class="fa fa-check"></i><b>4.4</b> Downloading files from Github</a></li>
+<li class="chapter" data-level="4.5" data-path="week3-awk-and-how-to-download-files.html"><a href="week3-awk-and-how-to-download-files.html#final-bash-wrap-up"><i class="fa fa-check"></i><b>4.5</b> Final bash wrap-up</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html"><i class="fa fa-check"></i><b>5</b> Week 4- What is a Genetic Variant?</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#to-get-started-lets-download-the-data-and-install-a-few-programs"><i class="fa fa-check"></i><b>5.1</b> To get started lets download the data and install a few programs</a></li>
+<li class="chapter" data-level="5.2" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#raw-read-quality-control"><i class="fa fa-check"></i><b>5.2</b> Raw read quality control</a></li>
+<li class="chapter" data-level="5.3" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#trimming-to-remove-adapters"><i class="fa fa-check"></i><b>5.3</b> Trimming to remove adapters</a></li>
+<li class="chapter" data-level="5.4" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#building-an-index-of-our-genome"><i class="fa fa-check"></i><b>5.4</b> Building an index of our genome</a></li>
+<li class="chapter" data-level="5.5" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#map-reads-to-the-genome"><i class="fa fa-check"></i><b>5.5</b> Map reads to the genome</a></li>
+<li class="chapter" data-level="5.6" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#sam-to-bam-file-conversion"><i class="fa fa-check"></i><b>5.6</b> sam to bam file conversion</a></li>
+<li class="chapter" data-level="5.7" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#genotype-likelihoods"><i class="fa fa-check"></i><b>5.7</b> Genotype likelihoods</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#suggested-exercises"><i class="fa fa-check"></i><b>5.7.1</b> Suggested Exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html"><i class="fa fa-check"></i><b>6</b> Week 5- The R environment</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#lesson-1-orientation-to-r"><i class="fa fa-check"></i><b>6.1</b> Lesson 1: Orientation to R</a></li>
+<li class="chapter" data-level="6.2" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#manipulating-a-vector-object"><i class="fa fa-check"></i><b>6.2</b> Manipulating a vector object</a></li>
+<li class="chapter" data-level="6.3" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#operations-act-on-each-element-of-a-vector"><i class="fa fa-check"></i><b>6.3</b> Operations act on each element of a vector:</a></li>
+<li class="chapter" data-level="6.4" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#operations-can-also-work-with-two-vectors"><i class="fa fa-check"></i><b>6.4</b> Operations can also work with two vectors:</a></li>
+<li class="chapter" data-level="6.5" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#a-few-tips-below-for-working-with-objects"><i class="fa fa-check"></i><b>6.5</b> A few tips below for working with objects:</a></li>
+<li class="chapter" data-level="6.6" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#exercise-1.1"><i class="fa fa-check"></i><b>6.6</b> EXERCISE 1.1</a></li>
+<li class="chapter" data-level="6.7" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#characterizing-a-dataframe"><i class="fa fa-check"></i><b>6.7</b> 1.2 Characterizing a dataframe</a></li>
+<li class="chapter" data-level="6.8" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#how-to-access-parts-of-the-data"><i class="fa fa-check"></i><b>6.8</b> How to access parts of the data:</a></li>
+<li class="chapter" data-level="6.9" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#data-manipulation"><i class="fa fa-check"></i><b>6.9</b> Data Manipulation</a></li>
+<li class="chapter" data-level="6.10" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#exercise-1.2"><i class="fa fa-check"></i><b>6.10</b> EXERCISE 1.2</a></li>
+<li class="chapter" data-level="6.11" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#subsetting-datasets-logicals"><i class="fa fa-check"></i><b>6.11</b> 1.3 Subsetting datasets &amp; logicals</a></li>
+<li class="chapter" data-level="6.12" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#exercise-1.3-indexing-by-logical-statements"><i class="fa fa-check"></i><b>6.12</b> EXERCISE 1.3 indexing by logical statements</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html"><i class="fa fa-check"></i><b>7</b> Week 6- R Continued</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html#plotting"><i class="fa fa-check"></i><b>7.1</b> 2.1 Plotting</a></li>
+<li class="chapter" data-level="7.2" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html#scatterplots"><i class="fa fa-check"></i><b>7.2</b> Scatterplots</a></li>
+<li class="chapter" data-level="7.3" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html#customizing-your-plot"><i class="fa fa-check"></i><b>7.3</b> Customizing your plot</a></li>
+<li class="chapter" data-level="7.4" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html#exercise-2.1"><i class="fa fa-check"></i><b>7.4</b> Exercise 2.1</a></li>
+<li class="chapter" data-level="7.5" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>7.5</b> 2.2 plotting with ggplot2</a></li>
+<li class="chapter" data-level="7.6" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html#exercise-2.2-plotting-in-ggplot2"><i class="fa fa-check"></i><b>7.6</b> Exercise 2.2 Plotting in ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="week-7-for-loops-and-the-apply-family-of-functions.html"><a href="week-7-for-loops-and-the-apply-family-of-functions.html"><i class="fa fa-check"></i><b>8</b> Week 7 For loops and the apply family of functions</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="week-7-for-loops-and-the-apply-family-of-functions.html"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#apply-family"><i class="fa fa-check"></i><b>8.1</b> apply family</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="week-7-for-loops-and-the-apply-family-of-functions.html"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#sapply"><i class="fa fa-check"></i><b>8.1.1</b> sapply</a></li>
+<li class="chapter" data-level="8.1.2" data-path="week-7-for-loops-and-the-apply-family-of-functions.html"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#apply"><i class="fa fa-check"></i><b>8.1.2</b> apply</a></li>
+<li class="chapter" data-level="8.1.3" data-path="week-7-for-loops-and-the-apply-family-of-functions.html"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#lapply-list-apply"><i class="fa fa-check"></i><b>8.1.3</b> lapply – “list” apply</a></li>
+<li class="chapter" data-level="8.1.4" data-path="week-7-for-loops-and-the-apply-family-of-functions.html"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#tapply---per-type-apply"><i class="fa fa-check"></i><b>8.1.4</b> tapply - “per Type” apply</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="week-7-for-loops-and-the-apply-family-of-functions.html"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#exercise-2.3-apply-and-tapply"><i class="fa fa-check"></i><b>8.2</b> Exercise 2.3 apply and tapply</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="week-8--principle-component-analyses.html"><a href="week-8--principle-component-analyses.html"><i class="fa fa-check"></i><b>9</b> Week 8- Principle Component Analyses</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="week-8--principle-component-analyses.html"><a href="week-8--principle-component-analyses.html#download-the-data"><i class="fa fa-check"></i><b>9.1</b> Download the data</a></li>
+<li class="chapter" data-level="9.2" data-path="week-8--principle-component-analyses.html"><a href="week-8--principle-component-analyses.html#installing-programs"><i class="fa fa-check"></i><b>9.2</b> Installing programs</a></li>
+<li class="chapter" data-level="9.3" data-path="week-8--principle-component-analyses.html"><a href="week-8--principle-component-analyses.html#run-pcangsd-on-our-data"><i class="fa fa-check"></i><b>9.3</b> Run pcangsd on our data</a></li>
+<li class="chapter" data-level="9.4" data-path="week-8--principle-component-analyses.html"><a href="week-8--principle-component-analyses.html#setting-up-a-new-project-in-r"><i class="fa fa-check"></i><b>9.4</b> Setting up a new project in R</a></li>
+<li class="chapter" data-level="9.5" data-path="week-8--principle-component-analyses.html"><a href="week-8--principle-component-analyses.html#reading-data-into-r"><i class="fa fa-check"></i><b>9.5</b> Reading data into R</a></li>
+<li class="chapter" data-level="9.6" data-path="week-8--principle-component-analyses.html"><a href="week-8--principle-component-analyses.html#exercises"><i class="fa fa-check"></i><b>9.6</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="week-9--fst-and-outlier-analysis.html"><a href="week-9--fst-and-outlier-analysis.html"><i class="fa fa-check"></i><b>10</b> Week 9- F<sub>st</sub> and outlier analysis</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="week-9--fst-and-outlier-analysis.html"><a href="week-9--fst-and-outlier-analysis.html#download-the-data-1"><i class="fa fa-check"></i><b>10.1</b> Download the data</a></li>
+<li class="chapter" data-level="10.2" data-path="week-9--fst-and-outlier-analysis.html"><a href="week-9--fst-and-outlier-analysis.html#getting-r-set-up"><i class="fa fa-check"></i><b>10.2</b> Getting R set up</a></li>
+<li class="chapter" data-level="10.3" data-path="week-9--fst-and-outlier-analysis.html"><a href="week-9--fst-and-outlier-analysis.html#finding-outliers-using-pcadapt"><i class="fa fa-check"></i><b>10.3</b> Finding outliers using pcadapt</a></li>
+<li class="chapter" data-level="10.4" data-path="week-9--fst-and-outlier-analysis.html"><a href="week-9--fst-and-outlier-analysis.html#pcadapt-exercises"><i class="fa fa-check"></i><b>10.4</b> pcadapt Exercises</a></li>
+<li class="chapter" data-level="10.5" data-path="week-9--fst-and-outlier-analysis.html"><a href="week-9--fst-and-outlier-analysis.html#using-fst-to-find-outliers"><i class="fa fa-check"></i><b>10.5</b> Using F<sub>st</sub> to find outliers</a></li>
+<li class="chapter" data-level="10.6" data-path="week-9--fst-and-outlier-analysis.html"><a href="week-9--fst-and-outlier-analysis.html#outflank-practice"><i class="fa fa-check"></i><b>10.6</b> OutFLANK Practice</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="week-9--fst-and-outlier-analysis" class="section level1" number="10">
+<h1><span class="header-section-number">10</span> Week 9- F<sub>st</sub> and outlier analysis</h1>
+<p>The lecture for this week focused on *F<sub>st</sub>** and outlier analysis can be found <a href="https://github.com/BayLab/MarineGenomics/blob/main/ppt/Week7.pdf">here</a>.</p>
+<p>Last week we used PCA to take a broad look at whether populations were genetically distinct. This week we learn how to identify particular SNPs that are driving patterns of divergence between populations. These SNPs could represent signals of selection.</p>
+<p>We will import the data and take a first look in <strong>bash</strong> and then we will do analysis and generate the plots in <strong>RStudio</strong>.</p>
+<div id="download-the-data-1" class="section level2" number="10.1">
+<h2><span class="header-section-number">10.1</span> Download the data</h2>
+<p>We first need to download the data. Use the link below to download it to jetstream, and then us the tar command to un-compress it.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="week-9--fst-and-outlier-analysis.html#cb1-1" aria-hidden="true" tabindex="-1"></a>wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week9_semester.tar.gz</span>
+<span id="cb1-2"><a href="week-9--fst-and-outlier-analysis.html#cb1-2" aria-hidden="true" tabindex="-1"></a>tar -xzvf week7.tar.gz</span></code></pre></div>
+<p>Again this week we are using the data from the <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/mec.14589">Xuereb et al. paper on P. californicus</a>. Our data consists of a SNP file in <a href="https://samtools.github.io/hts-specs/VCFv4.2.pdf">VCF format</a> and a metadata file which tells you which site each sample came from.</p>
+<p>Let’s navigate into the Week 9 directory and take a look at the vcf file:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="week-9--fst-and-outlier-analysis.html#cb2-1" aria-hidden="true" tabindex="-1"></a>cd MarineGenomics/Week9</span>
+<span id="cb2-2"><a href="week-9--fst-and-outlier-analysis.html#cb2-2" aria-hidden="true" tabindex="-1"></a>head filtered_3699snps_californicus.vcf</span></code></pre></div>
+</div>
+<div id="getting-r-set-up" class="section level2" number="10.2">
+<h2><span class="header-section-number">10.2</span> Getting R set up</h2>
+<p>Now move off of Terminal and open R Studio. The first thing we need to do is download a few different packages. You only need to do this the first time you use each package on your machine.</p>
+<p>Today we will be using two different packages: <strong>pcadapt</strong> and <strong>OutFLANK</strong> and both of them have some other packages they need (dependencies). While many packages can be downloaded in R using the <code>install.packages</code> function, some cannot because they are stored in specialty repositories. You can see that pcadapt can be downloaded from CRAN using the standard command, but OutFLANK and qvalue need to be downloaded from other sources.</p>
+<p>To save all of the progress we make today, first create your own script in the Week7 folder for this week named “Week7Script.R”</p>
+<p>If you have an error reading “Warning in install.packages :
+package ?BiocManager? is not available for this version of R” Go to “Help,” then “Check for Updates” and update your R version. You also may need to restart your R.</p>
+<p>After you have successfully downloaded all the packages needed for today, go ahead and get a new R script started. Remember to do lots of commenting with <code>#</code> so it is easy to come back to your code later!</p>
+</div>
+<div id="finding-outliers-using-pcadapt" class="section level2" number="10.3">
+<h2><span class="header-section-number">10.3</span> Finding outliers using pcadapt</h2>
+<p>Today we will use two different methods to find outliers. The first is based on PCA, which you learned about last week. For this you will use the <strong>pcadapt</strong> package. We will just use a few functions, but you can do a lot with this package; the documentation is found <a href="https://bcm-uga.github.io/pcadapt/articles/pcadapt.html#:~:text=pcadapt%20has%20been%20developed%20to,Principal%20Component%20Analysis%20(PCA).&amp;text=A%20total%20of%20150%20individuals,genotyped%20at%201%2C500%20diploid%20markers.">here</a></p>
+<p>I always like to call the different R packages I plan to use at the very top of the script so I just have to call them once:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="week-9--fst-and-outlier-analysis.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pcadapt)</span></code></pre></div>
+<pre><code>## Warning: package &#39;pcadapt&#39; was built under R version 4.0.5</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="week-9--fst-and-outlier-analysis.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qvalue)</span></code></pre></div>
+<p>Lets start by setting a working directory. I’m going to set it to where we downloaded the data for week 9. I also like to define the paths to my input files at the top of the script, that way if I want to use a slightly different input file or if I want to share my script it’s easy to see how to change it.</p>
+<p>Let’s read in the genetic data from the VCF file. Because VCF is a common file format for SNP data, pcadapt comes with a special function for reading this type of file. You will get a warning message if you run on your own computer, but don’t worry about it.</p>
+<pre><code>## No variant got discarded.
+## Summary:
+## 
+##  - input file:               filtered_3699snps_californicus.vcf
+##  - output file:              C:\Users\SAPCaps\AppData\Local\Temp\RtmpGgGvXc\file517c272b1084.pcadapt
+## 
+##  - number of individuals detected:   717
+##  - number of loci detected:      3699
+## 
+## 3699 lines detected.
+## 717 columns detected.</code></pre>
+<p>Now let’s read in the metadata. This is a CSV (comma separated values) file, which is a spreadsheet-style format that can be output from programs like Excel. The columns are separated with commas. Once you load the file, take a minute to examine the contents.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="week-9--fst-and-outlier-analysis.html#cb7-1" aria-hidden="true" tabindex="-1"></a>meta <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(meta.path)</span>
+<span id="cb7-2"><a href="week-9--fst-and-outlier-analysis.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(meta)</span></code></pre></div>
+<pre><code>##         ID SITE     LAT      LONG Group
+## 1 CRA_1756  CRA 50.5212 -126.5646 South
+## 2 CRA_1757  CRA 50.5212 -126.5646 South
+## 3 CRA_1758  CRA 50.5212 -126.5646 South
+## 4 CRA_1759  CRA 50.5212 -126.5646 South
+## 5 CRA_1760  CRA 50.5212 -126.5646 South
+## 6 CRA_1761  CRA 50.5212 -126.5646 South</code></pre>
+<p>IMPORTANT NOTE: Here the samples in the VCF are in the same order as the samples in the metadata file. Triple check ahead of time that this is the case otherwise you may get some weird results!</p>
+<p>Now that we’ve read in all the data, the first step for pcadapt is to make a PCA. Last week you used PCAngsd to do this, but there are many other packages that work as well. Here’s how we do it in pcadapt:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="week-9--fst-and-outlier-analysis.html#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">pcadapt</span>(<span class="at">input=</span>genos,<span class="at">K=</span><span class="dv">5</span>)</span>
+<span id="cb9-2"><a href="week-9--fst-and-outlier-analysis.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,<span class="at">option=</span><span class="st">&quot;screeplot&quot;</span>)</span></code></pre></div>
+<p><img src="Semester_files/figure-html/7-1-1.png" width="768" /></p>
+<p>We can see from this plot that the vast majority of genetic variation can be explained by the first two principal components axes. Now we can plot the actual PCA. Here I will color by the <code>Group</code>.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="week-9--fst-and-outlier-analysis.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,<span class="at">option=</span><span class="st">&quot;scores&quot;</span>,<span class="at">pop=</span>meta<span class="sc">$</span>Group)</span></code></pre></div>
+<p><img src="Semester_files/figure-html/7-2-1.png" width="768" /></p>
+<p>You can see that there is separation between the North and South Groups, but it is not perfect. Now we want to see which of the &gt;3000 SNPs is driving the variation we see on the PCA</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="week-9--fst-and-outlier-analysis.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,<span class="at">option=</span><span class="st">&quot;manhattan&quot;</span>)</span></code></pre></div>
+<p><img src="Semester_files/figure-html/7-3-1.png" width="768" /></p>
+<p>This gives us a visual idea of which SNPs might be associated with population differences. If we want to identify statistical outliers, we first need to adjust the p-values:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="week-9--fst-and-outlier-analysis.html#cb12-1" aria-hidden="true" tabindex="-1"></a>qval <span class="ot">&lt;-</span> <span class="fu">qvalue</span>(x<span class="sc">$</span>pvalues)<span class="sc">$</span>qvalues</span>
+<span id="cb12-2"><a href="week-9--fst-and-outlier-analysis.html#cb12-2" aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> <span class="fu">which</span>(qval<span class="sc">&lt;</span><span class="fl">0.1</span>)</span>
+<span id="cb12-3"><a href="week-9--fst-and-outlier-analysis.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(outliers)</span></code></pre></div>
+<pre><code>## [1] 143</code></pre>
+</div>
+<div id="pcadapt-exercises" class="section level2" number="10.4">
+<h2><span class="header-section-number">10.4</span> pcadapt Exercises</h2>
+<blockquote>
+<h1 id="practice-questions">Practice Questions</h1>
+<ol style="list-style-type: decimal">
+<li>Perhaps we are particularly interested in SNPs associated with latitude. A first step might be to ask whether either of our PC axes represent latitudinal variation. <code>x$scores</code> gives you the PC loadings for each sample along the first and second PC axes. Combine these with the metadata to see whether either PC axes are correlated with latitude (for our purposes you can just visualize the relationship, you don’t have to run the statistics.)</li>
+</ol>
+</blockquote>
+<details>
+<summary>
+<span style="color: DarkCyan;">Solution</span>
+</summary>
+<p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="week-9--fst-and-outlier-analysis.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x<span class="sc">$</span>scores[,<span class="dv">1</span>]<span class="sc">~</span>meta<span class="sc">$</span>LAT,<span class="at">pch=</span><span class="dv">19</span>,<span class="at">col=</span><span class="st">&quot;gray&quot;</span>)</span></code></pre></div>
+<p><img src="Semester_files/figure-html/7-4-1.png" width="768" /></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="week-9--fst-and-outlier-analysis.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x<span class="sc">$</span>scores[,<span class="dv">2</span>]<span class="sc">~</span>meta<span class="sc">$</span>LAT,<span class="at">pch=</span><span class="dv">19</span>,<span class="at">col=</span><span class="st">&quot;gray&quot;</span>)</span></code></pre></div>
+<p><img src="Semester_files/figure-html/7-5-1.png" width="768" /></p>
+</p>
+</details>
+<blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>If we are only interested in SNPs associated with a single principal component, we can get pcadapt to give us correlation scores for each PC axis independently. Using the guidance provided in the documentation <a href="https://bcm-uga.github.io/pcadapt/articles/pcadapt.html#h-4-component-wise-genome-scans">here</a> make a manhattan plot of SNPs driving variation along the first principal component only</li>
+</ol>
+</blockquote>
+<details>
+<summary>
+<span style="color: DarkCyan;">Solution</span>
+</summary>
+<p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="week-9--fst-and-outlier-analysis.html#cb16-1" aria-hidden="true" tabindex="-1"></a>x_cw <span class="ot">&lt;-</span> <span class="fu">pcadapt</span>(genos,<span class="at">K=</span><span class="dv">2</span>,<span class="at">method =</span><span class="st">&quot;componentwise&quot;</span>)</span>
+<span id="cb16-2"><a href="week-9--fst-and-outlier-analysis.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x_cw,<span class="at">option=</span><span class="st">&quot;manhattan&quot;</span>,<span class="at">K=</span><span class="dv">2</span>)</span></code></pre></div>
+<img src="Semester_files/figure-html/7-6-1.png" width="768" />
+</p>
+</details>
+</div>
+<div id="using-fst-to-find-outliers" class="section level2" number="10.5">
+<h2><span class="header-section-number">10.5</span> Using F<sub>st</sub> to find outliers</h2>
+<p>Another way to look for signals of selection is to use F<sub>st</sub>. F<sub>st</sub> is a measure of genetic differentiation between populations. When we use F<sub>st</sub> to test for signals of selection, we ask if any SNPs are more divergent than expected given the genome-wide differentiation.</p>
+<p>Let’s start by loading a couple libraries:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="week-9--fst-and-outlier-analysis.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(OutFLANK)</span></code></pre></div>
+<pre><code>## Error in library(OutFLANK): there is no package called &#39;OutFLANK&#39;</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="week-9--fst-and-outlier-analysis.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vcfR)</span></code></pre></div>
+<pre><code>## Warning: package &#39;vcfR&#39; was built under R version 4.0.5</code></pre>
+<p>We use the <em>vcfR</em> library to load the vcf file and extract just the genotypes. Remember there is a lot of information in VCF files, probably more than we want. vcfR has many different functions for extracting just some information so that you can use it any way you want</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="week-9--fst-and-outlier-analysis.html#cb21-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.vcfR</span>(vcf.path)</span></code></pre></div>
+<pre><code>## Scanning file to determine attributes.
+## File attributes:
+##   meta lines: 9
+##   header_line: 10
+##   variant count: 3699
+##   column count: 726
+## 
+Meta line 9 read in.
+## All meta lines processed.
+## gt matrix initialized.
+## Character matrix gt created.
+##   Character matrix gt rows: 3699
+##   Character matrix gt cols: 726
+##   skip: 0
+##   nrows: 3699
+##   row_num: 0
+## 
+Processed variant 1000
+Processed variant 2000
+Processed variant 3000
+Processed variant: 3699
+## All variants processed</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="week-9--fst-and-outlier-analysis.html#cb23-1" aria-hidden="true" tabindex="-1"></a>geno <span class="ot">&lt;-</span> <span class="fu">extract.gt</span>(data)</span>
+<span id="cb23-2"><a href="week-9--fst-and-outlier-analysis.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(geno)</span></code></pre></div>
+<pre><code>## [1] 3699  717</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="week-9--fst-and-outlier-analysis.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(geno[,<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>])</span></code></pre></div>
+<pre><code>##        CRA_1756 CRA_1757 CRA_1758 CRA_1759 CRA_1760 CRA_1761 CRA_1762 CRA_1763
+## 7_11   &quot;0/0&quot;    NA       &quot;0/0&quot;    &quot;0/0&quot;    &quot;0/0&quot;    &quot;0/0&quot;    &quot;0/0&quot;    &quot;0/0&quot;   
+## 12_31  &quot;0/1&quot;    &quot;1/1&quot;    NA       &quot;0/0&quot;    &quot;0/0&quot;    NA       &quot;0/0&quot;    &quot;0/0&quot;   
+## 10_7   &quot;0/0&quot;    &quot;0/0&quot;    NA       &quot;0/0&quot;    &quot;0/0&quot;    NA       &quot;0/0&quot;    &quot;0/0&quot;   
+## 10_18  &quot;0/0&quot;    &quot;0/0&quot;    NA       &quot;0/0&quot;    &quot;0/0&quot;    NA       &quot;0/1&quot;    &quot;0/0&quot;   
+## 10_32  &quot;0/0&quot;    &quot;0/0&quot;    NA       &quot;0/0&quot;    &quot;0/0&quot;    NA       &quot;0/0&quot;    &quot;0/0&quot;   
+## 101_21 &quot;0/0&quot;    &quot;0/0&quot;    &quot;0/0&quot;    NA       &quot;0/0&quot;    &quot;0/0&quot;    &quot;0/0&quot;    &quot;0/0&quot;   
+##        CRA_1764 CRA_1765
+## 7_11   &quot;0/0&quot;    &quot;0/0&quot;   
+## 12_31  &quot;0/1&quot;    &quot;0/0&quot;   
+## 10_7   &quot;0/0&quot;    &quot;0/0&quot;   
+## 10_18  &quot;0/0&quot;    &quot;0/0&quot;   
+## 10_32  &quot;0/0&quot;    &quot;0/0&quot;   
+## 101_21 &quot;0/0&quot;    &quot;0/0&quot;</code></pre>
+<p>Check out the OutFLANK manual <a href="https://htmlpreview.github.io/?https://github.com/whitlock/OutFLANK/blob/master/inst/doc/OutFLANKAnalysis.html">here</a>. Notice that as our genotypes look like <code>0/0</code>, <code>0/1</code>, and <code>1/1</code>. But OutFLANK wants them to be 0, 1, or 2. The code below fixes this problem:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="week-9--fst-and-outlier-analysis.html#cb27-1" aria-hidden="true" tabindex="-1"></a>G <span class="ot">&lt;-</span> geno  <span class="co">#we are doing this because we will be running a lot of different things with G, and if we mess up we want to be able to go back to geno</span></span>
+<span id="cb27-2"><a href="week-9--fst-and-outlier-analysis.html#cb27-2" aria-hidden="true" tabindex="-1"></a>G[geno <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;0/0&quot;</span>)] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-3"><a href="week-9--fst-and-outlier-analysis.html#cb27-3" aria-hidden="true" tabindex="-1"></a>G[geno  <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;0/1&quot;</span>)] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb27-4"><a href="week-9--fst-and-outlier-analysis.html#cb27-4" aria-hidden="true" tabindex="-1"></a>G[geno <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;1/1&quot;</span>)] <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb27-5"><a href="week-9--fst-and-outlier-analysis.html#cb27-5" aria-hidden="true" tabindex="-1"></a>G[<span class="fu">is.na</span>(G)] <span class="ot">&lt;-</span> <span class="dv">9</span></span>
+<span id="cb27-6"><a href="week-9--fst-and-outlier-analysis.html#cb27-6" aria-hidden="true" tabindex="-1"></a>tG <span class="ot">&lt;-</span> <span class="fu">t</span>(G)</span>
+<span id="cb27-7"><a href="week-9--fst-and-outlier-analysis.html#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(tG)</span></code></pre></div>
+<pre><code>## [1]  717 3699</code></pre>
+<p>Now <code>tG</code> should be in the input format OutFLANK needs, with SNPs as columns and individuals as rows. Now we can calculate F<sub>st</sub> for each SNP.</p>
+<p>For this analysis we are just going to calculate F<sub>st</sub> between the northernmost and the southernmost populations. This is a good time to practice our subsetting skills!</p>
+<p>For the second command: we are only taking the rows of tG that are “true,” or only taking the rows of tG that have one of these two populations “TBL” or “AK4”</p>
+<p>In the third command we are just using a slightly different method for subsetting with the command “subset.” If we subset “meta” we should end up with 62 rows (SNPs) and 2 columns (populations).</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="week-9--fst-and-outlier-analysis.html#cb29-1" aria-hidden="true" tabindex="-1"></a>subpops <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;TBL&quot;</span>,<span class="st">&quot;AK4&quot;</span>)</span>
+<span id="cb29-2"><a href="week-9--fst-and-outlier-analysis.html#cb29-2" aria-hidden="true" tabindex="-1"></a>subgen <span class="ot">&lt;-</span> tG[meta<span class="sc">$</span>SITE<span class="sc">%in%</span>subpops,] <span class="co">#subset method 1</span></span>
+<span id="cb29-3"><a href="week-9--fst-and-outlier-analysis.html#cb29-3" aria-hidden="true" tabindex="-1"></a>submeta <span class="ot">&lt;-</span> <span class="fu">subset</span>(meta,SITE<span class="sc">%in%</span>subpops) <span class="co">#subset method 2</span></span></code></pre></div>
+<p>Now we should check if these two vectors are identical:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="week-9--fst-and-outlier-analysis.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(<span class="fu">rownames</span>(subgen),<span class="fu">as.character</span>(submeta<span class="sc">$</span>ID))</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Since our genotype matrix and our metadata matrix are in the same order, we can combine them.</p>
+<p>Now we can calculate F<sub>st</sub> between these two populations:
+locusNames= names our loci 1,2,3 etc
+popNames= names our populations with the “SITE” labels</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="week-9--fst-and-outlier-analysis.html#cb32-1" aria-hidden="true" tabindex="-1"></a>fst <span class="ot">&lt;-</span> <span class="fu">MakeDiploidFSTMat</span>(subgen,<span class="at">locusNames=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(subgen),<span class="at">popNames=</span>submeta<span class="sc">$</span>SITE)</span></code></pre></div>
+<pre><code>## Error in MakeDiploidFSTMat(subgen, locusNames = 1:ncol(subgen), popNames = submeta$SITE): could not find function &quot;MakeDiploidFSTMat&quot;</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="week-9--fst-and-outlier-analysis.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fst)</span></code></pre></div>
+<pre><code>## Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;head&#39;: object &#39;fst&#39; not found</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="week-9--fst-and-outlier-analysis.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(fst<span class="sc">$</span>FST,<span class="at">breaks=</span><span class="dv">50</span>)</span></code></pre></div>
+<pre><code>## Error in hist(fst$FST, breaks = 50): object &#39;fst&#39; not found</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="week-9--fst-and-outlier-analysis.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fst<span class="sc">$</span>FST) <span class="co">#highest FST is higher than the mean (which is a good sign)</span></span></code></pre></div>
+<pre><code>## Error in summary(fst$FST): object &#39;fst&#39; not found</code></pre>
+<p><strong>Reminder:</strong>
+He= heterozygosity
+FST= measure of differentiation</p>
+<p>Once we’ve calculated F<sub>st</sub> between the two populations for each SNP individually, we want to determine whether some SNPs are <strong>statistical outliers</strong> - that is, more differentiated than we would expect. OutFLANK does this by fitting a Chi-Squared distribution to the data and looking to see if the tails of the Chi-Squared distribution have more SNPs than expected:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="week-9--fst-and-outlier-analysis.html#cb40-1" aria-hidden="true" tabindex="-1"></a>OF <span class="ot">&lt;-</span> <span class="fu">OutFLANK</span>(fst,<span class="at">LeftTrimFraction=</span><span class="fl">0.01</span>,<span class="at">RightTrimFraction=</span><span class="fl">0.01</span>,</span>
+<span id="cb40-2"><a href="week-9--fst-and-outlier-analysis.html#cb40-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">Hmin=</span><span class="fl">0.05</span>,<span class="at">NumberOfSamples=</span><span class="dv">2</span>,<span class="at">qthreshold=</span><span class="fl">0.01</span>)</span></code></pre></div>
+<pre><code>## Error in OutFLANK(fst, LeftTrimFraction = 0.01, RightTrimFraction = 0.01, : could not find function &quot;OutFLANK&quot;</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="week-9--fst-and-outlier-analysis.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">OutFLANKResultsPlotter</span>(OF,<span class="at">withOutliers=</span>T,</span>
+<span id="cb42-2"><a href="week-9--fst-and-outlier-analysis.html#cb42-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">NoCorr=</span>T,<span class="at">Hmin=</span><span class="fl">0.1</span>,<span class="at">binwidth=</span><span class="fl">0.005</span>,</span>
+<span id="cb42-3"><a href="week-9--fst-and-outlier-analysis.html#cb42-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Zoom=</span>F,<span class="at">RightZoomFraction=</span><span class="fl">0.05</span>,<span class="at">titletext=</span><span class="cn">NULL</span>)</span></code></pre></div>
+<pre><code>## Error in OutFLANKResultsPlotter(OF, withOutliers = T, NoCorr = T, Hmin = 0.1, : could not find function &quot;OutFLANKResultsPlotter&quot;</code></pre>
+<p>FSTbar=mean FST across the whole genome
+The yellow bars are the histogram of the FST values
+The blue line is the Chi-Squared Distribution fit to the data
+<em>It is hard to fit the Chi-Squared Distribution to a population with high gene flow, aka this method doesn’t work great for marine species</em> We will just progress forward, but keep this in mind for any future work you may do.</p>
+<p>It’s a little hard to tell from these plots, but there may be some SNPs with high F<sub>st</sub> even where the distribution predicts there should be none. To find these SNPs, we ask <strong>which SNPs are statistical outliers?</strong></p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="week-9--fst-and-outlier-analysis.html#cb44-1" aria-hidden="true" tabindex="-1"></a>P1 <span class="ot">&lt;-</span> <span class="fu">pOutlierFinderChiSqNoCorr</span>(fst,<span class="at">Fstbar=</span>OF<span class="sc">$</span>FSTNoCorrbar,</span>
+<span id="cb44-2"><a href="week-9--fst-and-outlier-analysis.html#cb44-2" aria-hidden="true" tabindex="-1"></a>                                <span class="at">dfInferred=</span>OF<span class="sc">$</span>dfInferred,<span class="at">qthreshold=</span><span class="fl">0.05</span>,<span class="at">Hmin=</span><span class="fl">0.1</span>)</span></code></pre></div>
+<pre><code>## Error in pOutlierFinderChiSqNoCorr(fst, Fstbar = OF$FSTNoCorrbar, dfInferred = OF$dfInferred, : could not find function &quot;pOutlierFinderChiSqNoCorr&quot;</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="week-9--fst-and-outlier-analysis.html#cb46-1" aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> P1<span class="sc">$</span>OutlierFlag<span class="sc">==</span><span class="cn">TRUE</span> <span class="co">#which of the SNPs are outliers?</span></span></code></pre></div>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;P1&#39; not found</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="week-9--fst-and-outlier-analysis.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(outliers)</span></code></pre></div>
+<pre><code>## outliers
+##   20   96  129  130  139  179  195  196  197  198  242  282  283  294  296  347 
+##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
+##  370  410  418  488  511  562  605  630  729  737  779  780  789  888  889  891 
+##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
+##  901  908  950  968  969  984  997  999 1000 1005 1033 1081 1087 1094 1141 1144 
+##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
+## 1286 1295 1330 1361 1382 1397 1410 1447 1463 1464 1539 1540 1562 1564 1572 1640 
+##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
+## 1663 1679 1710 1711 1747 1755 1783 1784 1807 1808 1827 1830 1922 1941 1943 1963 
+##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
+## 1978 2033 2048 2052 2162 2174 2181 2184 2199 2225 2238 2290 2291 2292 2294 2307 
+##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
+## 2329 2330 2333 2371 2382 2485 2487 2488 2522 2746 2747 2773 2785 2789 2790 2813 
+##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
+## 2828 2934 2959 2960 2963 2985 2992 2993 3007 3035 3055 3072 3087 3137 3159 3225 
+##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
+## 3290 3306 3309 3344 3345 3360 3372 3373 3404 3412 3514 3538 3620 3637 3671 
+##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1</code></pre>
+<p>This doesn’t add up to 3699… so some of the SNPs were not even tested. This is okay because there is an internal program that doesn’t test any SNPs with extremely low heterozygosity.</p>
+<p>Looks like there are <strong>17 outlier SNPs.</strong> Now we can make a manhattan plot! We can even plot the outliers in a different color:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="week-9--fst-and-outlier-analysis.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(P1<span class="sc">$</span>LocusName,P1<span class="sc">$</span>FST,<span class="at">xlab=</span><span class="st">&quot;Position&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;FST&quot;</span>,<span class="at">col=</span><span class="fu">rgb</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="at">alpha=</span><span class="fl">0.1</span>))</span></code></pre></div>
+<pre><code>## Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;plot&#39;: object &#39;P1&#39; not found</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="week-9--fst-and-outlier-analysis.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(P1<span class="sc">$</span>LocusName[outliers],P1<span class="sc">$</span>FST[outliers],<span class="at">col=</span><span class="st">&quot;magenta&quot;</span>)</span></code></pre></div>
+<pre><code>## Error in points(P1$LocusName[outliers], P1$FST[outliers], col = &quot;magenta&quot;): object &#39;P1&#39; not found</code></pre>
+</div>
+<div id="outflank-practice" class="section level2" number="10.6">
+<h2><span class="header-section-number">10.6</span> OutFLANK Practice</h2>
+<blockquote>
+<h1 id="practice-questions-1">Practice Questions</h1>
+<ol style="list-style-type: decimal">
+<li>We tested for Fst outliers between just the northernmost and southernmost sampling sites. Do we get more outliers that we expect between any two sites? Choose two sites within the northern and southern groups and see if there are any outliers.</li>
+</ol>
+</blockquote>
+<details>
+<summary>
+<span style="color: DarkCyan;">Solution</span>
+</summary>
+<p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="week-9--fst-and-outlier-analysis.html#cb54-1" aria-hidden="true" tabindex="-1"></a>subpops <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;AK3&quot;</span>,<span class="st">&quot;AK4&quot;</span>)</span>
+<span id="cb54-2"><a href="week-9--fst-and-outlier-analysis.html#cb54-2" aria-hidden="true" tabindex="-1"></a>subgen <span class="ot">&lt;-</span> tG[meta<span class="sc">$</span>SITE<span class="sc">%in%</span>subpops,]</span>
+<span id="cb54-3"><a href="week-9--fst-and-outlier-analysis.html#cb54-3" aria-hidden="true" tabindex="-1"></a>submeta <span class="ot">&lt;-</span> <span class="fu">subset</span>(meta,SITE<span class="sc">%in%</span>subpops)</span>
+<span id="cb54-4"><a href="week-9--fst-and-outlier-analysis.html#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(<span class="fu">rownames</span>(subgen),<span class="fu">as.character</span>(submeta<span class="sc">$</span>ID))</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="week-9--fst-and-outlier-analysis.html#cb56-1" aria-hidden="true" tabindex="-1"></a>fst <span class="ot">&lt;-</span> <span class="fu">MakeDiploidFSTMat</span>(subgen,<span class="at">locusNames=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(subgen),<span class="at">popNames=</span>submeta<span class="sc">$</span>SITE)</span></code></pre></div>
+<pre><code>## Error in MakeDiploidFSTMat(subgen, locusNames = 1:ncol(subgen), popNames = submeta$SITE): could not find function &quot;MakeDiploidFSTMat&quot;</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="week-9--fst-and-outlier-analysis.html#cb58-1" aria-hidden="true" tabindex="-1"></a>OF <span class="ot">&lt;-</span> <span class="fu">OutFLANK</span>(fst,<span class="at">LeftTrimFraction=</span><span class="fl">0.01</span>,<span class="at">RightTrimFraction=</span><span class="fl">0.01</span>,</span>
+<span id="cb58-2"><a href="week-9--fst-and-outlier-analysis.html#cb58-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">Hmin=</span><span class="fl">0.05</span>,<span class="at">NumberOfSamples=</span><span class="dv">2</span>,<span class="at">qthreshold=</span><span class="fl">0.01</span>)</span></code></pre></div>
+<pre><code>## Error in OutFLANK(fst, LeftTrimFraction = 0.01, RightTrimFraction = 0.01, : could not find function &quot;OutFLANK&quot;</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="week-9--fst-and-outlier-analysis.html#cb60-1" aria-hidden="true" tabindex="-1"></a>P1 <span class="ot">&lt;-</span> <span class="fu">pOutlierFinderChiSqNoCorr</span>(fst,<span class="at">Fstbar=</span>OF<span class="sc">$</span>FSTNoCorrbar,</span>
+<span id="cb60-2"><a href="week-9--fst-and-outlier-analysis.html#cb60-2" aria-hidden="true" tabindex="-1"></a>                                <span class="at">dfInferred=</span>OF<span class="sc">$</span>dfInferred,<span class="at">qthreshold=</span><span class="fl">0.05</span>,<span class="at">Hmin=</span><span class="fl">0.1</span>)</span></code></pre></div>
+<pre><code>## Error in pOutlierFinderChiSqNoCorr(fst, Fstbar = OF$FSTNoCorrbar, dfInferred = OF$dfInferred, : could not find function &quot;pOutlierFinderChiSqNoCorr&quot;</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="week-9--fst-and-outlier-analysis.html#cb62-1" aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> P1<span class="sc">$</span>OutlierFlag<span class="sc">==</span><span class="cn">TRUE</span></span></code></pre></div>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;P1&#39; not found</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="week-9--fst-and-outlier-analysis.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(outliers)</span></code></pre></div>
+<pre><code>## outliers
+##   20   96  129  130  139  179  195  196  197  198  242  282  283  294  296  347 
+##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
+##  370  410  418  488  511  562  605  630  729  737  779  780  789  888  889  891 
+##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
+##  901  908  950  968  969  984  997  999 1000 1005 1033 1081 1087 1094 1141 1144 
+##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
+## 1286 1295 1330 1361 1382 1397 1410 1447 1463 1464 1539 1540 1562 1564 1572 1640 
+##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
+## 1663 1679 1710 1711 1747 1755 1783 1784 1807 1808 1827 1830 1922 1941 1943 1963 
+##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
+## 1978 2033 2048 2052 2162 2174 2181 2184 2199 2225 2238 2290 2291 2292 2294 2307 
+##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
+## 2329 2330 2333 2371 2382 2485 2487 2488 2522 2746 2747 2773 2785 2789 2790 2813 
+##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
+## 2828 2934 2959 2960 2963 2985 2992 2993 3007 3035 3055 3072 3087 3137 3159 3225 
+##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
+## 3290 3306 3309 3344 3345 3360 3372 3373 3404 3412 3514 3538 3620 3637 3671 
+##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="week-9--fst-and-outlier-analysis.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co">#FALSE  TRUE </span></span>
+<span id="cb66-2"><a href="week-9--fst-and-outlier-analysis.html#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1284     1 </span></span></code></pre></div>
+</p>
+</details>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="week-8--principle-component-analyses.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Semester.pdf", "Semester.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
