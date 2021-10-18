@@ -480,24 +480,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb257-2"><a href="week-5--the-r-environment.html#cb257-2" aria-hidden="true" tabindex="-1"></a><span class="co"># tail() -look at the end of the data file</span></span>
 <span id="cb257-3"><a href="week-5--the-r-environment.html#cb257-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(msleep)</span></code></pre></div>
 <pre><code>#&gt; # A tibble: 6 x 11
-#&gt;   name        genus   vore  order  conservation sleep_total sleep_rem sleep_cycle awake  brainwt  bodywt
-#&gt;   &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
-#&gt; 1 Cheetah     Acinon~ carni Carni~ lc                  12.1      NA        NA      11.9 NA        50    
-#&gt; 2 Owl monkey  Aotus   omni  Prima~ &lt;NA&gt;                17         1.8      NA       7    0.0155    0.48 
-#&gt; 3 Mountain b~ Aplodo~ herbi Roden~ nt                  14.4       2.4      NA       9.6 NA         1.35 
-#&gt; 4 Greater sh~ Blarina omni  Soric~ lc                  14.9       2.3       0.133   9.1  0.00029   0.019
-#&gt; 5 Cow         Bos     herbi Artio~ domesticated         4         0.7       0.667  20    0.423   600    
-#&gt; 6 Three-toed~ Bradyp~ herbi Pilosa &lt;NA&gt;                14.4       2.2       0.767   9.6 NA         3.85</code></pre>
+#&gt;   name    genus  vore  order conservation sleep_total sleep_rem sleep_cycle awake  brainwt
+#&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
+#&gt; 1 Cheetah Acino~ carni Carn~ lc                  12.1      NA        NA      11.9 NA      
+#&gt; 2 Owl mo~ Aotus  omni  Prim~ &lt;NA&gt;                17         1.8      NA       7    0.0155 
+#&gt; 3 Mounta~ Aplod~ herbi Rode~ nt                  14.4       2.4      NA       9.6 NA      
+#&gt; 4 Greate~ Blari~ omni  Sori~ lc                  14.9       2.3       0.133   9.1  0.00029
+#&gt; 5 Cow     Bos    herbi Arti~ domesticated         4         0.7       0.667  20    0.423  
+#&gt; 6 Three-~ Brady~ herbi Pilo~ &lt;NA&gt;                14.4       2.2       0.767   9.6 NA      
+#&gt; # ... with 1 more variable: bodywt &lt;dbl&gt;</code></pre>
 <div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="week-5--the-r-environment.html#cb259-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(msleep)</span></code></pre></div>
 <pre><code>#&gt; # A tibble: 6 x 11
-#&gt;   name        genus   vore  order   conservation sleep_total sleep_rem sleep_cycle awake brainwt  bodywt
-#&gt;   &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-#&gt; 1 Tenrec      Tenrec  omni  Afroso~ &lt;NA&gt;                15.6       2.3      NA       8.4  0.0026   0.9  
-#&gt; 2 Tree shrew  Tupaia  omni  Scande~ &lt;NA&gt;                 8.9       2.6       0.233  15.1  0.0025   0.104
-#&gt; 3 Bottle-nos~ Tursio~ carni Cetacea &lt;NA&gt;                 5.2      NA        NA      18.8 NA      173.   
-#&gt; 4 Genet       Genetta carni Carniv~ &lt;NA&gt;                 6.3       1.3      NA      17.7  0.0175   2    
-#&gt; 5 Arctic fox  Vulpes  carni Carniv~ &lt;NA&gt;                12.5      NA        NA      11.5  0.0445   3.38 
-#&gt; 6 Red fox     Vulpes  carni Carniv~ &lt;NA&gt;                 9.8       2.4       0.35   14.2  0.0504   4.23</code></pre>
+#&gt;   name     genus vore  order  conservation sleep_total sleep_rem sleep_cycle awake brainwt
+#&gt;   &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+#&gt; 1 Tenrec   Tenr~ omni  Afros~ &lt;NA&gt;                15.6       2.3      NA       8.4  0.0026
+#&gt; 2 Tree sh~ Tupa~ omni  Scand~ &lt;NA&gt;                 8.9       2.6       0.233  15.1  0.0025
+#&gt; 3 Bottle-~ Turs~ carni Cetac~ &lt;NA&gt;                 5.2      NA        NA      18.8 NA     
+#&gt; 4 Genet    Gene~ carni Carni~ &lt;NA&gt;                 6.3       1.3      NA      17.7  0.0175
+#&gt; 5 Arctic ~ Vulp~ carni Carni~ &lt;NA&gt;                12.5      NA        NA      11.5  0.0445
+#&gt; 6 Red fox  Vulp~ carni Carni~ &lt;NA&gt;                 9.8       2.4       0.35   14.2  0.0504
+#&gt; # ... with 1 more variable: bodywt &lt;dbl&gt;</code></pre>
 <div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="week-5--the-r-environment.html#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="co"># str()</span></span>
 <span id="cb261-2"><a href="week-5--the-r-environment.html#cb261-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(msleep)</span></code></pre></div>
 <pre><code>#&gt; tibble [83 x 11] (S3: tbl_df/tbl/data.frame)
@@ -553,14 +555,16 @@ Think about “rc cola” or “remote control car” to remember that [5,] mean
 #&gt; 10 herbi
 #&gt; # ... with 73 more rows</code></pre>
 <div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="week-5--the-r-environment.html#cb267-1" aria-hidden="true" tabindex="-1"></a>msleep<span class="sc">$</span>vore</span></code></pre></div>
-<pre><code>#&gt;  [1] &quot;carni&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;herbi&quot;   &quot;carni&quot;   NA        &quot;carni&quot;   &quot;herbi&quot;  
-#&gt; [11] &quot;herbi&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;omni&quot;    &quot;omni&quot;    &quot;omni&quot;    &quot;carni&quot;   &quot;herbi&quot;   &quot;omni&quot;   
-#&gt; [21] &quot;herbi&quot;   &quot;insecti&quot; &quot;herbi&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;omni&quot;    &quot;herbi&quot;   &quot;carni&quot;   &quot;omni&quot;    &quot;herbi&quot;  
-#&gt; [31] &quot;carni&quot;   &quot;carni&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;herbi&quot;   &quot;carni&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;herbi&quot;  
-#&gt; [41] &quot;herbi&quot;   &quot;herbi&quot;   &quot;insecti&quot; &quot;herbi&quot;   &quot;carni&quot;   &quot;herbi&quot;   &quot;carni&quot;   &quot;herbi&quot;   &quot;herbi&quot;   &quot;omni&quot;   
-#&gt; [51] &quot;carni&quot;   &quot;carni&quot;   &quot;carni&quot;   &quot;omni&quot;    NA        &quot;omni&quot;    NA        NA        &quot;carni&quot;   &quot;carni&quot;  
-#&gt; [61] &quot;herbi&quot;   &quot;insecti&quot; NA        &quot;herbi&quot;   &quot;omni&quot;    &quot;omni&quot;    &quot;insecti&quot; &quot;herbi&quot;   NA        &quot;herbi&quot;  
-#&gt; [71] &quot;herbi&quot;   &quot;herbi&quot;   NA        &quot;omni&quot;    &quot;insecti&quot; &quot;herbi&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;omni&quot;    &quot;carni&quot;  
+<pre><code>#&gt;  [1] &quot;carni&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;herbi&quot;   &quot;carni&quot;   NA       
+#&gt;  [9] &quot;carni&quot;   &quot;herbi&quot;   &quot;herbi&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;omni&quot;    &quot;omni&quot;   
+#&gt; [17] &quot;omni&quot;    &quot;carni&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;insecti&quot; &quot;herbi&quot;   &quot;herbi&quot;  
+#&gt; [25] &quot;omni&quot;    &quot;omni&quot;    &quot;herbi&quot;   &quot;carni&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;carni&quot;   &quot;carni&quot;  
+#&gt; [33] &quot;herbi&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;herbi&quot;   &quot;carni&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;herbi&quot;  
+#&gt; [41] &quot;herbi&quot;   &quot;herbi&quot;   &quot;insecti&quot; &quot;herbi&quot;   &quot;carni&quot;   &quot;herbi&quot;   &quot;carni&quot;   &quot;herbi&quot;  
+#&gt; [49] &quot;herbi&quot;   &quot;omni&quot;    &quot;carni&quot;   &quot;carni&quot;   &quot;carni&quot;   &quot;omni&quot;    NA        &quot;omni&quot;   
+#&gt; [57] NA        NA        &quot;carni&quot;   &quot;carni&quot;   &quot;herbi&quot;   &quot;insecti&quot; NA        &quot;herbi&quot;  
+#&gt; [65] &quot;omni&quot;    &quot;omni&quot;    &quot;insecti&quot; &quot;herbi&quot;   NA        &quot;herbi&quot;   &quot;herbi&quot;   &quot;herbi&quot;  
+#&gt; [73] NA        &quot;omni&quot;    &quot;insecti&quot; &quot;herbi&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;omni&quot;    &quot;carni&quot;  
 #&gt; [81] &quot;carni&quot;   &quot;carni&quot;   &quot;carni&quot;</code></pre>
 <p>Sometimes it is useful to know what class() the column is:</p>
 <div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="week-5--the-r-environment.html#cb269-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(msleep<span class="sc">$</span>vore)</span></code></pre></div>
@@ -570,14 +574,16 @@ Think about “rc cola” or “remote control car” to remember that [5,] mean
 <p>We can also look at a single row at a time. There are two ways to access this: 1. by indicating the row number in square brackets next to the name of the dataframe <code>name[#,]</code> and by calling the actual name of the row (if your rows have names) <code>name["a",]</code>.</p>
 <div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="week-5--the-r-environment.html#cb273-1" aria-hidden="true" tabindex="-1"></a>msleep[<span class="dv">43</span>,]</span></code></pre></div>
 <pre><code>#&gt; # A tibble: 1 x 11
-#&gt;   name             genus  vore  order conservation sleep_total sleep_rem sleep_cycle awake brainwt bodywt
-#&gt;   &lt;chr&gt;            &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
-#&gt; 1 Little brown bat Myotis inse~ Chir~ &lt;NA&gt;                19.9         2         0.2   4.1 0.00025   0.01</code></pre>
+#&gt;   name     genus vore  order  conservation sleep_total sleep_rem sleep_cycle awake brainwt
+#&gt;   &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+#&gt; 1 Little ~ Myot~ inse~ Chiro~ &lt;NA&gt;                19.9         2         0.2   4.1 0.00025
+#&gt; # ... with 1 more variable: bodywt &lt;dbl&gt;</code></pre>
 <div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="week-5--the-r-environment.html#cb275-1" aria-hidden="true" tabindex="-1"></a>msleep[msleep<span class="sc">$</span>name <span class="sc">==</span> <span class="st">&quot;Mountain beaver&quot;</span>,]</span></code></pre></div>
 <pre><code>#&gt; # A tibble: 1 x 11
-#&gt;   name            genus  vore  order conservation sleep_total sleep_rem sleep_cycle awake brainwt bodywt
-#&gt;   &lt;chr&gt;           &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
-#&gt; 1 Mountain beaver Aplod~ herbi Rode~ nt                  14.4       2.4          NA   9.6      NA   1.35</code></pre>
+#&gt;   name     genus  vore  order conservation sleep_total sleep_rem sleep_cycle awake brainwt
+#&gt;   &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+#&gt; 1 Mountai~ Aplod~ herbi Rode~ nt                  14.4       2.4          NA   9.6      NA
+#&gt; # ... with 1 more variable: bodywt &lt;dbl&gt;</code></pre>
 <p>We can select more than one row or column at a time:</p>
 <div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="week-5--the-r-environment.html#cb277-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># see two columns</span></span>
 <span id="cb277-2"><a href="week-5--the-r-environment.html#cb277-2" aria-hidden="true" tabindex="-1"></a>msleep[,<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">6</span>)]</span></code></pre></div>
@@ -625,20 +631,21 @@ Think about “rc cola” or “remote control car” to remember that [5,] mean
 <div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="week-5--the-r-environment.html#cb282-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># table()</span></span>
 <span id="cb282-2"><a href="week-5--the-r-environment.html#cb282-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(msleep<span class="sc">$</span>order)</span></code></pre></div>
 <pre><code>#&gt; 
-#&gt;    Afrosoricida    Artiodactyla       Carnivora         Cetacea      Chiroptera       Cingulata 
-#&gt;               1               6              12               3               2               2 
-#&gt; Didelphimorphia   Diprotodontia  Erinaceomorpha      Hyracoidea      Lagomorpha     Monotremata 
-#&gt;               2               2               2               3               1               1 
-#&gt;  Perissodactyla          Pilosa        Primates     Proboscidea        Rodentia      Scandentia 
-#&gt;               3               1              12               2              22               1 
-#&gt;    Soricomorpha 
-#&gt;               5</code></pre>
+#&gt;    Afrosoricida    Artiodactyla       Carnivora         Cetacea      Chiroptera 
+#&gt;               1               6              12               3               2 
+#&gt;       Cingulata Didelphimorphia   Diprotodontia  Erinaceomorpha      Hyracoidea 
+#&gt;               2               2               2               2               3 
+#&gt;      Lagomorpha     Monotremata  Perissodactyla          Pilosa        Primates 
+#&gt;               1               1               3               1              12 
+#&gt;     Proboscidea        Rodentia      Scandentia    Soricomorpha 
+#&gt;               2              22               1               5</code></pre>
 <div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="week-5--the-r-environment.html#cb284-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># levels(), if class is factor (and if not we can make it a factor)</span></span>
 <span id="cb284-2"><a href="week-5--the-r-environment.html#cb284-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(<span class="fu">as.factor</span>(msleep<span class="sc">$</span>order))</span></code></pre></div>
-<pre><code>#&gt;  [1] &quot;Afrosoricida&quot;    &quot;Artiodactyla&quot;    &quot;Carnivora&quot;       &quot;Cetacea&quot;         &quot;Chiroptera&quot;     
-#&gt;  [6] &quot;Cingulata&quot;       &quot;Didelphimorphia&quot; &quot;Diprotodontia&quot;   &quot;Erinaceomorpha&quot;  &quot;Hyracoidea&quot;     
-#&gt; [11] &quot;Lagomorpha&quot;      &quot;Monotremata&quot;     &quot;Perissodactyla&quot;  &quot;Pilosa&quot;          &quot;Primates&quot;       
-#&gt; [16] &quot;Proboscidea&quot;     &quot;Rodentia&quot;        &quot;Scandentia&quot;      &quot;Soricomorpha&quot;</code></pre>
+<pre><code>#&gt;  [1] &quot;Afrosoricida&quot;    &quot;Artiodactyla&quot;    &quot;Carnivora&quot;       &quot;Cetacea&quot;        
+#&gt;  [5] &quot;Chiroptera&quot;      &quot;Cingulata&quot;       &quot;Didelphimorphia&quot; &quot;Diprotodontia&quot;  
+#&gt;  [9] &quot;Erinaceomorpha&quot;  &quot;Hyracoidea&quot;      &quot;Lagomorpha&quot;      &quot;Monotremata&quot;    
+#&gt; [13] &quot;Perissodactyla&quot;  &quot;Pilosa&quot;          &quot;Primates&quot;        &quot;Proboscidea&quot;    
+#&gt; [17] &quot;Rodentia&quot;        &quot;Scandentia&quot;      &quot;Soricomorpha&quot;</code></pre>
 </div>
 <div id="data-manipulation" class="section level2" number="6.9">
 <h2><span class="header-section-number">6.9</span> Data Manipulation</h2>
@@ -647,7 +654,7 @@ Think about “rc cola” or “remote control car” to remember that [5,] mean
 <div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="week-5--the-r-environment.html#cb286-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># t()</span></span>
 <span id="cb286-2"><a href="week-5--the-r-environment.html#cb286-2" aria-hidden="true" tabindex="-1"></a>tr_msleep<span class="ot">&lt;-</span><span class="fu">t</span>(msleep)</span>
 <span id="cb286-3"><a href="week-5--the-r-environment.html#cb286-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(tr_msleep)</span></code></pre></div>
-<pre><code>#&gt;  chr [1:11, 1:83] &quot;Cheetah&quot; &quot;Acinonyx&quot; &quot;carni&quot; &quot;Carnivora&quot; &quot;lc&quot; &quot;12.1&quot; NA NA &quot;11.90&quot; NA &quot;  50.000&quot; ...
+<pre><code>#&gt;  chr [1:11, 1:83] &quot;Cheetah&quot; &quot;Acinonyx&quot; &quot;carni&quot; &quot;Carnivora&quot; &quot;lc&quot; &quot;12.1&quot; NA NA &quot;11.90&quot; ...
 #&gt;  - attr(*, &quot;dimnames&quot;)=List of 2
 #&gt;   ..$ : chr [1:11] &quot;name&quot; &quot;genus&quot; &quot;vore&quot; &quot;order&quot; ...
 #&gt;   ..$ : NULL</code></pre>
@@ -692,15 +699,15 @@ Think about “rc cola” or “remote control car” to remember that [5,] mean
 <span id="cb300-4"><a href="week-5--the-r-environment.html#cb300-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># look at our dataframe again. It now contains 12 columns, one of them being the one we just created.</span></span>
 <span id="cb300-5"><a href="week-5--the-r-environment.html#cb300-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(msleep)</span></code></pre></div>
 <pre><code>#&gt; # A tibble: 6 x 12
-#&gt;   name        genus   vore  order  conservation sleep_total sleep_rem sleep_cycle awake  brainwt  bodywt
-#&gt;   &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
-#&gt; 1 Cheetah     Acinon~ carni Carni~ lc                  12.1      NA        NA      11.9 NA        50    
-#&gt; 2 Owl monkey  Aotus   omni  Prima~ &lt;NA&gt;                17         1.8      NA       7    0.0155    0.48 
-#&gt; 3 Mountain b~ Aplodo~ herbi Roden~ nt                  14.4       2.4      NA       9.6 NA         1.35 
-#&gt; 4 Greater sh~ Blarina omni  Soric~ lc                  14.9       2.3       0.133   9.1  0.00029   0.019
-#&gt; 5 Cow         Bos     herbi Artio~ domesticated         4         0.7       0.667  20    0.423   600    
-#&gt; 6 Three-toed~ Bradyp~ herbi Pilosa &lt;NA&gt;                14.4       2.2       0.767   9.6 NA         3.85 
-#&gt; # ... with 1 more variable: total_rem &lt;dbl&gt;</code></pre>
+#&gt;   name    genus  vore  order conservation sleep_total sleep_rem sleep_cycle awake  brainwt
+#&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
+#&gt; 1 Cheetah Acino~ carni Carn~ lc                  12.1      NA        NA      11.9 NA      
+#&gt; 2 Owl mo~ Aotus  omni  Prim~ &lt;NA&gt;                17         1.8      NA       7    0.0155 
+#&gt; 3 Mounta~ Aplod~ herbi Rode~ nt                  14.4       2.4      NA       9.6 NA      
+#&gt; 4 Greate~ Blari~ omni  Sori~ lc                  14.9       2.3       0.133   9.1  0.00029
+#&gt; 5 Cow     Bos    herbi Arti~ domesticated         4         0.7       0.667  20    0.423  
+#&gt; 6 Three-~ Brady~ herbi Pilo~ &lt;NA&gt;                14.4       2.2       0.767   9.6 NA      
+#&gt; # ... with 2 more variables: bodywt &lt;dbl&gt;, total_rem &lt;dbl&gt;</code></pre>
 </div>
 <div id="exercise-1.2" class="section level2" number="6.10">
 <h2><span class="header-section-number">6.10</span> EXERCISE 1.2</h2>
@@ -1051,19 +1058,21 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="week-5--the-r-environment.html#cb372-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># which four species are these?</span></span>
 <span id="cb372-2"><a href="week-5--the-r-environment.html#cb372-2" aria-hidden="true" tabindex="-1"></a>msleep[<span class="fu">which</span>(msleep[,<span class="st">&quot;sleep_total&quot;</span>]<span class="sc">&gt;</span><span class="dv">18</span>),]</span></code></pre></div>
 <pre><code>#&gt; # A tibble: 4 x 12
-#&gt;   name   genus vore  order conservation sleep_total sleep_rem sleep_cycle awake brainwt bodywt total_rem
-#&gt;   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
-#&gt; 1 Big b~ Epte~ inse~ Chir~ lc                  19.7       3.9       0.117   4.3  3  e-4  0.023      5.05
-#&gt; 2 Thick~ Lutr~ carni Dide~ lc                  19.4       6.6      NA       4.6 NA       0.37       2.94
-#&gt; 3 Littl~ Myot~ inse~ Chir~ &lt;NA&gt;                19.9       2         0.2     4.1  2.5e-4  0.01       9.95
-#&gt; 4 Giant~ Prio~ inse~ Cing~ en                  18.1       6.1      NA       5.9  8.1e-2 60          2.97</code></pre>
+#&gt;   name    genus  vore  order  conservation sleep_total sleep_rem sleep_cycle awake brainwt
+#&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+#&gt; 1 Big br~ Eptes~ inse~ Chiro~ lc                  19.7       3.9       0.117   4.3  3  e-4
+#&gt; 2 Thick-~ Lutre~ carni Didel~ lc                  19.4       6.6      NA       4.6 NA     
+#&gt; 3 Little~ Myotis inse~ Chiro~ &lt;NA&gt;                19.9       2         0.2     4.1  2.5e-4
+#&gt; 4 Giant ~ Priod~ inse~ Cingu~ en                  18.1       6.1      NA       5.9  8.1e-2
+#&gt; # ... with 2 more variables: bodywt &lt;dbl&gt;, total_rem &lt;dbl&gt;</code></pre>
 <div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="week-5--the-r-environment.html#cb374-1" aria-hidden="true" tabindex="-1"></a><span class="co"># what if we only want to see the bats that sleep more than 18 hours per 24 hour period?</span></span>
 <span id="cb374-2"><a href="week-5--the-r-environment.html#cb374-2" aria-hidden="true" tabindex="-1"></a>msleep[<span class="fu">which</span>(msleep[,<span class="st">&quot;sleep_total&quot;</span>]<span class="sc">&gt;</span><span class="dv">18</span> <span class="sc">&amp;</span> msleep[,<span class="st">&quot;order&quot;</span>] <span class="sc">==</span> <span class="st">&quot;Chiroptera&quot;</span>),]</span></code></pre></div>
 <pre><code>#&gt; # A tibble: 2 x 12
-#&gt;   name   genus vore  order conservation sleep_total sleep_rem sleep_cycle awake brainwt bodywt total_rem
-#&gt;   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
-#&gt; 1 Big b~ Epte~ inse~ Chir~ lc                  19.7       3.9       0.117   4.3 0.0003   0.023      5.05
-#&gt; 2 Littl~ Myot~ inse~ Chir~ &lt;NA&gt;                19.9       2         0.2     4.1 0.00025  0.01       9.95</code></pre>
+#&gt;   name    genus  vore   order conservation sleep_total sleep_rem sleep_cycle awake brainwt
+#&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+#&gt; 1 Big br~ Eptes~ insec~ Chir~ lc                  19.7       3.9       0.117   4.3 0.0003 
+#&gt; 2 Little~ Myotis insec~ Chir~ &lt;NA&gt;                19.9       2         0.2     4.1 0.00025
+#&gt; # ... with 2 more variables: bodywt &lt;dbl&gt;, total_rem &lt;dbl&gt;</code></pre>
 </div>
 <div id="exercise-1.3-indexing-by-logical-statements" class="section level2" number="6.12">
 <h2><span class="header-section-number">6.12</span> EXERCISE 1.3 indexing by logical statements</h2>
@@ -1193,22 +1202,26 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 </summary>
 <p>
 <div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="week-5--the-r-environment.html#cb404-1" aria-hidden="true" tabindex="-1"></a>iris[,<span class="st">&#39;Species&#39;</span>][iris[,<span class="st">&#39;Sepal.Length&#39;</span>]<span class="sc">&gt;</span><span class="dv">6</span>]</span></code></pre></div>
-<pre><code>#&gt;  [1] versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor
-#&gt; [10] versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor
-#&gt; [19] versicolor versicolor virginica  virginica  virginica  virginica  virginica  virginica  virginica 
-#&gt; [28] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
-#&gt; [37] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
-#&gt; [46] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
-#&gt; [55] virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+<pre><code>#&gt;  [1] versicolor versicolor versicolor versicolor versicolor versicolor versicolor
+#&gt;  [8] versicolor versicolor versicolor versicolor versicolor versicolor versicolor
+#&gt; [15] versicolor versicolor versicolor versicolor versicolor versicolor virginica 
+#&gt; [22] virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+#&gt; [29] virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+#&gt; [36] virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+#&gt; [43] virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+#&gt; [50] virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+#&gt; [57] virginica  virginica  virginica  virginica  virginica 
 #&gt; Levels: setosa versicolor virginica</code></pre>
 <div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="week-5--the-r-environment.html#cb406-1" aria-hidden="true" tabindex="-1"></a>iris[iris[,<span class="st">&#39;Sepal.Length&#39;</span>]<span class="sc">&gt;</span><span class="dv">6</span>, <span class="st">&#39;Species&#39;</span>] <span class="do">## alternatively, we can put the logical vector in the row part, and Species in the column part, to get a vector back</span></span></code></pre></div>
-<pre><code>#&gt;  [1] versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor
-#&gt; [10] versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor
-#&gt; [19] versicolor versicolor virginica  virginica  virginica  virginica  virginica  virginica  virginica 
-#&gt; [28] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
-#&gt; [37] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
-#&gt; [46] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
-#&gt; [55] virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+<pre><code>#&gt;  [1] versicolor versicolor versicolor versicolor versicolor versicolor versicolor
+#&gt;  [8] versicolor versicolor versicolor versicolor versicolor versicolor versicolor
+#&gt; [15] versicolor versicolor versicolor versicolor versicolor versicolor virginica 
+#&gt; [22] virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+#&gt; [29] virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+#&gt; [36] virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+#&gt; [43] virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+#&gt; [50] virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+#&gt; [57] virginica  virginica  virginica  virginica  virginica 
 #&gt; Levels: setosa versicolor virginica</code></pre>
 </p>
 </details>

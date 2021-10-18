@@ -318,12 +318,12 @@ There are several apply functions that vary in the output the return and vary so
 <span id="cb459-10"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb459-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(pi <span class="sc">*</span> r<span class="sc">^</span><span class="dv">2</span>)</span>
 <span id="cb459-11"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb459-11" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb459-12"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb459-12" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, areaCircle)</span>
-<span id="cb459-13"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb459-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1]   3.141593  12.566371  28.274334  50.265482  78.539816 113.097336 153.938040 201.061930 254.469005</span></span>
-<span id="cb459-14"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb459-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [10] 314.159265</span></span>
+<span id="cb459-13"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb459-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1]   3.141593  12.566371  28.274334  50.265482  78.539816 113.097336 153.938040</span></span>
+<span id="cb459-14"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb459-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [8] 201.061930 254.469005 314.159265</span></span>
 <span id="cb459-15"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb459-15" aria-hidden="true" tabindex="-1"></a><span class="co"># in R, we can also just use short-hand for simple vector calculations:</span></span>
 <span id="cb459-16"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb459-16" aria-hidden="true" tabindex="-1"></a>pi<span class="sc">*</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb459-17"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb459-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1]   3.141593  12.566371  28.274334  50.265482  78.539816 113.097336 153.938040 201.061930 254.469005</span></span>
-<span id="cb459-18"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb459-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [10] 314.159265</span></span>
+<span id="cb459-17"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb459-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1]   3.141593  12.566371  28.274334  50.265482  78.539816 113.097336 153.938040</span></span>
+<span id="cb459-18"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb459-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [8] 201.061930 254.469005 314.159265</span></span>
 <span id="cb459-19"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb459-19" aria-hidden="true" tabindex="-1"></a><span class="co"># but unlike the short-hand, sapply can also iterate over elements in a list</span></span>
 <span id="cb459-20"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb459-20" aria-hidden="true" tabindex="-1"></a>listy <span class="ot">=</span> <span class="fu">list</span>(<span class="at">a =</span> <span class="cn">TRUE</span>, <span class="at">b =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), <span class="at">c =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">100</span>)</span>
 <span id="cb459-21"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb459-21" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(listy) <span class="co"># look at the structure of &#39;listy&#39;</span></span>
@@ -527,11 +527,16 @@ We can do the same things across all rows. But if you want to plot all the rows 
 <span id="cb473-20"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-20" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states,</span>
 <span id="cb473-21"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-21" aria-hidden="true" tabindex="-1"></a>      <span class="dv">2</span>, <span class="co"># apply over columns of my_states</span></span>
 <span id="cb473-22"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-22" aria-hidden="true" tabindex="-1"></a>      <span class="cf">function</span>(x) <span class="fu">tapply</span>(x, state.region, mean)) <span class="co"># each column = variable of interest for tapply</span></span>
-<span id="cb473-23"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;               Population   Income Illiteracy Life Exp    Murder  HS Grad    Frost      Area</span></span>
-<span id="cb473-24"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Northeast       5495.111 4570.222   1.000000 71.26444  4.722222 53.96667 132.7778  18141.00</span></span>
-<span id="cb473-25"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; South           4208.125 4011.938   1.737500 69.70625 10.581250 44.34375  64.6250  54605.12</span></span>
-<span id="cb473-26"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; North Central   4803.000 4611.083   0.700000 71.76667  5.275000 54.51667 138.8333  62652.00</span></span>
-<span id="cb473-27"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; West            2915.308 4702.615   1.023077 71.23462  7.215385 62.00000 102.1538 134463.00</span></span></code></pre></div>
+<span id="cb473-23"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;               Population   Income Illiteracy Life Exp    Murder  HS Grad    Frost</span></span>
+<span id="cb473-24"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Northeast       5495.111 4570.222   1.000000 71.26444  4.722222 53.96667 132.7778</span></span>
+<span id="cb473-25"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; South           4208.125 4011.938   1.737500 69.70625 10.581250 44.34375  64.6250</span></span>
+<span id="cb473-26"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; North Central   4803.000 4611.083   0.700000 71.76667  5.275000 54.51667 138.8333</span></span>
+<span id="cb473-27"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; West            2915.308 4702.615   1.023077 71.23462  7.215385 62.00000 102.1538</span></span>
+<span id="cb473-28"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                    Area</span></span>
+<span id="cb473-29"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Northeast      18141.00</span></span>
+<span id="cb473-30"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; South          54605.12</span></span>
+<span id="cb473-31"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; North Central  62652.00</span></span>
+<span id="cb473-32"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; West          134463.00</span></span></code></pre></div>
 </div>
 <div id="exercise-2.3-apply-and-tapply" class="section level2" number="8.1">
 <h2><span class="header-section-number">8.1</span> Exercise 2.3 apply and tapply</h2>
@@ -837,13 +842,20 @@ Hint: to standardize a variable, you subtract the mean and divide by the standar
 <span id="cb482-10"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Colorado         2541   4884        0.7    72.06    6.8    63.9   166 103766</span></span>
 <span id="cb482-11"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-11" aria-hidden="true" tabindex="-1"></a><span class="co"># standardized</span></span>
 <span id="cb482-12"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(states_standardized)</span>
-<span id="cb482-13"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            Population     Income Illiteracy   Life Exp     Murder    HS Grad      Frost       Area</span></span>
-<span id="cb482-14"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Alabama    -0.1414316 -1.3211387   1.525758 -1.3621937  2.0918101 -1.4619293 -1.6248292 -0.2347183</span></span>
-<span id="cb482-15"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Alaska     -0.8693980  3.0582456   0.541398 -1.1685098  1.0624293  1.6828035  0.9145676  5.8093497</span></span>
-<span id="cb482-16"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Arizona    -0.4556891  0.1533029   1.033578 -0.2447866  0.1143154  0.6180514 -1.7210185  0.5002047</span></span>
-<span id="cb482-17"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Arkansas   -0.4785360 -1.7214837   1.197638 -0.1628435  0.7373617 -1.6352611 -0.7591257 -0.2202212</span></span>
-<span id="cb482-18"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; California  3.7969790  1.1037155  -0.114842  0.6193415  0.7915396  1.1751891 -1.6248292  1.0034903</span></span>
-<span id="cb482-19"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Colorado   -0.3819965  0.7294092  -0.771082  0.8800698 -0.1565742  1.3361400  1.1838976  0.3870991</span></span></code></pre></div>
+<span id="cb482-13"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            Population     Income Illiteracy   Life Exp     Murder    HS Grad      Frost</span></span>
+<span id="cb482-14"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Alabama    -0.1414316 -1.3211387   1.525758 -1.3621937  2.0918101 -1.4619293 -1.6248292</span></span>
+<span id="cb482-15"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Alaska     -0.8693980  3.0582456   0.541398 -1.1685098  1.0624293  1.6828035  0.9145676</span></span>
+<span id="cb482-16"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Arizona    -0.4556891  0.1533029   1.033578 -0.2447866  0.1143154  0.6180514 -1.7210185</span></span>
+<span id="cb482-17"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Arkansas   -0.4785360 -1.7214837   1.197638 -0.1628435  0.7373617 -1.6352611 -0.7591257</span></span>
+<span id="cb482-18"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; California  3.7969790  1.1037155  -0.114842  0.6193415  0.7915396  1.1751891 -1.6248292</span></span>
+<span id="cb482-19"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Colorado   -0.3819965  0.7294092  -0.771082  0.8800698 -0.1565742  1.3361400  1.1838976</span></span>
+<span id="cb482-20"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                  Area</span></span>
+<span id="cb482-21"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Alabama    -0.2347183</span></span>
+<span id="cb482-22"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Alaska      5.8093497</span></span>
+<span id="cb482-23"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Arizona     0.5002047</span></span>
+<span id="cb482-24"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Arkansas   -0.2202212</span></span>
+<span id="cb482-25"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; California  1.0034903</span></span>
+<span id="cb482-26"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Colorado    0.3870991</span></span></code></pre></div>
 </p>
 </details>
 <blockquote>
@@ -860,20 +872,20 @@ Hint: instead of using apply to iterate over the columns themselves, you can oft
 <div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb483-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
 <span id="cb483-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb483-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="fu">colnames</span>(states), <span class="cf">function</span>(x)<span class="fu">hist</span>(states[ , x],<span class="at">main =</span> x, <span class="at">xlab =</span> x,<span class="at">col =</span> <span class="st">&quot;darkblue&quot;</span>))</span></code></pre></div>
 <p><img src="Semester_files/figure-html/5-31-1.png" width="768" style="display: block; margin: auto;" /><img src="Semester_files/figure-html/5-31-2.png" width="768" style="display: block; margin: auto;" /></p>
-<pre><code>#&gt;          Population    Income        Illiteracy    Life Exp      Murder        HS Grad      
-#&gt; breaks   Numeric,6     Integer,8     Numeric,6     Integer,8     Numeric,9     Integer,8    
-#&gt; counts   Integer,5     Integer,7     Integer,5     Integer,7     Integer,8     Integer,7    
-#&gt; density  Numeric,5     Numeric,7     Numeric,5     Numeric,7     Numeric,8     Numeric,7    
-#&gt; mids     Numeric,5     Numeric,7     Numeric,5     Numeric,7     Numeric,8     Numeric,7    
-#&gt; xname    &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot;
-#&gt; equidist TRUE          TRUE          TRUE          TRUE          TRUE          TRUE         
-#&gt;          Frost         Area         
-#&gt; breaks   Numeric,11    Numeric,7    
-#&gt; counts   Integer,10    Integer,6    
-#&gt; density  Numeric,10    Numeric,6    
-#&gt; mids     Numeric,10    Numeric,6    
-#&gt; xname    &quot;states[, x]&quot; &quot;states[, x]&quot;
-#&gt; equidist TRUE          TRUE</code></pre>
+<pre><code>#&gt;          Population    Income        Illiteracy    Life Exp      Murder       
+#&gt; breaks   Numeric,6     Integer,8     Numeric,6     Integer,8     Numeric,9    
+#&gt; counts   Integer,5     Integer,7     Integer,5     Integer,7     Integer,8    
+#&gt; density  Numeric,5     Numeric,7     Numeric,5     Numeric,7     Numeric,8    
+#&gt; mids     Numeric,5     Numeric,7     Numeric,5     Numeric,7     Numeric,8    
+#&gt; xname    &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot;
+#&gt; equidist TRUE          TRUE          TRUE          TRUE          TRUE         
+#&gt;          HS Grad       Frost         Area         
+#&gt; breaks   Integer,8     Numeric,11    Numeric,7    
+#&gt; counts   Integer,7     Integer,10    Integer,6    
+#&gt; density  Numeric,7     Numeric,10    Numeric,6    
+#&gt; mids     Numeric,7     Numeric,10    Numeric,6    
+#&gt; xname    &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot;
+#&gt; equidist TRUE          TRUE          TRUE</code></pre>
 </p>
 </details>
 <p>For the final day covering basics in R we will have a coding session where we tackle a challenge exercise on a dataset.</p>

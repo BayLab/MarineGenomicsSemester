@@ -45,7 +45,9 @@ Now move off of Terminal and open R Studio. The first thing we need to do is dow
 
 Today we will be using two different packages: **pcadapt** and **OutFLANK** and both of them have some other packages they need (dependencies). While many packages can be downloaded in R using the `install.packages` function, some cannot because they are stored in specialty repositories. You can see that pcadapt can be downloaded from CRAN using the standard command, but OutFLANK and qvalue need to be downloaded from other sources.
 
-To save all of the progress we make today, first create your own script in the Week7 folder for this week named "Week7Script.R"
+We likely won't have time to do both pcadapt and outflank today, so we'll leave outflank for your benefit if you're interested in running through it on your own.
+
+To save all of the progress we make today, first create your own script in the Week9 folder for this week named "Week9Script.R"
 
 ```{r, eval=F}
 install.packages("devtools")
@@ -77,11 +79,11 @@ library(qvalue)
 
 Lets start by setting a working directory. I'm going to set it to where we downloaded the data for week 9. I also like to define the paths to my input files at the top of the script, that way if I want to use a slightly different input file or if I want to share my script it's easy to see how to change it.
 
-```{r, eval=F}
+```{r, echo=T}
 vcf.path="filtered_3699snps_californicus.vcf"
 meta.path="californicus_metadata.csv"
 ```
-```{r, include=F}
+```{r, echo=T}
 vcf.path="filtered_3699snps_californicus.vcf"
 meta.path="californicus_metadata.csv"
 ```
