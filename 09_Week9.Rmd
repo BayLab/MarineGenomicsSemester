@@ -83,10 +83,6 @@ Lets start by setting a working directory. I'm going to set it to where we downl
 vcf.path="filtered_3699snps_californicus.vcf"
 meta.path="californicus_metadata.csv"
 ```
-```{r, echo=T}
-vcf.path="filtered_3699snps_californicus.vcf"
-meta.path="californicus_metadata.csv"
-```
 
 Let's read in the genetic data from the VCF file. Because VCF is a common file format for SNP data, pcadapt comes with a special function for reading this type of file. You will get a warning message if you run on your own computer, but don't worry about it.
 
@@ -140,10 +136,10 @@ length(outliers)
 <details><summary><span style="color: DarkCyan;">Solution</span></summary>
 <p>
 
-```{r, label='7-4', echo=T}
+```{r eval=FALSE, include=FALSE, label='7-4'}
 plot(x$scores[,1]~meta$LAT,pch=19,col="gray")
 ```
-```{r, label='7-5', echo=T}
+```{r eval=FALSE, include=FALSE, label='7-5'}
 plot(x$scores[,2]~meta$LAT,pch=19,col="gray")
 ```
 
@@ -155,7 +151,7 @@ plot(x$scores[,2]~meta$LAT,pch=19,col="gray")
 <details><summary><span style="color: DarkCyan;">Solution</span></summary>
 <p>
 
-```{r, label='7-6', echo=T}
+```{r eval=FALSE, include=FALSE, label='7-6'}
 x_cw <- pcadapt(genos,K=2,method ="componentwise")
 plot(x_cw,option="manhattan",K=2)
 ```
