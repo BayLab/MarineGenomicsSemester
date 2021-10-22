@@ -319,7 +319,8 @@ package ?BiocManager? is not available for this version of R” Go to “Help,�
 <p>Today we will use two different methods to find outliers. The first is based on PCA, which you learned about last week. For this you will use the <strong>pcadapt</strong> package. We will just use a few functions, but you can do a lot with this package; the documentation is found <a href="https://bcm-uga.github.io/pcadapt/articles/pcadapt.html#:~:text=pcadapt%20has%20been%20developed%20to,Principal%20Component%20Analysis%20(PCA).&amp;text=A%20total%20of%20150%20individuals,genotyped%20at%201%2C500%20diploid%20markers.">here</a></p>
 <p>I always like to call the different R packages I plan to use at the very top of the script so I just have to call them once:</p>
 <div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="week-9--fst-and-outlier-analysis.html#cb507-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pcadapt)</span>
-<span id="cb507-2"><a href="week-9--fst-and-outlier-analysis.html#cb507-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qvalue)</span></code></pre></div>
+<span id="cb507-2"><a href="week-9--fst-and-outlier-analysis.html#cb507-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning: package &#39;pcadapt&#39; was built under R version 4.0.5</span></span>
+<span id="cb507-3"><a href="week-9--fst-and-outlier-analysis.html#cb507-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qvalue)</span></code></pre></div>
 <p>Lets start by setting a working directory. I’m going to set it to where we downloaded the data for week 9. I also like to define the paths to my input files at the top of the script, that way if I want to use a slightly different input file or if I want to share my script it’s easy to see how to change it.</p>
 <div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="week-9--fst-and-outlier-analysis.html#cb508-1" aria-hidden="true" tabindex="-1"></a>vcf.path<span class="ot">=</span><span class="st">&quot;filtered_3699snps_californicus.vcf&quot;</span></span>
 <span id="cb508-2"><a href="week-9--fst-and-outlier-analysis.html#cb508-2" aria-hidden="true" tabindex="-1"></a>meta.path<span class="ot">=</span><span class="st">&quot;californicus_metadata.csv&quot;</span></span></code></pre></div>
@@ -328,7 +329,7 @@ package ?BiocManager? is not available for this version of R” Go to “Help,�
 #&gt; Summary:
 #&gt; 
 #&gt;  - input file:               filtered_3699snps_californicus.vcf
-#&gt;  - output file:              C:\Users\SAPCaps\AppData\Local\Temp\Rtmp6toZQy\file2114781f1497.pcadapt
+#&gt;  - output file:              C:\Users\SAPCaps\AppData\Local\Temp\RtmpwHZ9rG\fileb70842c22d4.pcadapt
 #&gt; 
 #&gt;  - number of individuals detected:   717
 #&gt;  - number of loci detected:      3699
@@ -396,7 +397,8 @@ package ?BiocManager? is not available for this version of R” Go to “Help,�
 <p>Let’s start by loading a couple libraries:</p>
 <div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="week-9--fst-and-outlier-analysis.html#cb515-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(OutFLANK)</span>
 <span id="cb515-2"><a href="week-9--fst-and-outlier-analysis.html#cb515-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in library(OutFLANK): there is no package called &#39;OutFLANK&#39;</span></span>
-<span id="cb515-3"><a href="week-9--fst-and-outlier-analysis.html#cb515-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vcfR)</span></code></pre></div>
+<span id="cb515-3"><a href="week-9--fst-and-outlier-analysis.html#cb515-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vcfR)</span>
+<span id="cb515-4"><a href="week-9--fst-and-outlier-analysis.html#cb515-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning: package &#39;vcfR&#39; was built under R version 4.0.5</span></span></code></pre></div>
 <p>We use the <em>vcfR</em> library to load the vcf file and extract just the genotypes. Remember there is a lot of information in VCF files, probably more than we want. vcfR has many different functions for extracting just some information so that you can use it any way you want</p>
 <div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="week-9--fst-and-outlier-analysis.html#cb516-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.vcfR</span>(vcf.path)</span>
 <span id="cb516-2"><a href="week-9--fst-and-outlier-analysis.html#cb516-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Scanning file to determine attributes.</span></span>

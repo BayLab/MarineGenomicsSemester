@@ -136,10 +136,10 @@ length(outliers)
 <details><summary><span style="color: DarkCyan;">Solution</span></summary>
 <p>
 
-```{r eval=FALSE, include=FALSE, label='7-4'}
+```{r eval=FALSE, label='7-4'}
 plot(x$scores[,1]~meta$LAT,pch=19,col="gray")
 ```
-```{r eval=FALSE, include=FALSE, label='7-5'}
+```{r eval=FALSE, label='7-5'}
 plot(x$scores[,2]~meta$LAT,pch=19,col="gray")
 ```
 
@@ -151,7 +151,7 @@ plot(x$scores[,2]~meta$LAT,pch=19,col="gray")
 <details><summary><span style="color: DarkCyan;">Solution</span></summary>
 <p>
 
-```{r eval=FALSE, include=FALSE, label='7-6'}
+```{r eval=FALSE,  label='7-6'}
 x_cw <- pcadapt(genos,K=2,method ="componentwise")
 plot(x_cw,option="manhattan",K=2)
 ```

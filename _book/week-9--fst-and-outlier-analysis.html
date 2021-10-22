@@ -295,14 +295,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="week-9--fst-and-outlier-analysis" class="section level1" number="10">
 <h1><span class="header-section-number">10</span> Week 9- F<sub>st</sub> and outlier analysis</h1>
-<p>The lecture for this week focused on *F<sub>st</sub>** and outlier analysis can be found <a href="https://github.com/BayLab/MarineGenomics/blob/main/ppt/Week7.pdf">here</a>.</p>
+<p>The lecture for this week focused on *F<sub>st</sub>** and outlier analysis can be found <a href="https://github.com/BayLab/MarineGenomicsSemester/blob/main/ppt/MarineGenomics_Lecture_w9.pdf">here</a>.</p>
 <p>Last week we used PCA to take a broad look at whether populations were genetically distinct. This week we learn how to identify particular SNPs that are driving patterns of divergence between populations. These SNPs could represent signals of selection.</p>
 <p>We will import the data and take a first look in <strong>bash</strong> and then we will do analysis and generate the plots in <strong>RStudio</strong>.</p>
 <div id="download-the-data-1" class="section level2" number="10.1">
 <h2><span class="header-section-number">10.1</span> Download the data</h2>
 <p>We first need to download the data. Use the link below to download it to jetstream, and then us the tar command to un-compress it.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="week-9--fst-and-outlier-analysis.html#cb1-1" aria-hidden="true" tabindex="-1"></a>wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week9_semester.tar.gz</span>
-<span id="cb1-2"><a href="week-9--fst-and-outlier-analysis.html#cb1-2" aria-hidden="true" tabindex="-1"></a>tar -xzvf week7.tar.gz</span></code></pre></div>
+<span id="cb1-2"><a href="week-9--fst-and-outlier-analysis.html#cb1-2" aria-hidden="true" tabindex="-1"></a>tar -xzvf week9_semester.tar.gz</span></code></pre></div>
 <p>Again this week we are using the data from the <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/mec.14589">Xuereb et al. paper on P. californicus</a>. Our data consists of a SNP file in <a href="https://samtools.github.io/hts-specs/VCFv4.2.pdf">VCF format</a> and a metadata file which tells you which site each sample came from.</p>
 <p>Let’s navigate into the Week 9 directory and take a look at the vcf file:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="week-9--fst-and-outlier-analysis.html#cb2-1" aria-hidden="true" tabindex="-1"></a>cd MarineGenomics/Week9</span>
@@ -312,7 +312,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">10.2</span> Getting R set up</h2>
 <p>Now move off of Terminal and open R Studio. The first thing we need to do is download a few different packages. You only need to do this the first time you use each package on your machine.</p>
 <p>Today we will be using two different packages: <strong>pcadapt</strong> and <strong>OutFLANK</strong> and both of them have some other packages they need (dependencies). While many packages can be downloaded in R using the <code>install.packages</code> function, some cannot because they are stored in specialty repositories. You can see that pcadapt can be downloaded from CRAN using the standard command, but OutFLANK and qvalue need to be downloaded from other sources.</p>
-<p>To save all of the progress we make today, first create your own script in the Week7 folder for this week named “Week7Script.R”</p>
+<p>We likely won’t have time to do both pcadapt and outflank today, so we’ll leave outflank for your benefit if you’re interested in running through it on your own.</p>
+<p>To save all of the progress we make today, first create your own script in the Week9 folder for this week named “Week9Script.R”</p>
 <p>If you have an error reading “Warning in install.packages :
 package ?BiocManager? is not available for this version of R” Go to “Help,” then “Check for Updates” and update your R version. You also may need to restart your R.</p>
 <p>After you have successfully downloaded all the packages needed for today, go ahead and get a new R script started. Remember to do lots of commenting with <code>#</code> so it is easy to come back to your code later!</p>
@@ -325,12 +326,14 @@ package ?BiocManager? is not available for this version of R” Go to “Help,�
 <pre><code>## Warning: package &#39;pcadapt&#39; was built under R version 4.0.5</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="week-9--fst-and-outlier-analysis.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qvalue)</span></code></pre></div>
 <p>Lets start by setting a working directory. I’m going to set it to where we downloaded the data for week 9. I also like to define the paths to my input files at the top of the script, that way if I want to use a slightly different input file or if I want to share my script it’s easy to see how to change it.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="week-9--fst-and-outlier-analysis.html#cb6-1" aria-hidden="true" tabindex="-1"></a>vcf.path<span class="ot">=</span><span class="st">&quot;filtered_3699snps_californicus.vcf&quot;</span></span>
+<span id="cb6-2"><a href="week-9--fst-and-outlier-analysis.html#cb6-2" aria-hidden="true" tabindex="-1"></a>meta.path<span class="ot">=</span><span class="st">&quot;californicus_metadata.csv&quot;</span></span></code></pre></div>
 <p>Let’s read in the genetic data from the VCF file. Because VCF is a common file format for SNP data, pcadapt comes with a special function for reading this type of file. You will get a warning message if you run on your own computer, but don’t worry about it.</p>
 <pre><code>## No variant got discarded.
 ## Summary:
 ## 
 ##  - input file:               filtered_3699snps_californicus.vcf
-##  - output file:              C:\Users\SAPCaps\AppData\Local\Temp\RtmpGgGvXc\file517c272b1084.pcadapt
+##  - output file:              C:\Users\SAPCaps\AppData\Local\Temp\RtmpAJfyBr\fileacb86baf1aa2.pcadapt
 ## 
 ##  - number of individuals detected:   717
 ##  - number of loci detected:      3699
@@ -338,8 +341,8 @@ package ?BiocManager? is not available for this version of R” Go to “Help,�
 ## 3699 lines detected.
 ## 717 columns detected.</code></pre>
 <p>Now let’s read in the metadata. This is a CSV (comma separated values) file, which is a spreadsheet-style format that can be output from programs like Excel. The columns are separated with commas. Once you load the file, take a minute to examine the contents.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="week-9--fst-and-outlier-analysis.html#cb7-1" aria-hidden="true" tabindex="-1"></a>meta <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(meta.path)</span>
-<span id="cb7-2"><a href="week-9--fst-and-outlier-analysis.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(meta)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="week-9--fst-and-outlier-analysis.html#cb8-1" aria-hidden="true" tabindex="-1"></a>meta <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(meta.path)</span>
+<span id="cb8-2"><a href="week-9--fst-and-outlier-analysis.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(meta)</span></code></pre></div>
 <pre><code>##         ID SITE     LAT      LONG Group
 ## 1 CRA_1756  CRA 50.5212 -126.5646 South
 ## 2 CRA_1757  CRA 50.5212 -126.5646 South
@@ -349,19 +352,19 @@ package ?BiocManager? is not available for this version of R” Go to “Help,�
 ## 6 CRA_1761  CRA 50.5212 -126.5646 South</code></pre>
 <p>IMPORTANT NOTE: Here the samples in the VCF are in the same order as the samples in the metadata file. Triple check ahead of time that this is the case otherwise you may get some weird results!</p>
 <p>Now that we’ve read in all the data, the first step for pcadapt is to make a PCA. Last week you used PCAngsd to do this, but there are many other packages that work as well. Here’s how we do it in pcadapt:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="week-9--fst-and-outlier-analysis.html#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">pcadapt</span>(<span class="at">input=</span>genos,<span class="at">K=</span><span class="dv">5</span>)</span>
-<span id="cb9-2"><a href="week-9--fst-and-outlier-analysis.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,<span class="at">option=</span><span class="st">&quot;screeplot&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="week-9--fst-and-outlier-analysis.html#cb10-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">pcadapt</span>(<span class="at">input=</span>genos,<span class="at">K=</span><span class="dv">5</span>)</span>
+<span id="cb10-2"><a href="week-9--fst-and-outlier-analysis.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,<span class="at">option=</span><span class="st">&quot;screeplot&quot;</span>)</span></code></pre></div>
 <p><img src="Semester_files/figure-html/7-1-1.png" width="768" /></p>
 <p>We can see from this plot that the vast majority of genetic variation can be explained by the first two principal components axes. Now we can plot the actual PCA. Here I will color by the <code>Group</code>.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="week-9--fst-and-outlier-analysis.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,<span class="at">option=</span><span class="st">&quot;scores&quot;</span>,<span class="at">pop=</span>meta<span class="sc">$</span>Group)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="week-9--fst-and-outlier-analysis.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,<span class="at">option=</span><span class="st">&quot;scores&quot;</span>,<span class="at">pop=</span>meta<span class="sc">$</span>Group)</span></code></pre></div>
 <p><img src="Semester_files/figure-html/7-2-1.png" width="768" /></p>
 <p>You can see that there is separation between the North and South Groups, but it is not perfect. Now we want to see which of the &gt;3000 SNPs is driving the variation we see on the PCA</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="week-9--fst-and-outlier-analysis.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,<span class="at">option=</span><span class="st">&quot;manhattan&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="week-9--fst-and-outlier-analysis.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,<span class="at">option=</span><span class="st">&quot;manhattan&quot;</span>)</span></code></pre></div>
 <p><img src="Semester_files/figure-html/7-3-1.png" width="768" /></p>
 <p>This gives us a visual idea of which SNPs might be associated with population differences. If we want to identify statistical outliers, we first need to adjust the p-values:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="week-9--fst-and-outlier-analysis.html#cb12-1" aria-hidden="true" tabindex="-1"></a>qval <span class="ot">&lt;-</span> <span class="fu">qvalue</span>(x<span class="sc">$</span>pvalues)<span class="sc">$</span>qvalues</span>
-<span id="cb12-2"><a href="week-9--fst-and-outlier-analysis.html#cb12-2" aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> <span class="fu">which</span>(qval<span class="sc">&lt;</span><span class="fl">0.1</span>)</span>
-<span id="cb12-3"><a href="week-9--fst-and-outlier-analysis.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(outliers)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="week-9--fst-and-outlier-analysis.html#cb13-1" aria-hidden="true" tabindex="-1"></a>qval <span class="ot">&lt;-</span> <span class="fu">qvalue</span>(x<span class="sc">$</span>pvalues)<span class="sc">$</span>qvalues</span>
+<span id="cb13-2"><a href="week-9--fst-and-outlier-analysis.html#cb13-2" aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> <span class="fu">which</span>(qval<span class="sc">&lt;</span><span class="fl">0.1</span>)</span>
+<span id="cb13-3"><a href="week-9--fst-and-outlier-analysis.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(outliers)</span></code></pre></div>
 <pre><code>## [1] 143</code></pre>
 </div>
 <div id="pcadapt-exercises" class="section level2" number="10.4">
@@ -377,10 +380,6 @@ package ?BiocManager? is not available for this version of R” Go to “Help,�
 <span style="color: DarkCyan;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="week-9--fst-and-outlier-analysis.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x<span class="sc">$</span>scores[,<span class="dv">1</span>]<span class="sc">~</span>meta<span class="sc">$</span>LAT,<span class="at">pch=</span><span class="dv">19</span>,<span class="at">col=</span><span class="st">&quot;gray&quot;</span>)</span></code></pre></div>
-<p><img src="Semester_files/figure-html/7-4-1.png" width="768" /></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="week-9--fst-and-outlier-analysis.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x<span class="sc">$</span>scores[,<span class="dv">2</span>]<span class="sc">~</span>meta<span class="sc">$</span>LAT,<span class="at">pch=</span><span class="dv">19</span>,<span class="at">col=</span><span class="st">&quot;gray&quot;</span>)</span></code></pre></div>
-<p><img src="Semester_files/figure-html/7-5-1.png" width="768" /></p>
 </p>
 </details>
 <blockquote>
@@ -393,9 +392,6 @@ package ?BiocManager? is not available for this version of R” Go to “Help,�
 <span style="color: DarkCyan;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="week-9--fst-and-outlier-analysis.html#cb16-1" aria-hidden="true" tabindex="-1"></a>x_cw <span class="ot">&lt;-</span> <span class="fu">pcadapt</span>(genos,<span class="at">K=</span><span class="dv">2</span>,<span class="at">method =</span><span class="st">&quot;componentwise&quot;</span>)</span>
-<span id="cb16-2"><a href="week-9--fst-and-outlier-analysis.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x_cw,<span class="at">option=</span><span class="st">&quot;manhattan&quot;</span>,<span class="at">K=</span><span class="dv">2</span>)</span></code></pre></div>
-<img src="Semester_files/figure-html/7-6-1.png" width="768" />
 </p>
 </details>
 </div>
@@ -403,12 +399,12 @@ package ?BiocManager? is not available for this version of R” Go to “Help,�
 <h2><span class="header-section-number">10.5</span> Using F<sub>st</sub> to find outliers</h2>
 <p>Another way to look for signals of selection is to use F<sub>st</sub>. F<sub>st</sub> is a measure of genetic differentiation between populations. When we use F<sub>st</sub> to test for signals of selection, we ask if any SNPs are more divergent than expected given the genome-wide differentiation.</p>
 <p>Let’s start by loading a couple libraries:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="week-9--fst-and-outlier-analysis.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(OutFLANK)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="week-9--fst-and-outlier-analysis.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(OutFLANK)</span></code></pre></div>
 <pre><code>## Error in library(OutFLANK): there is no package called &#39;OutFLANK&#39;</code></pre>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="week-9--fst-and-outlier-analysis.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vcfR)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="week-9--fst-and-outlier-analysis.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vcfR)</span></code></pre></div>
 <pre><code>## Warning: package &#39;vcfR&#39; was built under R version 4.0.5</code></pre>
 <p>We use the <em>vcfR</em> library to load the vcf file and extract just the genotypes. Remember there is a lot of information in VCF files, probably more than we want. vcfR has many different functions for extracting just some information so that you can use it any way you want</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="week-9--fst-and-outlier-analysis.html#cb21-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.vcfR</span>(vcf.path)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="week-9--fst-and-outlier-analysis.html#cb19-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.vcfR</span>(vcf.path)</span></code></pre></div>
 <pre><code>## Scanning file to determine attributes.
 ## File attributes:
 ##   meta lines: 9
@@ -431,10 +427,10 @@ Processed variant 2000
 Processed variant 3000
 Processed variant: 3699
 ## All variants processed</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="week-9--fst-and-outlier-analysis.html#cb23-1" aria-hidden="true" tabindex="-1"></a>geno <span class="ot">&lt;-</span> <span class="fu">extract.gt</span>(data)</span>
-<span id="cb23-2"><a href="week-9--fst-and-outlier-analysis.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(geno)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="week-9--fst-and-outlier-analysis.html#cb21-1" aria-hidden="true" tabindex="-1"></a>geno <span class="ot">&lt;-</span> <span class="fu">extract.gt</span>(data)</span>
+<span id="cb21-2"><a href="week-9--fst-and-outlier-analysis.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(geno)</span></code></pre></div>
 <pre><code>## [1] 3699  717</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="week-9--fst-and-outlier-analysis.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(geno[,<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="week-9--fst-and-outlier-analysis.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(geno[,<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>])</span></code></pre></div>
 <pre><code>##        CRA_1756 CRA_1757 CRA_1758 CRA_1759 CRA_1760 CRA_1761 CRA_1762 CRA_1763
 ## 7_11   &quot;0/0&quot;    NA       &quot;0/0&quot;    &quot;0/0&quot;    &quot;0/0&quot;    &quot;0/0&quot;    &quot;0/0&quot;    &quot;0/0&quot;   
 ## 12_31  &quot;0/1&quot;    &quot;1/1&quot;    NA       &quot;0/0&quot;    &quot;0/0&quot;    NA       &quot;0/0&quot;    &quot;0/0&quot;   
@@ -450,58 +446,58 @@ Processed variant: 3699
 ## 10_32  &quot;0/0&quot;    &quot;0/0&quot;   
 ## 101_21 &quot;0/0&quot;    &quot;0/0&quot;</code></pre>
 <p>Check out the OutFLANK manual <a href="https://htmlpreview.github.io/?https://github.com/whitlock/OutFLANK/blob/master/inst/doc/OutFLANKAnalysis.html">here</a>. Notice that as our genotypes look like <code>0/0</code>, <code>0/1</code>, and <code>1/1</code>. But OutFLANK wants them to be 0, 1, or 2. The code below fixes this problem:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="week-9--fst-and-outlier-analysis.html#cb27-1" aria-hidden="true" tabindex="-1"></a>G <span class="ot">&lt;-</span> geno  <span class="co">#we are doing this because we will be running a lot of different things with G, and if we mess up we want to be able to go back to geno</span></span>
-<span id="cb27-2"><a href="week-9--fst-and-outlier-analysis.html#cb27-2" aria-hidden="true" tabindex="-1"></a>G[geno <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;0/0&quot;</span>)] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb27-3"><a href="week-9--fst-and-outlier-analysis.html#cb27-3" aria-hidden="true" tabindex="-1"></a>G[geno  <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;0/1&quot;</span>)] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb27-4"><a href="week-9--fst-and-outlier-analysis.html#cb27-4" aria-hidden="true" tabindex="-1"></a>G[geno <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;1/1&quot;</span>)] <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb27-5"><a href="week-9--fst-and-outlier-analysis.html#cb27-5" aria-hidden="true" tabindex="-1"></a>G[<span class="fu">is.na</span>(G)] <span class="ot">&lt;-</span> <span class="dv">9</span></span>
-<span id="cb27-6"><a href="week-9--fst-and-outlier-analysis.html#cb27-6" aria-hidden="true" tabindex="-1"></a>tG <span class="ot">&lt;-</span> <span class="fu">t</span>(G)</span>
-<span id="cb27-7"><a href="week-9--fst-and-outlier-analysis.html#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(tG)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="week-9--fst-and-outlier-analysis.html#cb25-1" aria-hidden="true" tabindex="-1"></a>G <span class="ot">&lt;-</span> geno  <span class="co">#we are doing this because we will be running a lot of different things with G, and if we mess up we want to be able to go back to geno</span></span>
+<span id="cb25-2"><a href="week-9--fst-and-outlier-analysis.html#cb25-2" aria-hidden="true" tabindex="-1"></a>G[geno <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;0/0&quot;</span>)] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb25-3"><a href="week-9--fst-and-outlier-analysis.html#cb25-3" aria-hidden="true" tabindex="-1"></a>G[geno  <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;0/1&quot;</span>)] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb25-4"><a href="week-9--fst-and-outlier-analysis.html#cb25-4" aria-hidden="true" tabindex="-1"></a>G[geno <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;1/1&quot;</span>)] <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb25-5"><a href="week-9--fst-and-outlier-analysis.html#cb25-5" aria-hidden="true" tabindex="-1"></a>G[<span class="fu">is.na</span>(G)] <span class="ot">&lt;-</span> <span class="dv">9</span></span>
+<span id="cb25-6"><a href="week-9--fst-and-outlier-analysis.html#cb25-6" aria-hidden="true" tabindex="-1"></a>tG <span class="ot">&lt;-</span> <span class="fu">t</span>(G)</span>
+<span id="cb25-7"><a href="week-9--fst-and-outlier-analysis.html#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(tG)</span></code></pre></div>
 <pre><code>## [1]  717 3699</code></pre>
 <p>Now <code>tG</code> should be in the input format OutFLANK needs, with SNPs as columns and individuals as rows. Now we can calculate F<sub>st</sub> for each SNP.</p>
 <p>For this analysis we are just going to calculate F<sub>st</sub> between the northernmost and the southernmost populations. This is a good time to practice our subsetting skills!</p>
 <p>For the second command: we are only taking the rows of tG that are “true,” or only taking the rows of tG that have one of these two populations “TBL” or “AK4”</p>
 <p>In the third command we are just using a slightly different method for subsetting with the command “subset.” If we subset “meta” we should end up with 62 rows (SNPs) and 2 columns (populations).</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="week-9--fst-and-outlier-analysis.html#cb29-1" aria-hidden="true" tabindex="-1"></a>subpops <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;TBL&quot;</span>,<span class="st">&quot;AK4&quot;</span>)</span>
-<span id="cb29-2"><a href="week-9--fst-and-outlier-analysis.html#cb29-2" aria-hidden="true" tabindex="-1"></a>subgen <span class="ot">&lt;-</span> tG[meta<span class="sc">$</span>SITE<span class="sc">%in%</span>subpops,] <span class="co">#subset method 1</span></span>
-<span id="cb29-3"><a href="week-9--fst-and-outlier-analysis.html#cb29-3" aria-hidden="true" tabindex="-1"></a>submeta <span class="ot">&lt;-</span> <span class="fu">subset</span>(meta,SITE<span class="sc">%in%</span>subpops) <span class="co">#subset method 2</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="week-9--fst-and-outlier-analysis.html#cb27-1" aria-hidden="true" tabindex="-1"></a>subpops <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;TBL&quot;</span>,<span class="st">&quot;AK4&quot;</span>)</span>
+<span id="cb27-2"><a href="week-9--fst-and-outlier-analysis.html#cb27-2" aria-hidden="true" tabindex="-1"></a>subgen <span class="ot">&lt;-</span> tG[meta<span class="sc">$</span>SITE<span class="sc">%in%</span>subpops,] <span class="co">#subset method 1</span></span>
+<span id="cb27-3"><a href="week-9--fst-and-outlier-analysis.html#cb27-3" aria-hidden="true" tabindex="-1"></a>submeta <span class="ot">&lt;-</span> <span class="fu">subset</span>(meta,SITE<span class="sc">%in%</span>subpops) <span class="co">#subset method 2</span></span></code></pre></div>
 <p>Now we should check if these two vectors are identical:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="week-9--fst-and-outlier-analysis.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(<span class="fu">rownames</span>(subgen),<span class="fu">as.character</span>(submeta<span class="sc">$</span>ID))</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="week-9--fst-and-outlier-analysis.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(<span class="fu">rownames</span>(subgen),<span class="fu">as.character</span>(submeta<span class="sc">$</span>ID))</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>Since our genotype matrix and our metadata matrix are in the same order, we can combine them.</p>
 <p>Now we can calculate F<sub>st</sub> between these two populations:
 locusNames= names our loci 1,2,3 etc
 popNames= names our populations with the “SITE” labels</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="week-9--fst-and-outlier-analysis.html#cb32-1" aria-hidden="true" tabindex="-1"></a>fst <span class="ot">&lt;-</span> <span class="fu">MakeDiploidFSTMat</span>(subgen,<span class="at">locusNames=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(subgen),<span class="at">popNames=</span>submeta<span class="sc">$</span>SITE)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="week-9--fst-and-outlier-analysis.html#cb30-1" aria-hidden="true" tabindex="-1"></a>fst <span class="ot">&lt;-</span> <span class="fu">MakeDiploidFSTMat</span>(subgen,<span class="at">locusNames=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(subgen),<span class="at">popNames=</span>submeta<span class="sc">$</span>SITE)</span></code></pre></div>
 <pre><code>## Error in MakeDiploidFSTMat(subgen, locusNames = 1:ncol(subgen), popNames = submeta$SITE): could not find function &quot;MakeDiploidFSTMat&quot;</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="week-9--fst-and-outlier-analysis.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fst)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="week-9--fst-and-outlier-analysis.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fst)</span></code></pre></div>
 <pre><code>## Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;head&#39;: object &#39;fst&#39; not found</code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="week-9--fst-and-outlier-analysis.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(fst<span class="sc">$</span>FST,<span class="at">breaks=</span><span class="dv">50</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="week-9--fst-and-outlier-analysis.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(fst<span class="sc">$</span>FST,<span class="at">breaks=</span><span class="dv">50</span>)</span></code></pre></div>
 <pre><code>## Error in hist(fst$FST, breaks = 50): object &#39;fst&#39; not found</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="week-9--fst-and-outlier-analysis.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fst<span class="sc">$</span>FST) <span class="co">#highest FST is higher than the mean (which is a good sign)</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="week-9--fst-and-outlier-analysis.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fst<span class="sc">$</span>FST) <span class="co">#highest FST is higher than the mean (which is a good sign)</span></span></code></pre></div>
 <pre><code>## Error in summary(fst$FST): object &#39;fst&#39; not found</code></pre>
 <p><strong>Reminder:</strong>
 He= heterozygosity
 FST= measure of differentiation</p>
 <p>Once we’ve calculated F<sub>st</sub> between the two populations for each SNP individually, we want to determine whether some SNPs are <strong>statistical outliers</strong> - that is, more differentiated than we would expect. OutFLANK does this by fitting a Chi-Squared distribution to the data and looking to see if the tails of the Chi-Squared distribution have more SNPs than expected:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="week-9--fst-and-outlier-analysis.html#cb40-1" aria-hidden="true" tabindex="-1"></a>OF <span class="ot">&lt;-</span> <span class="fu">OutFLANK</span>(fst,<span class="at">LeftTrimFraction=</span><span class="fl">0.01</span>,<span class="at">RightTrimFraction=</span><span class="fl">0.01</span>,</span>
-<span id="cb40-2"><a href="week-9--fst-and-outlier-analysis.html#cb40-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">Hmin=</span><span class="fl">0.05</span>,<span class="at">NumberOfSamples=</span><span class="dv">2</span>,<span class="at">qthreshold=</span><span class="fl">0.01</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="week-9--fst-and-outlier-analysis.html#cb38-1" aria-hidden="true" tabindex="-1"></a>OF <span class="ot">&lt;-</span> <span class="fu">OutFLANK</span>(fst,<span class="at">LeftTrimFraction=</span><span class="fl">0.01</span>,<span class="at">RightTrimFraction=</span><span class="fl">0.01</span>,</span>
+<span id="cb38-2"><a href="week-9--fst-and-outlier-analysis.html#cb38-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">Hmin=</span><span class="fl">0.05</span>,<span class="at">NumberOfSamples=</span><span class="dv">2</span>,<span class="at">qthreshold=</span><span class="fl">0.01</span>)</span></code></pre></div>
 <pre><code>## Error in OutFLANK(fst, LeftTrimFraction = 0.01, RightTrimFraction = 0.01, : could not find function &quot;OutFLANK&quot;</code></pre>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="week-9--fst-and-outlier-analysis.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">OutFLANKResultsPlotter</span>(OF,<span class="at">withOutliers=</span>T,</span>
-<span id="cb42-2"><a href="week-9--fst-and-outlier-analysis.html#cb42-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">NoCorr=</span>T,<span class="at">Hmin=</span><span class="fl">0.1</span>,<span class="at">binwidth=</span><span class="fl">0.005</span>,</span>
-<span id="cb42-3"><a href="week-9--fst-and-outlier-analysis.html#cb42-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Zoom=</span>F,<span class="at">RightZoomFraction=</span><span class="fl">0.05</span>,<span class="at">titletext=</span><span class="cn">NULL</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="week-9--fst-and-outlier-analysis.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">OutFLANKResultsPlotter</span>(OF,<span class="at">withOutliers=</span>T,</span>
+<span id="cb40-2"><a href="week-9--fst-and-outlier-analysis.html#cb40-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">NoCorr=</span>T,<span class="at">Hmin=</span><span class="fl">0.1</span>,<span class="at">binwidth=</span><span class="fl">0.005</span>,</span>
+<span id="cb40-3"><a href="week-9--fst-and-outlier-analysis.html#cb40-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Zoom=</span>F,<span class="at">RightZoomFraction=</span><span class="fl">0.05</span>,<span class="at">titletext=</span><span class="cn">NULL</span>)</span></code></pre></div>
 <pre><code>## Error in OutFLANKResultsPlotter(OF, withOutliers = T, NoCorr = T, Hmin = 0.1, : could not find function &quot;OutFLANKResultsPlotter&quot;</code></pre>
 <p>FSTbar=mean FST across the whole genome
 The yellow bars are the histogram of the FST values
 The blue line is the Chi-Squared Distribution fit to the data
 <em>It is hard to fit the Chi-Squared Distribution to a population with high gene flow, aka this method doesn’t work great for marine species</em> We will just progress forward, but keep this in mind for any future work you may do.</p>
 <p>It’s a little hard to tell from these plots, but there may be some SNPs with high F<sub>st</sub> even where the distribution predicts there should be none. To find these SNPs, we ask <strong>which SNPs are statistical outliers?</strong></p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="week-9--fst-and-outlier-analysis.html#cb44-1" aria-hidden="true" tabindex="-1"></a>P1 <span class="ot">&lt;-</span> <span class="fu">pOutlierFinderChiSqNoCorr</span>(fst,<span class="at">Fstbar=</span>OF<span class="sc">$</span>FSTNoCorrbar,</span>
-<span id="cb44-2"><a href="week-9--fst-and-outlier-analysis.html#cb44-2" aria-hidden="true" tabindex="-1"></a>                                <span class="at">dfInferred=</span>OF<span class="sc">$</span>dfInferred,<span class="at">qthreshold=</span><span class="fl">0.05</span>,<span class="at">Hmin=</span><span class="fl">0.1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="week-9--fst-and-outlier-analysis.html#cb42-1" aria-hidden="true" tabindex="-1"></a>P1 <span class="ot">&lt;-</span> <span class="fu">pOutlierFinderChiSqNoCorr</span>(fst,<span class="at">Fstbar=</span>OF<span class="sc">$</span>FSTNoCorrbar,</span>
+<span id="cb42-2"><a href="week-9--fst-and-outlier-analysis.html#cb42-2" aria-hidden="true" tabindex="-1"></a>                                <span class="at">dfInferred=</span>OF<span class="sc">$</span>dfInferred,<span class="at">qthreshold=</span><span class="fl">0.05</span>,<span class="at">Hmin=</span><span class="fl">0.1</span>)</span></code></pre></div>
 <pre><code>## Error in pOutlierFinderChiSqNoCorr(fst, Fstbar = OF$FSTNoCorrbar, dfInferred = OF$dfInferred, : could not find function &quot;pOutlierFinderChiSqNoCorr&quot;</code></pre>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="week-9--fst-and-outlier-analysis.html#cb46-1" aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> P1<span class="sc">$</span>OutlierFlag<span class="sc">==</span><span class="cn">TRUE</span> <span class="co">#which of the SNPs are outliers?</span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="week-9--fst-and-outlier-analysis.html#cb44-1" aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> P1<span class="sc">$</span>OutlierFlag<span class="sc">==</span><span class="cn">TRUE</span> <span class="co">#which of the SNPs are outliers?</span></span></code></pre></div>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;P1&#39; not found</code></pre>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="week-9--fst-and-outlier-analysis.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(outliers)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="week-9--fst-and-outlier-analysis.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(outliers)</span></code></pre></div>
 <pre><code>## outliers
 ##   20   96  129  130  139  179  195  196  197  198  242  282  283  294  296  347 
 ##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
@@ -523,9 +519,9 @@ The blue line is the Chi-Squared Distribution fit to the data
 ##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1</code></pre>
 <p>This doesn’t add up to 3699… so some of the SNPs were not even tested. This is okay because there is an internal program that doesn’t test any SNPs with extremely low heterozygosity.</p>
 <p>Looks like there are <strong>17 outlier SNPs.</strong> Now we can make a manhattan plot! We can even plot the outliers in a different color:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="week-9--fst-and-outlier-analysis.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(P1<span class="sc">$</span>LocusName,P1<span class="sc">$</span>FST,<span class="at">xlab=</span><span class="st">&quot;Position&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;FST&quot;</span>,<span class="at">col=</span><span class="fu">rgb</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="at">alpha=</span><span class="fl">0.1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="week-9--fst-and-outlier-analysis.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(P1<span class="sc">$</span>LocusName,P1<span class="sc">$</span>FST,<span class="at">xlab=</span><span class="st">&quot;Position&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;FST&quot;</span>,<span class="at">col=</span><span class="fu">rgb</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="at">alpha=</span><span class="fl">0.1</span>))</span></code></pre></div>
 <pre><code>## Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;plot&#39;: object &#39;P1&#39; not found</code></pre>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="week-9--fst-and-outlier-analysis.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(P1<span class="sc">$</span>LocusName[outliers],P1<span class="sc">$</span>FST[outliers],<span class="at">col=</span><span class="st">&quot;magenta&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="week-9--fst-and-outlier-analysis.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(P1<span class="sc">$</span>LocusName[outliers],P1<span class="sc">$</span>FST[outliers],<span class="at">col=</span><span class="st">&quot;magenta&quot;</span>)</span></code></pre></div>
 <pre><code>## Error in points(P1$LocusName[outliers], P1$FST[outliers], col = &quot;magenta&quot;): object &#39;P1&#39; not found</code></pre>
 </div>
 <div id="outflank-practice" class="section level2" number="10.6">
@@ -541,22 +537,22 @@ The blue line is the Chi-Squared Distribution fit to the data
 <span style="color: DarkCyan;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="week-9--fst-and-outlier-analysis.html#cb54-1" aria-hidden="true" tabindex="-1"></a>subpops <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;AK3&quot;</span>,<span class="st">&quot;AK4&quot;</span>)</span>
-<span id="cb54-2"><a href="week-9--fst-and-outlier-analysis.html#cb54-2" aria-hidden="true" tabindex="-1"></a>subgen <span class="ot">&lt;-</span> tG[meta<span class="sc">$</span>SITE<span class="sc">%in%</span>subpops,]</span>
-<span id="cb54-3"><a href="week-9--fst-and-outlier-analysis.html#cb54-3" aria-hidden="true" tabindex="-1"></a>submeta <span class="ot">&lt;-</span> <span class="fu">subset</span>(meta,SITE<span class="sc">%in%</span>subpops)</span>
-<span id="cb54-4"><a href="week-9--fst-and-outlier-analysis.html#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(<span class="fu">rownames</span>(subgen),<span class="fu">as.character</span>(submeta<span class="sc">$</span>ID))</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="week-9--fst-and-outlier-analysis.html#cb52-1" aria-hidden="true" tabindex="-1"></a>subpops <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;AK3&quot;</span>,<span class="st">&quot;AK4&quot;</span>)</span>
+<span id="cb52-2"><a href="week-9--fst-and-outlier-analysis.html#cb52-2" aria-hidden="true" tabindex="-1"></a>subgen <span class="ot">&lt;-</span> tG[meta<span class="sc">$</span>SITE<span class="sc">%in%</span>subpops,]</span>
+<span id="cb52-3"><a href="week-9--fst-and-outlier-analysis.html#cb52-3" aria-hidden="true" tabindex="-1"></a>submeta <span class="ot">&lt;-</span> <span class="fu">subset</span>(meta,SITE<span class="sc">%in%</span>subpops)</span>
+<span id="cb52-4"><a href="week-9--fst-and-outlier-analysis.html#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(<span class="fu">rownames</span>(subgen),<span class="fu">as.character</span>(submeta<span class="sc">$</span>ID))</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="week-9--fst-and-outlier-analysis.html#cb56-1" aria-hidden="true" tabindex="-1"></a>fst <span class="ot">&lt;-</span> <span class="fu">MakeDiploidFSTMat</span>(subgen,<span class="at">locusNames=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(subgen),<span class="at">popNames=</span>submeta<span class="sc">$</span>SITE)</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="week-9--fst-and-outlier-analysis.html#cb54-1" aria-hidden="true" tabindex="-1"></a>fst <span class="ot">&lt;-</span> <span class="fu">MakeDiploidFSTMat</span>(subgen,<span class="at">locusNames=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(subgen),<span class="at">popNames=</span>submeta<span class="sc">$</span>SITE)</span></code></pre></div>
 <pre><code>## Error in MakeDiploidFSTMat(subgen, locusNames = 1:ncol(subgen), popNames = submeta$SITE): could not find function &quot;MakeDiploidFSTMat&quot;</code></pre>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="week-9--fst-and-outlier-analysis.html#cb58-1" aria-hidden="true" tabindex="-1"></a>OF <span class="ot">&lt;-</span> <span class="fu">OutFLANK</span>(fst,<span class="at">LeftTrimFraction=</span><span class="fl">0.01</span>,<span class="at">RightTrimFraction=</span><span class="fl">0.01</span>,</span>
-<span id="cb58-2"><a href="week-9--fst-and-outlier-analysis.html#cb58-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">Hmin=</span><span class="fl">0.05</span>,<span class="at">NumberOfSamples=</span><span class="dv">2</span>,<span class="at">qthreshold=</span><span class="fl">0.01</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="week-9--fst-and-outlier-analysis.html#cb56-1" aria-hidden="true" tabindex="-1"></a>OF <span class="ot">&lt;-</span> <span class="fu">OutFLANK</span>(fst,<span class="at">LeftTrimFraction=</span><span class="fl">0.01</span>,<span class="at">RightTrimFraction=</span><span class="fl">0.01</span>,</span>
+<span id="cb56-2"><a href="week-9--fst-and-outlier-analysis.html#cb56-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">Hmin=</span><span class="fl">0.05</span>,<span class="at">NumberOfSamples=</span><span class="dv">2</span>,<span class="at">qthreshold=</span><span class="fl">0.01</span>)</span></code></pre></div>
 <pre><code>## Error in OutFLANK(fst, LeftTrimFraction = 0.01, RightTrimFraction = 0.01, : could not find function &quot;OutFLANK&quot;</code></pre>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="week-9--fst-and-outlier-analysis.html#cb60-1" aria-hidden="true" tabindex="-1"></a>P1 <span class="ot">&lt;-</span> <span class="fu">pOutlierFinderChiSqNoCorr</span>(fst,<span class="at">Fstbar=</span>OF<span class="sc">$</span>FSTNoCorrbar,</span>
-<span id="cb60-2"><a href="week-9--fst-and-outlier-analysis.html#cb60-2" aria-hidden="true" tabindex="-1"></a>                                <span class="at">dfInferred=</span>OF<span class="sc">$</span>dfInferred,<span class="at">qthreshold=</span><span class="fl">0.05</span>,<span class="at">Hmin=</span><span class="fl">0.1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="week-9--fst-and-outlier-analysis.html#cb58-1" aria-hidden="true" tabindex="-1"></a>P1 <span class="ot">&lt;-</span> <span class="fu">pOutlierFinderChiSqNoCorr</span>(fst,<span class="at">Fstbar=</span>OF<span class="sc">$</span>FSTNoCorrbar,</span>
+<span id="cb58-2"><a href="week-9--fst-and-outlier-analysis.html#cb58-2" aria-hidden="true" tabindex="-1"></a>                                <span class="at">dfInferred=</span>OF<span class="sc">$</span>dfInferred,<span class="at">qthreshold=</span><span class="fl">0.05</span>,<span class="at">Hmin=</span><span class="fl">0.1</span>)</span></code></pre></div>
 <pre><code>## Error in pOutlierFinderChiSqNoCorr(fst, Fstbar = OF$FSTNoCorrbar, dfInferred = OF$dfInferred, : could not find function &quot;pOutlierFinderChiSqNoCorr&quot;</code></pre>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="week-9--fst-and-outlier-analysis.html#cb62-1" aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> P1<span class="sc">$</span>OutlierFlag<span class="sc">==</span><span class="cn">TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="week-9--fst-and-outlier-analysis.html#cb60-1" aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> P1<span class="sc">$</span>OutlierFlag<span class="sc">==</span><span class="cn">TRUE</span></span></code></pre></div>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;P1&#39; not found</code></pre>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="week-9--fst-and-outlier-analysis.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(outliers)</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="week-9--fst-and-outlier-analysis.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(outliers)</span></code></pre></div>
 <pre><code>## outliers
 ##   20   96  129  130  139  179  195  196  197  198  242  282  283  294  296  347 
 ##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
@@ -576,8 +572,8 @@ The blue line is the Chi-Squared Distribution fit to the data
 ##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
 ## 3290 3306 3309 3344 3345 3360 3372 3373 3404 3412 3514 3538 3620 3637 3671 
 ##    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1</code></pre>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="week-9--fst-and-outlier-analysis.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co">#FALSE  TRUE </span></span>
-<span id="cb66-2"><a href="week-9--fst-and-outlier-analysis.html#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1284     1 </span></span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="week-9--fst-and-outlier-analysis.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co">#FALSE  TRUE </span></span>
+<span id="cb64-2"><a href="week-9--fst-and-outlier-analysis.html#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1284     1 </span></span></code></pre></div>
 </p>
 </details>
 

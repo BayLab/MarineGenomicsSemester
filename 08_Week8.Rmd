@@ -266,24 +266,3 @@ e_allind$values/sum(e_allind$values)
 </details>
 
 
-> 03. Remake the base R plot that we generated in class in ggplot. Use the group parameter in aes to group by region and/or population. Note, ggplot wants the data to be a dataframe and our data is a matrix. Use the function `as.data.frame(e$vectors)` to acheive this in the ggplot function. Don't forget to load the ggplot2 package with `library(ggplot2)
-
-<details><summary><span style="color: goldenrod;">Solution</span></summary>
-<p>
-
-```{r echo=TRUE, label='6-4'}
-# we need to use the function as.data.frame to make our matrix a dataframe.
-M<-as.data.frame(e_allind$vectors[,1:3])
-library(ggplot2)
-ggplot(data=M, aes(y=V1, x=V2, group=as.factor(names$V3), color=as.factor(names$V3)))+
-  geom_point()+
-  theme_classic()+
-  scale_color_manual(name="Region", 
-                     labels = c("North", 
-                                "South"), values =
-                       c("a"="slateblue", 
-                         "b"="green")) 
-                      
-```
-</p>
-</details>
