@@ -106,3 +106,13 @@ finding-outliers-using-pcadapt
 pcadapt-exercises
 using-fst-to-find-outliers
 outflank-practice
+week-10-genome-wide-association-study-gwas
+load-in-the-data
+install-packages-in-r
+install-angsd-and-pcangsd-again
+install-angsd
+for-pcangsd
+the-data
+take-beagle-file-and-generate-lrt-file
+take-lrt-file-and-make-a-manhattan-plot
+exercises-1

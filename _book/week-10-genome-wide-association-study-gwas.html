@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>11 Week 10: Genome wide association study (GWAS) | Semester.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="11 Week 10: Genome wide association study (GWAS) | Semester.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="11 Week 10: Genome wide association study (GWAS) | Semester.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="week-9--fst-and-outlier-analysis.html"/>
+
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Marine Genomics Semester</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Marine Genomics Semester edition</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#cloud-computing-versus-individual-laptops"><i class="fa fa-check"></i><b>1.1</b> Cloud computing versus individual laptops</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#assessment"><i class="fa fa-check"></i><b>1.2</b> Assessment</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#short-recorded-demonstrations"><i class="fa fa-check"></i><b>1.3</b> Short recorded demonstrations</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#final-demonstration"><i class="fa fa-check"></i><b>1.4</b> Final demonstration</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="week-1--welcome.html"><a href="week-1--welcome.html"><i class="fa fa-check"></i><b>2</b> Week 1- Welcome!</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="week-1--welcome.html"><a href="week-1--welcome.html#introduction-to-shell-computing-via-the-data-carpentry-tutorial"><i class="fa fa-check"></i><b>2.1</b> Introduction to shell computing via the data carpentry tutorial</a></li>
+<li class="chapter" data-level="2.2" data-path="week-1--welcome.html"><a href="week-1--welcome.html#how-to-access-the-shell"><i class="fa fa-check"></i><b>2.2</b> How to access the shell</a></li>
+<li class="chapter" data-level="2.3" data-path="week-1--welcome.html"><a href="week-1--welcome.html#best-practices-for-jetstream"><i class="fa fa-check"></i><b>2.3</b> Best practices for Jetstream</a></li>
+<li class="chapter" data-level="2.4" data-path="week-1--welcome.html"><a href="week-1--welcome.html#week-1-objectives"><i class="fa fa-check"></i><b>2.4</b> Week 1 Objectives</a></li>
+<li class="chapter" data-level="2.5" data-path="week-1--welcome.html"><a href="week-1--welcome.html#navigating-your-file-system"><i class="fa fa-check"></i><b>2.5</b> Navigating your file system</a></li>
+<li class="chapter" data-level="2.6" data-path="week-1--welcome.html"><a href="week-1--welcome.html#shortcut-tab-completion"><i class="fa fa-check"></i><b>2.6</b> Shortcut: Tab Completion</a></li>
+<li class="chapter" data-level="2.7" data-path="week-1--welcome.html"><a href="week-1--welcome.html#summary-key-points"><i class="fa fa-check"></i><b>2.7</b> Summary &amp; Key Points</a></li>
+<li class="chapter" data-level="2.8" data-path="week-1--welcome.html"><a href="week-1--welcome.html#navigating-files-and-directories"><i class="fa fa-check"></i><b>2.8</b> Navigating Files and Directories</a></li>
+<li class="chapter" data-level="2.9" data-path="week-1--welcome.html"><a href="week-1--welcome.html#moving-around-the-file-system"><i class="fa fa-check"></i><b>2.9</b> Moving around the file system</a></li>
+<li class="chapter" data-level="2.10" data-path="week-1--welcome.html"><a href="week-1--welcome.html#navigating-practice-and-finding-hidden-directories"><i class="fa fa-check"></i><b>2.10</b> Navigating practice and finding hidden directories</a></li>
+<li class="chapter" data-level="2.11" data-path="week-1--welcome.html"><a href="week-1--welcome.html#examining-the-contents-of-other-directories"><i class="fa fa-check"></i><b>2.11</b> Examining the contents of other directories</a></li>
+<li class="chapter" data-level="2.12" data-path="week-1--welcome.html"><a href="week-1--welcome.html#full-vs-relative-paths"><i class="fa fa-check"></i><b>2.12</b> Full vs Relative Paths</a></li>
+<li class="chapter" data-level="2.13" data-path="week-1--welcome.html"><a href="week-1--welcome.html#navigational-shortcuts"><i class="fa fa-check"></i><b>2.13</b> Navigational shortcuts</a></li>
+<li class="chapter" data-level="2.14" data-path="week-1--welcome.html"><a href="week-1--welcome.html#key-points"><i class="fa fa-check"></i><b>2.14</b> Key Points</a></li>
+<li class="chapter" data-level="2.15" data-path="week-1--welcome.html"><a href="week-1--welcome.html#creature-of-the-week"><i class="fa fa-check"></i><b>2.15</b> Creature of the Week!</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html"><i class="fa fa-check"></i><b>3</b> Week 2: Working With Files</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#our-data-set-fastq-files"><i class="fa fa-check"></i><b>3.1</b> Our data set: FASTQ files</a></li>
+<li class="chapter" data-level="3.2" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#wildcards"><i class="fa fa-check"></i><b>3.2</b> Wildcards</a></li>
+<li class="chapter" data-level="3.3" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise"><i class="fa fa-check"></i><b>3.3</b> Exercise</a></li>
+<li class="chapter" data-level="3.4" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#using-echo"><i class="fa fa-check"></i><b>3.4</b> Using echo</a></li>
+<li class="chapter" data-level="3.5" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#command-history"><i class="fa fa-check"></i><b>3.5</b> Command History</a></li>
+<li class="chapter" data-level="3.6" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#examining-files"><i class="fa fa-check"></i><b>3.6</b> Examining Files</a></li>
+<li class="chapter" data-level="3.7" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-1"><i class="fa fa-check"></i><b>3.7</b> Exercise</a></li>
+<li class="chapter" data-level="3.8" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-2"><i class="fa fa-check"></i><b>3.8</b> Exercise</a></li>
+<li class="chapter" data-level="3.9" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#details-on-the-fastq-format"><i class="fa fa-check"></i><b>3.9</b> Details on the FASTQ format</a></li>
+<li class="chapter" data-level="3.10" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#creating-moving-copying-and-removing"><i class="fa fa-check"></i><b>3.10</b> Creating, moving, copying, and removing</a>
+<ul>
+<li class="chapter" data-level="3.10.1" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#copying-files"><i class="fa fa-check"></i><b>3.10.1</b> Copying Files</a></li>
+<li class="chapter" data-level="3.10.2" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#creating-directories"><i class="fa fa-check"></i><b>3.10.2</b> Creating Directories</a></li>
+<li class="chapter" data-level="3.10.3" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#moving-renaming"><i class="fa fa-check"></i><b>3.10.3</b> Moving / Renaming</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#file-permissions"><i class="fa fa-check"></i><b>3.11</b> File Permissions</a></li>
+<li class="chapter" data-level="3.12" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#removing"><i class="fa fa-check"></i><b>3.12</b> Removing</a></li>
+<li class="chapter" data-level="3.13" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-3"><i class="fa fa-check"></i><b>3.13</b> Exercise</a></li>
+<li class="chapter" data-level="3.14" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#redirections"><i class="fa fa-check"></i><b>3.14</b> Redirections</a></li>
+<li class="chapter" data-level="3.15" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#searching-files"><i class="fa fa-check"></i><b>3.15</b> Searching files</a></li>
+<li class="chapter" data-level="3.16" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-4"><i class="fa fa-check"></i><b>3.16</b> Exercise</a></li>
+<li class="chapter" data-level="3.17" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#redirecting-output"><i class="fa fa-check"></i><b>3.17</b> Redirecting output</a>
+<ul>
+<li class="chapter" data-level="3.17.1" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-5"><i class="fa fa-check"></i><b>3.17.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.18" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#writing-for-loops"><i class="fa fa-check"></i><b>3.18</b> Writing for loops</a></li>
+<li class="chapter" data-level="3.19" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#using-basename-in-for-loops"><i class="fa fa-check"></i><b>3.19</b> Using Basename in for loops</a></li>
+<li class="chapter" data-level="3.20" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-6"><i class="fa fa-check"></i><b>3.20</b> Exercise</a></li>
+<li class="chapter" data-level="3.21" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-7"><i class="fa fa-check"></i><b>3.21</b> Exercise</a></li>
+<li class="chapter" data-level="3.22" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#writing-scripts-and-working-with-data"><i class="fa fa-check"></i><b>3.22</b> Writing Scripts and Working with Data</a></li>
+<li class="chapter" data-level="3.23" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#writing-files"><i class="fa fa-check"></i><b>3.23</b> Writing files</a></li>
+<li class="chapter" data-level="3.24" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-8"><i class="fa fa-check"></i><b>3.24</b> Exercise</a></li>
+<li class="chapter" data-level="3.25" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#writing-scripts"><i class="fa fa-check"></i><b>3.25</b> Writing scripts</a></li>
+<li class="chapter" data-level="3.26" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#exercise-9"><i class="fa fa-check"></i><b>3.26</b> Exercise</a></li>
+<li class="chapter" data-level="3.27" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#making-the-script-into-a-program"><i class="fa fa-check"></i><b>3.27</b> Making the script into a program</a></li>
+<li class="chapter" data-level="3.28" data-path="week-2-working-with-files.html"><a href="week-2-working-with-files.html#creature-of-the-week-1"><i class="fa fa-check"></i><b>3.28</b> Creature of the Week!</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="week3-awk-and-how-to-download-files.html"><a href="week3-awk-and-how-to-download-files.html"><i class="fa fa-check"></i><b>4</b> Week3: Awk and how to download files</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="week3-awk-and-how-to-download-files.html"><a href="week3-awk-and-how-to-download-files.html#awk"><i class="fa fa-check"></i><b>4.1</b> AWK</a></li>
+<li class="chapter" data-level="4.2" data-path="week3-awk-and-how-to-download-files.html"><a href="week3-awk-and-how-to-download-files.html#moving-and-downloading-data"><i class="fa fa-check"></i><b>4.2</b> Moving and Downloading Data</a></li>
+<li class="chapter" data-level="4.3" data-path="week3-awk-and-how-to-download-files.html"><a href="week3-awk-and-how-to-download-files.html#getting-data-from-the-cloud"><i class="fa fa-check"></i><b>4.3</b> Getting data from the cloud</a></li>
+<li class="chapter" data-level="4.4" data-path="week3-awk-and-how-to-download-files.html"><a href="week3-awk-and-how-to-download-files.html#downloading-files-from-github"><i class="fa fa-check"></i><b>4.4</b> Downloading files from Github</a></li>
+<li class="chapter" data-level="4.5" data-path="week3-awk-and-how-to-download-files.html"><a href="week3-awk-and-how-to-download-files.html#final-bash-wrap-up"><i class="fa fa-check"></i><b>4.5</b> Final bash wrap-up</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html"><i class="fa fa-check"></i><b>5</b> Week 4- What is a Genetic Variant?</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#to-get-started-lets-download-the-data-and-install-a-few-programs"><i class="fa fa-check"></i><b>5.1</b> To get started lets download the data and install a few programs</a></li>
+<li class="chapter" data-level="5.2" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#raw-read-quality-control"><i class="fa fa-check"></i><b>5.2</b> Raw read quality control</a></li>
+<li class="chapter" data-level="5.3" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#trimming-to-remove-adapters"><i class="fa fa-check"></i><b>5.3</b> Trimming to remove adapters</a></li>
+<li class="chapter" data-level="5.4" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#building-an-index-of-our-genome"><i class="fa fa-check"></i><b>5.4</b> Building an index of our genome</a></li>
+<li class="chapter" data-level="5.5" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#map-reads-to-the-genome"><i class="fa fa-check"></i><b>5.5</b> Map reads to the genome</a></li>
+<li class="chapter" data-level="5.6" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#sam-to-bam-file-conversion"><i class="fa fa-check"></i><b>5.6</b> sam to bam file conversion</a></li>
+<li class="chapter" data-level="5.7" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#genotype-likelihoods"><i class="fa fa-check"></i><b>5.7</b> Genotype likelihoods</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="week-4--what-is-a-genetic-variant.html"><a href="week-4--what-is-a-genetic-variant.html#suggested-exercises"><i class="fa fa-check"></i><b>5.7.1</b> Suggested Exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html"><i class="fa fa-check"></i><b>6</b> Week 5- The R environment</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#lesson-1-orientation-to-r"><i class="fa fa-check"></i><b>6.1</b> Lesson 1: Orientation to R</a></li>
+<li class="chapter" data-level="6.2" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#manipulating-a-vector-object"><i class="fa fa-check"></i><b>6.2</b> Manipulating a vector object</a></li>
+<li class="chapter" data-level="6.3" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#operations-act-on-each-element-of-a-vector"><i class="fa fa-check"></i><b>6.3</b> Operations act on each element of a vector:</a></li>
+<li class="chapter" data-level="6.4" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#operations-can-also-work-with-two-vectors"><i class="fa fa-check"></i><b>6.4</b> Operations can also work with two vectors:</a></li>
+<li class="chapter" data-level="6.5" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#a-few-tips-below-for-working-with-objects"><i class="fa fa-check"></i><b>6.5</b> A few tips below for working with objects:</a></li>
+<li class="chapter" data-level="6.6" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#exercise-1.1"><i class="fa fa-check"></i><b>6.6</b> EXERCISE 1.1</a></li>
+<li class="chapter" data-level="6.7" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#characterizing-a-dataframe"><i class="fa fa-check"></i><b>6.7</b> 1.2 Characterizing a dataframe</a></li>
+<li class="chapter" data-level="6.8" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#how-to-access-parts-of-the-data"><i class="fa fa-check"></i><b>6.8</b> How to access parts of the data:</a></li>
+<li class="chapter" data-level="6.9" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#data-manipulation"><i class="fa fa-check"></i><b>6.9</b> Data Manipulation</a></li>
+<li class="chapter" data-level="6.10" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#exercise-1.2"><i class="fa fa-check"></i><b>6.10</b> EXERCISE 1.2</a></li>
+<li class="chapter" data-level="6.11" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#subsetting-datasets-logicals"><i class="fa fa-check"></i><b>6.11</b> 1.3 Subsetting datasets &amp; logicals</a></li>
+<li class="chapter" data-level="6.12" data-path="week-5--the-r-environment.html"><a href="week-5--the-r-environment.html#exercise-1.3-indexing-by-logical-statements"><i class="fa fa-check"></i><b>6.12</b> EXERCISE 1.3 indexing by logical statements</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html"><i class="fa fa-check"></i><b>7</b> Week 6- R Continued</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html#plotting"><i class="fa fa-check"></i><b>7.1</b> 2.1 Plotting</a></li>
+<li class="chapter" data-level="7.2" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html#scatterplots"><i class="fa fa-check"></i><b>7.2</b> Scatterplots</a></li>
+<li class="chapter" data-level="7.3" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html#customizing-your-plot"><i class="fa fa-check"></i><b>7.3</b> Customizing your plot</a></li>
+<li class="chapter" data-level="7.4" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html#exercise-2.1"><i class="fa fa-check"></i><b>7.4</b> Exercise 2.1</a></li>
+<li class="chapter" data-level="7.5" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>7.5</b> 2.2 plotting with ggplot2</a></li>
+<li class="chapter" data-level="7.6" data-path="week-6--r-continued.html"><a href="week-6--r-continued.html#exercise-2.2-plotting-in-ggplot2"><i class="fa fa-check"></i><b>7.6</b> Exercise 2.2 Plotting in ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="week-7-for-loops-and-the-apply-family-of-functions.html"><a href="week-7-for-loops-and-the-apply-family-of-functions.html"><i class="fa fa-check"></i><b>8</b> Week 7 For loops and the apply family of functions</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="week-7-for-loops-and-the-apply-family-of-functions.html"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#apply-family"><i class="fa fa-check"></i><b>8.1</b> apply family</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="week-7-for-loops-and-the-apply-family-of-functions.html"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#sapply"><i class="fa fa-check"></i><b>8.1.1</b> sapply</a></li>
+<li class="chapter" data-level="8.1.2" data-path="week-7-for-loops-and-the-apply-family-of-functions.html"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#apply"><i class="fa fa-check"></i><b>8.1.2</b> apply</a></li>
+<li class="chapter" data-level="8.1.3" data-path="week-7-for-loops-and-the-apply-family-of-functions.html"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#lapply-list-apply"><i class="fa fa-check"></i><b>8.1.3</b> lapply – “list” apply</a></li>
+<li class="chapter" data-level="8.1.4" data-path="week-7-for-loops-and-the-apply-family-of-functions.html"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#tapply---per-type-apply"><i class="fa fa-check"></i><b>8.1.4</b> tapply - “per Type” apply</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="week-7-for-loops-and-the-apply-family-of-functions.html"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#exercise-2.3-apply-and-tapply"><i class="fa fa-check"></i><b>8.2</b> Exercise 2.3 apply and tapply</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="week-8--principle-component-analyses.html"><a href="week-8--principle-component-analyses.html"><i class="fa fa-check"></i><b>9</b> Week 8- Principle Component Analyses</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="week-8--principle-component-analyses.html"><a href="week-8--principle-component-analyses.html#download-the-data"><i class="fa fa-check"></i><b>9.1</b> Download the data</a></li>
+<li class="chapter" data-level="9.2" data-path="week-8--principle-component-analyses.html"><a href="week-8--principle-component-analyses.html#installing-programs"><i class="fa fa-check"></i><b>9.2</b> Installing programs</a></li>
+<li class="chapter" data-level="9.3" data-path="week-8--principle-component-analyses.html"><a href="week-8--principle-component-analyses.html#run-pcangsd-on-our-data"><i class="fa fa-check"></i><b>9.3</b> Run pcangsd on our data</a></li>
+<li class="chapter" data-level="9.4" data-path="week-8--principle-component-analyses.html"><a href="week-8--principle-component-analyses.html#setting-up-a-new-project-in-r"><i class="fa fa-check"></i><b>9.4</b> Setting up a new project in R</a></li>
+<li class="chapter" data-level="9.5" data-path="week-8--principle-component-analyses.html"><a href="week-8--principle-component-analyses.html#reading-data-into-r"><i class="fa fa-check"></i><b>9.5</b> Reading data into R</a></li>
+<li class="chapter" data-level="9.6" data-path="week-8--principle-component-analyses.html"><a href="week-8--principle-component-analyses.html#exercises"><i class="fa fa-check"></i><b>9.6</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="week-9--fst-and-outlier-analysis.html"><a href="week-9--fst-and-outlier-analysis.html"><i class="fa fa-check"></i><b>10</b> Week 9- F<sub>st</sub> and outlier analysis</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="week-9--fst-and-outlier-analysis.html"><a href="week-9--fst-and-outlier-analysis.html#download-the-data-1"><i class="fa fa-check"></i><b>10.1</b> Download the data</a></li>
+<li class="chapter" data-level="10.2" data-path="week-9--fst-and-outlier-analysis.html"><a href="week-9--fst-and-outlier-analysis.html#getting-r-set-up"><i class="fa fa-check"></i><b>10.2</b> Getting R set up</a></li>
+<li class="chapter" data-level="10.3" data-path="week-9--fst-and-outlier-analysis.html"><a href="week-9--fst-and-outlier-analysis.html#finding-outliers-using-pcadapt"><i class="fa fa-check"></i><b>10.3</b> Finding outliers using pcadapt</a></li>
+<li class="chapter" data-level="10.4" data-path="week-9--fst-and-outlier-analysis.html"><a href="week-9--fst-and-outlier-analysis.html#pcadapt-exercises"><i class="fa fa-check"></i><b>10.4</b> pcadapt Exercises</a></li>
+<li class="chapter" data-level="10.5" data-path="week-9--fst-and-outlier-analysis.html"><a href="week-9--fst-and-outlier-analysis.html#using-fst-to-find-outliers"><i class="fa fa-check"></i><b>10.5</b> Using F<sub>st</sub> to find outliers</a></li>
+<li class="chapter" data-level="10.6" data-path="week-9--fst-and-outlier-analysis.html"><a href="week-9--fst-and-outlier-analysis.html#outflank-practice"><i class="fa fa-check"></i><b>10.6</b> OutFLANK Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="week-10-genome-wide-association-study-gwas.html"><a href="week-10-genome-wide-association-study-gwas.html"><i class="fa fa-check"></i><b>11</b> Week 10: Genome wide association study (GWAS)</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="week-10-genome-wide-association-study-gwas.html"><a href="week-10-genome-wide-association-study-gwas.html#load-in-the-data"><i class="fa fa-check"></i><b>11.1</b> load in the data</a></li>
+<li class="chapter" data-level="11.2" data-path="week-10-genome-wide-association-study-gwas.html"><a href="week-10-genome-wide-association-study-gwas.html#install-packages-in-r"><i class="fa fa-check"></i><b>11.2</b> install packages in R</a></li>
+<li class="chapter" data-level="11.3" data-path="week-10-genome-wide-association-study-gwas.html"><a href="week-10-genome-wide-association-study-gwas.html#install-angsd-and-pcangsd-again"><i class="fa fa-check"></i><b>11.3</b> install angsd and pcangsd (again?)</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="week-10-genome-wide-association-study-gwas.html"><a href="week-10-genome-wide-association-study-gwas.html#install-angsd"><i class="fa fa-check"></i><b>11.3.1</b> install angsd</a></li>
+<li class="chapter" data-level="11.3.2" data-path="week-10-genome-wide-association-study-gwas.html"><a href="week-10-genome-wide-association-study-gwas.html#for-pcangsd"><i class="fa fa-check"></i><b>11.3.2</b> for pcangsd</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="week-10-genome-wide-association-study-gwas.html"><a href="week-10-genome-wide-association-study-gwas.html#the-data"><i class="fa fa-check"></i><b>11.4</b> The data</a></li>
+<li class="chapter" data-level="11.5" data-path="week-10-genome-wide-association-study-gwas.html"><a href="week-10-genome-wide-association-study-gwas.html#take-beagle-file-and-generate-lrt-file"><i class="fa fa-check"></i><b>11.5</b> take Beagle file and generate lrt file</a></li>
+<li class="chapter" data-level="11.6" data-path="week-10-genome-wide-association-study-gwas.html"><a href="week-10-genome-wide-association-study-gwas.html#take-lrt-file-and-make-a-manhattan-plot"><i class="fa fa-check"></i><b>11.6</b> take lrt file and make a manhattan plot</a></li>
+<li class="chapter" data-level="11.7" data-path="week-10-genome-wide-association-study-gwas.html"><a href="week-10-genome-wide-association-study-gwas.html#exercises-1"><i class="fa fa-check"></i><b>11.7</b> Exercises</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="week-10-genome-wide-association-study-gwas" class="section level1" number="11">
+<h1><span class="header-section-number">11</span> Week 10: Genome wide association study (GWAS)</h1>
+<p>This week we’re going to show you how to perform a genome wide association study or GWAS.</p>
+<p>The lecture for this week can be found <a href="https://github.com/BayLab/MarineGenomics/blob/4f22a87ad800f98a6e138a166b8e94d016310914/ppt/Week8_GWAS.pdf">here</a></p>
+<div id="load-in-the-data" class="section level2" number="11.1">
+<h2><span class="header-section-number">11.1</span> load in the data</h2>
+<p>The data for this week consist of several files in beagle format, a genome index file (.fai), and a few small text files.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="week-10-genome-wide-association-study-gwas.html#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="week-10-genome-wide-association-study-gwas.html#cb1-2" aria-hidden="true" tabindex="-1"></a>wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week10_semester.tar.gz</span>
+<span id="cb1-3"><a href="week-10-genome-wide-association-study-gwas.html#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="week-10-genome-wide-association-study-gwas.html#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="week-10-genome-wide-association-study-gwas.html#cb1-5" aria-hidden="true" tabindex="-1"></a>tar -xzvf week10_semester.tar.gz</span>
+<span id="cb1-6"><a href="week-10-genome-wide-association-study-gwas.html#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="week-10-genome-wide-association-study-gwas.html#cb1-7" aria-hidden="true" tabindex="-1"></a>#and one more file that was too big to upload with the others</span>
+<span id="cb1-8"><a href="week-10-genome-wide-association-study-gwas.html#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="week-10-genome-wide-association-study-gwas.html#cb1-9" aria-hidden="true" tabindex="-1"></a>cd MarineGenomicsData/week10</span>
+<span id="cb1-10"><a href="week-10-genome-wide-association-study-gwas.html#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="week-10-genome-wide-association-study-gwas.html#cb1-11" aria-hidden="true" tabindex="-1"></a>wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/salmon_chr6_19ind.BEAGLE.PL.gz</span></code></pre></div>
+</div>
+<div id="install-packages-in-r" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> install packages in R</h2>
+<p>We’ll be using the package <code>qqman</code> to make a manhattan plot.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="week-10-genome-wide-association-study-gwas.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.package(&quot;qqman&quot;)</span></span></code></pre></div>
+</div>
+<div id="install-angsd-and-pcangsd-again" class="section level2" number="11.3">
+<h2><span class="header-section-number">11.3</span> install angsd and pcangsd (again?)</h2>
+<p>If you missed one of the previous weeks and didn’t get pcangsd or angsd installed. Or if you had to relaunch your jetstream instance, you will need to reinstall them. Here are the scripts to install them. They take a few minutes to install. There is no need to install these again if you installed them last time.</p>
+<p>You can first check if they are installed with:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="week-10-genome-wide-association-study-gwas.html#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="week-10-genome-wide-association-study-gwas.html#cb3-2" aria-hidden="true" tabindex="-1"></a>angsd -h</span></code></pre></div>
+<div id="install-angsd" class="section level3" number="11.3.1">
+<h3><span class="header-section-number">11.3.1</span> install angsd</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb4-1"><a href="week-10-genome-wide-association-study-gwas.html#cb4-1" aria-hidden="true" tabindex="-1"></a>cd</span>
+<span id="cb4-2"><a href="week-10-genome-wide-association-study-gwas.html#cb4-2" aria-hidden="true" tabindex="-1"></a>  git clone --recursive https://github.com/samtools/htslib.git</span>
+<span id="cb4-3"><a href="week-10-genome-wide-association-study-gwas.html#cb4-3" aria-hidden="true" tabindex="-1"></a>  git clone https://github.com/ANGSD/angsd.git </span>
+<span id="cb4-4"><a href="week-10-genome-wide-association-study-gwas.html#cb4-4" aria-hidden="true" tabindex="-1"></a>  cd htslib;make;cd ../angsd ;make HTSSRC=../htslib</span>
+<span id="cb4-5"><a href="week-10-genome-wide-association-study-gwas.html#cb4-5" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb4-6"><a href="week-10-genome-wide-association-study-gwas.html#cb4-6" aria-hidden="true" tabindex="-1"></a>cd</span></code></pre></div>
+</div>
+<div id="for-pcangsd" class="section level3" number="11.3.2">
+<h3><span class="header-section-number">11.3.2</span> for pcangsd</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb5-1"><a href="week-10-genome-wide-association-study-gwas.html#cb5-1" aria-hidden="true" tabindex="-1"></a>install pip for python</span>
+<span id="cb5-2"><a href="week-10-genome-wide-association-study-gwas.html#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="week-10-genome-wide-association-study-gwas.html#cb5-3" aria-hidden="true" tabindex="-1"></a>curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py</span>
+<span id="cb5-4"><a href="week-10-genome-wide-association-study-gwas.html#cb5-4" aria-hidden="true" tabindex="-1"></a>python3 get-pip.py</span></code></pre></div>
+<p>we need to add our home directory to the path for pip
+look at path echo $PATH</p>
+<p>add the location of pip to our path</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb6-1"><a href="week-10-genome-wide-association-study-gwas.html#cb6-1" aria-hidden="true" tabindex="-1"></a>export PATH=&quot;$HOME/.local/bin:$PATH&quot;</span></code></pre></div>
+<p>then install pcangsd</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb7-1"><a href="week-10-genome-wide-association-study-gwas.html#cb7-1" aria-hidden="true" tabindex="-1"></a>git clone https://github.com/Rosemeis/pcangsd.git</span>
+<span id="cb7-2"><a href="week-10-genome-wide-association-study-gwas.html#cb7-2" aria-hidden="true" tabindex="-1"></a>cd pcangsd/</span>
+<span id="cb7-3"><a href="week-10-genome-wide-association-study-gwas.html#cb7-3" aria-hidden="true" tabindex="-1"></a>pip install --user -r requirements.txt #this installs additional requirements for pcangsd</span>
+<span id="cb7-4"><a href="week-10-genome-wide-association-study-gwas.html#cb7-4" aria-hidden="true" tabindex="-1"></a>python3 setup.py build_ext --inplace</span></code></pre></div>
+</div>
+</div>
+<div id="the-data" class="section level2" number="11.4">
+<h2><span class="header-section-number">11.4</span> The data</h2>
+<p>The data we’re working on for the GWAS comes from the paper by Kijas et al. 2018 where they studied the genetic basis of sex determination in the atlantic Salmon. The paper can be found <a href="https://www.nature.com/articles/s41598-018-23984-1#Sec2">here</a>. In short they examined the genetic basis of sex in 19 salmon for which they have whole genome sequence data. We’ll only be looking at two chromosomes (2 and 6) of this data.</p>
+</div>
+<div id="take-beagle-file-and-generate-lrt-file" class="section level2" number="11.5">
+<h2><span class="header-section-number">11.5</span> take Beagle file and generate lrt file</h2>
+<p>To do the test of genome wide association we need to take our Beagle file and test whether there is an association with our phenotype (in this case whether a fish has a male or female phenotype). The phenotypes are coded as 0 = Female and 1 = Male in the <code>phenobin</code> file.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb8-1"><a href="week-10-genome-wide-association-study-gwas.html#cb8-1" aria-hidden="true" tabindex="-1"></a>$HOME/angsd/angsd -doMaf 4 -beagle salmon_chr2_19ind.BEAGLE.PL.gz -yBin phenobin -doAsso 2 -fai Salmon.fai</span></code></pre></div>
+<p>This will generate several output files labeled <code>angsdput</code>. We’ll use the file with the lrt0 extension to plot our manattan plot.</p>
+</div>
+<div id="take-lrt-file-and-make-a-manhattan-plot" class="section level2" number="11.6">
+<h2><span class="header-section-number">11.6</span> take lrt file and make a manhattan plot</h2>
+<pre><code>## &#39;data.frame&#39;:    224460 obs. of  8 variables:
+##  $ Chromosome   : int  2 2 2 2 2 2 2 2 2 2 ...
+##  $ Position     : int  13 59 74 153 548 550 613 1182 1361 1533 ...
+##  $ Major        : chr  &quot;G&quot; &quot;G&quot; &quot;G&quot; &quot;C&quot; ...
+##  $ Minor        : chr  &quot;T&quot; &quot;A&quot; &quot;A&quot; &quot;G&quot; ...
+##  $ Frequency    : num  0.237 0.5 0.316 0.184 0.316 ...
+##  $ N            : int  19 19 19 19 19 19 19 19 19 19 ...
+##  $ LRT          : num  -999 -999 -999 -999 -999 -999 -999 -999 -999 -999 ...
+##  $ high_WT.HE.HO: chr  &quot;10/9/0&quot; &quot;1/17/1&quot; &quot;7/12/0&quot; &quot;12/7/0&quot; ...</code></pre>
+<pre><code>## [1] 210597</code></pre>
+<pre><code>## [1] 224460</code></pre>
+<pre><code>## [1] 13863</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="week-10-genome-wide-association-study-gwas.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(lrt_filt<span class="sc">$</span>LRT, <span class="at">breaks=</span><span class="dv">50</span>)</span></code></pre></div>
+<p><img src="Semester_files/figure-html/8-1-1.png" width="768" /></p>
+<p>Everything looks good to proceed to making our manhattan plot.</p>
+<p>the function manhattan requires each SNP to have it’s own “name.” Let’s make a vector for rownumbers that start with the letter r. We also need to convert our LRT values to pvalues. We’ll use the command <code>dchisq</code> to get pvalues.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="week-10-genome-wide-association-study-gwas.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">manhattan</span>(lrt_filt, <span class="at">chr=</span><span class="st">&quot;Chromosome&quot;</span>, <span class="at">bp=</span><span class="st">&quot;Position&quot;</span>, <span class="at">p=</span><span class="st">&quot;pvalue&quot;</span>)</span></code></pre></div>
+<p><img src="Semester_files/figure-html/8-2-1.png" width="768" /></p>
+<p>Let’s look at a qq-plot of our pvalues to check the model fit</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="week-10-genome-wide-association-study-gwas.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(lrt_filt<span class="sc">$</span>pvalue)</span></code></pre></div>
+<p><img src="Semester_files/figure-html/8-3-1.png" width="768" /></p>
+<p>This looks a bit weird, we would expect it to be mostly a straight line with some deviations at the upper right. If we were moving forward with this analyses we’d want to do more filtering of our data.</p>
+<p>We can highlight the values that are exceed a threshold. There are several ways to determine a threshold, but one is to make a vector of random phenotypes and re-run our association test. We can then set the highest LRT value from the random phenotype test as our upper limit for our plot with the actual phenotypes.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="week-10-genome-wide-association-study-gwas.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#make a vector with 19 1&#39;s and 0&#39;s</span></span>
+<span id="cb16-2"><a href="week-10-genome-wide-association-study-gwas.html#cb16-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="dv">19</span>, <span class="at">replace=</span>T)</span>
+<span id="cb16-3"><a href="week-10-genome-wide-association-study-gwas.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#write this to our week 8 directory</span></span>
+<span id="cb16-4"><a href="week-10-genome-wide-association-study-gwas.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(x, <span class="st">&quot;rando_pheno&quot;</span>, <span class="at">row.names =</span> F)</span></code></pre></div>
+<p>And now use that phenotype file to run our association test again, making sure to specify a different output file.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb17-1"><a href="week-10-genome-wide-association-study-gwas.html#cb17-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-2"><a href="week-10-genome-wide-association-study-gwas.html#cb17-2" aria-hidden="true" tabindex="-1"></a>$HOME/angsd/angsd -doMaf 4 -beagle salmon_chr2_19ind.BEAGLE.PL.gz -yBin rando_pheno -doAsso 2 -fai Salmon.fai -out randotest</span></code></pre></div>
+<p>And rerun the code in R to see what our maximum LRT values are in this random phenotype test.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="week-10-genome-wide-association-study-gwas.html#cb18-1" aria-hidden="true" tabindex="-1"></a>lrt_rando<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="fu">gzfile</span>(<span class="st">&quot;randotest.lrt0.gz&quot;</span>), <span class="at">header=</span>T, <span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb18-2"><a href="week-10-genome-wide-association-study-gwas.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#we need to remove those -999 values again</span></span>
+<span id="cb18-3"><a href="week-10-genome-wide-association-study-gwas.html#cb18-3" aria-hidden="true" tabindex="-1"></a>rando_filt<span class="ot">&lt;-</span>lrt_rando[<span class="sc">-</span><span class="fu">c</span>(<span class="fu">which</span>(lrt_rando<span class="sc">$</span>LRT <span class="sc">==</span> <span class="sc">-</span><span class="dv">999</span>),<span class="fu">which</span>(lrt_rando<span class="sc">$</span>LRT <span class="sc">&lt;=</span> <span class="dv">0</span>)),]</span>
+<span id="cb18-4"><a href="week-10-genome-wide-association-study-gwas.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(rando_filt<span class="sc">$</span>LRT, <span class="at">na.rm=</span>T)</span></code></pre></div>
+<pre><code>##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max.     NA&#39;s 
+## 0.000001 0.214816 0.669551      Inf 2.029913      Inf        1</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="week-10-genome-wide-association-study-gwas.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#we have some Inf values we also need to remove, let&#39;s add those to our filtering line above</span></span>
+<span id="cb20-2"><a href="week-10-genome-wide-association-study-gwas.html#cb20-2" aria-hidden="true" tabindex="-1"></a>rando_filt<span class="ot">&lt;-</span>lrt_rando[<span class="sc">-</span><span class="fu">c</span>(<span class="fu">which</span>(lrt_rando<span class="sc">$</span>LRT <span class="sc">==</span> <span class="sc">-</span><span class="dv">999</span>),<span class="fu">which</span>(lrt_rando<span class="sc">$</span>LRT <span class="sc">&lt;=</span> <span class="dv">0</span>), <span class="fu">which</span>(lrt_rando<span class="sc">$</span>LRT <span class="sc">==</span> <span class="cn">Inf</span>)),]</span>
+<span id="cb20-3"><a href="week-10-genome-wide-association-study-gwas.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(rando_filt<span class="sc">$</span>LRT, <span class="at">na.rm=</span>T)</span></code></pre></div>
+<pre><code>## [1] 12.33287</code></pre>
+<p>So we can highlight all of the SNPs that have an LRT greater than 12 in our association test.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="week-10-genome-wide-association-study-gwas.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#make a list of the candidates</span></span>
+<span id="cb22-2"><a href="week-10-genome-wide-association-study-gwas.html#cb22-2" aria-hidden="true" tabindex="-1"></a>candidates<span class="ot">&lt;-</span>lrt_filt[<span class="fu">which</span>(lrt_filt<span class="sc">$</span>LRT <span class="sc">&gt;</span> <span class="dv">36</span>),]<span class="sc">$</span>SNP</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="week-10-genome-wide-association-study-gwas.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#refer to that list of candidates with the highlight parameter</span></span>
+<span id="cb23-2"><a href="week-10-genome-wide-association-study-gwas.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">manhattan</span>(lrt_filt, <span class="at">chr=</span><span class="st">&quot;Chromosome&quot;</span>, <span class="at">bp=</span><span class="st">&quot;Position&quot;</span>,  <span class="at">p=</span><span class="st">&quot;pvalue&quot;</span>, <span class="at">highlight =</span> candidates)</span></code></pre></div>
+<p><img src="Semester_files/figure-html/8-4-1.png" width="768" /></p>
+<p>Comparing our results to the Kijas et al. 2018 paper, we have a similar pattern of many SNPs across the chromosome showing a relationship with phenotype (sex). Interestingly this paper found that there are three chromosomes that are associated with sex in Atlantic Salmon, but not all chromosomes give a strong signal in all individuals. For example, only three male individuals were found to have a clear association with chromosome 2, and the other males in the study were found to have an association with chromosomes 3 and 6.</p>
+<p>These results highlight the fluid nature of sex determination in animals, even those with a genetic basis to sex determination.</p>
+<p>For the exercise you’ll take a closer look at chromosome 6, where you’ll try to find the individuals that are male from a PCA plot.</p>
+</div>
+<div id="exercises-1" class="section level2" number="11.7">
+<h2><span class="header-section-number">11.7</span> Exercises</h2>
+<blockquote>
+<p>1.For this exercise, we want to see which individuals actually show genomic levels of variation at chromosome 6. Using the code that we ran for week 6. Make a PCA plot of the salmon_chr3_19ind.BEAGLE.PL.gz file. Use the function <code>indentify()</code> to find the points that are clustering apart from the other points. Verify that these are males by referring to the table in the Kijas et al. paper <a href="https://www.nature.com/articles/s41598-018-23984-1/tables/1">here</a>. Note their individuals are in the same order as our samples though the names don’t match.</p>
+</blockquote>
+<details>
+<summary>
+<span style="color: orange;">Solution</span>
+</summary>
+<p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb24-1"><a href="week-10-genome-wide-association-study-gwas.html#cb24-1" aria-hidden="true" tabindex="-1"></a>#run pcangsd on our chr6 data</span>
+<span id="cb24-2"><a href="week-10-genome-wide-association-study-gwas.html#cb24-2" aria-hidden="true" tabindex="-1"></a>python3 ../../pcangsd/pcangsd.py -beagle salmon_chr6_19ind.BEAGLE.PL.gz -o pca6_out -threads 28</span></code></pre></div>
+<p>In R make a PCA plot</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="week-10-genome-wide-association-study-gwas.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#read in the data</span></span>
+<span id="cb25-2"><a href="week-10-genome-wide-association-study-gwas.html#cb25-2" aria-hidden="true" tabindex="-1"></a>cov<span class="ot">&lt;-</span><span class="fu">as.matrix</span>(<span class="fu">read.table</span>(<span class="st">&quot;pca6_out.cov&quot;</span>))</span>
+<span id="cb25-3"><a href="week-10-genome-wide-association-study-gwas.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">#compute the eigen values</span></span>
+<span id="cb25-4"><a href="week-10-genome-wide-association-study-gwas.html#cb25-4" aria-hidden="true" tabindex="-1"></a>e<span class="ot">&lt;-</span><span class="fu">eigen</span>(cov)</span>
+<span id="cb25-5"><a href="week-10-genome-wide-association-study-gwas.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co">#how much variation are we explaining here?</span></span>
+<span id="cb25-6"><a href="week-10-genome-wide-association-study-gwas.html#cb25-6" aria-hidden="true" tabindex="-1"></a>e<span class="sc">$</span>values<span class="sc">/</span><span class="fu">sum</span>(e<span class="sc">$</span>values)</span></code></pre></div>
+<pre><code>##  [1]  0.1379496011  0.1246126748  0.0969103029  0.0920252715  0.0774570788
+##  [6]  0.0685079248  0.0605808079  0.0554445095  0.0493884028  0.0444119246
+## [11]  0.0423030396  0.0368221717  0.0329494215  0.0316195242  0.0269138675
+## [16]  0.0184940705  0.0149661517 -0.0006450986 -0.0107116466</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="week-10-genome-wide-association-study-gwas.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#looks like 13.7% is explained by the first axis</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="week-10-genome-wide-association-study-gwas.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#make a plot of the first two axes</span></span>
+<span id="cb28-2"><a href="week-10-genome-wide-association-study-gwas.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(e<span class="sc">$</span>vectors[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span></code></pre></div>
+<p><img src="Semester_files/figure-html/8-5-1.png" width="768" /></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="week-10-genome-wide-association-study-gwas.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#use identify to find the points that are clustered apart from the others</span></span>
+<span id="cb29-2"><a href="week-10-genome-wide-association-study-gwas.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co">#identify(e$vectors[,1:2]) This doesn&#39;t work in R studio so we&#39;ll show the plot below</span></span>
+<span id="cb29-3"><a href="week-10-genome-wide-association-study-gwas.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co">#If you select the points on the left most of the screen, you will find they are rows</span></span>
+<span id="cb29-4"><a href="week-10-genome-wide-association-study-gwas.html#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1, 2, and 12</span></span>
+<span id="cb29-5"><a href="week-10-genome-wide-association-study-gwas.html#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co">#If you select the other two points that are leftmost from the remaining points you also get</span></span>
+<span id="cb29-6"><a href="week-10-genome-wide-association-study-gwas.html#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 16 and 19</span></span></code></pre></div>
+<p><img src="./figs/Rplot_PCACh6.png" /></p>
+<p>Looking at the table in the Kilas paper, the Animals in rows 1, 2, and 12 are Male, but it’s rows 17 and 18 that are next not 16 and 19, so we may have somethings out of order in our list.</p>
+</p>
+</details>
+<p> </p>
+<blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>Make a manhattan plot for chromosome 6. You will need to make a new phenotype file that has 1’s for all the males identified in problem 1. Alterntatively, you can make a phenotype file from table 1 in Kilas et al. 2018, setting the animals that were found to be male on chr 6 to 1 and all other animals to 0.</li>
+</ol>
+</blockquote>
+<details>
+<summary>
+<span style="color: orange;">Solution</span>
+</summary>
+<p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb30-1"><a href="week-10-genome-wide-association-study-gwas.html#cb30-1" aria-hidden="true" tabindex="-1"></a>$ gzip geno_like_filt_allIND.beagle</span></code></pre></div>
+<p>and now we can run our pcangsd code</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="week-10-genome-wide-association-study-gwas.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#make a phenotype file, note you can also do this in nano or vim in the terminal. Whichever makes sense for you.</span></span>
+<span id="cb31-2"><a href="week-10-genome-wide-association-study-gwas.html#cb31-2" aria-hidden="true" tabindex="-1"></a>pheno_chr6<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb31-3"><a href="week-10-genome-wide-association-study-gwas.html#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(pheno_chr6, <span class="at">file =</span> <span class="st">&quot;phenobin_ch6&quot;</span> )</span>
+<span id="cb31-4"><a href="week-10-genome-wide-association-study-gwas.html#cb31-4" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb31-5"><a href="week-10-genome-wide-association-study-gwas.html#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co">#then in the terminal run our command in angsd again using the chr6 BEAGLE file and the phenotype file we just made</span></span>
+<span id="cb31-6"><a href="week-10-genome-wide-association-study-gwas.html#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co"># $HOME/angsd/angsd -doMaf 4 -beagle salmon_chr6_19ind.BEAGLE.PL.gz -yBin phenobin_ch6 -doAsso 2 -fai Salmon.fai -out chr6_out                 </span></span>
+<span id="cb31-7"><a href="week-10-genome-wide-association-study-gwas.html#cb31-7" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb31-8"><a href="week-10-genome-wide-association-study-gwas.html#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co">#and then we can remake our manhattan plot by copying and pasting the code above</span></span>
+<span id="cb31-9"><a href="week-10-genome-wide-association-study-gwas.html#cb31-9" aria-hidden="true" tabindex="-1"></a>lrt<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="fu">gzfile</span>(<span class="st">&quot;chr6_out.lrt0.gz&quot;</span>), <span class="at">header=</span>T, <span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning in open.connection(file, &quot;rt&quot;): cannot open compressed file
+## &#39;chr6_out.lrt0.gz&#39;, probable reason &#39;No such file or directory&#39;</code></pre>
+<pre><code>## Error in open.connection(file, &quot;rt&quot;): cannot open the connection</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="week-10-genome-wide-association-study-gwas.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#look at it</span></span>
+<span id="cb34-2"><a href="week-10-genome-wide-association-study-gwas.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(lrt)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    224460 obs. of  8 variables:
+##  $ Chromosome   : int  2 2 2 2 2 2 2 2 2 2 ...
+##  $ Position     : int  13 59 74 153 548 550 613 1182 1361 1533 ...
+##  $ Major        : chr  &quot;G&quot; &quot;G&quot; &quot;G&quot; &quot;C&quot; ...
+##  $ Minor        : chr  &quot;T&quot; &quot;A&quot; &quot;A&quot; &quot;G&quot; ...
+##  $ Frequency    : num  0.237 0.5 0.316 0.184 0.316 ...
+##  $ N            : int  19 19 19 19 19 19 19 19 19 19 ...
+##  $ LRT          : num  -999 -999 -999 -999 -999 -999 -999 -999 -999 -999 ...
+##  $ high_WT.HE.HO: chr  &quot;10/9/0&quot; &quot;1/17/1&quot; &quot;7/12/0&quot; &quot;12/7/0&quot; ...</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="week-10-genome-wide-association-study-gwas.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">#remove the values that are not -999 and that are negative</span></span>
+<span id="cb36-2"><a href="week-10-genome-wide-association-study-gwas.html#cb36-2" aria-hidden="true" tabindex="-1"></a>lrt_filt<span class="ot">&lt;-</span>lrt[<span class="sc">-</span><span class="fu">c</span>(<span class="fu">which</span>(lrt<span class="sc">$</span>LRT <span class="sc">==</span> <span class="sc">-</span><span class="dv">999</span>),<span class="fu">which</span>(lrt<span class="sc">$</span>LRT <span class="sc">&lt;=</span> <span class="dv">0</span>)),]                 </span>
+<span id="cb36-3"><a href="week-10-genome-wide-association-study-gwas.html#cb36-3" aria-hidden="true" tabindex="-1"></a>lrt_filt<span class="sc">$</span>SNP<span class="ot">&lt;-</span><span class="fu">paste</span>(<span class="st">&quot;r&quot;</span>,<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(lrt_filt<span class="sc">$</span>Chromosome), <span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb36-4"><a href="week-10-genome-wide-association-study-gwas.html#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co">#we also need to make sure we don&#39;t have any tricky values like those below</span></span>
+<span id="cb36-5"><a href="week-10-genome-wide-association-study-gwas.html#cb36-5" aria-hidden="true" tabindex="-1"></a>lrt_filt<span class="ot">&lt;-</span>lrt_filt[<span class="sc">-</span><span class="fu">c</span>(<span class="fu">which</span>(lrt_filt<span class="sc">$</span>pvalue <span class="sc">==</span> <span class="st">&quot;NaN&quot;</span> ),</span>
+<span id="cb36-6"><a href="week-10-genome-wide-association-study-gwas.html#cb36-6" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">which</span>(lrt_filt<span class="sc">$</span>pvalue <span class="sc">==</span> <span class="st">&quot;Inf&quot;</span>),</span>
+<span id="cb36-7"><a href="week-10-genome-wide-association-study-gwas.html#cb36-7" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">which</span>(lrt_filt<span class="sc">$</span>LRT <span class="sc">==</span> <span class="st">&quot;Inf&quot;</span>)),]</span>
+<span id="cb36-8"><a href="week-10-genome-wide-association-study-gwas.html#cb36-8" aria-hidden="true" tabindex="-1"></a>                      </span>
+<span id="cb36-9"><a href="week-10-genome-wide-association-study-gwas.html#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="co">#get pvalues</span></span>
+<span id="cb36-10"><a href="week-10-genome-wide-association-study-gwas.html#cb36-10" aria-hidden="true" tabindex="-1"></a>lrt_filt<span class="sc">$</span>pvalue<span class="ot">&lt;-</span><span class="fu">dchisq</span>(lrt_filt<span class="sc">$</span>LRT, <span class="at">df=</span><span class="dv">1</span>)</span>
+<span id="cb36-11"><a href="week-10-genome-wide-association-study-gwas.html#cb36-11" aria-hidden="true" tabindex="-1"></a><span class="co">#make our plot</span></span>
+<span id="cb36-12"><a href="week-10-genome-wide-association-study-gwas.html#cb36-12" aria-hidden="true" tabindex="-1"></a><span class="fu">manhattan</span>(lrt_filt, <span class="at">chr=</span><span class="st">&quot;Chromosome&quot;</span>, <span class="at">bp=</span><span class="st">&quot;Position&quot;</span>, <span class="at">p=</span><span class="st">&quot;pvalue&quot;</span>)</span></code></pre></div>
+<p><img src="Semester_files/figure-html/8-6-1.png" width="768" /></p>
+</p>
+</details>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="week-9--fst-and-outlier-analysis.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Semester.pdf", "Semester.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
