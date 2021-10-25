@@ -236,7 +236,7 @@ python3 ../../pcangsd/pcangsd.py -beagle salmon_chr6_19ind.BEAGLE.PL.gz -o pca6_
 ```
 In R make a PCA plot
 
-```{r, echo=T}
+```{r eval=FALSE, include=FALSE}
 #read in the data
 cov<-as.matrix(read.table("pca6_out.cov"))
 #compute the eigen values
@@ -246,7 +246,7 @@ e$values/sum(e$values)
 #looks like 13.7% is explained by the first axis
 ```
 
-```{r, label='8-5', echo=T}
+```{r eval=FALSE, include=FALSE, label='8-5'}
 #make a plot of the first two axes
 plot(e$vectors[,1:2])
 #use identify to find the points that are clustered apart from the others
@@ -277,7 +277,7 @@ $ gzip geno_like_filt_allIND.beagle
 ```
 and now we can run our pcangsd code
 
-```{r, label='8-6', echo=T}
+```{r eval=FALSE, include=FALSE, label='8-6'}
 #make a phenotype file, note you can also do this in nano or vim in the terminal. Whichever makes sense for you.
 pheno_chr6<-c(1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0)
 write.table(pheno_chr6, file = "phenobin_ch6" )
