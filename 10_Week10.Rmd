@@ -140,9 +140,6 @@ hist(lrt_filt$LRT, breaks=50)
 
 Everything looks good to proceed to making our manhattan plot.
 
-```{r, include=F}
-require(qqman)
-```
 
 ```{r, eval=F}
 require (qqman)
