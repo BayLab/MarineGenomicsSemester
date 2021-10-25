@@ -16,7 +16,7 @@ knitr::opts_knit$set(root.dir = "C:/Users/SAPCaps/MarineGenomicsSemester/data/We
 
 This week we're going to show you how to perform a genome wide association study or GWAS.  
 
-The lecture for this week can be found [here](https://github.com/BayLab/MarineGenomics/blob/4f22a87ad800f98a6e138a166b8e94d016310914/ppt/Week8_GWAS.pdf)
+The lecture for this week can be found [here](https://github.com/BayLab/MarineGenomicsSemester/blob/main/ppt/MarineGenomics_Lecture_w10.pdf)
 
 
 
