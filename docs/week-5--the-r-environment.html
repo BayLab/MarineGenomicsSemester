@@ -387,49 +387,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">6.5</span> A few tips below for working with objects:</h2>
 <p>We can keep track of what objects R is using, with the functions <code>ls()</code> and <code>objects()</code></p>
 <div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="week-5--the-r-environment.html#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
-<pre><code>#&gt;  [1] &quot;a&quot;                   &quot;animals&quot;             &quot;areaCircle&quot;          &quot;beag&quot;                &quot;beag_allIND&quot;         &quot;beag_allIND_final&quot;  
-#&gt;  [7] &quot;candidates&quot;          &quot;cat&quot;                 &quot;ChickWeight&quot;         &quot;cov&quot;                 &quot;data&quot;                &quot;data_to_plot&quot;       
-#&gt; [13] &quot;df1&quot;                 &quot;df2&quot;                 &quot;df3&quot;                 &quot;df4&quot;                 &quot;dog&quot;                 &quot;e&quot;                  
-#&gt; [19] &quot;g&quot;                   &quot;G&quot;                   &quot;gen&quot;                 &quot;gen_allIND&quot;          &quot;geno&quot;                &quot;genos&quot;              
-#&gt; [25] &quot;i&quot;                   &quot;il&quot;                  &quot;iris&quot;                &quot;listy&quot;               &quot;livability&quot;          &quot;lrt&quot;                
-#&gt; [31] &quot;lrt_filt&quot;            &quot;lrt_rando&quot;           &quot;meta&quot;                &quot;meta.path&quot;           &quot;msleep&quot;              &quot;my.colors&quot;          
-#&gt; [37] &quot;my.new&quot;              &quot;my_colors&quot;           &quot;my_list&quot;             &quot;n&quot;                   &quot;names&quot;               &quot;number&quot;             
-#&gt; [43] &quot;numbers&quot;             &quot;outliers&quot;            &quot;pheno_chr6&quot;          &quot;qval&quot;                &quot;rando_filt&quot;          &quot;setosa1.petallength&quot;
-#&gt; [49] &quot;setosa1.petalwidth&quot;  &quot;setosa1area2&quot;        &quot;squares&quot;             &quot;state.abb&quot;           &quot;state.area&quot;          &quot;state.center&quot;       
-#&gt; [55] &quot;state.division&quot;      &quot;state.name&quot;          &quot;state.region&quot;        &quot;state.x77&quot;           &quot;states&quot;              &quot;states_standardized&quot;
-#&gt; [61] &quot;subgen&quot;              &quot;submeta&quot;             &quot;subpops&quot;             &quot;subsleep&quot;            &quot;tG&quot;                  &quot;tr_msleep&quot;          
-#&gt; [67] &quot;vcf.path&quot;            &quot;x&quot;                   &quot;y&quot;</code></pre>
+<pre><code>#&gt;  [1] &quot;a&quot;                   &quot;animals&quot;             &quot;areaCircle&quot;          &quot;beag&quot;                &quot;beag_allIND&quot;        
+#&gt;  [6] &quot;beag_allIND_final&quot;   &quot;candidates&quot;          &quot;cat&quot;                 &quot;ChickWeight&quot;         &quot;cov&quot;                
+#&gt; [11] &quot;data&quot;                &quot;data_to_plot&quot;        &quot;df1&quot;                 &quot;df2&quot;                 &quot;df3&quot;                
+#&gt; [16] &quot;df4&quot;                 &quot;dog&quot;                 &quot;e&quot;                   &quot;g&quot;                   &quot;G&quot;                  
+#&gt; [21] &quot;gen&quot;                 &quot;gen_allIND&quot;          &quot;geno&quot;                &quot;genos&quot;               &quot;i&quot;                  
+#&gt; [26] &quot;il&quot;                  &quot;iris&quot;                &quot;listy&quot;               &quot;livability&quot;          &quot;lrt&quot;                
+#&gt; [31] &quot;lrt_filt&quot;            &quot;lrt_rando&quot;           &quot;meta&quot;                &quot;meta.path&quot;           &quot;msleep&quot;             
+#&gt; [36] &quot;my.colors&quot;           &quot;my.new&quot;              &quot;my_colors&quot;           &quot;my_list&quot;             &quot;n&quot;                  
+#&gt; [41] &quot;names&quot;               &quot;number&quot;              &quot;numbers&quot;             &quot;outliers&quot;            &quot;pheno_chr6&quot;         
+#&gt; [46] &quot;qval&quot;                &quot;rando_filt&quot;          &quot;setosa1.petallength&quot; &quot;setosa1.petalwidth&quot;  &quot;setosa1area2&quot;       
+#&gt; [51] &quot;squares&quot;             &quot;state.abb&quot;           &quot;state.area&quot;          &quot;state.center&quot;        &quot;state.division&quot;     
+#&gt; [56] &quot;state.name&quot;          &quot;state.region&quot;        &quot;state.x77&quot;           &quot;states&quot;              &quot;states_standardized&quot;
+#&gt; [61] &quot;subgen&quot;              &quot;submeta&quot;             &quot;subpops&quot;             &quot;subsleep&quot;            &quot;tG&quot;                 
+#&gt; [66] &quot;tr_msleep&quot;           &quot;vcf.path&quot;            &quot;x&quot;                   &quot;y&quot;</code></pre>
 <div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="week-5--the-r-environment.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="fu">objects</span>() <span class="co">#returns the same results as ls() in this case. because we only have objects in our environment.</span></span></code></pre></div>
-<pre><code>#&gt;  [1] &quot;a&quot;                   &quot;animals&quot;             &quot;areaCircle&quot;          &quot;beag&quot;                &quot;beag_allIND&quot;         &quot;beag_allIND_final&quot;  
-#&gt;  [7] &quot;candidates&quot;          &quot;cat&quot;                 &quot;ChickWeight&quot;         &quot;cov&quot;                 &quot;data&quot;                &quot;data_to_plot&quot;       
-#&gt; [13] &quot;df1&quot;                 &quot;df2&quot;                 &quot;df3&quot;                 &quot;df4&quot;                 &quot;dog&quot;                 &quot;e&quot;                  
-#&gt; [19] &quot;g&quot;                   &quot;G&quot;                   &quot;gen&quot;                 &quot;gen_allIND&quot;          &quot;geno&quot;                &quot;genos&quot;              
-#&gt; [25] &quot;i&quot;                   &quot;il&quot;                  &quot;iris&quot;                &quot;listy&quot;               &quot;livability&quot;          &quot;lrt&quot;                
-#&gt; [31] &quot;lrt_filt&quot;            &quot;lrt_rando&quot;           &quot;meta&quot;                &quot;meta.path&quot;           &quot;msleep&quot;              &quot;my.colors&quot;          
-#&gt; [37] &quot;my.new&quot;              &quot;my_colors&quot;           &quot;my_list&quot;             &quot;n&quot;                   &quot;names&quot;               &quot;number&quot;             
-#&gt; [43] &quot;numbers&quot;             &quot;outliers&quot;            &quot;pheno_chr6&quot;          &quot;qval&quot;                &quot;rando_filt&quot;          &quot;setosa1.petallength&quot;
-#&gt; [49] &quot;setosa1.petalwidth&quot;  &quot;setosa1area2&quot;        &quot;squares&quot;             &quot;state.abb&quot;           &quot;state.area&quot;          &quot;state.center&quot;       
-#&gt; [55] &quot;state.division&quot;      &quot;state.name&quot;          &quot;state.region&quot;        &quot;state.x77&quot;           &quot;states&quot;              &quot;states_standardized&quot;
-#&gt; [61] &quot;subgen&quot;              &quot;submeta&quot;             &quot;subpops&quot;             &quot;subsleep&quot;            &quot;tG&quot;                  &quot;tr_msleep&quot;          
-#&gt; [67] &quot;vcf.path&quot;            &quot;x&quot;                   &quot;y&quot;</code></pre>
+<pre><code>#&gt;  [1] &quot;a&quot;                   &quot;animals&quot;             &quot;areaCircle&quot;          &quot;beag&quot;                &quot;beag_allIND&quot;        
+#&gt;  [6] &quot;beag_allIND_final&quot;   &quot;candidates&quot;          &quot;cat&quot;                 &quot;ChickWeight&quot;         &quot;cov&quot;                
+#&gt; [11] &quot;data&quot;                &quot;data_to_plot&quot;        &quot;df1&quot;                 &quot;df2&quot;                 &quot;df3&quot;                
+#&gt; [16] &quot;df4&quot;                 &quot;dog&quot;                 &quot;e&quot;                   &quot;g&quot;                   &quot;G&quot;                  
+#&gt; [21] &quot;gen&quot;                 &quot;gen_allIND&quot;          &quot;geno&quot;                &quot;genos&quot;               &quot;i&quot;                  
+#&gt; [26] &quot;il&quot;                  &quot;iris&quot;                &quot;listy&quot;               &quot;livability&quot;          &quot;lrt&quot;                
+#&gt; [31] &quot;lrt_filt&quot;            &quot;lrt_rando&quot;           &quot;meta&quot;                &quot;meta.path&quot;           &quot;msleep&quot;             
+#&gt; [36] &quot;my.colors&quot;           &quot;my.new&quot;              &quot;my_colors&quot;           &quot;my_list&quot;             &quot;n&quot;                  
+#&gt; [41] &quot;names&quot;               &quot;number&quot;              &quot;numbers&quot;             &quot;outliers&quot;            &quot;pheno_chr6&quot;         
+#&gt; [46] &quot;qval&quot;                &quot;rando_filt&quot;          &quot;setosa1.petallength&quot; &quot;setosa1.petalwidth&quot;  &quot;setosa1area2&quot;       
+#&gt; [51] &quot;squares&quot;             &quot;state.abb&quot;           &quot;state.area&quot;          &quot;state.center&quot;        &quot;state.division&quot;     
+#&gt; [56] &quot;state.name&quot;          &quot;state.region&quot;        &quot;state.x77&quot;           &quot;states&quot;              &quot;states_standardized&quot;
+#&gt; [61] &quot;subgen&quot;              &quot;submeta&quot;             &quot;subpops&quot;             &quot;subsleep&quot;            &quot;tG&quot;                 
+#&gt; [66] &quot;tr_msleep&quot;           &quot;vcf.path&quot;            &quot;x&quot;                   &quot;y&quot;</code></pre>
 <div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="week-5--the-r-environment.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="co"># how to get help for a function; you can also write help()</span></span>
 <span id="cb243-2"><a href="week-5--the-r-environment.html#cb243-2" aria-hidden="true" tabindex="-1"></a>?ls</span>
 <span id="cb243-3"><a href="week-5--the-r-environment.html#cb243-3" aria-hidden="true" tabindex="-1"></a><span class="co"># you can get rid of objects you don&#39;t want</span></span>
 <span id="cb243-4"><a href="week-5--the-r-environment.html#cb243-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(numbers)</span>
 <span id="cb243-5"><a href="week-5--the-r-environment.html#cb243-5" aria-hidden="true" tabindex="-1"></a><span class="co"># and make sure it got rid of them</span></span>
 <span id="cb243-6"><a href="week-5--the-r-environment.html#cb243-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
-<pre><code>#&gt;  [1] &quot;a&quot;                   &quot;animals&quot;             &quot;areaCircle&quot;          &quot;beag&quot;                &quot;beag_allIND&quot;         &quot;beag_allIND_final&quot;  
-#&gt;  [7] &quot;candidates&quot;          &quot;cat&quot;                 &quot;ChickWeight&quot;         &quot;cov&quot;                 &quot;data&quot;                &quot;data_to_plot&quot;       
-#&gt; [13] &quot;df1&quot;                 &quot;df2&quot;                 &quot;df3&quot;                 &quot;df4&quot;                 &quot;dog&quot;                 &quot;e&quot;                  
-#&gt; [19] &quot;g&quot;                   &quot;G&quot;                   &quot;gen&quot;                 &quot;gen_allIND&quot;          &quot;geno&quot;                &quot;genos&quot;              
-#&gt; [25] &quot;i&quot;                   &quot;il&quot;                  &quot;iris&quot;                &quot;listy&quot;               &quot;livability&quot;          &quot;lrt&quot;                
-#&gt; [31] &quot;lrt_filt&quot;            &quot;lrt_rando&quot;           &quot;meta&quot;                &quot;meta.path&quot;           &quot;msleep&quot;              &quot;my.colors&quot;          
-#&gt; [37] &quot;my.new&quot;              &quot;my_colors&quot;           &quot;my_list&quot;             &quot;n&quot;                   &quot;names&quot;               &quot;number&quot;             
-#&gt; [43] &quot;outliers&quot;            &quot;pheno_chr6&quot;          &quot;qval&quot;                &quot;rando_filt&quot;          &quot;setosa1.petallength&quot; &quot;setosa1.petalwidth&quot; 
-#&gt; [49] &quot;setosa1area2&quot;        &quot;squares&quot;             &quot;state.abb&quot;           &quot;state.area&quot;          &quot;state.center&quot;        &quot;state.division&quot;     
-#&gt; [55] &quot;state.name&quot;          &quot;state.region&quot;        &quot;state.x77&quot;           &quot;states&quot;              &quot;states_standardized&quot; &quot;subgen&quot;             
-#&gt; [61] &quot;submeta&quot;             &quot;subpops&quot;             &quot;subsleep&quot;            &quot;tG&quot;                  &quot;tr_msleep&quot;           &quot;vcf.path&quot;           
-#&gt; [67] &quot;x&quot;                   &quot;y&quot;</code></pre>
+<pre><code>#&gt;  [1] &quot;a&quot;                   &quot;animals&quot;             &quot;areaCircle&quot;          &quot;beag&quot;                &quot;beag_allIND&quot;        
+#&gt;  [6] &quot;beag_allIND_final&quot;   &quot;candidates&quot;          &quot;cat&quot;                 &quot;ChickWeight&quot;         &quot;cov&quot;                
+#&gt; [11] &quot;data&quot;                &quot;data_to_plot&quot;        &quot;df1&quot;                 &quot;df2&quot;                 &quot;df3&quot;                
+#&gt; [16] &quot;df4&quot;                 &quot;dog&quot;                 &quot;e&quot;                   &quot;g&quot;                   &quot;G&quot;                  
+#&gt; [21] &quot;gen&quot;                 &quot;gen_allIND&quot;          &quot;geno&quot;                &quot;genos&quot;               &quot;i&quot;                  
+#&gt; [26] &quot;il&quot;                  &quot;iris&quot;                &quot;listy&quot;               &quot;livability&quot;          &quot;lrt&quot;                
+#&gt; [31] &quot;lrt_filt&quot;            &quot;lrt_rando&quot;           &quot;meta&quot;                &quot;meta.path&quot;           &quot;msleep&quot;             
+#&gt; [36] &quot;my.colors&quot;           &quot;my.new&quot;              &quot;my_colors&quot;           &quot;my_list&quot;             &quot;n&quot;                  
+#&gt; [41] &quot;names&quot;               &quot;number&quot;              &quot;outliers&quot;            &quot;pheno_chr6&quot;          &quot;qval&quot;               
+#&gt; [46] &quot;rando_filt&quot;          &quot;setosa1.petallength&quot; &quot;setosa1.petalwidth&quot;  &quot;setosa1area2&quot;        &quot;squares&quot;            
+#&gt; [51] &quot;state.abb&quot;           &quot;state.area&quot;          &quot;state.center&quot;        &quot;state.division&quot;      &quot;state.name&quot;         
+#&gt; [56] &quot;state.region&quot;        &quot;state.x77&quot;           &quot;states&quot;              &quot;states_standardized&quot; &quot;subgen&quot;             
+#&gt; [61] &quot;submeta&quot;             &quot;subpops&quot;             &quot;subsleep&quot;            &quot;tG&quot;                  &quot;tr_msleep&quot;          
+#&gt; [66] &quot;vcf.path&quot;            &quot;x&quot;                   &quot;y&quot;</code></pre>
 </div>
 <div id="exercise-1.1" class="section level2" number="6.6">
 <h2><span class="header-section-number">6.6</span> EXERCISE 1.1</h2>
@@ -599,12 +605,13 @@ Think about “rc cola” or “remote control car” to remember that [5,] mean
 #&gt; 10 herbi
 #&gt; # ... with 73 more rows</code></pre>
 <div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="week-5--the-r-environment.html#cb266-1" aria-hidden="true" tabindex="-1"></a>msleep<span class="sc">$</span>vore</span></code></pre></div>
-<pre><code>#&gt;  [1] &quot;carni&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;herbi&quot;   &quot;carni&quot;   NA        &quot;carni&quot;   &quot;herbi&quot;   &quot;herbi&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;herbi&quot;  
-#&gt; [15] &quot;omni&quot;    &quot;omni&quot;    &quot;omni&quot;    &quot;carni&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;insecti&quot; &quot;herbi&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;omni&quot;    &quot;herbi&quot;   &quot;carni&quot;  
-#&gt; [29] &quot;omni&quot;    &quot;herbi&quot;   &quot;carni&quot;   &quot;carni&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;herbi&quot;   &quot;carni&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;herbi&quot;   &quot;herbi&quot;   &quot;herbi&quot;  
-#&gt; [43] &quot;insecti&quot; &quot;herbi&quot;   &quot;carni&quot;   &quot;herbi&quot;   &quot;carni&quot;   &quot;herbi&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;carni&quot;   &quot;carni&quot;   &quot;carni&quot;   &quot;omni&quot;    NA        &quot;omni&quot;   
-#&gt; [57] NA        NA        &quot;carni&quot;   &quot;carni&quot;   &quot;herbi&quot;   &quot;insecti&quot; NA        &quot;herbi&quot;   &quot;omni&quot;    &quot;omni&quot;    &quot;insecti&quot; &quot;herbi&quot;   NA        &quot;herbi&quot;  
-#&gt; [71] &quot;herbi&quot;   &quot;herbi&quot;   NA        &quot;omni&quot;    &quot;insecti&quot; &quot;herbi&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;omni&quot;    &quot;carni&quot;   &quot;carni&quot;   &quot;carni&quot;   &quot;carni&quot;</code></pre>
+<pre><code>#&gt;  [1] &quot;carni&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;herbi&quot;   &quot;carni&quot;   NA        &quot;carni&quot;   &quot;herbi&quot;   &quot;herbi&quot;   &quot;herbi&quot;  
+#&gt; [13] &quot;omni&quot;    &quot;herbi&quot;   &quot;omni&quot;    &quot;omni&quot;    &quot;omni&quot;    &quot;carni&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;insecti&quot; &quot;herbi&quot;   &quot;herbi&quot;  
+#&gt; [25] &quot;omni&quot;    &quot;omni&quot;    &quot;herbi&quot;   &quot;carni&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;carni&quot;   &quot;carni&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;herbi&quot;  
+#&gt; [37] &quot;carni&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;herbi&quot;   &quot;herbi&quot;   &quot;herbi&quot;   &quot;insecti&quot; &quot;herbi&quot;   &quot;carni&quot;   &quot;herbi&quot;   &quot;carni&quot;   &quot;herbi&quot;  
+#&gt; [49] &quot;herbi&quot;   &quot;omni&quot;    &quot;carni&quot;   &quot;carni&quot;   &quot;carni&quot;   &quot;omni&quot;    NA        &quot;omni&quot;    NA        NA        &quot;carni&quot;   &quot;carni&quot;  
+#&gt; [61] &quot;herbi&quot;   &quot;insecti&quot; NA        &quot;herbi&quot;   &quot;omni&quot;    &quot;omni&quot;    &quot;insecti&quot; &quot;herbi&quot;   NA        &quot;herbi&quot;   &quot;herbi&quot;   &quot;herbi&quot;  
+#&gt; [73] NA        &quot;omni&quot;    &quot;insecti&quot; &quot;herbi&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;omni&quot;    &quot;carni&quot;   &quot;carni&quot;   &quot;carni&quot;   &quot;carni&quot;</code></pre>
 <p>Sometimes it is useful to know what class() the column is:</p>
 <div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="week-5--the-r-environment.html#cb268-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(msleep<span class="sc">$</span>vore)</span></code></pre></div>
 <pre><code>#&gt; [1] &quot;character&quot;</code></pre>
@@ -668,17 +675,17 @@ Think about “rc cola” or “remote control car” to remember that [5,] mean
 <div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="week-5--the-r-environment.html#cb281-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># table()</span></span>
 <span id="cb281-2"><a href="week-5--the-r-environment.html#cb281-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(msleep<span class="sc">$</span>order)</span></code></pre></div>
 <pre><code>#&gt; 
-#&gt;    Afrosoricida    Artiodactyla       Carnivora         Cetacea      Chiroptera       Cingulata Didelphimorphia   Diprotodontia  Erinaceomorpha 
-#&gt;               1               6              12               3               2               2               2               2               2 
-#&gt;      Hyracoidea      Lagomorpha     Monotremata  Perissodactyla          Pilosa        Primates     Proboscidea        Rodentia      Scandentia 
-#&gt;               3               1               1               3               1              12               2              22               1 
-#&gt;    Soricomorpha 
-#&gt;               5</code></pre>
+#&gt;    Afrosoricida    Artiodactyla       Carnivora         Cetacea      Chiroptera       Cingulata Didelphimorphia   Diprotodontia 
+#&gt;               1               6              12               3               2               2               2               2 
+#&gt;  Erinaceomorpha      Hyracoidea      Lagomorpha     Monotremata  Perissodactyla          Pilosa        Primates     Proboscidea 
+#&gt;               2               3               1               1               3               1              12               2 
+#&gt;        Rodentia      Scandentia    Soricomorpha 
+#&gt;              22               1               5</code></pre>
 <div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="week-5--the-r-environment.html#cb283-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># levels(), if class is factor (and if not we can make it a factor)</span></span>
 <span id="cb283-2"><a href="week-5--the-r-environment.html#cb283-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(<span class="fu">as.factor</span>(msleep<span class="sc">$</span>order))</span></code></pre></div>
-<pre><code>#&gt;  [1] &quot;Afrosoricida&quot;    &quot;Artiodactyla&quot;    &quot;Carnivora&quot;       &quot;Cetacea&quot;         &quot;Chiroptera&quot;      &quot;Cingulata&quot;       &quot;Didelphimorphia&quot; &quot;Diprotodontia&quot;  
-#&gt;  [9] &quot;Erinaceomorpha&quot;  &quot;Hyracoidea&quot;      &quot;Lagomorpha&quot;      &quot;Monotremata&quot;     &quot;Perissodactyla&quot;  &quot;Pilosa&quot;          &quot;Primates&quot;        &quot;Proboscidea&quot;    
-#&gt; [17] &quot;Rodentia&quot;        &quot;Scandentia&quot;      &quot;Soricomorpha&quot;</code></pre>
+<pre><code>#&gt;  [1] &quot;Afrosoricida&quot;    &quot;Artiodactyla&quot;    &quot;Carnivora&quot;       &quot;Cetacea&quot;         &quot;Chiroptera&quot;      &quot;Cingulata&quot;       &quot;Didelphimorphia&quot;
+#&gt;  [8] &quot;Diprotodontia&quot;   &quot;Erinaceomorpha&quot;  &quot;Hyracoidea&quot;      &quot;Lagomorpha&quot;      &quot;Monotremata&quot;     &quot;Perissodactyla&quot;  &quot;Pilosa&quot;         
+#&gt; [15] &quot;Primates&quot;        &quot;Proboscidea&quot;     &quot;Rodentia&quot;        &quot;Scandentia&quot;      &quot;Soricomorpha&quot;</code></pre>
 </div>
 <div id="data-manipulation" class="section level2" number="6.9">
 <h2><span class="header-section-number">6.9</span> Data Manipulation</h2>
@@ -687,7 +694,7 @@ Think about “rc cola” or “remote control car” to remember that [5,] mean
 <div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="week-5--the-r-environment.html#cb285-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># t()</span></span>
 <span id="cb285-2"><a href="week-5--the-r-environment.html#cb285-2" aria-hidden="true" tabindex="-1"></a>tr_msleep<span class="ot">&lt;-</span><span class="fu">t</span>(msleep)</span>
 <span id="cb285-3"><a href="week-5--the-r-environment.html#cb285-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(tr_msleep)</span></code></pre></div>
-<pre><code>#&gt;  chr [1:11, 1:83] &quot;Cheetah&quot; &quot;Acinonyx&quot; &quot;carni&quot; &quot;Carnivora&quot; &quot;lc&quot; &quot;12.1&quot; NA NA &quot;11.90&quot; NA &quot;  50.000&quot; &quot;Owl monkey&quot; &quot;Aotus&quot; &quot;omni&quot; &quot;Primates&quot; NA ...
+<pre><code>#&gt;  chr [1:11, 1:83] &quot;Cheetah&quot; &quot;Acinonyx&quot; &quot;carni&quot; &quot;Carnivora&quot; &quot;lc&quot; &quot;12.1&quot; NA NA &quot;11.90&quot; NA &quot;  50.000&quot; &quot;Owl monkey&quot; &quot;Aotus&quot; &quot;omni&quot; ...
 #&gt;  - attr(*, &quot;dimnames&quot;)=List of 2
 #&gt;   ..$ : chr [1:11] &quot;name&quot; &quot;genus&quot; &quot;vore&quot; &quot;order&quot; ...
 #&gt;   ..$ : NULL</code></pre>
@@ -732,14 +739,14 @@ Think about “rc cola” or “remote control car” to remember that [5,] mean
 <span id="cb299-4"><a href="week-5--the-r-environment.html#cb299-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># look at our dataframe again. It now contains 12 columns, one of them being the one we just created.</span></span>
 <span id="cb299-5"><a href="week-5--the-r-environment.html#cb299-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(msleep)</span></code></pre></div>
 <pre><code>#&gt; # A tibble: 6 x 12
-#&gt;   name                       genus      vore  order        conservation sleep_total sleep_rem sleep_cycle awake  brainwt  bodywt total_rem
-#&gt;   &lt;chr&gt;                      &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
-#&gt; 1 Cheetah                    Acinonyx   carni Carnivora    lc                  12.1      NA        NA      11.9 NA        50         NA   
-#&gt; 2 Owl monkey                 Aotus      omni  Primates     &lt;NA&gt;                17         1.8      NA       7    0.0155    0.48       9.44
-#&gt; 3 Mountain beaver            Aplodontia herbi Rodentia     nt                  14.4       2.4      NA       9.6 NA         1.35       6   
-#&gt; 4 Greater short-tailed shrew Blarina    omni  Soricomorpha lc                  14.9       2.3       0.133   9.1  0.00029   0.019      6.48
-#&gt; 5 Cow                        Bos        herbi Artiodactyla domesticated         4         0.7       0.667  20    0.423   600          5.71
-#&gt; 6 Three-toed sloth           Bradypus   herbi Pilosa       &lt;NA&gt;                14.4       2.2       0.767   9.6 NA         3.85       6.55</code></pre>
+#&gt;   name                       genus      vore  order conservation sleep_total sleep_rem sleep_cycle awake  brainwt  bodywt total_rem
+#&gt;   &lt;chr&gt;                      &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+#&gt; 1 Cheetah                    Acinonyx   carni Carn~ lc                  12.1      NA        NA      11.9 NA        50         NA   
+#&gt; 2 Owl monkey                 Aotus      omni  Prim~ &lt;NA&gt;                17         1.8      NA       7    0.0155    0.48       9.44
+#&gt; 3 Mountain beaver            Aplodontia herbi Rode~ nt                  14.4       2.4      NA       9.6 NA         1.35       6   
+#&gt; 4 Greater short-tailed shrew Blarina    omni  Sori~ lc                  14.9       2.3       0.133   9.1  0.00029   0.019      6.48
+#&gt; 5 Cow                        Bos        herbi Arti~ domesticated         4         0.7       0.667  20    0.423   600          5.71
+#&gt; 6 Three-toed sloth           Bradypus   herbi Pilo~ &lt;NA&gt;                14.4       2.2       0.767   9.6 NA         3.85       6.55</code></pre>
 </div>
 <div id="exercise-1.2" class="section level2" number="6.10">
 <h2><span class="header-section-number">6.10</span> EXERCISE 1.2</h2>
@@ -1090,12 +1097,12 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="week-5--the-r-environment.html#cb371-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># which four species are these?</span></span>
 <span id="cb371-2"><a href="week-5--the-r-environment.html#cb371-2" aria-hidden="true" tabindex="-1"></a>msleep[<span class="fu">which</span>(msleep[,<span class="st">&quot;sleep_total&quot;</span>]<span class="sc">&gt;</span><span class="dv">18</span>),]</span></code></pre></div>
 <pre><code>#&gt; # A tibble: 4 x 12
-#&gt;   name                 genus      vore    order           conservation sleep_total sleep_rem sleep_cycle awake  brainwt bodywt total_rem
-#&gt;   &lt;chr&gt;                &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;           &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
-#&gt; 1 Big brown bat        Eptesicus  insecti Chiroptera      lc                  19.7       3.9       0.117   4.3  0.0003   0.023      5.05
-#&gt; 2 Thick-tailed opposum Lutreolina carni   Didelphimorphia lc                  19.4       6.6      NA       4.6 NA        0.37       2.94
-#&gt; 3 Little brown bat     Myotis     insecti Chiroptera      &lt;NA&gt;                19.9       2         0.2     4.1  0.00025  0.01       9.95
-#&gt; 4 Giant armadillo      Priodontes insecti Cingulata       en                  18.1       6.1      NA       5.9  0.081   60          2.97</code></pre>
+#&gt;   name                 genus      vore    order           conservation sleep_total sleep_rem sleep_cycle awake brainwt bodywt total_rem
+#&gt;   &lt;chr&gt;                &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;           &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
+#&gt; 1 Big brown bat        Eptesicus  insecti Chiroptera      lc                  19.7       3.9       0.117   4.3  3  e-4  0.023      5.05
+#&gt; 2 Thick-tailed opposum Lutreolina carni   Didelphimorphia lc                  19.4       6.6      NA       4.6 NA       0.37       2.94
+#&gt; 3 Little brown bat     Myotis     insecti Chiroptera      &lt;NA&gt;                19.9       2         0.2     4.1  2.5e-4  0.01       9.95
+#&gt; 4 Giant armadillo      Priodontes insecti Cingulata       en                  18.1       6.1      NA       5.9  8.1e-2 60          2.97</code></pre>
 <div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="week-5--the-r-environment.html#cb373-1" aria-hidden="true" tabindex="-1"></a><span class="co"># what if we only want to see the bats that sleep more than 18 hours per 24 hour period?</span></span>
 <span id="cb373-2"><a href="week-5--the-r-environment.html#cb373-2" aria-hidden="true" tabindex="-1"></a>msleep[<span class="fu">which</span>(msleep[,<span class="st">&quot;sleep_total&quot;</span>]<span class="sc">&gt;</span><span class="dv">18</span> <span class="sc">&amp;</span> msleep[,<span class="st">&quot;order&quot;</span>] <span class="sc">==</span> <span class="st">&quot;Chiroptera&quot;</span>),]</span></code></pre></div>
 <pre><code>#&gt; # A tibble: 2 x 12
@@ -1232,18 +1239,20 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 </summary>
 <p>
 <div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="week-5--the-r-environment.html#cb403-1" aria-hidden="true" tabindex="-1"></a>iris[,<span class="st">&#39;Species&#39;</span>][iris[,<span class="st">&#39;Sepal.Length&#39;</span>]<span class="sc">&gt;</span><span class="dv">6</span>]</span></code></pre></div>
-<pre><code>#&gt;  [1] versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor
-#&gt; [14] versicolor versicolor versicolor versicolor versicolor versicolor versicolor virginica  virginica  virginica  virginica  virginica  virginica 
-#&gt; [27] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
-#&gt; [40] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
-#&gt; [53] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+<pre><code>#&gt;  [1] versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor
+#&gt; [12] versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor virginica  virginica 
+#&gt; [23] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+#&gt; [34] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+#&gt; [45] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+#&gt; [56] virginica  virginica  virginica  virginica  virginica  virginica 
 #&gt; Levels: setosa versicolor virginica</code></pre>
 <div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="week-5--the-r-environment.html#cb405-1" aria-hidden="true" tabindex="-1"></a>iris[iris[,<span class="st">&#39;Sepal.Length&#39;</span>]<span class="sc">&gt;</span><span class="dv">6</span>, <span class="st">&#39;Species&#39;</span>] <span class="do">## alternatively, we can put the logical vector in the row part, and Species in the column part, to get a vector back</span></span></code></pre></div>
-<pre><code>#&gt;  [1] versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor
-#&gt; [14] versicolor versicolor versicolor versicolor versicolor versicolor versicolor virginica  virginica  virginica  virginica  virginica  virginica 
-#&gt; [27] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
-#&gt; [40] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
-#&gt; [53] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+<pre><code>#&gt;  [1] versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor
+#&gt; [12] versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor virginica  virginica 
+#&gt; [23] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+#&gt; [34] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+#&gt; [45] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+#&gt; [56] virginica  virginica  virginica  virginica  virginica  virginica 
 #&gt; Levels: setosa versicolor virginica</code></pre>
 </p>
 </details>

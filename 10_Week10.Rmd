@@ -10,7 +10,7 @@ output:
 
 ```{r setupweek10, include=FALSE}
 knitr::opts_chunk$set(fig.width = 8, echo=F, error=T, message=F)
-knitr::opts_knit$set(root.dir = "C:/Users/SAPCaps/MarineGenomicsSemester/data/Week10_gwas")
+knitr::opts_knit$set(root.dir = "C:/Users/SAPCaps/MarineGenomicsSemester/data/Week10_gwas/")
 ```
 # Week 10: Genome wide association study (GWAS)
 
@@ -117,7 +117,9 @@ This will generate several output files labeled `angsdput`. We'll use the file w
 setwd("/home/margeno/MarineGenomics/Week10")
 ```
 
-```{r, include=T}
+This script reads in the data and then removes values that can't be used in the manhattan plot.
+
+```{r echo=TRUE}
 #read in the data
 lrt<-read.table(gzfile("angsdput.lrt0.gz"), header=T, sep="\t")
 #look at it
@@ -142,7 +144,7 @@ Everything looks good to proceed to making our manhattan plot.
 
 
 ```{r, eval=F}
-require (qqman)
+library (qqman)
 ```
 the function manhattan requires each SNP to have it's own "name". Let's make a vector for rownumbers that start with the letter r. We also need to convert our LRT values to pvalues. We'll use the command `dchisq` to get pvalues.
 
@@ -171,12 +173,14 @@ This looks a bit weird, we would expect it to be mostly a straight line with som
 
 We can highlight the values that are exceed a threshold. There are several ways to determine a threshold, but one is to make a vector of random phenotypes and re-run our association test. We can then set the highest LRT value from the random phenotype test as our upper limit for our plot with the actual phenotypes.
 
+It's important that when we write the rando_pheno file that we don't have row names or column names, the default in R. If you have these you'll like have an error that the number of individuals doesn't match the number of phenotypes when you run angsd. 
+
 
 ```{r, echo=T}
 #make a vector with 19 1's and 0's
 x<-sample(c(1,0), 19, replace=T)
 #write this to our week 8 directory
-write.table(x, "rando_pheno", row.names = F)
+write.table(x, "rando_pheno", row.names = F, col.names = F)
 ```
 
 And now use that phenotype file to run our association test again, making sure to specify a different output file.
@@ -233,7 +237,7 @@ python3 ../../pcangsd/pcangsd.py -beagle salmon_chr6_19ind.BEAGLE.PL.gz -o pca6_
 ```
 In R make a PCA plot
 
-```{r eval=FALSE, include=FALSE}
+```{r echo=TRUE}
 #read in the data
 cov<-as.matrix(read.table("pca6_out.cov"))
 #compute the eigen values
@@ -243,7 +247,7 @@ e$values/sum(e$values)
 #looks like 13.7% is explained by the first axis
 ```
 
-```{r eval=FALSE, include=FALSE, label='8-5'}
+```{r echo=TRUE, label='8-5'}
 #make a plot of the first two axes
 plot(e$vectors[,1:2])
 #use identify to find the points that are clustered apart from the others
@@ -274,7 +278,7 @@ $ gzip geno_like_filt_allIND.beagle
 ```
 and now we can run our pcangsd code
 
-```{r eval=FALSE, include=FALSE, label='8-6'}
+```{r echo=TRUE, label='8-6'}
 #make a phenotype file, note you can also do this in nano or vim in the terminal. Whichever makes sense for you.
 pheno_chr6<-c(1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0)
 write.table(pheno_chr6, file = "phenobin_ch6" )
