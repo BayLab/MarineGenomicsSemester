@@ -15,11 +15,11 @@ knitr::opts_knit$set(root.dir = "C:/Users/SAPCaps/MarineGenomicsSemester/data/We
 
 # Genome Environment Association
 
-The lecture for this week can be found [here]((https://github.com/BayLab/MarineGenomicsSemester/blob/main/ppt/MarineGenomics_Lecture_w11.pdf).
+The lecture for this week can be found [here](https://github.com/BayLab/MarineGenomicsSemester/blob/main/ppt/MarineGenomics_Lecture_w11.pdf).
 
 All of the code presented in this weeks class comes modified from a former Marine Genomics student and recent UC Davis graduate, Camille Rumberger! Thank you Camille!
 
-## download the data
+## Download the data
 
 For this week we are again using data from the wonderful Xuereb et al. 2018 paper [here](https://onlinelibrary.wiley.com/doi/abs/10.1111/mec.14589?casa_token=aBVeQUaZ6UEAAAAA:vt9cQFbQ-65F1erD-1Uq0DAWEaZ75fDhepkPomc4RMPAqQgntIcm0btk842SxvaraM2VdlZ5nwoHUhCy)
 And consistes of a vcf file with 3966 Snps from 685 pacific sea cucumbers. 
@@ -35,7 +35,7 @@ tar -xzvf week11_semester.tar.gz
 ## install R packages
 
 
-```{r echo=F, message=FALSE}
+```{r echo=T, message=FALSE}
 
 #devtools::install_github("bcm-uga/lfmm")
 
@@ -60,7 +60,7 @@ library(raster)
 ```
 
 
-## get environmental data
+## Get the Environmental Data
 
 
 now we need to download the environmental data for our study. We're just going to look at a few variables but there are many others that you could choose from here: https://www.bio-oracle.org/explore-data.php
@@ -84,7 +84,7 @@ sst_mean<-load_layers("BO_sstmean")
 ```
 
 
-Now we'll read in our metadata
+Now we'll read in our metadata, which has lat and lon for each sample
 
 
 ```{r, echo=T}
@@ -98,7 +98,8 @@ sites<-cbind("lat" =  meta$LONG, "lon" = meta$LAT)
 head(sites)
 
 ```
-## extract site specific information from our envirornmental layers
+
+## Extract Site Specific Information from our Envirornmental Layers
 
 
 ```{r echo=T}
@@ -185,7 +186,7 @@ sea_cuc_geno<-read.geno('filtered_3699snps_californicus.geno')
 
 
 
-```{r, label='gea1', echo=T}
+```{r, label='gea1', echo=T, message=F}
 
 
 # create a snmf object
