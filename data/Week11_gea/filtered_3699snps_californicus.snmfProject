@@ -11,5 +11,5 @@ new("snmfProject", snmfProject.file = "filtered_3699snps_californicus.snmfProjec
     "K8/run1/filtered_3699snps_californicus_r1.8.snmfClass", 
     "K9/run1/filtered_3699snps_californicus_r1.9.snmfClass", 
     "K10/run1/filtered_3699snps_californicus_r1.10.snmfClass"
-    ), n = 717L, L = 3699L, creationTime = structure(1635792629.69574, class = c("POSIXct", 
+    ), n = 717L, L = 3699L, creationTime = structure(1635797981.99065, class = c("POSIXct", 
     "POSIXt")))

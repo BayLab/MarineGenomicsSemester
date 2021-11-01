@@ -118,6 +118,7 @@ take-lrt-file-and-make-a-manhattan-plot
 exercises-1
 genome-environment-association
 download-the-data-2
+install-a-compiler-for-unixbash
 install-r-packages
 get-the-environmental-data
 extract-site-specific-information-from-our-envirornmental-layers

@@ -31,6 +31,15 @@ tar -xzvf week11_semester.tar.gz
 
 ```
 
+## install a compiler for Unix/bash
+
+Run this command below in the terminal. It's necesary to install several R packages.
+
+```html
+sudo apt install libgdal-dev
+
+```
+
 
 ## install R packages
 
