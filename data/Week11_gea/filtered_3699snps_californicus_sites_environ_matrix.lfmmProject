@@ -1,0 +1,8 @@
+new("lfmmProject", lfmmProject.file = "filtered_3699snps_californicus_sites_environ_matrix.lfmmProject", 
+    projDir = "C:/Users/SAPCaps/MarineGenomicsSemester/data/Week11_gea/", 
+    lfmmDir = "filtered_3699snps_californicus_sites_environ_matrix.lfmm/", 
+    input.file = "filtered_3699snps_californicus.lfmm", environment.file = "sites_environ_matrix.env", 
+    runs = list(), K = integer(0), d = integer(0), all = logical(0), 
+    lfmmClass.files = logical(0), n = integer(0), L = integer(0), 
+    D = integer(0), creationTime = structure(1635565344.68791, class = c("POSIXct", 
+    "POSIXt")))

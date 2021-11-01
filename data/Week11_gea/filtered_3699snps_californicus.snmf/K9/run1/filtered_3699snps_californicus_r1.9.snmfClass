@@ -1,0 +1,6 @@
+new("snmfClass", directory = "K9/run1/", snmfClass.file = "filtered_3699snps_californicus_r1.9.snmfClass", 
+    K = 9L, run = 1L, CPU = 1L, seed = 92262878L, alpha = 10, 
+    percentage = 0.05, I = 0L, iterations = 200L, entropy = TRUE, 
+    tolerance = 1e-05, crossEntropy = 0.336927169773007, ploidy = 2L, 
+    Q.input.file = "", Q.output.file = "filtered_3699snps_californicus_r1.9.Q", 
+    G.output.file = "filtered_3699snps_californicus_r1.9.G")

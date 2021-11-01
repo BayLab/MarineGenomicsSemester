@@ -1,0 +1,5 @@
+new("lfmmClass", directory = "K8/run6/", lfmmClass.file = "filtered_3699snps_californicus_685inds.recode_r6_s1.8.lfmmClass", 
+    K = 8L, d = 1L, Niter = 10000L, burn = 5000L, CPU = 1L, seed = 542772622L, 
+    missing.data = FALSE, all = FALSE, run = 6L, epsilon.noise = 0.001, 
+    epsilon.b = 1000, random.init = TRUE, zscore.file = "filtered_3699snps_californicus_685inds.recode_r6_s1.8.zscore", 
+    deviance = 2533817.33894901, DIC = 2533813.16050765)

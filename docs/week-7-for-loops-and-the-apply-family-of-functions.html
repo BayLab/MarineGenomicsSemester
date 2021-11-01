@@ -283,6 +283,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.6" data-path="week-10-genome-wide-association-study-gwas.html"><a href="week-10-genome-wide-association-study-gwas.html#take-lrt-file-and-make-a-manhattan-plot"><i class="fa fa-check"></i><b>11.6</b> take lrt file and make a manhattan plot</a></li>
 <li class="chapter" data-level="11.7" data-path="week-10-genome-wide-association-study-gwas.html"><a href="week-10-genome-wide-association-study-gwas.html#exercises-1"><i class="fa fa-check"></i><b>11.7</b> Exercises</a></li>
 </ul></li>
+<li class="chapter" data-level="12" data-path="genome-environment-association.html"><a href="genome-environment-association.html"><i class="fa fa-check"></i><b>12</b> Genome Environment Association</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="genome-environment-association.html"><a href="genome-environment-association.html#download-the-data-2"><i class="fa fa-check"></i><b>12.1</b> download the data</a></li>
+<li class="chapter" data-level="12.2" data-path="genome-environment-association.html"><a href="genome-environment-association.html#install-r-packages"><i class="fa fa-check"></i><b>12.2</b> install R packages</a></li>
+<li class="chapter" data-level="12.3" data-path="genome-environment-association.html"><a href="genome-environment-association.html#get-environmental-data"><i class="fa fa-check"></i><b>12.3</b> get environmental data</a></li>
+<li class="chapter" data-level="12.4" data-path="genome-environment-association.html"><a href="genome-environment-association.html#extract-site-specific-information-from-our-envirornmental-layers"><i class="fa fa-check"></i><b>12.4</b> extract site specific information from our envirornmental layers</a></li>
+<li class="chapter" data-level="12.5" data-path="genome-environment-association.html"><a href="genome-environment-association.html#make-a-map-of-our-environmental-data"><i class="fa fa-check"></i><b>12.5</b> make a map of our environmental data</a></li>
+<li class="chapter" data-level="12.6" data-path="genome-environment-association.html"><a href="genome-environment-association.html#load-in-genetic-data"><i class="fa fa-check"></i><b>12.6</b> Load in genetic data</a></li>
+<li class="chapter" data-level="12.7" data-path="genome-environment-association.html"><a href="genome-environment-association.html#exercises-2"><i class="fa fa-check"></i><b>12.7</b> Exercises</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -395,36 +405,28 @@ You can also use apply on a dataframe we worked with earlier the states data to 
 <span id="cb461-18"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-18" aria-hidden="true" tabindex="-1"></a><span class="co"># note you could get this with colMeans() or summary(), along with the min and max and other values, but there may be instances where you only want the mean</span></span>
 <span id="cb461-19"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-19" aria-hidden="true" tabindex="-1"></a><span class="co"># you could also plot each column against Population in ggplot</span></span></code></pre></div>
 <div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states, <span class="dv">2</span>, <span class="at">FUN =</span> <span class="cf">function</span>(i) <span class="fu">ggplot</span>(states, <span class="fu">aes</span>(<span class="at">x=</span>Population, <span class="at">y =</span> i))<span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>)<span class="sc">+</span><span class="fu">theme_classic</span>())</span>
-<span id="cb462-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $Population</span></span>
-<span id="cb462-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; `geom_smooth()` using formula &#39;y ~ x&#39;</span></span></code></pre></div>
+<span id="cb462-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $Population</span></span></code></pre></div>
 <p><img src="Semester_files/figure-html/5-29-1.png" width="768" style="display: block; margin: auto;" /></p>
 <pre><code>#&gt; 
-#&gt; $Income
-#&gt; `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+#&gt; $Income</code></pre>
 <p><img src="Semester_files/figure-html/5-29-2.png" width="768" style="display: block; margin: auto;" /></p>
 <pre><code>#&gt; 
-#&gt; $Illiteracy
-#&gt; `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+#&gt; $Illiteracy</code></pre>
 <p><img src="Semester_files/figure-html/5-29-3.png" width="768" style="display: block; margin: auto;" /></p>
 <pre><code>#&gt; 
-#&gt; $`Life Exp`
-#&gt; `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+#&gt; $`Life Exp`</code></pre>
 <p><img src="Semester_files/figure-html/5-29-4.png" width="768" style="display: block; margin: auto;" /></p>
 <pre><code>#&gt; 
-#&gt; $Murder
-#&gt; `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+#&gt; $Murder</code></pre>
 <p><img src="Semester_files/figure-html/5-29-5.png" width="768" style="display: block; margin: auto;" /></p>
 <pre><code>#&gt; 
-#&gt; $`HS Grad`
-#&gt; `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+#&gt; $`HS Grad`</code></pre>
 <p><img src="Semester_files/figure-html/5-29-6.png" width="768" style="display: block; margin: auto;" /></p>
 <pre><code>#&gt; 
-#&gt; $Frost
-#&gt; `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+#&gt; $Frost</code></pre>
 <p><img src="Semester_files/figure-html/5-29-7.png" width="768" style="display: block; margin: auto;" /></p>
 <pre><code>#&gt; 
-#&gt; $Area
-#&gt; `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+#&gt; $Area</code></pre>
 <p><img src="Semester_files/figure-html/5-29-8.png" width="768" style="display: block; margin: auto;" />
 We can do the same things across all rows. But if you want to plot all the rows as we did the columns above, I suggest you do that with a smaller dataset than the states dataframe.</p>
 <div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb470-1" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate the sum across each row in states</span></span>

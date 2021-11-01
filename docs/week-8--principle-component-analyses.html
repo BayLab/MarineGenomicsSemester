@@ -283,6 +283,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.6" data-path="week-10-genome-wide-association-study-gwas.html"><a href="week-10-genome-wide-association-study-gwas.html#take-lrt-file-and-make-a-manhattan-plot"><i class="fa fa-check"></i><b>11.6</b> take lrt file and make a manhattan plot</a></li>
 <li class="chapter" data-level="11.7" data-path="week-10-genome-wide-association-study-gwas.html"><a href="week-10-genome-wide-association-study-gwas.html#exercises-1"><i class="fa fa-check"></i><b>11.7</b> Exercises</a></li>
 </ul></li>
+<li class="chapter" data-level="12" data-path="genome-environment-association.html"><a href="genome-environment-association.html"><i class="fa fa-check"></i><b>12</b> Genome Environment Association</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="genome-environment-association.html"><a href="genome-environment-association.html#download-the-data-2"><i class="fa fa-check"></i><b>12.1</b> download the data</a></li>
+<li class="chapter" data-level="12.2" data-path="genome-environment-association.html"><a href="genome-environment-association.html#install-r-packages"><i class="fa fa-check"></i><b>12.2</b> install R packages</a></li>
+<li class="chapter" data-level="12.3" data-path="genome-environment-association.html"><a href="genome-environment-association.html#get-environmental-data"><i class="fa fa-check"></i><b>12.3</b> get environmental data</a></li>
+<li class="chapter" data-level="12.4" data-path="genome-environment-association.html"><a href="genome-environment-association.html#extract-site-specific-information-from-our-envirornmental-layers"><i class="fa fa-check"></i><b>12.4</b> extract site specific information from our envirornmental layers</a></li>
+<li class="chapter" data-level="12.5" data-path="genome-environment-association.html"><a href="genome-environment-association.html#make-a-map-of-our-environmental-data"><i class="fa fa-check"></i><b>12.5</b> make a map of our environmental data</a></li>
+<li class="chapter" data-level="12.6" data-path="genome-environment-association.html"><a href="genome-environment-association.html#load-in-genetic-data"><i class="fa fa-check"></i><b>12.6</b> Load in genetic data</a></li>
+<li class="chapter" data-level="12.7" data-path="genome-environment-association.html"><a href="genome-environment-association.html#exercises-2"><i class="fa fa-check"></i><b>12.7</b> Exercises</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -480,7 +490,7 @@ Hint use the command <code>read.table(gzfile("path/to/genotypelikelihoodfile/), 
 <div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="week-8--principle-component-analyses.html#cb502-1" aria-hidden="true" tabindex="-1"></a><span class="co">#read in the new covariance matrix                               </span></span>
 <span id="cb502-2"><a href="week-8--principle-component-analyses.html#cb502-2" aria-hidden="true" tabindex="-1"></a>cov_allind<span class="ot">&lt;-</span><span class="fu">as.matrix</span>(<span class="fu">read.table</span>(<span class="st">&quot;pca_out_allind.cov&quot;</span>))</span>
 <span id="cb502-3"><a href="week-8--principle-component-analyses.html#cb502-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning in file(file, &quot;rt&quot;): cannot open file &#39;pca_out_allind.cov&#39;: No such file or directory</span></span>
-<span id="cb502-4"><a href="week-8--principle-component-analyses.html#cb502-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in file(file, &quot;rt&quot;): cannot open the connection</span></span>
+<span id="cb502-4"><a href="week-8--principle-component-analyses.html#cb502-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;as.matrix&#39;: cannot open the connection</span></span>
 <span id="cb502-5"><a href="week-8--principle-component-analyses.html#cb502-5" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate eigenvalues</span></span>
 <span id="cb502-6"><a href="week-8--principle-component-analyses.html#cb502-6" aria-hidden="true" tabindex="-1"></a>e_allind<span class="ot">&lt;-</span><span class="fu">eigen</span>(cov_allind)</span>
 <span id="cb502-7"><a href="week-8--principle-component-analyses.html#cb502-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in as.matrix(x): object &#39;cov_allind&#39; not found</span></span></code></pre></div>

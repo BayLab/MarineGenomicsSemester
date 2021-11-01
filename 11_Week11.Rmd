@@ -1,0 +1,285 @@
+---
+title: 
+author: 
+date: 
+output:
+  bookdown::html_book:
+    toc: yes
+    css: toc.css
+---
+
+```{r setupweek11, include=FALSE}
+knitr::opts_chunk$set(fig.width = 8, echo=F, error=T, message=F)
+knitr::opts_knit$set(root.dir = "C:/Users/SAPCaps/MarineGenomicsSemester/data/Week11_gea/")
+```
+
+# Genome Environment Association
+
+The lecture for this week can be found [here]((https://github.com/BayLab/MarineGenomicsSemester/blob/main/ppt/MarineGenomics_Lecture_w11.pdf).
+
+All of the code presented in this weeks class comes modified from a former Marine Genomics student and recent UC Davis graduate, Camille Rumberger! Thank you Camille!
+
+## download the data
+
+For this week we are again using data from the wonderful Xuereb et al. 2018 paper [here](https://onlinelibrary.wiley.com/doi/abs/10.1111/mec.14589?casa_token=aBVeQUaZ6UEAAAAA:vt9cQFbQ-65F1erD-1Uq0DAWEaZ75fDhepkPomc4RMPAqQgntIcm0btk842SxvaraM2VdlZ5nwoHUhCy)
+And consistes of a vcf file with 3966 Snps from 685 pacific sea cucumbers. 
+
+```html
+
+wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week11_semester.tar.gz
+tar -xzvf week11_semester.tar.gz
+
+```
+
+
+## install R packages
+
+
+```{r echo=F, message=FALSE}
+
+#devtools::install_github("bcm-uga/lfmm")
+
+
+# get packages
+#install.packages(c('lfmm','psych','vegan','ggplot2','data.table','sdmpredictors','rgdal','raster'), dependencies = T)
+#install.packages("BiocManager")
+#BiocManager::install("LEA", force=T)
+
+# call programs
+library(lfmm)
+library(psych)
+library(vegan)
+library(LEA)
+library(data.table)
+library(sdmpredictors)
+library(leaflet)
+library(ggplot2)
+library(rgdal)
+library(raster)
+
+```
+
+
+## get environmental data
+
+
+now we need to download the environmental data for our study. We're just going to look at a few variables but there are many others that you could choose from here: https://www.bio-oracle.org/explore-data.php
+
+This step is relatively time consuming so while the code is provided below, in class we'll be working with a file that we previously downloaded
+
+
+```{r, echo=T, warning=F}
+
+environ <- load_layers(layercodes = c("BO_chlomean","BO_ph", "BO_salinity","BO_sstmax","BO_sstmean"))
+
+#store these as objects that we can use later
+
+chlomean<-load_layers("BO_chlomean")
+ph<-load_layers("BO_ph")
+salinity<-load_layers("BO_salinity")
+sst_max<-load_layers("BO_sstmax")
+sst_mean<-load_layers("BO_sstmean")
+
+
+```
+
+
+Now we'll read in our metadata
+
+
+```{r, echo=T}
+meta<-read.csv("californicus_metadata.csv")
+
+#make a new dataframe that just contains the lat and lon and label them "lat" and "long"
+#notice that the original metafile mislabels lat and lon, oops!
+
+sites<-cbind("lat" =  meta$LONG, "lon" = meta$LAT)
+
+head(sites)
+
+```
+## extract site specific information from our envirornmental layers
+
+
+```{r echo=T}
+
+sites_environ <- data.frame(Name=sites, extract(environ,sites))
+head(sites_environ)
+
+```
+
+That produces for us a site specific environment file. We now need to convert this file into a format that we can save it as a matrix and export it as an environment file (i.e., in the format that the next step need it to be in)
+
+```{r, echo=T}
+
+#remove lat and lon and convert to matrix
+
+sites_environ_matrix<-as.matrix(sites_environ[,-c(1,2)])
+
+#remove any Na's
+
+sites_environ_matrix_nas<-na.omit(sites_environ_matrix)
+
+#write the file to an env file
+
+write.env(sites_environ_matrix_nas, "sites_environ_matrix.env")
+
+
+```
+## make a map of our environmental data
+
+```{r, label='geamap', echo=T}
+library(sdmpredictors)
+
+#download a raster file for env variable that we want to look at
+
+#what are are min amd max lat and lon
+
+range(sites_environ$Name.lon)
+
+#crop file to fit the area we want
+ne.pacific<-extent(-140, -120, 40, 60)
+
+sst_max.crop<-crop(sst_max, ne.pacific)
+
+
+#make a nice color ramp and plot the map
+
+my.colors = colorRampPalette(c("#5E85B8","#EDF0C0","#C13127"))
+plot(sst_max.crop,col=my.colors(1000),axes=FALSE, box=FALSE)
+title(cex.sub = 1.25, sub = "Maximum temperature at the sea surface (ºC)")
+
+
+```
+
+
+
+
+## Load in genetic data
+
+
+Now we need to load in our genetic data
+
+
+
+```{r, echo=T}
+
+#convert our vcf file to lfmm
+
+vcf2lfmm('filtered_3699snps_californicus_685inds.recode.vcf', 'filtered_3699snps_californicus.lfmm')
+
+sea_cuc_lfmm<-read.lfmm('filtered_3699snps_californicus.lfmm')
+
+#and convert to geno
+
+lfmm2geno('filtered_3699snps_californicus.lfmm', 'filtered_3699snps_californicus.geno')
+
+#read in geno file
+
+sea_cuc_geno<-read.geno('filtered_3699snps_californicus.geno')
+
+
+
+
+```
+
+
+
+```{r, label='gea1', echo=T}
+
+
+# create a snmf object
+
+sea_cuc200.snmf <- snmf("filtered_3699snps_californicus.geno", K = 1:10, entropy=T, ploidy = 2, project = "new")
+project=load.snmfProject("filtered_3699snps_californicus.snmfProject")
+
+#plot values of cross-entropy criteron of k
+plot(sea_cuc200.snmf)
+
+```
+```{r, echo=F}
+
+# Genome scan for selection using environmental variables 
+#remove.lfmmProject('Spurp.prelim.snps24.lfmmProject')
+#sea_cuc.lfmm <- lfmm("data/Week11_gea/filtered_3699snps_californicus_685inds.recode.lfmm", "data/Week11_gea/sites_environ_matrix.env", K=1, rep=1, project = "new")
+
+# load project
+project = load.lfmmProject("data/Week11_gea/filtered_3699snps_californicus_685inds.lfmmProject")
+
+```
+
+Now we can check and see which of our environmental variables is association with genomic variation
+
+```{r, echo=T}
+#get the z scores from each run
+
+zs1 <- z.scores(sea_cuc.lfmm, K=1, d=1)
+zs2 <- z.scores(sea_cuc.lfmm, K=1, d=2)
+zs3 <- z.scores(sea_cuc.lfmm, K=1, d=3)
+zs4 <- z.scores(sea_cuc.lfmm, K=1, d=4)
+zs5 <- z.scores(sea_cuc.lfmm, K=1, d=5)
+
+# compute the genomic inflation factor lambda
+
+lambda1=median(zs1^2)/qchisq(0.5, df=1)
+lambda2=median(zs2^2)/qchisq(0.5, df=1)
+lambda3=median(zs3^2)/qchisq(0.5, df=1)
+lambda4=median(zs4^2)/qchisq(0.5, df=1)
+lambda5=median(zs5^2)/qchisq(0.5, df=1)
+
+#then compute adjusted p-values
+
+adj.p.val1<-pchisq(zs1^2/lambda1, df=1, lower=F)
+adj.p.val2<-pchisq(zs2^2/lambda2, df=1, lower=F)
+adj.p.val3<-pchisq(zs3^2/lambda3, df=1, lower=F)
+adj.p.val4<-pchisq(zs4^2/lambda4, df=1, lower=F)
+adj.p.val5<-pchisq(zs5^2/lambda5, df=1, lower=F)
+
+#then plot that p-value
+
+hist(adj.p.val1, col="blue")
+hist(adj.p.val2, col="blue")
+hist(adj.p.val3, col="blue")
+hist(adj.p.val4, col="blue")
+hist(adj.p.val5, col="blue")
+
+
+# control of false discoveries
+# to correct for multiple testing, we can apply the Benjamini-Hochberg algorithm
+# L is number of loci
+L=3699
+#fdr level q
+q = 0.1
+w = which(sort(adj.p.val4) < q * (1:L)/L)
+# candidates are then
+candidates.4 = order(adj.p.val4)[w]
+
+length(candidates.4)
+
+
+```
+
+
+
+
+
+
+## Exercises
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

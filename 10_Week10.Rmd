@@ -148,7 +148,7 @@ library (qqman)
 ```
 the function manhattan requires each SNP to have it's own "name". Let's make a vector for rownumbers that start with the letter r. We also need to convert our LRT values to pvalues. We'll use the command `dchisq` to get pvalues.
 
-```{r, eval=T}
+```{r echo=TRUE}
 lrt_filt$SNP<-paste("r",1:length(lrt_filt$Chromosome), sep="")
 #we also need to make sure we don't have any tricky values like those below
 lrt_filt<-lrt_filt[-c(which(lrt_filt$pvalue == "NaN" ),

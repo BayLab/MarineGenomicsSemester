@@ -1,0 +1,15 @@
+new("snmfProject", snmfProject.file = "filtered_3699snps_californicus.snmfProject", 
+    projDir = "C:/Users/SAPCaps/MarineGenomicsSemester/data/Week11_gea/", 
+    snmfDir = "filtered_3699snps_californicus.snmf/", input.file = "filtered_3699snps_californicus.geno", 
+    runs = list(), K = 1:10, snmfClass.files = c("K1/run1/filtered_3699snps_californicus_r1.1.snmfClass", 
+    "K2/run1/filtered_3699snps_californicus_r1.2.snmfClass", 
+    "K3/run1/filtered_3699snps_californicus_r1.3.snmfClass", 
+    "K4/run1/filtered_3699snps_californicus_r1.4.snmfClass", 
+    "K5/run1/filtered_3699snps_californicus_r1.5.snmfClass", 
+    "K6/run1/filtered_3699snps_californicus_r1.6.snmfClass", 
+    "K7/run1/filtered_3699snps_californicus_r1.7.snmfClass", 
+    "K8/run1/filtered_3699snps_californicus_r1.8.snmfClass", 
+    "K9/run1/filtered_3699snps_californicus_r1.9.snmfClass", 
+    "K10/run1/filtered_3699snps_californicus_r1.10.snmfClass"
+    ), n = 717L, L = 3699L, creationTime = structure(1635791938.29873, class = c("POSIXct", 
+    "POSIXt")))

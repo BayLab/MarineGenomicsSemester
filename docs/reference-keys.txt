@@ -116,3 +116,11 @@ the-data
 take-beagle-file-and-generate-lrt-file
 take-lrt-file-and-make-a-manhattan-plot
 exercises-1
+genome-environment-association
+download-the-data-2
+install-r-packages
+get-environmental-data
+extract-site-specific-information-from-our-envirornmental-layers
+make-a-map-of-our-environmental-data
+load-in-genetic-data
+exercises-2
