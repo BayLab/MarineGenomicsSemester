@@ -74,14 +74,11 @@ library(raster)
 
 now we need to download the environmental data for our study. We're just going to look at a few variables but there are many others that you could choose from here: https://www.bio-oracle.org/explore-data.php
 
-This step is relatively time consuming so while the code is provided below, in class we'll be working with a file that we previously downloaded
 
 
-```{r, echo=T, warning=F}
+```{r, echo=T, warning=F, message=F}
 
-environ <- load_layers(layercodes = c("BO_chlomean","BO_ph", "BO_salinity","BO_sstmax","BO_sstmean"))
-
-#store these as objects that we can use later
+#load the environmental data and store it as objects that we can use later
 
 chlomean<-load_layers("BO_chlomean")
 ph<-load_layers("BO_ph")
@@ -136,6 +133,8 @@ write.env(sites_environ_matrix_nas, "sites_environ_matrix.env")
 
 
 ```
+
+
 ## make a map of our environmental data
 
 ```{r, label='geamap', echo=T}
@@ -168,7 +167,7 @@ title(cex.sub = 1.25, sub = "Maximum temperature at the sea surface (ºC)")
 ## Load in genetic data
 
 
-Now we need to load in our genetic data
+Now we need to load in our genetic data. We have data in a vcf file format and the first few steps will be to convert it to the format needed by the lfmm package.
 
 
 
@@ -178,15 +177,15 @@ Now we need to load in our genetic data
 
 vcf2lfmm('filtered_3699snps_californicus_685inds.recode.vcf', 'filtered_3699snps_californicus.lfmm')
 
-sea_cuc_lfmm<-read.lfmm('filtered_3699snps_californicus.lfmm')
+sea_cuc_lfmm<-read.lfmm('filtered_3699snps_californicus_685inds.recode.lfmm')
 
 #and convert to geno
 
-lfmm2geno('filtered_3699snps_californicus.lfmm', 'filtered_3699snps_californicus.geno')
+lfmm2geno('filtered_3699snps_californicus_685inds.recode.lfmm', 'filtered_3699snps_californicus_685inds.recode.geno')
 
 #read in geno file
 
-sea_cuc_geno<-read.geno('filtered_3699snps_californicus.geno')
+sea_cuc_geno<-read.geno('filtered_3699snps_californicus_685inds.recode.geno')
 
 
 
@@ -211,7 +210,7 @@ plot(sea_cuc200.snmf)
 
 # Genome scan for selection using environmental variables 
 #remove.lfmmProject('Spurp.prelim.snps24.lfmmProject')
-#sea_cuc.lfmm <- lfmm("data/Week11_gea/filtered_3699snps_californicus_685inds.recode.lfmm", "data/Week11_gea/sites_environ_matrix.env", K=1, rep=1, project = "new")
+sea_cuc_runlfmm <- lfmm("filtered_3699snps_californicus_685inds.recode.lfmm", "sites_environ_matrix.env", K=1, rep=1, project = "new")
 
 # load project
 project = load.lfmmProject("data/Week11_gea/filtered_3699snps_californicus_685inds.lfmmProject")
@@ -260,6 +259,87 @@ hist(adj.p.val5, col="blue")
 L=3699
 #fdr level q
 q = 0.1
+w = which(sort(adj.p.val1) < q * (1:L)/L)
+# candidates are then
+candidates.1 = order(adj.p.val1)[w]
+
+length(candidates.1)
+
+#this is for our first variable Mean Chlorphyl
+
+
+```
+
+
+## Exercises
+
+
+1. Pick your favorite environmental variable from the bio-oracle website. For marine variables you can use the command `list_layers(c("Bio-ORACLE","MARSPEC"))$layer_code` to view the different Bio-Oracle and MARSPEC environmental layers. For Terrestrial layers use: `list_layers("WorldClim")$layer_code` Then download the layer you choose and store it as an object with `load_layers()`
+Now decide which region you want to plot. If you're interested in getting most of California you can use these coords with the function extent(-125, -115, 30, 40), and then use that to crop your environmental layers and make a plot similiar to the one we made in class.
+
+
+<details><summary><span style="color: DarkCyan;">Solution</span></summary>
+<p>
+
+```{r, echo=T, warning=F, message=F}
+library(sdmpredictors)
+
+#get env data
+precip_seasonality<-load_layers("WC_bio15")
+
+precip_wettest<-load_layers("WC_bio13")
+
+#make range to crop for california
+cali<-extent(-130, -116, 30, 40)
+
+#crop it
+
+precip_w.crop<-crop(precip_wettest, cali)
+
+
+#plot it
+
+my.colors = colorRampPalette(c("#5E85B8","#EDF0C0","#C13127"))
+plot(precip_w.crop,col=my.colors(1000),axes=FALSE, box=FALSE)
+  title(cex.sub = 1.25, sub = "Precipitation of the Wettest Month")
+
+```
+</p>
+</details>
+
+
+
+2. Use the script for determining the number of candidates for the first environmental variable, find the number of candidates for the other four variables. Are these the same or different SNPs? (hint use merge() or intersect() to find out if the lists of candidates overlap) 
+
+
+<details><summary><span style="color: DarkCyan;">Solution</span></summary>
+<p>
+
+```{r, echo=T}
+
+#We'll use this script below
+
+#for variable 2 (PH)
+# L is number of loci
+L=3699
+#fdr level q
+q = 0.1
+w = which(sort(adj.p.val2) < q * (1:L)/L)
+# candidates are then
+candidates.2 = order(adj.p.val2)[w]
+
+length(candidates.2)
+
+
+#variable 3 
+w = which(sort(adj.p.val3) < q * (1:L)/L)
+# candidates are then
+candidates.3 = order(adj.p.val3)[w]
+
+length(candidates.3)
+
+#variable 4
+
 w = which(sort(adj.p.val4) < q * (1:L)/L)
 # candidates are then
 candidates.4 = order(adj.p.val4)[w]
@@ -267,27 +347,25 @@ candidates.4 = order(adj.p.val4)[w]
 length(candidates.4)
 
 
+#variable 5
+
+w = which(sort(adj.p.val5) < q * (1:L)/L)
+# candidates are then
+candidates.5 = order(adj.p.val5)[w]
+
+length(candidates.5)
+
+
+
+
+
+
+
+
 ```
 
-
-
-
-
-
-## Exercises
-
-
-
-
-
-
-
-
-
-
-
-
-
+</p>
+</details>
 
 
 
