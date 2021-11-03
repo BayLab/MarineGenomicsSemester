@@ -165,8 +165,6 @@ title(cex.sub = 1.25, sub = "Maximum temperature at the sea surface (ºC)")
 ```
 
 
-
-
 ## Load in genetic data
 
 
@@ -216,7 +214,7 @@ This plot tells us which value of K we should use when running the next analyses
 
 However, for the purposes of time we're going to do the next step with a k=1 and a rep=1. 
 
-```{r, echo=F}
+```{r, echo=T, message=FALSE}
 
 # Genome scan for selection using environmental variables 
 #remove.lfmmProject('Spurp.prelim.snps24.lfmmProject')

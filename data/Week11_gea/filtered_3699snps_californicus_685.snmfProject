@@ -2,5 +2,5 @@ new("snmfProject", snmfProject.file = "filtered_3699snps_californicus_685.snmfPr
     projDir = "C:/Users/SAPCaps/MarineGenomicsSemester/data/Week11_gea/", 
     snmfDir = "filtered_3699snps_californicus_685.snmf/", input.file = "filtered_3699snps_californicus_685.geno", 
     runs = list(), K = integer(0), snmfClass.files = logical(0), 
-    n = integer(0), L = integer(0), creationTime = structure(1635975565.4514, class = c("POSIXct", 
+    n = integer(0), L = integer(0), creationTime = structure(1635978215.10244, class = c("POSIXct", 
     "POSIXt")))
