@@ -354,7 +354,7 @@ package ?BiocManager? is not available for this version of R” Go to “Help,�
 #&gt; Summary:
 #&gt; 
 #&gt;  - input file:               filtered_3699snps_californicus.vcf
-#&gt;  - output file:              C:\Users\SAPCaps\AppData\Local\Temp\RtmpELCDwi\file11d7cca72833.pcadapt
+#&gt;  - output file:              C:\Users\SAPCaps\AppData\Local\Temp\RtmpOYH3L2\file5260766f3a96.pcadapt
 #&gt; 
 #&gt;  - number of individuals detected:   717
 #&gt;  - number of loci detected:      3699
@@ -484,20 +484,13 @@ popNames= names our populations with the “SITE” labels</p>
 <div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="week-9--fst-and-outlier-analysis.html#cb520-1" aria-hidden="true" tabindex="-1"></a>fst <span class="ot">&lt;-</span> <span class="fu">MakeDiploidFSTMat</span>(subgen,<span class="at">locusNames=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(subgen),<span class="at">popNames=</span>submeta<span class="sc">$</span>SITE)</span>
 <span id="cb520-2"><a href="week-9--fst-and-outlier-analysis.html#cb520-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Calculating FSTs, may take a few minutes...</span></span>
 <span id="cb520-3"><a href="week-9--fst-and-outlier-analysis.html#cb520-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fst)</span>
-<span id="cb520-4"><a href="week-9--fst-and-outlier-analysis.html#cb520-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   LocusName         He          FST            T1         T2    FSTNoCorr     T1NoCorr   T2NoCorr</span></span>
-<span id="cb520-5"><a href="week-9--fst-and-outlier-analysis.html#cb520-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1         1 0.16004925  0.013505690  0.0010989159 0.08136689 0.0329945019 2.684676e-03 0.08136737</span></span>
-<span id="cb520-6"><a href="week-9--fst-and-outlier-analysis.html#cb520-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2         2 0.32209911 -0.003522955 -0.0005712682 0.16215600 0.0137035701 2.222222e-03 0.16216374</span></span>
-<span id="cb520-7"><a href="week-9--fst-and-outlier-analysis.html#cb520-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3         3 0.03388823  0.023105548  0.0003994330 0.01728732 0.0396716826 6.858711e-04 0.01728868</span></span>
-<span id="cb520-8"><a href="week-9--fst-and-outlier-analysis.html#cb520-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4         4 0.17167063 -0.015959520 -0.0013698559 0.08583315 0.0001018514 8.742893e-06 0.08583971</span></span>
-<span id="cb520-9"><a href="week-9--fst-and-outlier-analysis.html#cb520-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5         5 0.05038644 -0.008598599 -0.0002175528 0.02530095 0.0086381886 2.185723e-04 0.02530303</span></span>
-<span id="cb520-10"><a href="week-9--fst-and-outlier-analysis.html#cb520-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6         6 0.08387196  0.082459876  0.0036351166 0.04408346 0.0972364381 4.286694e-03 0.04408526</span></span>
-<span id="cb520-11"><a href="week-9--fst-and-outlier-analysis.html#cb520-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   meanAlleleFreq</span></span>
-<span id="cb520-12"><a href="week-9--fst-and-outlier-analysis.html#cb520-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1      0.9122807</span></span>
-<span id="cb520-13"><a href="week-9--fst-and-outlier-analysis.html#cb520-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2      0.7982456</span></span>
-<span id="cb520-14"><a href="week-9--fst-and-outlier-analysis.html#cb520-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3      0.9827586</span></span>
-<span id="cb520-15"><a href="week-9--fst-and-outlier-analysis.html#cb520-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4      0.9051724</span></span>
-<span id="cb520-16"><a href="week-9--fst-and-outlier-analysis.html#cb520-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5      0.9741379</span></span>
-<span id="cb520-17"><a href="week-9--fst-and-outlier-analysis.html#cb520-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6      0.9561404</span></span></code></pre></div>
+<span id="cb520-4"><a href="week-9--fst-and-outlier-analysis.html#cb520-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   LocusName         He          FST            T1         T2    FSTNoCorr     T1NoCorr   T2NoCorr meanAlleleFreq</span></span>
+<span id="cb520-5"><a href="week-9--fst-and-outlier-analysis.html#cb520-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1         1 0.16004925  0.013505690  0.0010989159 0.08136689 0.0329945019 2.684676e-03 0.08136737      0.9122807</span></span>
+<span id="cb520-6"><a href="week-9--fst-and-outlier-analysis.html#cb520-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2         2 0.32209911 -0.003522955 -0.0005712682 0.16215600 0.0137035701 2.222222e-03 0.16216374      0.7982456</span></span>
+<span id="cb520-7"><a href="week-9--fst-and-outlier-analysis.html#cb520-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3         3 0.03388823  0.023105548  0.0003994330 0.01728732 0.0396716826 6.858711e-04 0.01728868      0.9827586</span></span>
+<span id="cb520-8"><a href="week-9--fst-and-outlier-analysis.html#cb520-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4         4 0.17167063 -0.015959520 -0.0013698559 0.08583315 0.0001018514 8.742893e-06 0.08583971      0.9051724</span></span>
+<span id="cb520-9"><a href="week-9--fst-and-outlier-analysis.html#cb520-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5         5 0.05038644 -0.008598599 -0.0002175528 0.02530095 0.0086381886 2.185723e-04 0.02530303      0.9741379</span></span>
+<span id="cb520-10"><a href="week-9--fst-and-outlier-analysis.html#cb520-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6         6 0.08387196  0.082459876  0.0036351166 0.04408346 0.0972364381 4.286694e-03 0.04408526      0.9561404</span></span></code></pre></div>
 <div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="week-9--fst-and-outlier-analysis.html#cb521-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(fst<span class="sc">$</span>FST,<span class="at">breaks=</span><span class="dv">50</span>)</span></code></pre></div>
 <p><img src="Semester_files/figure-html/7-7-1.png" width="768" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="week-9--fst-and-outlier-analysis.html#cb522-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fst<span class="sc">$</span>FST) <span class="co">#highest FST is higher than the mean (which is a good sign)</span></span>

@@ -79,6 +79,9 @@ now we need to download the environmental data for our study. We're just going t
 ```{r, echo=T, warning=F, message=F}
 
 #load the environmental data and store it as objects that we can use later
+environ <- load_layers(layercodes = c("BO_chlomean","BO_ph", "BO_salinity","BO_sstmax","BO_sstmean"))
+
+#now put each layer into it's own object
 
 chlomean<-load_layers("BO_chlomean")
 ph<-load_layers("BO_ph")
@@ -171,7 +174,7 @@ Now we need to load in our genetic data. We have data in a vcf file format and t
 
 
 
-```{r, echo=T}
+```{r echo=T, message=FALSE, warning=FALSE}
 
 #convert our vcf file to lfmm
 
@@ -199,21 +202,29 @@ sea_cuc_geno<-read.geno('filtered_3699snps_californicus_685inds.recode.geno')
 
 # create a snmf object
 
-sea_cuc200.snmf <- snmf("filtered_3699snps_californicus.geno", K = 1:10, entropy=T, ploidy = 2, project = "new")
+sea_cuc200.snmf <- snmf("filtered_3699snps_californicus_685.geno", K = 1:10, entropy=T, ploidy = 2, project = "new")
 project=load.snmfProject("filtered_3699snps_californicus.snmfProject")
 
 #plot values of cross-entropy criteron of k
 plot(sea_cuc200.snmf)
 
+
 ```
+
+
+This plot tells us which value of K we should use when running the next analyses. We're looking for a region where the cross-entropy is lowest and ideally it plateaus. We don't get a plateau in our case but you can see our lowest value is at 3. So we would use a K of 3 in the next step. 
+
+However, for the purposes of time we're going to do the next step with a k=1 and a rep=1. 
+
 ```{r, echo=F}
 
 # Genome scan for selection using environmental variables 
 #remove.lfmmProject('Spurp.prelim.snps24.lfmmProject')
-sea_cuc_runlfmm <- lfmm("filtered_3699snps_californicus_685inds.recode.lfmm", "sites_environ_matrix.env", K=1, rep=1, project = "new")
+
+sea_cuc_lfmm <- lfmm("filtered_3699snps_californicus_685inds.recode.lfmm", "sites_environ_matrix.env", K=1, rep=1, project = "new")
 
 # load project
-project = load.lfmmProject("data/Week11_gea/filtered_3699snps_californicus_685inds.lfmmProject")
+project = load.lfmmProject("filtered_3699snps_californicus_685inds.lfmmProject")
 
 ```
 
@@ -222,11 +233,11 @@ Now we can check and see which of our environmental variables is association wit
 ```{r, echo=T}
 #get the z scores from each run
 
-zs1 <- z.scores(sea_cuc.lfmm, K=1, d=1)
-zs2 <- z.scores(sea_cuc.lfmm, K=1, d=2)
-zs3 <- z.scores(sea_cuc.lfmm, K=1, d=3)
-zs4 <- z.scores(sea_cuc.lfmm, K=1, d=4)
-zs5 <- z.scores(sea_cuc.lfmm, K=1, d=5)
+zs1 <- z.scores(sea_cuc_lfmm, K=1, d=1)
+zs2 <- z.scores(sea_cuc_lfmm, K=1, d=2)
+zs3 <- z.scores(sea_cuc_lfmm, K=1, d=3)
+zs4 <- z.scores(sea_cuc_lfmm, K=1, d=4)
+zs5 <- z.scores(sea_cuc_lfmm, K=1, d=5)
 
 # compute the genomic inflation factor lambda
 
@@ -354,12 +365,6 @@ w = which(sort(adj.p.val5) < q * (1:L)/L)
 candidates.5 = order(adj.p.val5)[w]
 
 length(candidates.5)
-
-
-
-
-
-
 
 
 ```

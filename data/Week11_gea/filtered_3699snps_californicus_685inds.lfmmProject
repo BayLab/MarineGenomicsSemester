@@ -9,5 +9,5 @@ new("lfmmProject", lfmmProject.file = "filtered_3699snps_californicus_685inds.lf
     "K1/run3/filtered_3699snps_californicus_685inds.recode_r3_s3.1.lfmmClass", 
     "K1/run4/filtered_3699snps_californicus_685inds.recode_r4_s4.1.lfmmClass", 
     "K1/run5/filtered_3699snps_californicus_685inds.recode_r5_s5.1.lfmmClass"
-    ), n = 685L, L = 3699L, D = 5L, creationTime = structure(1635717649.93667, class = c("POSIXct", 
+    ), n = 685L, L = 3699L, D = 5L, creationTime = structure(1635975565.53717, class = c("POSIXct", 
     "POSIXt")))
