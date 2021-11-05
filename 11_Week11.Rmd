@@ -76,7 +76,7 @@ now we need to download the environmental data for our study. We're just going t
 
 
 
-```{r, echo=T, warning=F, message=F}
+```{r, echo=T, warning=F, message=F, results=F}
 
 #load the environmental data and store it as objects that we can use later
 environ <- load_layers(layercodes = c("BO_chlomean","BO_ph", "BO_salinity","BO_sstmax","BO_sstmean"))
@@ -108,9 +108,10 @@ head(sites)
 
 ```
 
+
 ## Extract Site Specific Information from our Envirornmental Layers
 
-
+The data we downloaded 
 ```{r echo=T}
 
 sites_environ <- data.frame(Name=sites, extract(environ,sites))
@@ -120,25 +121,9 @@ head(sites_environ)
 
 That produces for us a site specific environment file. We now need to convert this file into a format that we can save it as a matrix and export it as an environment file (i.e., in the format that the next step need it to be in)
 
-```{r, echo=T}
+## Make a Map of our environmental data
 
-#remove lat and lon and convert to matrix
-
-sites_environ_matrix<-as.matrix(sites_environ[,-c(1,2)])
-
-#remove any Na's
-
-sites_environ_matrix_nas<-na.omit(sites_environ_matrix)
-
-#write the file to an env file
-
-write.env(sites_environ_matrix_nas, "sites_environ_matrix.env")
-
-
-```
-
-
-## make a map of our environmental data
+We now have enough information to make a pretty plot of one of our environmental parameters.
 
 ```{r, label='geamap', echo=T}
 library(sdmpredictors)
@@ -163,6 +148,27 @@ title(cex.sub = 1.25, sub = "Maximum temperature at the sea surface (ºC)")
 
 
 ```
+
+
+
+```{r, echo=T}
+
+#remove lat and lon and convert to matrix
+
+sites_environ_matrix<-as.matrix(sites_environ[,-c(1,2)])
+
+#remove any Na's
+
+sites_environ_matrix_nas<-na.omit(sites_environ_matrix)
+
+#write the file to an env file
+
+write.env(sites_environ_matrix_nas, "sites_environ_matrix.env")
+
+
+```
+
+
 
 
 ## Load in genetic data

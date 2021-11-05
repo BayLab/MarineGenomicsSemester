@@ -125,3 +125,11 @@ extract-site-specific-information-from-our-envirornmental-layers
 make-a-map-of-our-environmental-data
 load-in-genetic-data
 exercises-2
+population-structure-via-construct
+download-the-data-3
+install-construct-in-r
+read-in-the-data
+get-our-meta-data-read-into-r-and-ready-to-use
+run-a-structure-analysis
+comparisons-across-different-values-of-k
+exercises-3
