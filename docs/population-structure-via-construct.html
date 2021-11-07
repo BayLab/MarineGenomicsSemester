@@ -332,7 +332,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The lecture for this week can be found <a href="https://github.com/BayLab/MarineGenomics/blob/4f22a87ad800f98a6e138a166b8e94d016310914/ppt/Week9.pdf">here</a> and describes the basics of a structure plot.</p>
 <div id="download-the-data-3" class="section level2" number="13.1">
 <h2><span class="header-section-number">13.1</span> Download the data</h2>
-<p>We’ll be using data from the <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/mec.14589">Xuereb et al. paper on P. californicus</a>. This data consists of a vcf file that is in structure format and contains SNP data (3699 SNPs) from 717 individuals (this is the same data we used for our PCA plot in week 9 for pcadapt, and for week 11 for GEA).</p>
+<p>We’ll be using data from the <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/mec.14589">Xuereb et al. paper on P. californicus</a>. This data consists of a vcf file that is in structure format and contains SNP data (3699 SNPs) from 100 individuals (this is the same data we used for our PCA plot in week 9 for pcadapt, and for week 11 for GEA, just with fewer individuals for this week).</p>
 <p>We’ll download a metafile as well that has sample coordinates and names</p>
 <div class="sourceCode" id="cb569"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb569-1"><a href="population-structure-via-construct.html#cb569-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb569-2"><a href="population-structure-via-construct.html#cb569-2" aria-hidden="true" tabindex="-1"></a>wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week12_semester.tar.gz</span>
@@ -448,7 +448,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb573-11"><a href="population-structure-via-construct.html#cb573-11" aria-hidden="true" tabindex="-1"></a><span class="co"># make a structure plot</span></span>
 <span id="cb573-12"><a href="population-structure-via-construct.html#cb573-12" aria-hidden="true" tabindex="-1"></a><span class="fu">make.structure.plot</span>(<span class="at">admix.proportions =</span> admix.props,</span>
 <span id="cb573-13"><a href="population-structure-via-construct.html#cb573-13" aria-hidden="true" tabindex="-1"></a>                    <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>))</span></code></pre></div>
-<p><img src="Semester_files/figure-html/unnamed-chunk-122-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="Semester_files/figure-html/unnamed-chunk-120-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 <div id="comparisons-across-different-values-of-k" class="section level2" number="13.6">
 <h2><span class="header-section-number">13.6</span> Comparisons across different values of K</h2>
@@ -493,7 +493,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb575-5"><a href="population-structure-via-construct.html#cb575-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">&quot;&quot;</span>,</span>
 <span id="cb575-6"><a href="population-structure-via-construct.html#cb575-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;layer contributions&quot;</span>,</span>
 <span id="cb575-7"><a href="population-structure-via-construct.html#cb575-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">names.arg=</span><span class="fu">paste0</span>(<span class="st">&quot;K=&quot;</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>))</span></code></pre></div>
-<p><img src="Semester_files/figure-html/unnamed-chunk-124-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="Semester_files/figure-html/unnamed-chunk-122-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 <div id="exercises-3" class="section level2" number="13.7">
 <h2><span class="header-section-number">13.7</span> Exercises</h2>

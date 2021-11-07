@@ -112,7 +112,7 @@ head(sites)
 ## Extract Site Specific Information from our Envirornmental Layers
 
 The data we downloaded 
-```{r echo=T}
+```{r, echo=T}
 
 sites_environ <- data.frame(Name=sites, extract(environ,sites))
 head(sites_environ)
@@ -178,7 +178,7 @@ Now we need to load in our genetic data. We have data in a vcf file format and t
 
 
 
-```{r echo=T, message=FALSE, warning=FALSE}
+```{r, echo=T, message=FALSE, warning=FALSE}
 
 #convert our vcf file to lfmm
 
