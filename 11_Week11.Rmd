@@ -76,7 +76,7 @@ now we need to download the environmental data for our study. We're just going t
 
 
 
-```{r, echo=T, warning=F, message=F, results=F}
+```{r echo=T, message=FALSE, warning=FALSE, results=F}
 
 #load the environmental data and store it as objects that we can use later
 environ <- load_layers(layercodes = c("BO_chlomean","BO_ph", "BO_salinity","BO_sstmax","BO_sstmean"))

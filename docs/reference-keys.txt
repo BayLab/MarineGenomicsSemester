@@ -127,6 +127,7 @@ load-in-genetic-data
 exercises-2
 population-structure-via-construct
 download-the-data-3
+update-our-compiler-in-bashunix
 install-construct-in-r
 read-in-the-data
 get-our-meta-data-read-into-r-and-ready-to-use
