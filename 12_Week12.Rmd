@@ -40,7 +40,7 @@ tar -xzvf week12_semester.tar.gz
 
 We need to follow this guide [here](https://fahim-sikder.github.io/post/how-to-install-r-ubuntu-20/)
 
-```{html}
+```html
 # first run this to get the compiliers
 
 sudo apt-get install -y libxml2-dev libcurl4-openssl-dev libssl-dev libv8-dev
@@ -66,11 +66,7 @@ pkgbuild::has_build_tools(debug = TRUE)
 # if you see a 'TRUE' then you can go on to the next step, installing rstan
 
 install.packages("rstan", repos = "https://cloud.r-project.org/", dependencies = TRUE)
-
-
 ```
-
-
 
 ## install conStruct in R
 
