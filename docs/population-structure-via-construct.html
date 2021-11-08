@@ -297,7 +297,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13" data-path="population-structure-via-construct.html"><a href="population-structure-via-construct.html"><i class="fa fa-check"></i><b>13</b> Population Structure via conStruct</a>
 <ul>
 <li class="chapter" data-level="13.1" data-path="population-structure-via-construct.html"><a href="population-structure-via-construct.html#download-the-data-3"><i class="fa fa-check"></i><b>13.1</b> Download the data</a></li>
-<li class="chapter" data-level="13.2" data-path="population-structure-via-construct.html"><a href="population-structure-via-construct.html#update-our-compiler-in-bashunix"><i class="fa fa-check"></i><b>13.2</b> update our compiler in bash/UNIX</a></li>
+<li class="chapter" data-level="13.2" data-path="population-structure-via-construct.html"><a href="population-structure-via-construct.html#update-our-compiler-in-bashunix-and-install-everything-for-r-in-the-terminal-in-bashunix-not-in-rstudio"><i class="fa fa-check"></i><b>13.2</b> update our compiler in bash/UNIX and install everything for R in the terminal (in bash/UNIX, NOT in Rstudio)</a></li>
 <li class="chapter" data-level="13.3" data-path="population-structure-via-construct.html"><a href="population-structure-via-construct.html#install-construct-in-r"><i class="fa fa-check"></i><b>13.3</b> install conStruct in R</a></li>
 <li class="chapter" data-level="13.4" data-path="population-structure-via-construct.html"><a href="population-structure-via-construct.html#read-in-the-data"><i class="fa fa-check"></i><b>13.4</b> read in the data</a></li>
 <li class="chapter" data-level="13.5" data-path="population-structure-via-construct.html"><a href="population-structure-via-construct.html#get-our-meta-data-read-into-r-and-ready-to-use"><i class="fa fa-check"></i><b>13.5</b> Get our meta data read into R and ready to use</a></li>
@@ -340,11 +340,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb569-3"><a href="population-structure-via-construct.html#cb569-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb569-4"><a href="population-structure-via-construct.html#cb569-4" aria-hidden="true" tabindex="-1"></a>tar -xzvf week12_semester.tar.gz</span></code></pre></div>
 </div>
-<div id="update-our-compiler-in-bashunix" class="section level2" number="13.2">
-<h2><span class="header-section-number">13.2</span> update our compiler in bash/UNIX</h2>
+<div id="update-our-compiler-in-bashunix-and-install-everything-for-r-in-the-terminal-in-bashunix-not-in-rstudio" class="section level2" number="13.2">
+<h2><span class="header-section-number">13.2</span> update our compiler in bash/UNIX and install everything for R in the terminal (in bash/UNIX, NOT in Rstudio)</h2>
+<p>We need to follow this guide <a href="https://fahim-sikder.github.io/post/how-to-install-r-ubuntu-20/">here</a></p>
 </div>
 <div id="install-construct-in-r" class="section level2" number="13.3">
 <h2><span class="header-section-number">13.3</span> install conStruct in R</h2>
+<p>Now that we have rstan installed we should be able to go into Rstudio and install conStruct (you could also stay in the terminal and run install.packages ("conStruct) there if you want.)</p>
 </div>
 <div id="read-in-the-data" class="section level2" number="13.4">
 <h2><span class="header-section-number">13.4</span> read in the data</h2>
@@ -451,7 +453,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb573-11"><a href="population-structure-via-construct.html#cb573-11" aria-hidden="true" tabindex="-1"></a><span class="co"># make a structure plot</span></span>
 <span id="cb573-12"><a href="population-structure-via-construct.html#cb573-12" aria-hidden="true" tabindex="-1"></a><span class="fu">make.structure.plot</span>(<span class="at">admix.proportions =</span> admix.props,</span>
 <span id="cb573-13"><a href="population-structure-via-construct.html#cb573-13" aria-hidden="true" tabindex="-1"></a>                    <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>))</span></code></pre></div>
-<p><img src="Semester_files/figure-html/unnamed-chunk-124-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="Semester_files/figure-html/unnamed-chunk-121-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 <div id="comparisons-across-different-values-of-k" class="section level2" number="13.7">
 <h2><span class="header-section-number">13.7</span> Comparisons across different values of K</h2>
@@ -531,7 +533,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb576-10"><a href="population-structure-via-construct.html#cb576-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb576-11"><a href="population-structure-via-construct.html#cb576-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb576-12"><a href="population-structure-via-construct.html#cb576-12" aria-hidden="true" tabindex="-1"></a><span class="co"># make the desired map</span></span>
-<span id="cb576-13"><a href="population-structure-via-construct.html#cb576-13" aria-hidden="true" tabindex="-1"></a>maps<span class="sc">::</span><span class="fu">map</span>(<span class="at">xlim =</span> <span class="fu">range</span>(data.block<span class="sc">$</span>coords[,<span class="dv">2</span>]) <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>,<span class="dv">2</span>), <span class="at">ylim =</span> <span class="fu">range</span>(data.block<span class="sc">$</span>coords[,<span class="dv">1</span>])<span class="sc">+</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>,<span class="dv">2</span>), <span class="at">col=</span><span class="st">&quot;gray&quot;</span>)</span>
+<span id="cb576-13"><a href="population-structure-via-construct.html#cb576-13" aria-hidden="true" tabindex="-1"></a>maps<span class="sc">::</span><span class="fu">map</span>(<span class="at">xlim =</span> <span class="fu">range</span>(data.block<span class="sc">$</span>coords[,<span class="dv">1</span>]) <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">5</span>,<span class="dv">5</span>), <span class="at">ylim =</span> <span class="fu">range</span>(data.block<span class="sc">$</span>coords[,<span class="dv">2</span>])<span class="sc">+</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>,<span class="dv">2</span>), <span class="at">col=</span><span class="st">&quot;gray&quot;</span>)</span>
 <span id="cb576-14"><a href="population-structure-via-construct.html#cb576-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb576-15"><a href="population-structure-via-construct.html#cb576-15" aria-hidden="true" tabindex="-1"></a><span class="co"># add the admixture pie plot</span></span>
 <span id="cb576-16"><a href="population-structure-via-construct.html#cb576-16" aria-hidden="true" tabindex="-1"></a><span class="fu">make.admix.pie.plot</span>(<span class="at">admix.proportions =</span> admix.props,</span>
