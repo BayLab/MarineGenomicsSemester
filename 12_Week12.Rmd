@@ -204,19 +204,90 @@ Let's just look at the first one for k = 2.
 ```{r, echo=T}
 
 #load the construct results file
-load("Sea_cucu_K2_conStruct.results.Robj")
+load("Sea_cucu_K3_conStruct.results.Robj")
 
 admix.props<- conStruct.results$chain_1$MAP$admix.proportions
 
 #load the data block file
-load("Sea_cucu_K2_data.block.Robj")
+load("Sea_cucu_K3_data.block.Robj")
 
 
 # make a structure plot
 make.structure.plot(admix.proportions = admix.props,
+                    sample.names=row.names(sites),
+                    mar = c(4,4,2,2))
+
+#let's also make a pie chart
+
+make.admix.pie.plot(admix.proportions = admix.props,
+                    coords = data.block$coords,
                     mar = c(4,4,2,2))
 
 ```
+
+## Incoorporate geographic distances in a spatial model
+
+One of the main advantages of using conStruct is the ability to incorporate within the model measures of geographic distance. 
+
+Let's do that for our K = 2 from above. 
+
+First we need to calculate the geographic distance between our samples. There are many ways to do this, but we'll take a simple approach of calculating the euclidean (straight-line) distance between each site.
+
+```{r, echo=T, message=F, warning=F}
+
+#first install and then load the package geosphere
+#install.packages("geodist")
+
+library("geodist")
+
+#we'll use the function distm and the method distHaversine, which is the shortest distance between two points
+
+
+geo_dist<-geodist(sites, measure="haversine")
+
+
+
+#now we can put the distance into our conStruct analyses
+
+
+
+my.run <- conStruct(spatial = TRUE,
+                    K = 3,
+                    freqs = conStruct.data,
+                    geoDist = geo_dist,
+                    coords = sites,
+                    prefix = "Sea_cucu_K3_dist",
+                    n.chains = 1,
+                    n.iter = 10, 
+                    make.figs=T)
+
+
+#remake our structure plots
+
+#load the construct results file
+load("Sea_cucu_K3_dist_conStruct.results.Robj")
+
+admix.props<- conStruct.results$chain_1$MAP$admix.proportions
+
+#load the data block file
+load("Sea_cucu_K3_dist_data.block.Robj")
+
+
+# make a structure plot
+make.structure.plot(admix.proportions = admix.props,
+                    sample.names=row.names(sites),
+                    mar = c(4,4,2,2))
+
+#and a pie chart
+
+make.admix.pie.plot(admix.proportions = admix.props,
+                    coords = data.block$coords,
+                    mar = c(4,4,2,2))
+
+
+```
+
+
 
 
 ## Comparisons across different values of K
@@ -226,7 +297,6 @@ You may want to show a single structure plot for one value of K and may want tha
 There are a few ways to do this, however most often there's not a single "best" model and care should be taken as models with more parameters often appear to be a better fit, but are not necessarily more biologically meaningful.
 
 The vignette here has several ways in which you can choose an "optimal" K or several K [here](https://cran.r-project.org/web/packages/conStruct/vignettes/model-comparison.html)
-
 
 
 ## Exercises

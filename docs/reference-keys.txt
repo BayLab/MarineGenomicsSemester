@@ -132,5 +132,6 @@ install-construct-in-r
 read-in-the-data
 get-our-meta-data-read-into-r-and-ready-to-use
 run-a-structure-analysis
+incoorporate-geographic-distances-in-a-spatial-model
 comparisons-across-different-values-of-k
 exercises-3

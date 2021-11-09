@@ -152,3 +152,5 @@ get-our-meta-data-read-into-r-and-ready-to-use
 run-a-structure-analysis
 comparisons-across-different-values-of-k
 exercises-3
+update-our-compiler-in-bashunix-and-install-everything-for-r-in-the-terminal-in-bashunix-not-in-rstudio
+incoorporate-geographic-distances-in-a-spatial-model

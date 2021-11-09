@@ -302,8 +302,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.4" data-path="population-structure-via-construct.html"><a href="population-structure-via-construct.html#read-in-the-data"><i class="fa fa-check"></i><b>13.4</b> read in the data</a></li>
 <li class="chapter" data-level="13.5" data-path="population-structure-via-construct.html"><a href="population-structure-via-construct.html#get-our-meta-data-read-into-r-and-ready-to-use"><i class="fa fa-check"></i><b>13.5</b> Get our meta data read into R and ready to use</a></li>
 <li class="chapter" data-level="13.6" data-path="population-structure-via-construct.html"><a href="population-structure-via-construct.html#run-a-structure-analysis"><i class="fa fa-check"></i><b>13.6</b> Run a structure analysis</a></li>
-<li class="chapter" data-level="13.7" data-path="population-structure-via-construct.html"><a href="population-structure-via-construct.html#comparisons-across-different-values-of-k"><i class="fa fa-check"></i><b>13.7</b> Comparisons across different values of K</a></li>
-<li class="chapter" data-level="13.8" data-path="population-structure-via-construct.html"><a href="population-structure-via-construct.html#exercises-3"><i class="fa fa-check"></i><b>13.8</b> Exercises</a></li>
+<li class="chapter" data-level="13.7" data-path="population-structure-via-construct.html"><a href="population-structure-via-construct.html#incoorporate-geographic-distances-in-a-spatial-model"><i class="fa fa-check"></i><b>13.7</b> Incoorporate geographic distances in a spatial model</a></li>
+<li class="chapter" data-level="13.8" data-path="population-structure-via-construct.html"><a href="population-structure-via-construct.html#comparisons-across-different-values-of-k"><i class="fa fa-check"></i><b>13.8</b> Comparisons across different values of K</a></li>
+<li class="chapter" data-level="13.9" data-path="population-structure-via-construct.html"><a href="population-structure-via-construct.html#exercises-3"><i class="fa fa-check"></i><b>13.9</b> Exercises</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -467,27 +468,118 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s just look at the first one for k = 2.</p>
 <div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="population-structure-via-construct.html#cb574-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb574-2"><a href="population-structure-via-construct.html#cb574-2" aria-hidden="true" tabindex="-1"></a><span class="co">#load the construct results file</span></span>
-<span id="cb574-3"><a href="population-structure-via-construct.html#cb574-3" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;Sea_cucu_K2_conStruct.results.Robj&quot;</span>)</span>
+<span id="cb574-3"><a href="population-structure-via-construct.html#cb574-3" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;Sea_cucu_K3_conStruct.results.Robj&quot;</span>)</span>
 <span id="cb574-4"><a href="population-structure-via-construct.html#cb574-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb574-5"><a href="population-structure-via-construct.html#cb574-5" aria-hidden="true" tabindex="-1"></a>admix.props<span class="ot">&lt;-</span> conStruct.results<span class="sc">$</span>chain_1<span class="sc">$</span>MAP<span class="sc">$</span>admix.proportions</span>
 <span id="cb574-6"><a href="population-structure-via-construct.html#cb574-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb574-7"><a href="population-structure-via-construct.html#cb574-7" aria-hidden="true" tabindex="-1"></a><span class="co">#load the data block file</span></span>
-<span id="cb574-8"><a href="population-structure-via-construct.html#cb574-8" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;Sea_cucu_K2_data.block.Robj&quot;</span>)</span>
+<span id="cb574-8"><a href="population-structure-via-construct.html#cb574-8" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;Sea_cucu_K3_data.block.Robj&quot;</span>)</span>
 <span id="cb574-9"><a href="population-structure-via-construct.html#cb574-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb574-10"><a href="population-structure-via-construct.html#cb574-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb574-11"><a href="population-structure-via-construct.html#cb574-11" aria-hidden="true" tabindex="-1"></a><span class="co"># make a structure plot</span></span>
 <span id="cb574-12"><a href="population-structure-via-construct.html#cb574-12" aria-hidden="true" tabindex="-1"></a><span class="fu">make.structure.plot</span>(<span class="at">admix.proportions =</span> admix.props,</span>
-<span id="cb574-13"><a href="population-structure-via-construct.html#cb574-13" aria-hidden="true" tabindex="-1"></a>                    <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>))</span></code></pre></div>
-<p><img src="Semester_files/figure-html/unnamed-chunk-120-1.png" width="768" style="display: block; margin: auto;" /></p>
+<span id="cb574-13"><a href="population-structure-via-construct.html#cb574-13" aria-hidden="true" tabindex="-1"></a>                    <span class="at">sample.names=</span><span class="fu">row.names</span>(sites),</span>
+<span id="cb574-14"><a href="population-structure-via-construct.html#cb574-14" aria-hidden="true" tabindex="-1"></a>                    <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>))</span></code></pre></div>
+<p><img src="Semester_files/figure-html/unnamed-chunk-135-1.png" width="768" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="population-structure-via-construct.html#cb575-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb575-2"><a href="population-structure-via-construct.html#cb575-2" aria-hidden="true" tabindex="-1"></a><span class="co">#let&#39;s also make a pie chart</span></span>
+<span id="cb575-3"><a href="population-structure-via-construct.html#cb575-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb575-4"><a href="population-structure-via-construct.html#cb575-4" aria-hidden="true" tabindex="-1"></a><span class="fu">make.admix.pie.plot</span>(<span class="at">admix.proportions =</span> admix.props,</span>
+<span id="cb575-5"><a href="population-structure-via-construct.html#cb575-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">coords =</span> data.block<span class="sc">$</span>coords,</span>
+<span id="cb575-6"><a href="population-structure-via-construct.html#cb575-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>))</span></code></pre></div>
+<p><img src="Semester_files/figure-html/unnamed-chunk-135-2.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
-<div id="comparisons-across-different-values-of-k" class="section level2" number="13.7">
-<h2><span class="header-section-number">13.7</span> Comparisons across different values of K</h2>
+<div id="incoorporate-geographic-distances-in-a-spatial-model" class="section level2" number="13.7">
+<h2><span class="header-section-number">13.7</span> Incoorporate geographic distances in a spatial model</h2>
+<p>One of the main advantages of using conStruct is the ability to incorporate within the model measures of geographic distance.</p>
+<p>Let’s do that for our K = 2 from above.</p>
+<p>First we need to calculate the geographic distance between our samples. There are many ways to do this, but we’ll take a simple approach of calculating the euclidean (straight-line) distance between each site.</p>
+<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="population-structure-via-construct.html#cb576-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-2"><a href="population-structure-via-construct.html#cb576-2" aria-hidden="true" tabindex="-1"></a><span class="co">#first install and then load the package geosphere</span></span>
+<span id="cb576-3"><a href="population-structure-via-construct.html#cb576-3" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;geodist&quot;)</span></span>
+<span id="cb576-4"><a href="population-structure-via-construct.html#cb576-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-5"><a href="population-structure-via-construct.html#cb576-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;geodist&quot;</span>)</span>
+<span id="cb576-6"><a href="population-structure-via-construct.html#cb576-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-7"><a href="population-structure-via-construct.html#cb576-7" aria-hidden="true" tabindex="-1"></a><span class="co">#we&#39;ll use the function distm and the method distHaversine, which is the shortest distance between two points</span></span>
+<span id="cb576-8"><a href="population-structure-via-construct.html#cb576-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-9"><a href="population-structure-via-construct.html#cb576-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-10"><a href="population-structure-via-construct.html#cb576-10" aria-hidden="true" tabindex="-1"></a>geo_dist<span class="ot">&lt;-</span><span class="fu">geodist</span>(sites, <span class="at">measure=</span><span class="st">&quot;haversine&quot;</span>)</span>
+<span id="cb576-11"><a href="population-structure-via-construct.html#cb576-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-12"><a href="population-structure-via-construct.html#cb576-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-13"><a href="population-structure-via-construct.html#cb576-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-14"><a href="population-structure-via-construct.html#cb576-14" aria-hidden="true" tabindex="-1"></a><span class="co">#now we can put the distance into our conStruct analyses</span></span>
+<span id="cb576-15"><a href="population-structure-via-construct.html#cb576-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-16"><a href="population-structure-via-construct.html#cb576-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-17"><a href="population-structure-via-construct.html#cb576-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-18"><a href="population-structure-via-construct.html#cb576-18" aria-hidden="true" tabindex="-1"></a>my.run <span class="ot">&lt;-</span> <span class="fu">conStruct</span>(<span class="at">spatial =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb576-19"><a href="population-structure-via-construct.html#cb576-19" aria-hidden="true" tabindex="-1"></a>                    <span class="at">K =</span> <span class="dv">3</span>,</span>
+<span id="cb576-20"><a href="population-structure-via-construct.html#cb576-20" aria-hidden="true" tabindex="-1"></a>                    <span class="at">freqs =</span> conStruct.data,</span>
+<span id="cb576-21"><a href="population-structure-via-construct.html#cb576-21" aria-hidden="true" tabindex="-1"></a>                    <span class="at">geoDist =</span> geo_dist,</span>
+<span id="cb576-22"><a href="population-structure-via-construct.html#cb576-22" aria-hidden="true" tabindex="-1"></a>                    <span class="at">coords =</span> sites,</span>
+<span id="cb576-23"><a href="population-structure-via-construct.html#cb576-23" aria-hidden="true" tabindex="-1"></a>                    <span class="at">prefix =</span> <span class="st">&quot;Sea_cucu_K3_dist&quot;</span>,</span>
+<span id="cb576-24"><a href="population-structure-via-construct.html#cb576-24" aria-hidden="true" tabindex="-1"></a>                    <span class="at">n.chains =</span> <span class="dv">1</span>,</span>
+<span id="cb576-25"><a href="population-structure-via-construct.html#cb576-25" aria-hidden="true" tabindex="-1"></a>                    <span class="at">n.iter =</span> <span class="dv">10</span>, </span>
+<span id="cb576-26"><a href="population-structure-via-construct.html#cb576-26" aria-hidden="true" tabindex="-1"></a>                    <span class="at">make.figs=</span>T)</span>
+<span id="cb576-27"><a href="population-structure-via-construct.html#cb576-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb576-28"><a href="population-structure-via-construct.html#cb576-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; SAMPLING FOR MODEL &#39;space_multiK&#39; NOW (CHAIN 1).</span></span>
+<span id="cb576-29"><a href="population-structure-via-construct.html#cb576-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: </span></span>
+<span id="cb576-30"><a href="population-structure-via-construct.html#cb576-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: Gradient evaluation took 0.012 seconds</span></span>
+<span id="cb576-31"><a href="population-structure-via-construct.html#cb576-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 120 seconds.</span></span>
+<span id="cb576-32"><a href="population-structure-via-construct.html#cb576-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: Adjust your expectations accordingly!</span></span>
+<span id="cb576-33"><a href="population-structure-via-construct.html#cb576-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: </span></span>
+<span id="cb576-34"><a href="population-structure-via-construct.html#cb576-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: </span></span>
+<span id="cb576-35"><a href="population-structure-via-construct.html#cb576-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: </span><span class="al">WARNING</span><span class="co">: No variance estimation is</span></span>
+<span id="cb576-36"><a href="population-structure-via-construct.html#cb576-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1:          performed for num_warmup &lt; 20</span></span>
+<span id="cb576-37"><a href="population-structure-via-construct.html#cb576-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: </span></span>
+<span id="cb576-38"><a href="population-structure-via-construct.html#cb576-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: Iteration: 1 / 10 [ 10%]  (Warmup)</span></span>
+<span id="cb576-39"><a href="population-structure-via-construct.html#cb576-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: Iteration: 2 / 10 [ 20%]  (Warmup)</span></span>
+<span id="cb576-40"><a href="population-structure-via-construct.html#cb576-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: Iteration: 3 / 10 [ 30%]  (Warmup)</span></span>
+<span id="cb576-41"><a href="population-structure-via-construct.html#cb576-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: Iteration: 4 / 10 [ 40%]  (Warmup)</span></span>
+<span id="cb576-42"><a href="population-structure-via-construct.html#cb576-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: Iteration: 5 / 10 [ 50%]  (Warmup)</span></span>
+<span id="cb576-43"><a href="population-structure-via-construct.html#cb576-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: Iteration: 6 / 10 [ 60%]  (Sampling)</span></span>
+<span id="cb576-44"><a href="population-structure-via-construct.html#cb576-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: Iteration: 7 / 10 [ 70%]  (Sampling)</span></span>
+<span id="cb576-45"><a href="population-structure-via-construct.html#cb576-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: Iteration: 8 / 10 [ 80%]  (Sampling)</span></span>
+<span id="cb576-46"><a href="population-structure-via-construct.html#cb576-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: Iteration: 9 / 10 [ 90%]  (Sampling)</span></span>
+<span id="cb576-47"><a href="population-structure-via-construct.html#cb576-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: Iteration: 10 / 10 [100%]  (Sampling)</span></span>
+<span id="cb576-48"><a href="population-structure-via-construct.html#cb576-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: </span></span>
+<span id="cb576-49"><a href="population-structure-via-construct.html#cb576-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1:  Elapsed Time: 0.175 seconds (Warm-up)</span></span>
+<span id="cb576-50"><a href="population-structure-via-construct.html#cb576-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1:                0.098 seconds (Sampling)</span></span>
+<span id="cb576-51"><a href="population-structure-via-construct.html#cb576-51" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1:                0.273 seconds (Total)</span></span>
+<span id="cb576-52"><a href="population-structure-via-construct.html#cb576-52" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1:</span></span>
+<span id="cb576-53"><a href="population-structure-via-construct.html#cb576-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-54"><a href="population-structure-via-construct.html#cb576-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-55"><a href="population-structure-via-construct.html#cb576-55" aria-hidden="true" tabindex="-1"></a><span class="co">#remake our structure plots</span></span>
+<span id="cb576-56"><a href="population-structure-via-construct.html#cb576-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-57"><a href="population-structure-via-construct.html#cb576-57" aria-hidden="true" tabindex="-1"></a><span class="co">#load the construct results file</span></span>
+<span id="cb576-58"><a href="population-structure-via-construct.html#cb576-58" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;Sea_cucu_K3_dist_conStruct.results.Robj&quot;</span>)</span>
+<span id="cb576-59"><a href="population-structure-via-construct.html#cb576-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-60"><a href="population-structure-via-construct.html#cb576-60" aria-hidden="true" tabindex="-1"></a>admix.props<span class="ot">&lt;-</span> conStruct.results<span class="sc">$</span>chain_1<span class="sc">$</span>MAP<span class="sc">$</span>admix.proportions</span>
+<span id="cb576-61"><a href="population-structure-via-construct.html#cb576-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-62"><a href="population-structure-via-construct.html#cb576-62" aria-hidden="true" tabindex="-1"></a><span class="co">#load the data block file</span></span>
+<span id="cb576-63"><a href="population-structure-via-construct.html#cb576-63" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;Sea_cucu_K3_dist_data.block.Robj&quot;</span>)</span>
+<span id="cb576-64"><a href="population-structure-via-construct.html#cb576-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-65"><a href="population-structure-via-construct.html#cb576-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-66"><a href="population-structure-via-construct.html#cb576-66" aria-hidden="true" tabindex="-1"></a><span class="co"># make a structure plot</span></span>
+<span id="cb576-67"><a href="population-structure-via-construct.html#cb576-67" aria-hidden="true" tabindex="-1"></a><span class="fu">make.structure.plot</span>(<span class="at">admix.proportions =</span> admix.props,</span>
+<span id="cb576-68"><a href="population-structure-via-construct.html#cb576-68" aria-hidden="true" tabindex="-1"></a>                    <span class="at">sample.names=</span><span class="fu">row.names</span>(sites),</span>
+<span id="cb576-69"><a href="population-structure-via-construct.html#cb576-69" aria-hidden="true" tabindex="-1"></a>                    <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>))</span></code></pre></div>
+<p><img src="Semester_files/figure-html/unnamed-chunk-136-1.png" width="768" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="population-structure-via-construct.html#cb577-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb577-2"><a href="population-structure-via-construct.html#cb577-2" aria-hidden="true" tabindex="-1"></a><span class="co">#and a pie chart</span></span>
+<span id="cb577-3"><a href="population-structure-via-construct.html#cb577-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb577-4"><a href="population-structure-via-construct.html#cb577-4" aria-hidden="true" tabindex="-1"></a><span class="fu">make.admix.pie.plot</span>(<span class="at">admix.proportions =</span> admix.props,</span>
+<span id="cb577-5"><a href="population-structure-via-construct.html#cb577-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">coords =</span> data.block<span class="sc">$</span>coords,</span>
+<span id="cb577-6"><a href="population-structure-via-construct.html#cb577-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>))</span></code></pre></div>
+<p><img src="Semester_files/figure-html/unnamed-chunk-136-2.png" width="768" style="display: block; margin: auto;" /></p>
+</div>
+<div id="comparisons-across-different-values-of-k" class="section level2" number="13.8">
+<h2><span class="header-section-number">13.8</span> Comparisons across different values of K</h2>
 <p>You may want to show a single structure plot for one value of K and may want that one plot to be the “best” fitting model for your data.</p>
 <p>There are a few ways to do this, however most often there’s not a single “best” model and care should be taken as models with more parameters often appear to be a better fit, but are not necessarily more biologically meaningful.</p>
 <p>The vignette here has several ways in which you can choose an “optimal” K or several K <a href="https://cran.r-project.org/web/packages/conStruct/vignettes/model-comparison.html">here</a></p>
 </div>
-<div id="exercises-3" class="section level2" number="13.8">
-<h2><span class="header-section-number">13.8</span> Exercises</h2>
+<div id="exercises-3" class="section level2" number="13.9">
+<h2><span class="header-section-number">13.9</span> Exercises</h2>
 <ol style="list-style-type: decimal">
 <li>change the colors in the plot. THe default red and blue for K = 2 is not very friendly for those with color blindess. Using the command <code>?make.structure.plot</code> determine how you would change the colors and then using this <a href="http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/#a-colorblind-friendly-palette">site</a> choose color-blind-friendly colors. Make a strucutre plot for K = 2 and K = 4 using your new colors.</li>
 </ol>
@@ -496,45 +588,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span style="color: Purple;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="population-structure-via-construct.html#cb575-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb575-2"><a href="population-structure-via-construct.html#cb575-2" aria-hidden="true" tabindex="-1"></a><span class="co">#first check how to do this</span></span>
-<span id="cb575-3"><a href="population-structure-via-construct.html#cb575-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb575-4"><a href="population-structure-via-construct.html#cb575-4" aria-hidden="true" tabindex="-1"></a>?<span class="fu">make.structure.plot</span>()</span>
-<span id="cb575-5"><a href="population-structure-via-construct.html#cb575-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb575-6"><a href="population-structure-via-construct.html#cb575-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb575-7"><a href="population-structure-via-construct.html#cb575-7" aria-hidden="true" tabindex="-1"></a><span class="do">###### For K = 2   ############</span></span>
-<span id="cb575-8"><a href="population-structure-via-construct.html#cb575-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb575-9"><a href="population-structure-via-construct.html#cb575-9" aria-hidden="true" tabindex="-1"></a><span class="co">#load the construct results file </span></span>
-<span id="cb575-10"><a href="population-structure-via-construct.html#cb575-10" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;Sea_cucu_K2_conStruct.results.Robj&quot;</span>)</span>
-<span id="cb575-11"><a href="population-structure-via-construct.html#cb575-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb575-12"><a href="population-structure-via-construct.html#cb575-12" aria-hidden="true" tabindex="-1"></a>admix.props<span class="ot">&lt;-</span> conStruct.results<span class="sc">$</span>chain_1<span class="sc">$</span>MAP<span class="sc">$</span>admix.proportions</span>
-<span id="cb575-13"><a href="population-structure-via-construct.html#cb575-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb575-14"><a href="population-structure-via-construct.html#cb575-14" aria-hidden="true" tabindex="-1"></a><span class="co">#load the data block file</span></span>
-<span id="cb575-15"><a href="population-structure-via-construct.html#cb575-15" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;Sea_cucu_K2_data.block.Robj&quot;</span>)</span>
-<span id="cb575-16"><a href="population-structure-via-construct.html#cb575-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb575-17"><a href="population-structure-via-construct.html#cb575-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb575-18"><a href="population-structure-via-construct.html#cb575-18" aria-hidden="true" tabindex="-1"></a><span class="co"># make a structure plot</span></span>
-<span id="cb575-19"><a href="population-structure-via-construct.html#cb575-19" aria-hidden="true" tabindex="-1"></a><span class="fu">make.structure.plot</span>(<span class="at">admix.proportions =</span> admix.props,</span>
-<span id="cb575-20"><a href="population-structure-via-construct.html#cb575-20" aria-hidden="true" tabindex="-1"></a>                    <span class="at">layer.colors =</span> <span class="fu">c</span>(<span class="st">&quot;#E69F00&quot;</span>, <span class="st">&quot;#0072B2&quot;</span>),</span>
-<span id="cb575-21"><a href="population-structure-via-construct.html#cb575-21" aria-hidden="true" tabindex="-1"></a>                    <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="population-structure-via-construct.html#cb578-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb578-2"><a href="population-structure-via-construct.html#cb578-2" aria-hidden="true" tabindex="-1"></a><span class="co">#first check how to do this</span></span>
+<span id="cb578-3"><a href="population-structure-via-construct.html#cb578-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb578-4"><a href="population-structure-via-construct.html#cb578-4" aria-hidden="true" tabindex="-1"></a>?<span class="fu">make.structure.plot</span>()</span>
+<span id="cb578-5"><a href="population-structure-via-construct.html#cb578-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb578-6"><a href="population-structure-via-construct.html#cb578-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb578-7"><a href="population-structure-via-construct.html#cb578-7" aria-hidden="true" tabindex="-1"></a><span class="do">###### For K = 2   ############</span></span>
+<span id="cb578-8"><a href="population-structure-via-construct.html#cb578-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb578-9"><a href="population-structure-via-construct.html#cb578-9" aria-hidden="true" tabindex="-1"></a><span class="co">#load the construct results file </span></span>
+<span id="cb578-10"><a href="population-structure-via-construct.html#cb578-10" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;Sea_cucu_K2_conStruct.results.Robj&quot;</span>)</span>
+<span id="cb578-11"><a href="population-structure-via-construct.html#cb578-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb578-12"><a href="population-structure-via-construct.html#cb578-12" aria-hidden="true" tabindex="-1"></a>admix.props<span class="ot">&lt;-</span> conStruct.results<span class="sc">$</span>chain_1<span class="sc">$</span>MAP<span class="sc">$</span>admix.proportions</span>
+<span id="cb578-13"><a href="population-structure-via-construct.html#cb578-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb578-14"><a href="population-structure-via-construct.html#cb578-14" aria-hidden="true" tabindex="-1"></a><span class="co">#load the data block file</span></span>
+<span id="cb578-15"><a href="population-structure-via-construct.html#cb578-15" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;Sea_cucu_K2_data.block.Robj&quot;</span>)</span>
+<span id="cb578-16"><a href="population-structure-via-construct.html#cb578-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb578-17"><a href="population-structure-via-construct.html#cb578-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb578-18"><a href="population-structure-via-construct.html#cb578-18" aria-hidden="true" tabindex="-1"></a><span class="co"># make a structure plot</span></span>
+<span id="cb578-19"><a href="population-structure-via-construct.html#cb578-19" aria-hidden="true" tabindex="-1"></a><span class="fu">make.structure.plot</span>(<span class="at">admix.proportions =</span> admix.props,</span>
+<span id="cb578-20"><a href="population-structure-via-construct.html#cb578-20" aria-hidden="true" tabindex="-1"></a>                    <span class="at">layer.colors =</span> <span class="fu">c</span>(<span class="st">&quot;#E69F00&quot;</span>, <span class="st">&quot;#0072B2&quot;</span>),</span>
+<span id="cb578-21"><a href="population-structure-via-construct.html#cb578-21" aria-hidden="true" tabindex="-1"></a>                    <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>))</span></code></pre></div>
 <p><img src="Semester_files/figure-html/e1_w12-1.png" width="768" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="population-structure-via-construct.html#cb576-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb576-2"><a href="population-structure-via-construct.html#cb576-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb576-3"><a href="population-structure-via-construct.html#cb576-3" aria-hidden="true" tabindex="-1"></a><span class="do">###### For K = 4   ############</span></span>
-<span id="cb576-4"><a href="population-structure-via-construct.html#cb576-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb576-5"><a href="population-structure-via-construct.html#cb576-5" aria-hidden="true" tabindex="-1"></a><span class="co">#load the construct results file </span></span>
-<span id="cb576-6"><a href="population-structure-via-construct.html#cb576-6" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;Sea_cucu_K4_conStruct.results.Robj&quot;</span>)</span>
-<span id="cb576-7"><a href="population-structure-via-construct.html#cb576-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb576-8"><a href="population-structure-via-construct.html#cb576-8" aria-hidden="true" tabindex="-1"></a>admix.props<span class="ot">&lt;-</span> conStruct.results<span class="sc">$</span>chain_1<span class="sc">$</span>MAP<span class="sc">$</span>admix.proportions</span>
-<span id="cb576-9"><a href="population-structure-via-construct.html#cb576-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb576-10"><a href="population-structure-via-construct.html#cb576-10" aria-hidden="true" tabindex="-1"></a><span class="co">#load the data block file</span></span>
-<span id="cb576-11"><a href="population-structure-via-construct.html#cb576-11" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;Sea_cucu_K4_data.block.Robj&quot;</span>)</span>
-<span id="cb576-12"><a href="population-structure-via-construct.html#cb576-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb576-13"><a href="population-structure-via-construct.html#cb576-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb576-14"><a href="population-structure-via-construct.html#cb576-14" aria-hidden="true" tabindex="-1"></a><span class="co"># make a structure plot</span></span>
-<span id="cb576-15"><a href="population-structure-via-construct.html#cb576-15" aria-hidden="true" tabindex="-1"></a><span class="fu">make.structure.plot</span>(<span class="at">admix.proportions =</span> admix.props,</span>
-<span id="cb576-16"><a href="population-structure-via-construct.html#cb576-16" aria-hidden="true" tabindex="-1"></a>                    <span class="at">layer.colors =</span> <span class="fu">c</span>(<span class="st">&quot;#E69F00&quot;</span>, <span class="st">&quot;#0072B2&quot;</span>, <span class="st">&quot;#999999&quot;</span>, <span class="st">&quot;#CC79A7&quot;</span>),</span>
-<span id="cb576-17"><a href="population-structure-via-construct.html#cb576-17" aria-hidden="true" tabindex="-1"></a>                    <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="population-structure-via-construct.html#cb579-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb579-2"><a href="population-structure-via-construct.html#cb579-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb579-3"><a href="population-structure-via-construct.html#cb579-3" aria-hidden="true" tabindex="-1"></a><span class="do">###### For K = 4   ############</span></span>
+<span id="cb579-4"><a href="population-structure-via-construct.html#cb579-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb579-5"><a href="population-structure-via-construct.html#cb579-5" aria-hidden="true" tabindex="-1"></a><span class="co">#load the construct results file </span></span>
+<span id="cb579-6"><a href="population-structure-via-construct.html#cb579-6" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;Sea_cucu_K4_conStruct.results.Robj&quot;</span>)</span>
+<span id="cb579-7"><a href="population-structure-via-construct.html#cb579-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb579-8"><a href="population-structure-via-construct.html#cb579-8" aria-hidden="true" tabindex="-1"></a>admix.props<span class="ot">&lt;-</span> conStruct.results<span class="sc">$</span>chain_1<span class="sc">$</span>MAP<span class="sc">$</span>admix.proportions</span>
+<span id="cb579-9"><a href="population-structure-via-construct.html#cb579-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb579-10"><a href="population-structure-via-construct.html#cb579-10" aria-hidden="true" tabindex="-1"></a><span class="co">#load the data block file</span></span>
+<span id="cb579-11"><a href="population-structure-via-construct.html#cb579-11" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;Sea_cucu_K4_data.block.Robj&quot;</span>)</span>
+<span id="cb579-12"><a href="population-structure-via-construct.html#cb579-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb579-13"><a href="population-structure-via-construct.html#cb579-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb579-14"><a href="population-structure-via-construct.html#cb579-14" aria-hidden="true" tabindex="-1"></a><span class="co"># make a structure plot</span></span>
+<span id="cb579-15"><a href="population-structure-via-construct.html#cb579-15" aria-hidden="true" tabindex="-1"></a><span class="fu">make.structure.plot</span>(<span class="at">admix.proportions =</span> admix.props,</span>
+<span id="cb579-16"><a href="population-structure-via-construct.html#cb579-16" aria-hidden="true" tabindex="-1"></a>                    <span class="at">layer.colors =</span> <span class="fu">c</span>(<span class="st">&quot;#E69F00&quot;</span>, <span class="st">&quot;#0072B2&quot;</span>, <span class="st">&quot;#999999&quot;</span>, <span class="st">&quot;#CC79A7&quot;</span>),</span>
+<span id="cb579-17"><a href="population-structure-via-construct.html#cb579-17" aria-hidden="true" tabindex="-1"></a>                    <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>))</span></code></pre></div>
 <p><img src="Semester_files/figure-html/e1_w12-2.png" width="768" style="display: block; margin: auto;" /></p>
 </p>
 </details>
@@ -546,24 +638,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span style="color: Purple;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="population-structure-via-construct.html#cb577-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb577-2"><a href="population-structure-via-construct.html#cb577-2" aria-hidden="true" tabindex="-1"></a><span class="co">#first load your data</span></span>
-<span id="cb577-3"><a href="population-structure-via-construct.html#cb577-3" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;Sea_cucu_K2_conStruct.results.Robj&quot;</span>)</span>
-<span id="cb577-4"><a href="population-structure-via-construct.html#cb577-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb577-5"><a href="population-structure-via-construct.html#cb577-5" aria-hidden="true" tabindex="-1"></a>admix.props<span class="ot">&lt;-</span> conStruct.results<span class="sc">$</span>chain_1<span class="sc">$</span>MAP<span class="sc">$</span>admix.proportions</span>
-<span id="cb577-6"><a href="population-structure-via-construct.html#cb577-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb577-7"><a href="population-structure-via-construct.html#cb577-7" aria-hidden="true" tabindex="-1"></a><span class="co">#load the data block file</span></span>
-<span id="cb577-8"><a href="population-structure-via-construct.html#cb577-8" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;Sea_cucu_K2_data.block.Robj&quot;</span>)</span>
-<span id="cb577-9"><a href="population-structure-via-construct.html#cb577-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb577-10"><a href="population-structure-via-construct.html#cb577-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb577-11"><a href="population-structure-via-construct.html#cb577-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb577-12"><a href="population-structure-via-construct.html#cb577-12" aria-hidden="true" tabindex="-1"></a><span class="co"># make the desired map</span></span>
-<span id="cb577-13"><a href="population-structure-via-construct.html#cb577-13" aria-hidden="true" tabindex="-1"></a>maps<span class="sc">::</span><span class="fu">map</span>(<span class="at">xlim =</span> <span class="fu">range</span>(data.block<span class="sc">$</span>coords[,<span class="dv">1</span>]) <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">5</span>,<span class="dv">5</span>), <span class="at">ylim =</span> <span class="fu">range</span>(data.block<span class="sc">$</span>coords[,<span class="dv">2</span>])<span class="sc">+</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>,<span class="dv">2</span>), <span class="at">col=</span><span class="st">&quot;gray&quot;</span>)</span>
-<span id="cb577-14"><a href="population-structure-via-construct.html#cb577-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb577-15"><a href="population-structure-via-construct.html#cb577-15" aria-hidden="true" tabindex="-1"></a><span class="co"># add the admixture pie plot</span></span>
-<span id="cb577-16"><a href="population-structure-via-construct.html#cb577-16" aria-hidden="true" tabindex="-1"></a><span class="fu">make.admix.pie.plot</span>(<span class="at">admix.proportions =</span> admix.props,</span>
-<span id="cb577-17"><a href="population-structure-via-construct.html#cb577-17" aria-hidden="true" tabindex="-1"></a>                        <span class="at">coords =</span> data.block<span class="sc">$</span>coords,</span>
-<span id="cb577-18"><a href="population-structure-via-construct.html#cb577-18" aria-hidden="true" tabindex="-1"></a>                        <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="population-structure-via-construct.html#cb580-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb580-2"><a href="population-structure-via-construct.html#cb580-2" aria-hidden="true" tabindex="-1"></a><span class="co">#first load your data</span></span>
+<span id="cb580-3"><a href="population-structure-via-construct.html#cb580-3" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;Sea_cucu_K2_conStruct.results.Robj&quot;</span>)</span>
+<span id="cb580-4"><a href="population-structure-via-construct.html#cb580-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb580-5"><a href="population-structure-via-construct.html#cb580-5" aria-hidden="true" tabindex="-1"></a>admix.props<span class="ot">&lt;-</span> conStruct.results<span class="sc">$</span>chain_1<span class="sc">$</span>MAP<span class="sc">$</span>admix.proportions</span>
+<span id="cb580-6"><a href="population-structure-via-construct.html#cb580-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb580-7"><a href="population-structure-via-construct.html#cb580-7" aria-hidden="true" tabindex="-1"></a><span class="co">#load the data block file</span></span>
+<span id="cb580-8"><a href="population-structure-via-construct.html#cb580-8" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;Sea_cucu_K2_data.block.Robj&quot;</span>)</span>
+<span id="cb580-9"><a href="population-structure-via-construct.html#cb580-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb580-10"><a href="population-structure-via-construct.html#cb580-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb580-11"><a href="population-structure-via-construct.html#cb580-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb580-12"><a href="population-structure-via-construct.html#cb580-12" aria-hidden="true" tabindex="-1"></a><span class="co"># make the desired map</span></span>
+<span id="cb580-13"><a href="population-structure-via-construct.html#cb580-13" aria-hidden="true" tabindex="-1"></a>maps<span class="sc">::</span><span class="fu">map</span>(<span class="at">xlim =</span> <span class="fu">range</span>(data.block<span class="sc">$</span>coords[,<span class="dv">1</span>]) <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">5</span>,<span class="dv">5</span>), <span class="at">ylim =</span> <span class="fu">range</span>(data.block<span class="sc">$</span>coords[,<span class="dv">2</span>])<span class="sc">+</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>,<span class="dv">2</span>), <span class="at">col=</span><span class="st">&quot;gray&quot;</span>)</span>
+<span id="cb580-14"><a href="population-structure-via-construct.html#cb580-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb580-15"><a href="population-structure-via-construct.html#cb580-15" aria-hidden="true" tabindex="-1"></a><span class="co"># add the admixture pie plot</span></span>
+<span id="cb580-16"><a href="population-structure-via-construct.html#cb580-16" aria-hidden="true" tabindex="-1"></a><span class="fu">make.admix.pie.plot</span>(<span class="at">admix.proportions =</span> admix.props,</span>
+<span id="cb580-17"><a href="population-structure-via-construct.html#cb580-17" aria-hidden="true" tabindex="-1"></a>                        <span class="at">coords =</span> data.block<span class="sc">$</span>coords,</span>
+<span id="cb580-18"><a href="population-structure-via-construct.html#cb580-18" aria-hidden="true" tabindex="-1"></a>                        <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="Semester_files/figure-html/e2_w12-1.png" width="768" style="display: block; margin: auto;" /></p>
 </p>
 </details>
