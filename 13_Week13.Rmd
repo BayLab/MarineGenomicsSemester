@@ -1,18 +1,18 @@
 ---
-title: "Week 10 wrap up"
-author: "Serena Caplins"
-date: "5/31/2021"
+title: 
+author: 
+date:
 output:
   bookdown::html_book:
     toc: yes
     css: toc.css
 ---
 
-```{r setup10, include=FALSE}
+```{r setup13, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Week 10- Genomics is a BLAST
+# Week 13- Genomics is a BLAST
 
 
 Through this course we've taken genomic data in the form of whole genome sequences or reduced representation sequences (i.e., RADtags) and searched for correlations between phenotypes (via GWAS) and population structure (Fst Outliers) to identify "candidate SNP" that may have some role in producing the phenotypes we're interested in. 

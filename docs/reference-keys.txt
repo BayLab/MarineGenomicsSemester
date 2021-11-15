@@ -135,7 +135,7 @@ run-a-structure-analysis
 incoorporate-geographic-distances-in-a-spatial-model
 comparisons-across-different-values-of-k
 exercises-3
-week-10--genomics-is-a-blast
+week-13--genomics-is-a-blast
 genome-annotation-and-blast-searches
 download-the-data-4
 install-transdecoder
