@@ -44,7 +44,7 @@ sudo apt install libgdal-dev
 ## install R packages
 
 
-```{r echo=T, message=FALSE}
+```{r echo=T, message=FALSE, warning=F}
 
 #devtools::install_github("bcm-uga/lfmm")
 
@@ -74,20 +74,21 @@ library(raster)
 
 now we need to download the environmental data for our study. We're just going to look at a few variables but there are many others that you could choose from here: https://www.bio-oracle.org/explore-data.php
 
-
+Note that this step is rather time consuming, thus it's best to download the data once and save it as an environment file, which you can upload each time you want to modify your script.
 
 ```{r echo=T, message=FALSE, warning=FALSE, results=F}
 
 #load the environmental data and store it as objects that we can use later
-environ <- load_layers(layercodes = c("BO_chlomean","BO_ph", "BO_salinity","BO_sstmax","BO_sstmean"))
+
+#environ <- load_layers(layercodes = c("BO_chlomean","BO_ph", "BO_salinity","BO_sstmax","BO_sstmean"))
 
 #now put each layer into it's own object
 
-chlomean<-load_layers("BO_chlomean")
-ph<-load_layers("BO_ph")
-salinity<-load_layers("BO_salinity")
-sst_max<-load_layers("BO_sstmax")
-sst_mean<-load_layers("BO_sstmean")
+#chlomean<-load_layers("BO_chlomean")
+#ph<-load_layers("BO_ph")
+#salinity<-load_layers("BO_salinity")
+#sst_max<-load_layers("BO_sstmax")
+#sst_mean<-load_layers("BO_sstmean")
 
 
 ```
@@ -109,6 +110,13 @@ head(sites)
 ```
 
 
+```{r, echo=F}
+#read in pre-downloaded environmental data
+
+environ<-read.env("sites_environ_matrix.env")
+```
+
+
 ## Extract Site Specific Information from our Envirornmental Layers
 
 The data we downloaded 
@@ -119,7 +127,26 @@ head(sites_environ)
 
 ```
 
-That produces for us a site specific environment file. We now need to convert this file into a format that we can save it as a matrix and export it as an environment file (i.e., in the format that the next step need it to be in)
+That produces for us a site specific environment file. We now need to convert this file into a format that we can save it as a matrix and export it as an environment file (i.e., in the format that the next step need it to be in which we do below)
+
+
+```{r, echo=T}
+
+#remove lat and lon and convert to matrix
+
+sites_environ_matrix<-as.matrix(sites_environ[,-c(1,2)])
+
+#remove any Na's
+
+sites_environ_matrix_nas<-na.omit(sites_environ_matrix)
+
+#write the file to an env file
+
+write.env(sites_environ_matrix_nas, "sites_environ_matrix.env")
+
+```
+
+
 
 ## Make a Map of our environmental data
 
@@ -148,26 +175,6 @@ title(cex.sub = 1.25, sub = "Maximum temperature at the sea surface (ºC)")
 
 
 ```
-
-
-
-```{r, echo=T}
-
-#remove lat and lon and convert to matrix
-
-sites_environ_matrix<-as.matrix(sites_environ[,-c(1,2)])
-
-#remove any Na's
-
-sites_environ_matrix_nas<-na.omit(sites_environ_matrix)
-
-#write the file to an env file
-
-write.env(sites_environ_matrix_nas, "sites_environ_matrix.env")
-
-
-```
-
 
 
 

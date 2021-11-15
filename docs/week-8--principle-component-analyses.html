@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>9 Week 8- Principle Component Analyses | Semester.knit</title>
-  <meta name="description" content="" />
+  <title>9 Week 8- Principle Component Analyses | Week 10 wrap up</title>
+  <meta name="description" content="9 Week 8- Principle Component Analyses | Week 10 wrap up" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="9 Week 8- Principle Component Analyses | Semester.knit" />
+  <meta property="og:title" content="9 Week 8- Principle Component Analyses | Week 10 wrap up" />
   <meta property="og:type" content="book" />
   
   
@@ -16,11 +16,12 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="9 Week 8- Principle Component Analyses | Semester.knit" />
+  <meta name="twitter:title" content="9 Week 8- Principle Component Analyses | Week 10 wrap up" />
   
   
   
 
+<meta name="author" content="Serena Caplins" />
 
 
 
@@ -306,6 +307,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.8" data-path="population-structure-via-construct.html"><a href="population-structure-via-construct.html#comparisons-across-different-values-of-k"><i class="fa fa-check"></i><b>13.8</b> Comparisons across different values of K</a></li>
 <li class="chapter" data-level="13.9" data-path="population-structure-via-construct.html"><a href="population-structure-via-construct.html#exercises-3"><i class="fa fa-check"></i><b>13.9</b> Exercises</a></li>
 </ul></li>
+<li class="chapter" data-level="14" data-path="week-10--genomics-is-a-blast.html"><a href="week-10--genomics-is-a-blast.html"><i class="fa fa-check"></i><b>14</b> Week 10- Genomics is a BLAST</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="week-10--genomics-is-a-blast.html"><a href="week-10--genomics-is-a-blast.html#genome-annotation-and-blast-searches"><i class="fa fa-check"></i><b>14.1</b> Genome Annotation and BLAST searches</a></li>
+<li class="chapter" data-level="14.2" data-path="week-10--genomics-is-a-blast.html"><a href="week-10--genomics-is-a-blast.html#download-the-data-4"><i class="fa fa-check"></i><b>14.2</b> Download the data</a></li>
+<li class="chapter" data-level="14.3" data-path="week-10--genomics-is-a-blast.html"><a href="week-10--genomics-is-a-blast.html#install-transdecoder"><i class="fa fa-check"></i><b>14.3</b> Install Transdecoder</a></li>
+<li class="chapter" data-level="14.4" data-path="week-10--genomics-is-a-blast.html"><a href="week-10--genomics-is-a-blast.html#run-transdecoder"><i class="fa fa-check"></i><b>14.4</b> Run Transdecoder</a></li>
+<li class="chapter" data-level="14.5" data-path="week-10--genomics-is-a-blast.html"><a href="week-10--genomics-is-a-blast.html#run-ncbi-blast"><i class="fa fa-check"></i><b>14.5</b> Run NCBI-BLAST</a></li>
+<li class="chapter" data-level="14.6" data-path="week-10--genomics-is-a-blast.html"><a href="week-10--genomics-is-a-blast.html#what-did-we-find"><i class="fa fa-check"></i><b>14.6</b> What did we find?</a></li>
+<li class="chapter" data-level="14.7" data-path="week-10--genomics-is-a-blast.html"><a href="week-10--genomics-is-a-blast.html#the-importance-of-genomic-architecture"><i class="fa fa-check"></i><b>14.7</b> The importance of Genomic Architecture</a></li>
+<li class="chapter" data-level="14.8" data-path="week-10--genomics-is-a-blast.html"><a href="week-10--genomics-is-a-blast.html#exercises-4"><i class="fa fa-check"></i><b>14.8</b> Exercises</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -318,7 +330,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Week 10 wrap up</a>
           </h1>
         </div>
 
@@ -400,8 +412,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="Semester_files/figure-html/6-1-1.png" width="768" style="display: block; margin: auto;" />
 We may be interested in how much of the variance our first two components explain. You can look at this in the <code>e</code> object under values. We divide the eigen values by the sum of all the values to get the percent explained by each value.</p>
 <div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="week-8--principle-component-analyses.html#cb495-1" aria-hidden="true" tabindex="-1"></a>e<span class="sc">$</span>values<span class="sc">/</span><span class="fu">sum</span>(e<span class="sc">$</span>values)</span>
-<span id="cb495-2"><a href="week-8--principle-component-analyses.html#cb495-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] 0.24278761 0.07662213 0.07502757 0.07349541 0.07287943 0.07034540 0.06674509 0.06530546 0.05280345 0.04958515 0.04274839 0.03706328 0.03527164</span></span>
-<span id="cb495-3"><a href="week-8--principle-component-analyses.html#cb495-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [14] 0.03241500 0.00690499</span></span></code></pre></div>
+<span id="cb495-2"><a href="week-8--principle-component-analyses.html#cb495-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] 0.24278761 0.07662213 0.07502757 0.07349541 0.07287943 0.07034540 0.06674509 0.06530546 0.05280345 0.04958515 0.04274839</span></span>
+<span id="cb495-3"><a href="week-8--principle-component-analyses.html#cb495-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [12] 0.03706328 0.03527164 0.03241500 0.00690499</span></span></code></pre></div>
 <p>We now want to make the colors match population labels. The information for which population each individual sample came from is in the bam.filelist file.</p>
 <div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="week-8--principle-component-analyses.html#cb496-1" aria-hidden="true" tabindex="-1"></a><span class="co">#read in the data</span></span>
 <span id="cb496-2"><a href="week-8--principle-component-analyses.html#cb496-2" aria-hidden="true" tabindex="-1"></a>names<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;bam.filelist&quot;</span>)</span>
@@ -459,10 +471,10 @@ Hint use the command <code>read.table(gzfile("path/to/genotypelikelihoodfile/), 
 <span id="cb499-4"><a href="week-8--principle-component-analyses.html#cb499-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(gen)</span>
 <span id="cb499-5"><a href="week-8--principle-component-analyses.html#cb499-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;chromo&quot;   &quot;position&quot; &quot;major&quot;    &quot;minor&quot;    &quot;knownEM&quot;  &quot;pK.EM&quot;    &quot;nInd&quot;</span></span>
 <span id="cb499-6"><a href="week-8--principle-component-analyses.html#cb499-6" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(beag)</span>
-<span id="cb499-7"><a href="week-8--principle-component-analyses.html#cb499-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;marker&quot;  &quot;allele1&quot; &quot;allele2&quot; &quot;Ind0&quot;    &quot;Ind0.1&quot;  &quot;Ind0.2&quot;  &quot;Ind1&quot;    &quot;Ind1.1&quot;  &quot;Ind1.2&quot;  &quot;Ind2&quot;    &quot;Ind2.1&quot;  &quot;Ind2.2&quot;  &quot;Ind3&quot;    &quot;Ind3.1&quot; </span></span>
-<span id="cb499-8"><a href="week-8--principle-component-analyses.html#cb499-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [15] &quot;Ind3.2&quot;  &quot;Ind4&quot;    &quot;Ind4.1&quot;  &quot;Ind4.2&quot;  &quot;Ind5&quot;    &quot;Ind5.1&quot;  &quot;Ind5.2&quot;  &quot;Ind6&quot;    &quot;Ind6.1&quot;  &quot;Ind6.2&quot;  &quot;Ind7&quot;    &quot;Ind7.1&quot;  &quot;Ind7.2&quot;  &quot;Ind8&quot;   </span></span>
-<span id="cb499-9"><a href="week-8--principle-component-analyses.html#cb499-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [29] &quot;Ind8.1&quot;  &quot;Ind8.2&quot;  &quot;Ind9&quot;    &quot;Ind9.1&quot;  &quot;Ind9.2&quot;  &quot;Ind10&quot;   &quot;Ind10.1&quot; &quot;Ind10.2&quot; &quot;Ind11&quot;   &quot;Ind11.1&quot; &quot;Ind11.2&quot; &quot;Ind12&quot;   &quot;Ind12.1&quot; &quot;Ind12.2&quot;</span></span>
-<span id="cb499-10"><a href="week-8--principle-component-analyses.html#cb499-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [43] &quot;Ind13&quot;   &quot;Ind13.1&quot; &quot;Ind13.2&quot; &quot;Ind14&quot;   &quot;Ind14.1&quot; &quot;Ind14.2&quot;</span></span></code></pre></div>
+<span id="cb499-7"><a href="week-8--principle-component-analyses.html#cb499-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;marker&quot;  &quot;allele1&quot; &quot;allele2&quot; &quot;Ind0&quot;    &quot;Ind0.1&quot;  &quot;Ind0.2&quot;  &quot;Ind1&quot;    &quot;Ind1.1&quot;  &quot;Ind1.2&quot;  &quot;Ind2&quot;    &quot;Ind2.1&quot;  &quot;Ind2.2&quot; </span></span>
+<span id="cb499-8"><a href="week-8--principle-component-analyses.html#cb499-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [13] &quot;Ind3&quot;    &quot;Ind3.1&quot;  &quot;Ind3.2&quot;  &quot;Ind4&quot;    &quot;Ind4.1&quot;  &quot;Ind4.2&quot;  &quot;Ind5&quot;    &quot;Ind5.1&quot;  &quot;Ind5.2&quot;  &quot;Ind6&quot;    &quot;Ind6.1&quot;  &quot;Ind6.2&quot; </span></span>
+<span id="cb499-9"><a href="week-8--principle-component-analyses.html#cb499-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [25] &quot;Ind7&quot;    &quot;Ind7.1&quot;  &quot;Ind7.2&quot;  &quot;Ind8&quot;    &quot;Ind8.1&quot;  &quot;Ind8.2&quot;  &quot;Ind9&quot;    &quot;Ind9.1&quot;  &quot;Ind9.2&quot;  &quot;Ind10&quot;   &quot;Ind10.1&quot; &quot;Ind10.2&quot;</span></span>
+<span id="cb499-10"><a href="week-8--principle-component-analyses.html#cb499-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [37] &quot;Ind11&quot;   &quot;Ind11.1&quot; &quot;Ind11.2&quot; &quot;Ind12&quot;   &quot;Ind12.1&quot; &quot;Ind12.2&quot; &quot;Ind13&quot;   &quot;Ind13.1&quot; &quot;Ind13.2&quot; &quot;Ind14&quot;   &quot;Ind14.1&quot; &quot;Ind14.2&quot;</span></span></code></pre></div>
 <p>annoyingly the beagle formatted data merges the chromo and position columns of the maf dataframe</p>
 <p>two solutions:
 1. we could split the columns in beag to match chromo and position
@@ -478,11 +490,11 @@ Hint use the command <code>read.table(gzfile("path/to/genotypelikelihoodfile/), 
 <span id="cb500-6"><a href="week-8--principle-component-analyses.html#cb500-6" aria-hidden="true" tabindex="-1"></a><span class="co">#lets get rid of them to leave the 48 columns that beagle needs.</span></span>
 <span id="cb500-7"><a href="week-8--principle-component-analyses.html#cb500-7" aria-hidden="true" tabindex="-1"></a><span class="co">#use colnames to see which ones we want</span></span>
 <span id="cb500-8"><a href="week-8--principle-component-analyses.html#cb500-8" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(beag_allIND)</span>
-<span id="cb500-9"><a href="week-8--principle-component-analyses.html#cb500-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;marker&quot;   &quot;chromo&quot;   &quot;position&quot; &quot;major&quot;    &quot;minor&quot;    &quot;knownEM&quot;  &quot;pK.EM&quot;    &quot;nInd&quot;     &quot;allele1&quot;  &quot;allele2&quot;  &quot;Ind0&quot;     &quot;Ind0.1&quot;   &quot;Ind0.2&quot;  </span></span>
-<span id="cb500-10"><a href="week-8--principle-component-analyses.html#cb500-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [14] &quot;Ind1&quot;     &quot;Ind1.1&quot;   &quot;Ind1.2&quot;   &quot;Ind2&quot;     &quot;Ind2.1&quot;   &quot;Ind2.2&quot;   &quot;Ind3&quot;     &quot;Ind3.1&quot;   &quot;Ind3.2&quot;   &quot;Ind4&quot;     &quot;Ind4.1&quot;   &quot;Ind4.2&quot;   &quot;Ind5&quot;    </span></span>
-<span id="cb500-11"><a href="week-8--principle-component-analyses.html#cb500-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [27] &quot;Ind5.1&quot;   &quot;Ind5.2&quot;   &quot;Ind6&quot;     &quot;Ind6.1&quot;   &quot;Ind6.2&quot;   &quot;Ind7&quot;     &quot;Ind7.1&quot;   &quot;Ind7.2&quot;   &quot;Ind8&quot;     &quot;Ind8.1&quot;   &quot;Ind8.2&quot;   &quot;Ind9&quot;     &quot;Ind9.1&quot;  </span></span>
-<span id="cb500-12"><a href="week-8--principle-component-analyses.html#cb500-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [40] &quot;Ind9.2&quot;   &quot;Ind10&quot;    &quot;Ind10.1&quot;  &quot;Ind10.2&quot;  &quot;Ind11&quot;    &quot;Ind11.1&quot;  &quot;Ind11.2&quot;  &quot;Ind12&quot;    &quot;Ind12.1&quot;  &quot;Ind12.2&quot;  &quot;Ind13&quot;    &quot;Ind13.1&quot;  &quot;Ind13.2&quot; </span></span>
-<span id="cb500-13"><a href="week-8--principle-component-analyses.html#cb500-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [53] &quot;Ind14&quot;    &quot;Ind14.1&quot;  &quot;Ind14.2&quot;</span></span>
+<span id="cb500-9"><a href="week-8--principle-component-analyses.html#cb500-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;marker&quot;   &quot;chromo&quot;   &quot;position&quot; &quot;major&quot;    &quot;minor&quot;    &quot;knownEM&quot;  &quot;pK.EM&quot;    &quot;nInd&quot;     &quot;allele1&quot;  &quot;allele2&quot;  &quot;Ind0&quot;    </span></span>
+<span id="cb500-10"><a href="week-8--principle-component-analyses.html#cb500-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [12] &quot;Ind0.1&quot;   &quot;Ind0.2&quot;   &quot;Ind1&quot;     &quot;Ind1.1&quot;   &quot;Ind1.2&quot;   &quot;Ind2&quot;     &quot;Ind2.1&quot;   &quot;Ind2.2&quot;   &quot;Ind3&quot;     &quot;Ind3.1&quot;   &quot;Ind3.2&quot;  </span></span>
+<span id="cb500-11"><a href="week-8--principle-component-analyses.html#cb500-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [23] &quot;Ind4&quot;     &quot;Ind4.1&quot;   &quot;Ind4.2&quot;   &quot;Ind5&quot;     &quot;Ind5.1&quot;   &quot;Ind5.2&quot;   &quot;Ind6&quot;     &quot;Ind6.1&quot;   &quot;Ind6.2&quot;   &quot;Ind7&quot;     &quot;Ind7.1&quot;  </span></span>
+<span id="cb500-12"><a href="week-8--principle-component-analyses.html#cb500-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [34] &quot;Ind7.2&quot;   &quot;Ind8&quot;     &quot;Ind8.1&quot;   &quot;Ind8.2&quot;   &quot;Ind9&quot;     &quot;Ind9.1&quot;   &quot;Ind9.2&quot;   &quot;Ind10&quot;    &quot;Ind10.1&quot;  &quot;Ind10.2&quot;  &quot;Ind11&quot;   </span></span>
+<span id="cb500-13"><a href="week-8--principle-component-analyses.html#cb500-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [45] &quot;Ind11.1&quot;  &quot;Ind11.2&quot;  &quot;Ind12&quot;    &quot;Ind12.1&quot;  &quot;Ind12.2&quot;  &quot;Ind13&quot;    &quot;Ind13.1&quot;  &quot;Ind13.2&quot;  &quot;Ind14&quot;    &quot;Ind14.1&quot;  &quot;Ind14.2&quot;</span></span>
 <span id="cb500-14"><a href="week-8--principle-component-analyses.html#cb500-14" aria-hidden="true" tabindex="-1"></a><span class="co">#we want the first column and then columns 9-55</span></span>
 <span id="cb500-15"><a href="week-8--principle-component-analyses.html#cb500-15" aria-hidden="true" tabindex="-1"></a>beag_allIND_final<span class="ot">&lt;-</span>beag_allIND[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">9</span><span class="sc">:</span><span class="dv">55</span>)]</span>
 <span id="cb500-16"><a href="week-8--principle-component-analyses.html#cb500-16" aria-hidden="true" tabindex="-1"></a><span class="co">#now we have a dataframe with 31905 rows and 48 columns</span></span>
