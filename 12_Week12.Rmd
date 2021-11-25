@@ -189,14 +189,16 @@ my.run <- conStruct(spatial = FALSE,
 
 ```
 
-This step produces several output files (a conStruct.results file and a data.block file) called after whatever you put in the prefix = section (sea_cucu_k2 in our case). We need to load that output file back into R to access all the things it produced.
+This step produces several output files (a conStruct.results file and a data.block file) called after whatever you put in the prefix = section (sea_cucu_K3 in our case). We need to load that output file back into R to access all the things it produced.
 
-Let's just look at the first one for k = 2.
+Let's just look at the first one for k = 3.
 
 ```{r, echo=T}
 
 #load the construct results file
 load("Sea_cucu_K3_conStruct.results.Robj")
+
+#pull out the admix proportions from this results file
 
 admix.props<- conStruct.results$chain_1$MAP$admix.proportions
 
@@ -221,7 +223,7 @@ make.admix.pie.plot(admix.proportions = admix.props,
 
 One of the main advantages of using conStruct is the ability to incorporate within the model measures of geographic distance. 
 
-Let's do that for our K = 2 from above. 
+Let's do that for our K = 3 from above. 
 
 First we need to calculate the geographic distance between our samples. There are many ways to do this, but we'll take a simple approach of calculating the euclidean (straight-line) distance between each site.
 
@@ -290,10 +292,11 @@ There are a few ways to do this, however most often there's not a single "best" 
 
 The vignette here has several ways in which you can choose an "optimal" K or several K [here](https://cran.r-project.org/web/packages/conStruct/vignettes/model-comparison.html)
 
+Note that the vignette on layer contributions only works with a spatial conStruct analyses. 
 
 ## Exercises
 
-1. change the colors in the plot. THe default red and blue for K = 2 is not very friendly for those with color blindess. Using the command `?make.structure.plot` determine how you would change the colors and then using this [site](http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/#a-colorblind-friendly-palette) choose color-blind-friendly colors. Make a strucutre plot for K = 2 and K = 4 using your new colors.
+1. change the colors in the plot. THe default red and blue for K = 2 is not very friendly for those with color blindness. Using the command `?make.structure.plot` determine how you would change the colors and then using this [site](http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/#a-colorblind-friendly-palette) choose color-blind-friendly colors. Make a strucutre plot for K = 2 and K = 4 using your new colors.
 
 
 <details><summary><span style="color: Purple;">Solution</span></summary>

@@ -12,7 +12,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Week 13- Genomics is a BLAST
+# Genomics is a BLAST
 
 
 Through this course we've taken genomic data in the form of whole genome sequences or reduced representation sequences (i.e., RADtags) and searched for correlations between phenotypes (via GWAS) and population structure (Fst Outliers) to identify "candidate SNP" that may have some role in producing the phenotypes we're interested in. 

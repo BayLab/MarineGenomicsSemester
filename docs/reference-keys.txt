@@ -135,7 +135,7 @@ run-a-structure-analysis
 incoorporate-geographic-distances-in-a-spatial-model
 comparisons-across-different-values-of-k
 exercises-3
-week-13--genomics-is-a-blast
+genomics-is-a-blast
 genome-annotation-and-blast-searches
 download-the-data-4
 install-transdecoder
@@ -144,3 +144,11 @@ run-ncbi-blast
 what-did-we-find
 the-importance-of-genomic-architecture
 exercises-4
+final-week-r-markdown-tutorial
+r-markdown-tutorial
+example-with-the-baby-name-dataset
+load-the-packages-and-data
+explore-the-data
+make-a-plot
+exercises-5
+final-tips-and-tricks

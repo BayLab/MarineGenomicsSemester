@@ -80,15 +80,15 @@ Note that this step is rather time consuming, thus it's best to download the dat
 
 #load the environmental data and store it as objects that we can use later
 
-#environ <- load_layers(layercodes = c("BO_chlomean","BO_ph", "BO_salinity","BO_sstmax","BO_sstmean"))
+environ <- load_layers(layercodes = c("BO_chlomean","BO_ph", "BO_salinity","BO_sstmax","BO_sstmean"))
 
 #now put each layer into it's own object
 
-#chlomean<-load_layers("BO_chlomean")
-#ph<-load_layers("BO_ph")
-#salinity<-load_layers("BO_salinity")
-#sst_max<-load_layers("BO_sstmax")
-#sst_mean<-load_layers("BO_sstmean")
+chlomean<-load_layers("BO_chlomean")
+ph<-load_layers("BO_ph")
+salinity<-load_layers("BO_salinity")
+sst_max<-load_layers("BO_sstmax")
+sst_mean<-load_layers("BO_sstmean")
 
 
 ```
@@ -107,13 +107,6 @@ sites<-cbind("lat" =  meta$LONG, "lon" = meta$LAT)
 
 head(sites)
 
-```
-
-
-```{r, echo=F}
-#read in pre-downloaded environmental data
-
-environ<-read.env("sites_environ_matrix.env")
 ```
 
 
@@ -241,7 +234,7 @@ project = load.lfmmProject("filtered_3699snps_californicus_685inds.lfmmProject")
 
 Now we can check and see which of our environmental variables is association with genomic variation
 
-```{r, echo=T}
+```{r, label="histograms", echo=T}
 #get the z scores from each run
 
 zs1 <- z.scores(sea_cuc_lfmm, K=1, d=1)
