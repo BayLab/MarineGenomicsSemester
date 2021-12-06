@@ -150,5 +150,7 @@ example-with-the-baby-name-dataset
 load-the-packages-and-data
 explore-the-data
 make-a-plot
+to-export-as-a-pdf
+to-transfer-your-rmarkdown-files-and-submit-your-final-assignment
 exercises-5
 final-tips-and-tricks

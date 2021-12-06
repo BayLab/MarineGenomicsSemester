@@ -118,9 +118,30 @@ This should be what you see as an html file (with all your own modifications of 
 
 You can now go back to your R markdown script and do the exercises below. Create a new header called exercises and start a new code chunk. 
 
+## To export as a pdf
+
+In order to export your RMarkdown file as a pdf from RStudio you will need to install a LaTex distribution. You can do this from your RStudio console with the following command:
+
+```{r, echo=T}
+
+tinytex::install_tinytex()
+
+```
+
+This will allow you to select *Knit* and *pdf* from the *Knit* pulldown menu. 
+
+
+## To transfer your Rmarkdown files and submit your final assignment
+
+Once you've generated an `html` file of your Rmarkdown script and have confirmed that the code for each plot shows up and generates the plot that it is intended to generate (this depends on the final video prompt that you select, some of which ask for more than one plot), you're ready to transfer it from jetstream to your own computer. 
+
+The easiest way to transfer a relatively small file from jetstream is to use the firefox web browser to log into your CSULA (or other: gmail, hotmail, etc) email service and attach the files to an email that you can address to yourself (so you can for example review the .pdf file on your own computer). You can then upload it to canvas or submit it directly to Dr. Krug via email. 
+
+
 
 ## Exercises
 
+Add these following exercises to the example RMarkdown that we've been working on. You can also test the html output and try emailing an html or pdf version to yourself through jetstream. 
 
 For the same name you choose for your plot above find out what year was the peak (maximum) number given. Does the maximum number match the year for which the proportion is greatest?
 

@@ -324,8 +324,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.3" data-path="final-week-r-markdown-tutorial.html"><a href="final-week-r-markdown-tutorial.html#load-the-packages-and-data"><i class="fa fa-check"></i><b>15.3</b> Load the packages and data</a></li>
 <li class="chapter" data-level="15.4" data-path="final-week-r-markdown-tutorial.html"><a href="final-week-r-markdown-tutorial.html#explore-the-data"><i class="fa fa-check"></i><b>15.4</b> Explore the data</a></li>
 <li class="chapter" data-level="15.5" data-path="final-week-r-markdown-tutorial.html"><a href="final-week-r-markdown-tutorial.html#make-a-plot"><i class="fa fa-check"></i><b>15.5</b> Make a plot</a></li>
-<li class="chapter" data-level="15.6" data-path="final-week-r-markdown-tutorial.html"><a href="final-week-r-markdown-tutorial.html#exercises-5"><i class="fa fa-check"></i><b>15.6</b> Exercises</a></li>
-<li class="chapter" data-level="15.7" data-path="final-week-r-markdown-tutorial.html"><a href="final-week-r-markdown-tutorial.html#final-tips-and-tricks"><i class="fa fa-check"></i><b>15.7</b> Final tips and tricks</a></li>
+<li class="chapter" data-level="15.6" data-path="final-week-r-markdown-tutorial.html"><a href="final-week-r-markdown-tutorial.html#to-export-as-a-pdf"><i class="fa fa-check"></i><b>15.6</b> To export as a pdf</a></li>
+<li class="chapter" data-level="15.7" data-path="final-week-r-markdown-tutorial.html"><a href="final-week-r-markdown-tutorial.html#to-transfer-your-rmarkdown-files-and-submit-your-final-assignment"><i class="fa fa-check"></i><b>15.7</b> To transfer your Rmarkdown files and submit your final assignment</a></li>
+<li class="chapter" data-level="15.8" data-path="final-week-r-markdown-tutorial.html"><a href="final-week-r-markdown-tutorial.html#exercises-5"><i class="fa fa-check"></i><b>15.8</b> Exercises</a></li>
+<li class="chapter" data-level="15.9" data-path="final-week-r-markdown-tutorial.html"><a href="final-week-r-markdown-tutorial.html#final-tips-and-tricks"><i class="fa fa-check"></i><b>15.9</b> Final tips and tricks</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -363,26 +365,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="download-the-data-4" class="section level2" number="14.2">
 <h2><span class="header-section-number">14.2</span> Download the data</h2>
 <p>You’ll download one fasta file that contains the 17 regions in which we found our Fst outlier SNPs.</p>
-<div class="sourceCode" id="cb581"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb581-1"><a href="genomics-is-a-blast.html#cb581-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb581-2"><a href="genomics-is-a-blast.html#cb581-2" aria-hidden="true" tabindex="-1"></a>wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week13_semester.tar.gz</span>
-<span id="cb581-3"><a href="genomics-is-a-blast.html#cb581-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb581-4"><a href="genomics-is-a-blast.html#cb581-4" aria-hidden="true" tabindex="-1"></a>tar -xzvf week13_semester.tar.gz</span></code></pre></div>
+<div class="sourceCode" id="cb585"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb585-1"><a href="genomics-is-a-blast.html#cb585-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb585-2"><a href="genomics-is-a-blast.html#cb585-2" aria-hidden="true" tabindex="-1"></a>wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week13_semester.tar.gz</span>
+<span id="cb585-3"><a href="genomics-is-a-blast.html#cb585-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb585-4"><a href="genomics-is-a-blast.html#cb585-4" aria-hidden="true" tabindex="-1"></a>tar -xzvf week13_semester.tar.gz</span></code></pre></div>
 </div>
 <div id="install-transdecoder" class="section level2" number="14.3">
 <h2><span class="header-section-number">14.3</span> Install Transdecoder</h2>
 <p>We’ll use transdecoder to identify coding regions in our nucleotide sequences.</p>
-<div class="sourceCode" id="cb582"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb582-1"><a href="genomics-is-a-blast.html#cb582-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb582-2"><a href="genomics-is-a-blast.html#cb582-2" aria-hidden="true" tabindex="-1"></a>sudo apt update #this just updates our currently installed packages</span>
-<span id="cb582-3"><a href="genomics-is-a-blast.html#cb582-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb582-4"><a href="genomics-is-a-blast.html#cb582-4" aria-hidden="true" tabindex="-1"></a>sudo apt install transdecoder</span></code></pre></div>
+<div class="sourceCode" id="cb586"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb586-1"><a href="genomics-is-a-blast.html#cb586-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb586-2"><a href="genomics-is-a-blast.html#cb586-2" aria-hidden="true" tabindex="-1"></a>sudo apt update #this just updates our currently installed packages</span>
+<span id="cb586-3"><a href="genomics-is-a-blast.html#cb586-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb586-4"><a href="genomics-is-a-blast.html#cb586-4" aria-hidden="true" tabindex="-1"></a>sudo apt install transdecoder</span></code></pre></div>
 </div>
 <div id="run-transdecoder" class="section level2" number="14.4">
 <h2><span class="header-section-number">14.4</span> Run Transdecoder</h2>
 <p>Transdecoder is run in two parts, the first <code>TransDecoder.LongOrfs</code> identifies open read frames or regions that contain either a start or stop codon. This is followed by <code>TransDecoder.Predict</code> which</p>
-<div class="sourceCode" id="cb583"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb583-1"><a href="genomics-is-a-blast.html#cb583-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb583-2"><a href="genomics-is-a-blast.html#cb583-2" aria-hidden="true" tabindex="-1"></a>TransDecoder.LongOrfs -t candidate_fastas.fa</span>
-<span id="cb583-3"><a href="genomics-is-a-blast.html#cb583-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb583-4"><a href="genomics-is-a-blast.html#cb583-4" aria-hidden="true" tabindex="-1"></a>TransDecoder.Predict -t candidate_fastas.fa</span></code></pre></div>
+<div class="sourceCode" id="cb587"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb587-1"><a href="genomics-is-a-blast.html#cb587-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb587-2"><a href="genomics-is-a-blast.html#cb587-2" aria-hidden="true" tabindex="-1"></a>TransDecoder.LongOrfs -t candidate_fastas.fa</span>
+<span id="cb587-3"><a href="genomics-is-a-blast.html#cb587-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb587-4"><a href="genomics-is-a-blast.html#cb587-4" aria-hidden="true" tabindex="-1"></a>TransDecoder.Predict -t candidate_fastas.fa</span></code></pre></div>
 <p>This produces an output directory and pulls from that several files with different extensions (.gff3, .bed, .cds, .pep) which correspond to different formats specifically, <code>.gff3</code> is a general feature format file (version 3) and contains information about each of our sequences. The <code>.bed</code> format is a browser extensible data format which describes the chromosome, position and length of our sequences, the <code>.cds</code> contains the nucleotide sequences for the open reading frames, and finally the file we want is the <code>.pep</code> file which contains our open reading frames from our regions converted into protein codes.</p>
 </div>
 <div id="run-ncbi-blast" class="section level2" number="14.5">
@@ -414,7 +416,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span style="color: SeaGreen;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="genomics-is-a-blast.html#cb584-1" aria-hidden="true" tabindex="-1"></a><span class="co">#coming soon :) </span></span></code></pre></div>
+<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="genomics-is-a-blast.html#cb588-1" aria-hidden="true" tabindex="-1"></a><span class="co">#coming soon :) </span></span></code></pre></div>
 </p>
 </details>
 <blockquote>
@@ -427,7 +429,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span style="color: SeaGreen;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="genomics-is-a-blast.html#cb585-1" aria-hidden="true" tabindex="-1"></a><span class="co">#coming soon :) </span></span></code></pre></div>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="genomics-is-a-blast.html#cb589-1" aria-hidden="true" tabindex="-1"></a><span class="co">#coming soon :) </span></span></code></pre></div>
 </p>
 </details>
 
