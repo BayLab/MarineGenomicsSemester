@@ -45,6 +45,7 @@ We'll be using the package `qqman` to make a manhattan plot.
 
 ```{r, echo=T}
 #install.package("qqman")
+library(qqman)
 ```
 
 ## install angsd and pcangsd (again?)

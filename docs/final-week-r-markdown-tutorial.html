@@ -377,42 +377,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="load-the-packages-and-data" class="section level2 hasAnchor" number="15.3">
 <h2><span class="header-section-number">15.3</span> Load the packages and data<a href="final-week-r-markdown-tutorial.html#load-the-packages-and-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="final-week-r-markdown-tutorial.html#cb581-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb581-2"><a href="final-week-r-markdown-tutorial.html#cb581-2" aria-hidden="true" tabindex="-1"></a><span class="co">#load the two required packages</span></span>
-<span id="cb581-3"><a href="final-week-r-markdown-tutorial.html#cb581-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb581-4"><a href="final-week-r-markdown-tutorial.html#cb581-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb581-5"><a href="final-week-r-markdown-tutorial.html#cb581-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(babynames)</span>
-<span id="cb581-6"><a href="final-week-r-markdown-tutorial.html#cb581-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning: package &#39;babynames&#39; was built under R version 4.2.1</span></span>
-<span id="cb581-7"><a href="final-week-r-markdown-tutorial.html#cb581-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb581-8"><a href="final-week-r-markdown-tutorial.html#cb581-8" aria-hidden="true" tabindex="-1"></a><span class="co">#load the data</span></span>
-<span id="cb581-9"><a href="final-week-r-markdown-tutorial.html#cb581-9" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;babynames&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="final-week-r-markdown-tutorial.html#cb583-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb583-2"><a href="final-week-r-markdown-tutorial.html#cb583-2" aria-hidden="true" tabindex="-1"></a><span class="co">#load the two required packages</span></span>
+<span id="cb583-3"><a href="final-week-r-markdown-tutorial.html#cb583-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb583-4"><a href="final-week-r-markdown-tutorial.html#cb583-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb583-5"><a href="final-week-r-markdown-tutorial.html#cb583-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(babynames)</span>
+<span id="cb583-6"><a href="final-week-r-markdown-tutorial.html#cb583-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning: package &#39;babynames&#39; was built under R version 4.2.1</span></span>
+<span id="cb583-7"><a href="final-week-r-markdown-tutorial.html#cb583-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb583-8"><a href="final-week-r-markdown-tutorial.html#cb583-8" aria-hidden="true" tabindex="-1"></a><span class="co">#load the data</span></span>
+<span id="cb583-9"><a href="final-week-r-markdown-tutorial.html#cb583-9" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;babynames&quot;</span>)</span></code></pre></div>
 </div>
 <div id="explore-the-data" class="section level2 hasAnchor" number="15.4">
 <h2><span class="header-section-number">15.4</span> Explore the data<a href="final-week-r-markdown-tutorial.html#explore-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>By running the code below you will find that the babynames dataset has the names of baby’s each year if their name was given to at least 5 baby’s born in that year.</p>
-<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="final-week-r-markdown-tutorial.html#cb582-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb582-2"><a href="final-week-r-markdown-tutorial.html#cb582-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(babynames)</span>
-<span id="cb582-3"><a href="final-week-r-markdown-tutorial.html#cb582-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 5</span></span>
-<span id="cb582-4"><a href="final-week-r-markdown-tutorial.html#cb582-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    year sex   name          n   prop</span></span>
-<span id="cb582-5"><a href="final-week-r-markdown-tutorial.html#cb582-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;  &lt;dbl&gt;</span></span>
-<span id="cb582-6"><a href="final-week-r-markdown-tutorial.html#cb582-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1  1880 F     Mary       7065 0.0724</span></span>
-<span id="cb582-7"><a href="final-week-r-markdown-tutorial.html#cb582-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2  1880 F     Anna       2604 0.0267</span></span>
-<span id="cb582-8"><a href="final-week-r-markdown-tutorial.html#cb582-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3  1880 F     Emma       2003 0.0205</span></span>
-<span id="cb582-9"><a href="final-week-r-markdown-tutorial.html#cb582-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4  1880 F     Elizabeth  1939 0.0199</span></span>
-<span id="cb582-10"><a href="final-week-r-markdown-tutorial.html#cb582-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5  1880 F     Minnie     1746 0.0179</span></span>
-<span id="cb582-11"><a href="final-week-r-markdown-tutorial.html#cb582-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6  1880 F     Margaret   1578 0.0162</span></span>
-<span id="cb582-12"><a href="final-week-r-markdown-tutorial.html#cb582-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb582-13"><a href="final-week-r-markdown-tutorial.html#cb582-13" aria-hidden="true" tabindex="-1"></a>?babynames</span></code></pre></div>
+<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="final-week-r-markdown-tutorial.html#cb584-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb584-2"><a href="final-week-r-markdown-tutorial.html#cb584-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(babynames)</span>
+<span id="cb584-3"><a href="final-week-r-markdown-tutorial.html#cb584-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 5</span></span>
+<span id="cb584-4"><a href="final-week-r-markdown-tutorial.html#cb584-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    year sex   name          n   prop</span></span>
+<span id="cb584-5"><a href="final-week-r-markdown-tutorial.html#cb584-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;  &lt;dbl&gt;</span></span>
+<span id="cb584-6"><a href="final-week-r-markdown-tutorial.html#cb584-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1  1880 F     Mary       7065 0.0724</span></span>
+<span id="cb584-7"><a href="final-week-r-markdown-tutorial.html#cb584-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2  1880 F     Anna       2604 0.0267</span></span>
+<span id="cb584-8"><a href="final-week-r-markdown-tutorial.html#cb584-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3  1880 F     Emma       2003 0.0205</span></span>
+<span id="cb584-9"><a href="final-week-r-markdown-tutorial.html#cb584-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4  1880 F     Elizabeth  1939 0.0199</span></span>
+<span id="cb584-10"><a href="final-week-r-markdown-tutorial.html#cb584-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5  1880 F     Minnie     1746 0.0179</span></span>
+<span id="cb584-11"><a href="final-week-r-markdown-tutorial.html#cb584-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6  1880 F     Margaret   1578 0.0162</span></span>
+<span id="cb584-12"><a href="final-week-r-markdown-tutorial.html#cb584-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb584-13"><a href="final-week-r-markdown-tutorial.html#cb584-13" aria-hidden="true" tabindex="-1"></a>?babynames</span></code></pre></div>
 </div>
 <div id="make-a-plot" class="section level2 hasAnchor" number="15.5">
 <h2><span class="header-section-number">15.5</span> Make a plot<a href="final-week-r-markdown-tutorial.html#make-a-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This plot allows you to choose a name and then plots the title of the plot using a manipulation of the facet_wrap and theme function. For this plot you can choose any name you’re interested in seeing by changing it in the original subsetting command and it will also plot that name as the title of the plot.</p>
-<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="final-week-r-markdown-tutorial.html#cb583-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb583-2"><a href="final-week-r-markdown-tutorial.html#cb583-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>babynames[babynames<span class="sc">$</span>name <span class="sc">==</span> <span class="st">&quot;Serena&quot;</span>,], <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>prop, <span class="at">group=</span>sex, <span class="at">color=</span>sex))<span class="sc">+</span></span>
-<span id="cb583-3"><a href="final-week-r-markdown-tutorial.html#cb583-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb583-4"><a href="final-week-r-markdown-tutorial.html#cb583-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>name)<span class="sc">+</span></span>
-<span id="cb583-5"><a href="final-week-r-markdown-tutorial.html#cb583-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">strip.background =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb583-6"><a href="final-week-r-markdown-tutorial.html#cb583-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">14</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="final-week-r-markdown-tutorial.html#cb585-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb585-2"><a href="final-week-r-markdown-tutorial.html#cb585-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>babynames[babynames<span class="sc">$</span>name <span class="sc">==</span> <span class="st">&quot;Serena&quot;</span>,], <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>prop, <span class="at">group=</span>sex, <span class="at">color=</span>sex))<span class="sc">+</span></span>
+<span id="cb585-3"><a href="final-week-r-markdown-tutorial.html#cb585-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb585-4"><a href="final-week-r-markdown-tutorial.html#cb585-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>name)<span class="sc">+</span></span>
+<span id="cb585-5"><a href="final-week-r-markdown-tutorial.html#cb585-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">strip.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb585-6"><a href="final-week-r-markdown-tutorial.html#cb585-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">14</span>))</span></code></pre></div>
 <p><img src="Semester_files/figure-html/babynameplot-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>I always like to plot my name because we know the recent history around the peak in the early 2000’s (it wasn’t anything that I was up to!) but many congrats to Serena Williams (and Venus!) for Winning a gold medal in the 2000 summer olympics and starting a naming trend.</p>
 <p>Now let’s render our R markdown by selecting <code>Knit</code> from the upper left options in Rstudio. Note that you will need to save your script somewhere to do this. <em>Make sure you save it as an <code>.Rmd</code> file.</em></p>
@@ -423,8 +423,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="to-export-as-a-pdf" class="section level2 hasAnchor" number="15.6">
 <h2><span class="header-section-number">15.6</span> To export as a pdf<a href="final-week-r-markdown-tutorial.html#to-export-as-a-pdf" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In order to export your RMarkdown file as a pdf from RStudio you will need to install a LaTex distribution. You can do this from your RStudio console with the following command:</p>
-<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="final-week-r-markdown-tutorial.html#cb584-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb584-2"><a href="final-week-r-markdown-tutorial.html#cb584-2" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">install_tinytex</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="final-week-r-markdown-tutorial.html#cb586-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb586-2"><a href="final-week-r-markdown-tutorial.html#cb586-2" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">install_tinytex</span>()</span></code></pre></div>
 <p>This will allow you to select <em>Knit</em> and <em>pdf</em> from the <em>Knit</em> pulldown menu.</p>
 </div>
 <div id="to-transfer-your-rmarkdown-files-and-submit-your-final-assignment" class="section level2 hasAnchor" number="15.7">
@@ -441,44 +441,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span style="color: SeaGreen;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="final-week-r-markdown-tutorial.html#cb585-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb585-2"><a href="final-week-r-markdown-tutorial.html#cb585-2" aria-hidden="true" tabindex="-1"></a><span class="co">#when was the max? </span></span>
-<span id="cb585-3"><a href="final-week-r-markdown-tutorial.html#cb585-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb585-4"><a href="final-week-r-markdown-tutorial.html#cb585-4" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(babynames[babynames<span class="sc">$</span>name<span class="sc">==</span><span class="st">&quot;Serena&quot;</span>,]<span class="sc">$</span>n)</span>
-<span id="cb585-5"><a href="final-week-r-markdown-tutorial.html#cb585-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1504</span></span>
-<span id="cb585-6"><a href="final-week-r-markdown-tutorial.html#cb585-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb585-7"><a href="final-week-r-markdown-tutorial.html#cb585-7" aria-hidden="true" tabindex="-1"></a><span class="co"># what year was it?</span></span>
-<span id="cb585-8"><a href="final-week-r-markdown-tutorial.html#cb585-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb585-9"><a href="final-week-r-markdown-tutorial.html#cb585-9" aria-hidden="true" tabindex="-1"></a>babynames[babynames<span class="sc">$</span>n<span class="sc">==</span><span class="dv">1504</span> <span class="sc">&amp;</span> babynames<span class="sc">$</span>name <span class="sc">==</span><span class="st">&quot;Serena&quot;</span>,]</span>
-<span id="cb585-10"><a href="final-week-r-markdown-tutorial.html#cb585-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 5</span></span>
-<span id="cb585-11"><a href="final-week-r-markdown-tutorial.html#cb585-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    year sex   name       n     prop</span></span>
-<span id="cb585-12"><a href="final-week-r-markdown-tutorial.html#cb585-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;int&gt;    &lt;dbl&gt;</span></span>
-<span id="cb585-13"><a href="final-week-r-markdown-tutorial.html#cb585-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1  2000 F     Serena  1504 0.000754</span></span>
-<span id="cb585-14"><a href="final-week-r-markdown-tutorial.html#cb585-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb585-15"><a href="final-week-r-markdown-tutorial.html#cb585-15" aria-hidden="true" tabindex="-1"></a><span class="co"># this matches the plot above! (not all names do though!)</span></span></code></pre></div>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="final-week-r-markdown-tutorial.html#cb587-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb587-2"><a href="final-week-r-markdown-tutorial.html#cb587-2" aria-hidden="true" tabindex="-1"></a><span class="co">#when was the max? </span></span>
+<span id="cb587-3"><a href="final-week-r-markdown-tutorial.html#cb587-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb587-4"><a href="final-week-r-markdown-tutorial.html#cb587-4" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(babynames[babynames<span class="sc">$</span>name<span class="sc">==</span><span class="st">&quot;Serena&quot;</span>,]<span class="sc">$</span>n)</span>
+<span id="cb587-5"><a href="final-week-r-markdown-tutorial.html#cb587-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1504</span></span>
+<span id="cb587-6"><a href="final-week-r-markdown-tutorial.html#cb587-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb587-7"><a href="final-week-r-markdown-tutorial.html#cb587-7" aria-hidden="true" tabindex="-1"></a><span class="co"># what year was it?</span></span>
+<span id="cb587-8"><a href="final-week-r-markdown-tutorial.html#cb587-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb587-9"><a href="final-week-r-markdown-tutorial.html#cb587-9" aria-hidden="true" tabindex="-1"></a>babynames[babynames<span class="sc">$</span>n<span class="sc">==</span><span class="dv">1504</span> <span class="sc">&amp;</span> babynames<span class="sc">$</span>name <span class="sc">==</span><span class="st">&quot;Serena&quot;</span>,]</span>
+<span id="cb587-10"><a href="final-week-r-markdown-tutorial.html#cb587-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 5</span></span>
+<span id="cb587-11"><a href="final-week-r-markdown-tutorial.html#cb587-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    year sex   name       n     prop</span></span>
+<span id="cb587-12"><a href="final-week-r-markdown-tutorial.html#cb587-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;int&gt;    &lt;dbl&gt;</span></span>
+<span id="cb587-13"><a href="final-week-r-markdown-tutorial.html#cb587-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1  2000 F     Serena  1504 0.000754</span></span>
+<span id="cb587-14"><a href="final-week-r-markdown-tutorial.html#cb587-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb587-15"><a href="final-week-r-markdown-tutorial.html#cb587-15" aria-hidden="true" tabindex="-1"></a><span class="co"># this matches the plot above! (not all names do though!)</span></span></code></pre></div>
 </p>
 </details>
 </div>
 <div id="final-tips-and-tricks" class="section level2 hasAnchor" number="15.9">
 <h2><span class="header-section-number">15.9</span> Final tips and tricks<a href="final-week-r-markdown-tutorial.html#final-tips-and-tricks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>R markdown has a ton of flexibility. In fact the class website has been made in R markdown (via bookdown). For example if you’re curiuos about how to make the pull down solution option we use the code below:</p>
-<div class="sourceCode" id="cb586"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb586-1"><a href="final-week-r-markdown-tutorial.html#cb586-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb586-2"><a href="final-week-r-markdown-tutorial.html#cb586-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;&lt;summary&gt;&lt;span</span> <span class="er">style</span><span class="ot">=</span><span class="st">&quot;color: SeaGreen;&quot;</span><span class="kw">&gt;</span>Solution<span class="kw">&lt;/span&gt;&lt;/summary&gt;</span></span>
-<span id="cb586-3"><a href="final-week-r-markdown-tutorial.html#cb586-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;p&gt;</span></span>
-<span id="cb586-4"><a href="final-week-r-markdown-tutorial.html#cb586-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb586-5"><a href="final-week-r-markdown-tutorial.html#cb586-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb586-6"><a href="final-week-r-markdown-tutorial.html#cb586-6" aria-hidden="true" tabindex="-1"></a>##the code you want hidden behind a &quot;solutions&quot; tab</span>
-<span id="cb586-7"><a href="final-week-r-markdown-tutorial.html#cb586-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb586-8"><a href="final-week-r-markdown-tutorial.html#cb586-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb586-9"><a href="final-week-r-markdown-tutorial.html#cb586-9" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/p&gt;</span></span>
-<span id="cb586-10"><a href="final-week-r-markdown-tutorial.html#cb586-10" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb588"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb588-1"><a href="final-week-r-markdown-tutorial.html#cb588-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb588-2"><a href="final-week-r-markdown-tutorial.html#cb588-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details&gt;&lt;summary&gt;&lt;span</span> <span class="er">style</span><span class="ot">=</span><span class="st">&quot;color: SeaGreen;&quot;</span><span class="kw">&gt;</span>Solution<span class="kw">&lt;/span&gt;&lt;/summary&gt;</span></span>
+<span id="cb588-3"><a href="final-week-r-markdown-tutorial.html#cb588-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;p&gt;</span></span>
+<span id="cb588-4"><a href="final-week-r-markdown-tutorial.html#cb588-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb588-5"><a href="final-week-r-markdown-tutorial.html#cb588-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb588-6"><a href="final-week-r-markdown-tutorial.html#cb588-6" aria-hidden="true" tabindex="-1"></a>##the code you want hidden behind a &quot;solutions&quot; tab</span>
+<span id="cb588-7"><a href="final-week-r-markdown-tutorial.html#cb588-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb588-8"><a href="final-week-r-markdown-tutorial.html#cb588-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb588-9"><a href="final-week-r-markdown-tutorial.html#cb588-9" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/p&gt;</span></span>
+<span id="cb588-10"><a href="final-week-r-markdown-tutorial.html#cb588-10" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span></code></pre></div>
 <p>Which gives something like this after you knit the document:</p>
 <details>
 <summary>
 <span style="color: SeaGreen;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="final-week-r-markdown-tutorial.html#cb587-1" aria-hidden="true" tabindex="-1"></a><span class="do">##the code you want hidden behind a &quot;solutions&quot; tab</span></span></code></pre></div>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="final-week-r-markdown-tutorial.html#cb589-1" aria-hidden="true" tabindex="-1"></a><span class="do">##the code you want hidden behind a &quot;solutions&quot; tab</span></span></code></pre></div>
 </p>
 </details>
 <p>You can see all the code for each week on our <a href="https://github.com/BayLab/MarineGenomicsSemester">github</a></p>
