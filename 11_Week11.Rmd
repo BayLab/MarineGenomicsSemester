@@ -46,13 +46,13 @@ sudo apt install libgdal-dev
 
 ```{r echo=T, message=FALSE, warning=F}
 
-#devtools::install_github("bcm-uga/lfmm")
-
-
-# get packages
-#install.packages(c('lfmm','psych','vegan','ggplot2','data.table','sdmpredictors','rgdal','raster'), dependencies = T)
-#install.packages("BiocManager")
-#BiocManager::install("LEA", force=T)
+# devtools::install_github("bcm-uga/lfmm")
+# 
+# 
+# # get packages
+# install.packages(c('lfmm','psych','vegan','ggplot2','data.table','sdmpredictors','rgdal','raster'), dependencies = T)
+# install.packages("BiocManager")
+# BiocManager::install("LEA", force=T)
 
 # call programs
 library(lfmm)
@@ -237,36 +237,20 @@ Now we can check and see which of our environmental variables is association wit
 ```{r, label="histograms", echo=T}
 #get the z scores from each run
 
-zs1 <- z.scores(sea_cuc_lfmm, K=1, d=1)
-zs2 <- z.scores(sea_cuc_lfmm, K=1, d=2)
-zs3 <- z.scores(sea_cuc_lfmm, K=1, d=3)
-zs4 <- z.scores(sea_cuc_lfmm, K=1, d=4)
-zs5 <- z.scores(sea_cuc_lfmm, K=1, d=5)
+zs<-lapply(1:5, function(x) z.scores(sea_cuc_lfmm, k=1, d=x))
 
 # compute the genomic inflation factor lambda
 
-lambda1=median(zs1^2)/qchisq(0.5, df=1)
-lambda2=median(zs2^2)/qchisq(0.5, df=1)
-lambda3=median(zs3^2)/qchisq(0.5, df=1)
-lambda4=median(zs4^2)/qchisq(0.5, df=1)
-lambda5=median(zs5^2)/qchisq(0.5, df=1)
+lambdas<-lapply(1:5, function(x) median(zs[[x]]^2/qchisq(0.5, df=1)))
+
 
 #then compute adjusted p-values
+adj.p.vals<-lapply(1:5, function(x) pchisq(zs[[x]]^2/lambdas[[x]], df=1, lower=F))
 
-adj.p.val1<-pchisq(zs1^2/lambda1, df=1, lower=F)
-adj.p.val2<-pchisq(zs2^2/lambda2, df=1, lower=F)
-adj.p.val3<-pchisq(zs3^2/lambda3, df=1, lower=F)
-adj.p.val4<-pchisq(zs4^2/lambda4, df=1, lower=F)
-adj.p.val5<-pchisq(zs5^2/lambda5, df=1, lower=F)
 
 #then plot that p-value
 
-hist(adj.p.val1, col="blue")
-hist(adj.p.val2, col="blue")
-hist(adj.p.val3, col="blue")
-hist(adj.p.val4, col="blue")
-hist(adj.p.val5, col="blue")
-
+lapply(1:5, function(x) hist(adj.p.vals[[x]], col="blue"))
 
 # control of false discoveries
 # to correct for multiple testing, we can apply the Benjamini-Hochberg algorithm

@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 Week3: Awk and how to download files | Semester.knit</title>
   <meta name="description" content="" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 Week3: Awk and how to download files | Semester.knit" />
   <meta property="og:type" content="book" />
-  
   
   
   
@@ -21,6 +20,7 @@
   
   
 
+<meta name="author" content="" />
 
 
 
@@ -31,7 +31,6 @@
   
 <link rel="prev" href="week-2-working-with-files.html"/>
 <link rel="next" href="week-4--what-is-a-genetic-variant.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -49,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -349,8 +349,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="week3-awk-and-how-to-download-files" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Week3: Awk and how to download files</h1>
+<div id="week3-awk-and-how-to-download-files" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Week3: Awk and how to download files<a href="week3-awk-and-how-to-download-files.html#week3-awk-and-how-to-download-files" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <center>
 <p><img src="figs/fig_week2/1200px-Bash_Logo_Colored.svg.png" width="300" height="300" /></p>
 </center>
@@ -361,8 +361,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb160"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb160-1"><a href="week3-awk-and-how-to-download-files.html#cb160-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb160-2"><a href="week3-awk-and-how-to-download-files.html#cb160-2" aria-hidden="true" tabindex="-1"></a>tar -xzvf week2.tar.gz</span></code></pre></div>
 <p>This will create a week2 directory in your MarineGenomics directory (it will also create the MarineGenomics directory if you don’t already have one).</p>
-<div id="awk" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> AWK</h2>
+<div id="awk" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> AWK<a href="week3-awk-and-how-to-download-files.html#awk" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><code>Awk</code> is a fast and versatile pattern matching programming language. <code>Awk</code> can do the same tasks that <code>sed</code>, <code>grep</code>, <code>cat</code>, and <code>wc</code>; and then it can do a lot more <a href="https://www.gnu.org/software/gawk/manual/gawk.html" class="uri">https://www.gnu.org/software/gawk/manual/gawk.html</a>. This program deserves a full class to go into details, so instead we just have this section to make you aware that the program exists.</p>
 <p>Let’s see how awk can behave like <code>wc</code>.</p>
 <div class="sourceCode" id="cb161"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb161-1"><a href="week3-awk-and-how-to-download-files.html#cb161-1" aria-hidden="true" tabindex="-1"></a>$ cd /home/margeno/MarineGenomics/week2/</span></code></pre></div>
@@ -422,20 +422,20 @@ of the input file(s).</p>
 <li>when manipulating multiple large files</li>
 </ul>
 </div>
-<div id="moving-and-downloading-data" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Moving and Downloading Data</h2>
+<div id="moving-and-downloading-data" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Moving and Downloading Data<a href="week3-awk-and-how-to-download-files.html#moving-and-downloading-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Below we’ll show you some commands to download data onto your instance, or to move data between your computer and the cloud.</p>
 </div>
-<div id="getting-data-from-the-cloud" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Getting data from the cloud</h2>
+<div id="getting-data-from-the-cloud" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Getting data from the cloud<a href="week3-awk-and-how-to-download-files.html#getting-data-from-the-cloud" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There are two programs that will download data from a remote server to your local
 (or remote) machine: <code>wget</code> and <code>curl</code>. They were designed to do slightly different
 tasks by default, so you’ll need to give the programs somewhat different options to get
 the same behaviour, but they are mostly interchangeable.</p>
 <ul>
-<li><p><code>wget</code> is short for “world wide web get,” and it’s basic function is to <em>download</em>
+<li><p><code>wget</code> is short for “world wide web get”, and it’s basic function is to <em>download</em>
 web pages or data at a web address.</p></li>
-<li><p><code>cURL</code> is a pun, it is supposed to be read as “see URL,” so its basic function is
+<li><p><code>cURL</code> is a pun, it is supposed to be read as “see URL”, so its basic function is
 to <em>display</em> webpages or data at a web address.</p></li>
 </ul>
 <p>Which one you need to use mostly depends on your operating system, as most computers will
@@ -468,8 +468,8 @@ following commands to download the file:</p>
 <div class="sourceCode" id="cb173"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb173-1"><a href="week3-awk-and-how-to-download-files.html#cb173-1" aria-hidden="true" tabindex="-1"></a>ls species_EnsemblBacteria.txt</span></code></pre></div>
 <p>it did!</p>
 </div>
-<div id="downloading-files-from-github" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Downloading files from Github</h2>
+<div id="downloading-files-from-github" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Downloading files from Github<a href="week3-awk-and-how-to-download-files.html#downloading-files-from-github" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Github is a useful place to store data files and scripts and it is widely used by researchers in many different fields, including genomics. There are a few useful tricks to understanding how to best transfer files from github to your own terminal.</p>
 <p>There are two main ways to transfer files from github:
 + Use <code>git clone</code> to download an entire repository (Directory)
@@ -562,8 +562,8 @@ following commands to download the file:</p>
 <div class="sourceCode" id="cb188"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb188-1"><a href="week3-awk-and-how-to-download-files.html#cb188-1" aria-hidden="true" tabindex="-1"></a>rm -r MarineGenomicsData</span></code></pre></div>
 <p>So we need to find that raw file path to use wget on any single file that we want in git hub.</p>
 </div>
-<div id="final-bash-wrap-up" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> Final bash wrap-up</h2>
+<div id="final-bash-wrap-up" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Final bash wrap-up<a href="week3-awk-and-how-to-download-files.html#final-bash-wrap-up" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We’ve covered a lot of ground so far in the last 2 and a half weeks! It’s a good time to review the commands we’ve learned and the skills we’re starting to develop.</p>
 <p>In week 1, we showed you:</p>
 <ul>

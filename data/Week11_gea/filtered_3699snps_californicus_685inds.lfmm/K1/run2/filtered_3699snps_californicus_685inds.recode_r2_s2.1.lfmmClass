@@ -1,5 +1,5 @@
 new("lfmmClass", directory = "K1/run2/", lfmmClass.file = "filtered_3699snps_californicus_685inds.recode_r2_s2.1.lfmmClass", 
-    K = 1L, d = 2L, Niter = 10000L, burn = 5000L, CPU = 1L, seed = 1539329211L, 
+    K = 1L, d = 2L, Niter = 10000L, burn = 5000L, CPU = 1L, seed = 526528999L, 
     missing.data = FALSE, all = FALSE, run = 2L, epsilon.noise = 0.001, 
     epsilon.b = 1000, random.init = TRUE, zscore.file = "filtered_3699snps_californicus_685inds.recode_r2_s2.1.zscore", 
-    deviance = 2533818.10123354, DIC = 2533819.08451372)
+    deviance = 2533818.02748785, DIC = 2533818.98314853)

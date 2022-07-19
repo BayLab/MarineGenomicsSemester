@@ -1,5 +1,0 @@
-new("lfmmClass", directory = "K8/run4/", lfmmClass.file = "filtered_3699snps_californicus_685inds.recode_r4_s4.8.lfmmClass", 
-    K = 8L, d = 4L, Niter = 10000L, burn = 5000L, CPU = 1L, seed = 1381571348L, 
-    missing.data = FALSE, all = FALSE, run = 4L, epsilon.noise = 0.001, 
-    epsilon.b = 1000, random.init = TRUE, zscore.file = "filtered_3699snps_californicus_685inds.recode_r4_s4.8.zscore", 
-    deviance = 2533817.32085416, DIC = 2533810.32863131)

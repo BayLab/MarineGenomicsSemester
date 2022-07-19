@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 Week 2: Working With Files | Semester.knit</title>
   <meta name="description" content="" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Week 2: Working With Files | Semester.knit" />
   <meta property="og:type" content="book" />
-  
   
   
   
@@ -21,6 +20,7 @@
   
   
 
+<meta name="author" content="" />
 
 
 
@@ -31,7 +31,6 @@
   
 <link rel="prev" href="week-1--welcome.html"/>
 <link rel="next" href="week3-awk-and-how-to-download-files.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -49,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -349,8 +349,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="week-2-working-with-files" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Week 2: Working With Files</h1>
+<div id="week-2-working-with-files" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> Week 2: Working With Files<a href="week-2-working-with-files.html#week-2-working-with-files" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <center>
 <p><img src="figs/fig_week2/1200px-Bash_Logo_Colored.svg.png" width="300" height="300" /></p>
 </center>
@@ -383,14 +383,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>The <code>history</code> command and the up arrow on your keyboard can be used to repeat recently used commands.</li>
 </ul></li>
 </ul>
-<div id="our-data-set-fastq-files" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Our data set: FASTQ files</h2>
+<div id="our-data-set-fastq-files" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Our data set: FASTQ files<a href="week-2-working-with-files.html#our-data-set-fastq-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Now that we know how to navigate around our directory structure, let’s
 start working with our sequencing files. We did a sequencing experiment and
 have two results files, which are stored in our <code>untrimmed_fastq</code> directory.</p>
 </div>
-<div id="wildcards" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Wildcards</h2>
+<div id="wildcards" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Wildcards<a href="week-2-working-with-files.html#wildcards" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Navigate to your <code>untrimmed_fastq</code> directory:</p>
 <div class="sourceCode" id="cb57"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb57-1"><a href="week-2-working-with-files.html#cb57-1" aria-hidden="true" tabindex="-1"></a>$ cd ~/MarineGenomics/Week2/untrimmed_fastq</span></code></pre></div>
 <p>We are interested in looking at the FASTQ files in this directory. We can list
@@ -410,16 +410,16 @@ Thus, <code>*.fastq</code> matches every file that ends with <code>.fastq</code>
 Note that the output displays <strong>full</strong> paths to files, since
 each result starts with <code>/</code>.</p>
 </div>
-<div id="exercise" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Exercise</h2>
+<div id="exercise" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Exercise<a href="week-2-working-with-files.html#exercise" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Do each of the following tasks from your current directory using a single
 <code>ls</code> command for each:</p>
 <ol style="list-style-type: decimal">
-<li>List all of the files in <code>/usr/bin</code> that start with the letter ‘c.’</li>
-<li>List all of the files in <code>/usr/bin</code> that contain the letter ‘a.’</li>
-<li>List all of the files in <code>/usr/bin</code> that end with the letter ‘o.’</li>
+<li>List all of the files in <code>/usr/bin</code> that start with the letter ‘c’.</li>
+<li>List all of the files in <code>/usr/bin</code> that contain the letter ‘a’.</li>
+<li>List all of the files in <code>/usr/bin</code> that end with the letter ‘o’.</li>
 </ol>
-<p>Bonus: List all of the files in <code>/usr/bin</code> that contain the letter ‘a’ or the letter ‘c.’</p>
+<p>Bonus: List all of the files in <code>/usr/bin</code> that contain the letter ‘a’ or the letter ‘c’.</p>
 <p>Hint: The bonus question requires a Unix wildcard that we haven’t talked about yet. Try searching the internet for information about Unix wildcards to find what you need to solve the bonus problem.</p>
 <details>
 <summary>
@@ -435,8 +435,8 @@ Bonus: <code>ls /usr/bin/*[ac]*</code></li>
 </p>
 </details>
 </div>
-<div id="using-echo" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Using echo</h2>
+<div id="using-echo" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Using echo<a href="week-2-working-with-files.html#using-echo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><code>echo</code> is a built-in shell command that writes its arguments, like a line of text to standard output.
 The <code>echo</code> command can also be used with pattern matching characters, such as wildcard characters.
 Here we will use the <code>echo</code> command to see how the wildcard character is interpreted by the shell.</p>
@@ -458,8 +458,8 @@ Here we will use the <code>echo</code> command to see how the wildcard character
 </details>
 <p> </p>
 </div>
-<div id="command-history" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> Command History</h2>
+<div id="command-history" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Command History<a href="week-2-working-with-files.html#command-history" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If you want to repeat a command that you’ve run recently, you can access previous
 commands using the up arrow on your keyboard to go back to the most recent
 command. Likewise, the down arrow takes you forward in the command history.</p>
@@ -487,8 +487,8 @@ For more information on advanced usage of <code>history</code>, read section 9.3
 <a href="https://www.gnu.org/software/bash/manual/html_node/index.html">Bash manual</a>.</p>
 <p>You can also do this with <kbd>Ctrl</kbd>+<kbd>R</kbd> and a search for <code>ls</code> which may be more of less usefull depending on how often you use the command <code>ls</code></p>
 </div>
-<div id="examining-files" class="section level2" number="3.6">
-<h2><span class="header-section-number">3.6</span> Examining Files</h2>
+<div id="examining-files" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Examining Files<a href="week-2-working-with-files.html#examining-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We now know how to switch directories, run programs, and look at the
 contents of directories, but how do we look at the contents of files?</p>
 <p>One way to examine a file is to print out all of the
@@ -497,8 +497,8 @@ contents using the program <code>cat</code>.</p>
 <div class="sourceCode" id="cb73"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb73-1"><a href="week-2-working-with-files.html#cb73-1" aria-hidden="true" tabindex="-1"></a>$ cat SRR098026.fastq</span></code></pre></div>
 <p>This will print out all of the contents of the <code>SRR098026.fastq</code> to the screen.</p>
 </div>
-<div id="exercise-1" class="section level2" number="3.7">
-<h2><span class="header-section-number">3.7</span> Exercise</h2>
+<div id="exercise-1" class="section level2 hasAnchor" number="3.7">
+<h2><span class="header-section-number">3.7</span> Exercise<a href="week-2-working-with-files.html#exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li>Print out the contents of the <code>~/MarineGenomics/week2/untrimmed_fastq/SRR097977.fastq</code> file. What is the last line of the file?</li>
 <li>From your home directory, and without changing directories, use one short command to print the contents of all of the files in
@@ -557,11 +557,11 @@ are identical to the <code>man</code> program.</p>
 “/” key to begin a search. Enter the word you would like
 to search for and press <code>enter</code>. The screen will jump to the next location where
 that word is found.</p>
-<p><strong>Shortcut:</strong> If you hit “/” then “enter,” <code>less</code> will repeat
+<p><strong>Shortcut:</strong> If you hit “/” then “enter”, <code>less</code> will repeat
 the previous search. <code>less</code> searches from the current location and
 works its way forward. Scroll up a couple lines on your terminal to verify
 you are at the beginning of the file. Note, if you are at the end of the file and search
-for the sequence “CAA,” <code>less</code> will not find it. You either need to go to the
+for the sequence “CAA”, <code>less</code> will not find it. You either need to go to the
 beginning of the file (by typing <code>g</code>) and search again using <code>/</code> or you
 can use <code>?</code> to search backwards in the same way you used <code>/</code> previously.</p>
 <p>For instance, let’s search forward for the sequence <code>TTTTT</code> in our file.
@@ -570,8 +570,8 @@ and where it is in the file. If you continue to type <code>/</code> and hit retu
 forward to the next instance of this sequence motif. If you instead type <code>?</code> and hit
 return, you will search backwards and move up the file to previous examples of this motif.</p>
 </div>
-<div id="exercise-2" class="section level2" number="3.8">
-<h2><span class="header-section-number">3.8</span> Exercise</h2>
+<div id="exercise-2" class="section level2 hasAnchor" number="3.8">
+<h2><span class="header-section-number">3.8</span> Exercise<a href="week-2-working-with-files.html#exercise-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>What are the next three nucleotides (characters) after the first instance of the sequence quoted above?</p>
 <details>
 <summary>
@@ -619,8 +619,8 @@ first or last <code>n</code> lines of a file.</p>
 <div class="sourceCode" id="cb81"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb81-1"><a href="week-2-working-with-files.html#cb81-1" aria-hidden="true" tabindex="-1"></a>$ tail -n 1 SRR098026.fastq</span></code></pre></div>
 <div class="sourceCode" id="cb82"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb82-1"><a href="week-2-working-with-files.html#cb82-1" aria-hidden="true" tabindex="-1"></a>A!@B!BBB@ABAB#########!!!!!!!######</span></code></pre></div>
 </div>
-<div id="details-on-the-fastq-format" class="section level2" number="3.9">
-<h2><span class="header-section-number">3.9</span> Details on the FASTQ format</h2>
+<div id="details-on-the-fastq-format" class="section level2 hasAnchor" number="3.9">
+<h2><span class="header-section-number">3.9</span> Details on the FASTQ format<a href="week-2-working-with-files.html#details-on-the-fastq-format" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Although it looks complicated (and it is), it’s easy to understand the
 <a href="https://en.wikipedia.org/wiki/FASTQ_format">fastq</a> format with a little decoding. Some rules about the format
 include…</p>
@@ -692,15 +692,15 @@ much signal was captured for the base incorporation.</p>
 nucleotide call (<code>C</code>) is also very poor (<code>#</code> = a quality score of 2). This is indeed a very
 bad read.</p>
 </div>
-<div id="creating-moving-copying-and-removing" class="section level2" number="3.10">
-<h2><span class="header-section-number">3.10</span> Creating, moving, copying, and removing</h2>
+<div id="creating-moving-copying-and-removing" class="section level2 hasAnchor" number="3.10">
+<h2><span class="header-section-number">3.10</span> Creating, moving, copying, and removing<a href="week-2-working-with-files.html#creating-moving-copying-and-removing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Now we can move around in the file structure, look at files, and search files. But what if we want to copy files or move
 them around or get rid of them? Most of the time, you can do these sorts of file manipulations without the command line,
 but there will be some cases (like when you’re working with a remote computer like we are for this lesson) where it will be
 impossible. You’ll also find that you may be working with hundreds of files and want to do similar manipulations to all
 of those files. In cases like this, it’s much faster to do these operations at the command line.</p>
-<div id="copying-files" class="section level3" number="3.10.1">
-<h3><span class="header-section-number">3.10.1</span> Copying Files</h3>
+<div id="copying-files" class="section level3 hasAnchor" number="3.10.1">
+<h3><span class="header-section-number">3.10.1</span> Copying Files<a href="week-2-working-with-files.html#copying-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When working with computational data, it’s important to keep a safe copy of that data that can’t be accidentally overwritten or deleted.
 For this lesson, our raw data is our FASTQ files. We don’t want to accidentally change the original files, so we’ll make a copy of them
 and change the file permissions so that we can read from, but not write to, the files.</p>
@@ -712,14 +712,14 @@ and change the file permissions so that we can read from, but not write to, the 
 <p>We now have two copies of the <code>SRR098026.fastq</code> file, one of them named <code>SRR098026-copy.fastq</code>. We’ll move this file to a new directory
 called <code>backup</code> where we’ll store our backup data files.</p>
 </div>
-<div id="creating-directories" class="section level3" number="3.10.2">
-<h3><span class="header-section-number">3.10.2</span> Creating Directories</h3>
+<div id="creating-directories" class="section level3 hasAnchor" number="3.10.2">
+<h3><span class="header-section-number">3.10.2</span> Creating Directories<a href="week-2-working-with-files.html#creating-directories" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>mkdir</code> command is used to make a directory. Enter <code>mkdir</code>
 followed by a space, then the directory name you want to create:</p>
 <div class="sourceCode" id="cb90"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb90-1"><a href="week-2-working-with-files.html#cb90-1" aria-hidden="true" tabindex="-1"></a>$ mkdir backup</span></code></pre></div>
 </div>
-<div id="moving-renaming" class="section level3" number="3.10.3">
-<h3><span class="header-section-number">3.10.3</span> Moving / Renaming</h3>
+<div id="moving-renaming" class="section level3 hasAnchor" number="3.10.3">
+<h3><span class="header-section-number">3.10.3</span> Moving / Renaming<a href="week-2-working-with-files.html#moving-renaming" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We can now move our backup file to this directory. We can
 move files around using the command <code>mv</code>:</p>
 <div class="sourceCode" id="cb91"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb91-1"><a href="week-2-working-with-files.html#cb91-1" aria-hidden="true" tabindex="-1"></a>$ mv SRR098026-copy.fastq backup</span>
@@ -732,8 +732,8 @@ move files around using the command <code>mv</code>:</p>
 <div class="sourceCode" id="cb94"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb94-1"><a href="week-2-working-with-files.html#cb94-1" aria-hidden="true" tabindex="-1"></a>SRR098026-backup.fastq</span></code></pre></div>
 </div>
 </div>
-<div id="file-permissions" class="section level2" number="3.11">
-<h2><span class="header-section-number">3.11</span> File Permissions</h2>
+<div id="file-permissions" class="section level2 hasAnchor" number="3.11">
+<h2><span class="header-section-number">3.11</span> File Permissions<a href="week-2-working-with-files.html#file-permissions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We’ve now made a backup copy of our file, but just because we have two copies, it doesn’t make us safe. We can still accidentally delete or
 overwrite both copies. To make sure we can’t accidentally mess up this backup file, we’re going to change the permissions on the file so
 that we’re only allowed to read (i.e. view) the file, not write to it (i.e. make new changes).</p>
@@ -761,8 +761,8 @@ talk more about this in <a href="http://www.datacarpentry.org/shell-genomics/05-
 <div class="sourceCode" id="cb99"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb99-1"><a href="week-2-working-with-files.html#cb99-1" aria-hidden="true" tabindex="-1"></a>$ chmod u=rwx SRR098026-backup.fastq</span>
 <span id="cb99-2"><a href="week-2-working-with-files.html#cb99-2" aria-hidden="true" tabindex="-1"></a>$ ls -l </span></code></pre></div>
 </div>
-<div id="removing" class="section level2" number="3.12">
-<h2><span class="header-section-number">3.12</span> Removing</h2>
+<div id="removing" class="section level2 hasAnchor" number="3.12">
+<h2><span class="header-section-number">3.12</span> Removing<a href="week-2-working-with-files.html#removing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To prove to ourselves that you no longer have the ability to modify this file, try deleting it with the <code>rm</code> command:</p>
 <div class="sourceCode" id="cb100"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb100-1"><a href="week-2-working-with-files.html#cb100-1" aria-hidden="true" tabindex="-1"></a>$ rm SRR098026-backup.fastq</span></code></pre></div>
 <p>You’ll be asked if you want to override your file permissions:</p>
@@ -780,8 +780,8 @@ we just made.</p>
 <p>This will delete not only the directory, but all files within the directory. If you have write-protected files in the directory,
 you will be asked whether you want to override your permission settings.</p>
 </div>
-<div id="exercise-3" class="section level2" number="3.13">
-<h2><span class="header-section-number">3.13</span> Exercise</h2>
+<div id="exercise-3" class="section level2 hasAnchor" number="3.13">
+<h2><span class="header-section-number">3.13</span> Exercise<a href="week-2-working-with-files.html#exercise-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Starting in the <code>~/MarineGenomics/Week2/untrimmed_fastq/</code> directory, do the following:
 1. Make sure that you have deleted your backup directory and all files it contains.<br />
 2. Create a backup of each of your FASTQ files using <code>cp</code>. (Note: You’ll need to do this individually for each of the two FASTQ files. We haven’t learned yet how to do this with a wildcard.)<br />
@@ -807,8 +807,8 @@ It’s always a good idea to check your work with <code>ls -l backup</code>. You
 </details>
 <p> </p>
 </div>
-<div id="redirections" class="section level2" number="3.14">
-<h2><span class="header-section-number">3.14</span> Redirections</h2>
+<div id="redirections" class="section level2 hasAnchor" number="3.14">
+<h2><span class="header-section-number">3.14</span> Redirections<a href="week-2-working-with-files.html#redirections" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Questions:
 <ul>
@@ -834,8 +834,8 @@ It’s always a good idea to check your work with <code>ls -l backup</code>. You
 </ul></li>
 </ul>
 </div>
-<div id="searching-files" class="section level2" number="3.15">
-<h2><span class="header-section-number">3.15</span> Searching files</h2>
+<div id="searching-files" class="section level2 hasAnchor" number="3.15">
+<h2><span class="header-section-number">3.15</span> Searching files<a href="week-2-working-with-files.html#searching-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We discussed in a previous episode how to search within a file using <code>less</code>. We can also
 search within files without even opening them, using <code>grep</code>. <code>grep</code> is a command-line
 utility for searching plain-text files for lines matching a specific set of
@@ -845,7 +845,7 @@ regular expressions in this lesson, and are instead going to specify the strings
 we are searching for.
 Let’s give it a try!</p>
 <blockquote>
-<h3 id="nucleotide-abbreviations">Nucleotide abbreviations</h3>
+<h3 id="nucleotide-abbreviations" class="hasAnchor">Nucleotide abbreviations<a href="week-2-working-with-files.html#nucleotide-abbreviations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The four nucleotides that appear in DNA are abbreviated <code>A</code>, <code>C</code>, <code>T</code> and <code>G</code>.
 Unknown nucleotides are represented with the letter <code>N</code>. An <code>N</code> appearing
 in a sequencing file represents a position where the sequencing machine was not able to
@@ -857,7 +857,7 @@ directory:</p>
 <div class="sourceCode" id="cb104"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb104-1"><a href="week-2-working-with-files.html#cb104-1" aria-hidden="true" tabindex="-1"></a>$ cd ~/MarineGenomics/Week2/untrimmed_fastq</span></code></pre></div>
 <p>Suppose we want to see how many reads in our file have really bad segments containing 10 consecutive unknown nucleotides (Ns).</p>
 <blockquote>
-<h3 id="determining-quality">Determining quality</h3>
+<h3 id="determining-quality" class="hasAnchor">Determining quality<a href="week-2-working-with-files.html#determining-quality" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In this lesson, we’re going to be manually searching for strings of <code>N</code>s within our sequence
 results to illustrate some principles of file searching. It can be really useful to do this
 type of searching to get a feel for the quality of your sequencing results, however, in your
@@ -885,8 +885,8 @@ matching line, so we add <code>-B1 -A2</code> to our grep command:</p>
 <span id="cb107-3"><a href="week-2-working-with-files.html#cb107-3" aria-hidden="true" tabindex="-1"></a>+SRR098026.177 HWUSI-EAS1599_1:2:1:1:2025 length=35</span>
 <span id="cb107-4"><a href="week-2-working-with-files.html#cb107-4" aria-hidden="true" tabindex="-1"></a>#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span></code></pre></div>
 </div>
-<div id="exercise-4" class="section level2" number="3.16">
-<h2><span class="header-section-number">3.16</span> Exercise</h2>
+<div id="exercise-4" class="section level2 hasAnchor" number="3.16">
+<h2><span class="header-section-number">3.16</span> Exercise<a href="week-2-working-with-files.html#exercise-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li><p>Search for the sequence <code>GNATNACCACTTCC</code> in the <code>SRR098026.fastq</code> file.
 Have your search return all matching lines and the name (or identifier) for each sequence
@@ -935,13 +935,13 @@ SRR098026.fastq:GNNNNNNNNCAAAGTTGATCNNNNNNNNNTGTGCG</code></pre>
 </details>
 <p> </p>
 </div>
-<div id="redirecting-output" class="section level2" number="3.17">
-<h2><span class="header-section-number">3.17</span> Redirecting output</h2>
+<div id="redirecting-output" class="section level2 hasAnchor" number="3.17">
+<h2><span class="header-section-number">3.17</span> Redirecting output<a href="week-2-working-with-files.html#redirecting-output" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><code>grep</code> allowed us to identify sequences in our FASTQ files that match a particular pattern.
 All of these sequences were printed to our terminal screen, but in order to work with these
 sequences and perform other operations on them, we will need to capture that output in some
 way.</p>
-<p>We can do this with something called “redirection.” The idea is that
+<p>We can do this with something called “redirection”. The idea is that
 we are taking what would ordinarily be printed to the terminal screen and redirecting it to another location.
 In our case, we want to print this information to a file so that we can look at it later and
 use other commands to analyze this data.</p>
@@ -951,7 +951,7 @@ in our FASTQ files that contain
 ‘NNNNNNNNNN’ to another file called <code>bad_reads.txt</code>.</p>
 <div class="sourceCode" id="cb110"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb110-1"><a href="week-2-working-with-files.html#cb110-1" aria-hidden="true" tabindex="-1"></a>$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq &gt; bad_reads.txt</span></code></pre></div>
 <blockquote>
-<h3 id="file-extensions">File extensions</h3>
+<h3 id="file-extensions" class="hasAnchor">File extensions<a href="week-2-working-with-files.html#file-extensions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You might be confused about why we’re naming our output file with a <code>.txt</code> extension. After all,
 it will be holding FASTQ formatted data that we’re extracting from our FASTQ files. Won’t it
 also be a FASTQ file? The answer is, yes - it will be a FASTQ file and it would make sense to
@@ -972,8 +972,8 @@ make sure your file matches your instructor’s output.</p>
 want only the number of lines, we can use the <code>-l</code> flag for <code>lines</code>.</p>
 <div class="sourceCode" id="cb113"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb113-1"><a href="week-2-working-with-files.html#cb113-1" aria-hidden="true" tabindex="-1"></a>$ wc -l bad_reads.txt</span></code></pre></div>
 <div class="sourceCode" id="cb114"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb114-1"><a href="week-2-working-with-files.html#cb114-1" aria-hidden="true" tabindex="-1"></a>537 bad_reads.txt</span></code></pre></div>
-<div id="exercise-5" class="section level3" number="3.17.1">
-<h3><span class="header-section-number">3.17.1</span> Exercise</h3>
+<div id="exercise-5" class="section level3 hasAnchor" number="3.17.1">
+<h3><span class="header-section-number">3.17.1</span> Exercise<a href="week-2-working-with-files.html#exercise-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>How many sequences are there in <code>SRR098026.fastq</code>? Remember that every sequence is formed by four lines.</p>
 <details>
 <summary>
@@ -1014,7 +1014,7 @@ append new output to the end of a file, rather than overwriting it.</p>
 <span id="cb125-2"><a href="week-2-working-with-files.html#cb125-2" aria-hidden="true" tabindex="-1"></a>$ wc -l bad_reads.txt</span></code></pre></div>
 <div class="sourceCode" id="cb126"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb126-1"><a href="week-2-working-with-files.html#cb126-1" aria-hidden="true" tabindex="-1"></a>537 bad_reads.txt</span></code></pre></div>
 <blockquote>
-<h3 id="file-extensions---part-2">File extensions - part 2</h3>
+<h3 id="file-extensions---part-2" class="hasAnchor">File extensions - part 2<a href="week-2-working-with-files.html#file-extensions---part-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This is where we would have trouble if we were naming our output file with a <code>.fastq</code> extension.
 If we already had a file called <code>bad_reads.fastq</code> (from our previous <code>grep</code> practice)
 and then ran the command above using a <code>.fastq</code> extension instead of a <code>.txt</code> extension, <code>grep</code>
@@ -1079,7 +1079,7 @@ lines which do not match the searched pattern, in this case <code>'^--'</code>. 
 character matching the beginning of the line, and the pattern has to be enclose by single quotes so <code>grep</code> does
 not interpret the pattern as an extended option (starting with –).</p>
 <blockquote>
-<h3 id="custom-grep-control">Custom <code>grep</code> control</h3>
+<h3 id="custom-grep-control" class="hasAnchor">Custom <code>grep</code> control<a href="week-2-working-with-files.html#custom-grep-control" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Use <code>man grep</code> to read more about other options to customize the output of <code>grep</code> including extended options,
 anchoring characters, and much more.</p>
 </blockquote>
@@ -1092,8 +1092,8 @@ them together, you can do some really powerful things very
 efficiently.</p>
 </div>
 </div>
-<div id="writing-for-loops" class="section level2" number="3.18">
-<h2><span class="header-section-number">3.18</span> Writing for loops</h2>
+<div id="writing-for-loops" class="section level2 hasAnchor" number="3.18">
+<h2><span class="header-section-number">3.18</span> Writing for loops<a href="week-2-working-with-files.html#writing-for-loops" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Loops are key to productivity improvements through automation as they allow us to execute commands repeatedly.
 Similar to wildcards and tab completion, using loops also reduces the amount of typing (and typing mistakes).
 Loops are helpful when performing operations on groups of sequencing files, such as unzipping or trimming multiple
@@ -1146,8 +1146,8 @@ will save this information to a file.</p>
 <p>Note that we are using <code>&gt;&gt;</code> to append the text to our <code>seq_info.txt</code> file. If we used <code>&gt;</code>, the <code>seq_info.txt</code> file would be rewritten
 every time the loop iterates, so it would only have text from the last variable used. Instead, <code>&gt;&gt;</code> adds to the end of the file.</p>
 </div>
-<div id="using-basename-in-for-loops" class="section level2" number="3.19">
-<h2><span class="header-section-number">3.19</span> Using Basename in for loops</h2>
+<div id="using-basename-in-for-loops" class="section level2 hasAnchor" number="3.19">
+<h2><span class="header-section-number">3.19</span> Using Basename in for loops<a href="week-2-working-with-files.html#using-basename-in-for-loops" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Basename is a function in UNIX that is helpful for removing a uniform part of a name from a list of files. In this case, we will use basename to remove the <code>.fastq</code> extension from the files that we’ve been working with.</p>
 <div class="sourceCode" id="cb140"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb140-1"><a href="week-2-working-with-files.html#cb140-1" aria-hidden="true" tabindex="-1"></a>$ basename SRR097977.fastq .fastq</span></code></pre></div>
 <p>We see that this returns just the SRR accession, and no longer has the .fastq file extension on it.</p>
@@ -1168,8 +1168,8 @@ Exercise
 </summary>
 <p>
 </div>
-<div id="exercise-6" class="section level2" number="3.20">
-<h2><span class="header-section-number">3.20</span> Exercise</h2>
+<div id="exercise-6" class="section level2 hasAnchor" number="3.20">
+<h2><span class="header-section-number">3.20</span> Exercise<a href="week-2-working-with-files.html#exercise-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Print the file prefix of all of the <code>.txt</code> files in our current directory.</p>
 <details>
 <summary>
@@ -1196,8 +1196,8 @@ Exercise
 </summary>
 <p>
 </div>
-<div id="exercise-7" class="section level2" number="3.21">
-<h2><span class="header-section-number">3.21</span> Exercise</h2>
+<div id="exercise-7" class="section level2 hasAnchor" number="3.21">
+<h2><span class="header-section-number">3.21</span> Exercise<a href="week-2-working-with-files.html#exercise-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Remove <code>_2021</code> from all of the <code>.txt</code> files.</p>
 <details>
 <summary>
@@ -1213,8 +1213,8 @@ Exercise
 </details>
 <p> </p>
 </div>
-<div id="writing-scripts-and-working-with-data" class="section level2" number="3.22">
-<h2><span class="header-section-number">3.22</span> Writing Scripts and Working with Data</h2>
+<div id="writing-scripts-and-working-with-data" class="section level2 hasAnchor" number="3.22">
+<h2><span class="header-section-number">3.22</span> Writing Scripts and Working with Data<a href="week-2-working-with-files.html#writing-scripts-and-working-with-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Questions:
 <ul>
@@ -1253,8 +1253,8 @@ function change_content_by_platform(form_control){
 window.onload = set_page_view_defaults;
 </script>
 </div>
-<div id="writing-files" class="section level2" number="3.23">
-<h2><span class="header-section-number">3.23</span> Writing files</h2>
+<div id="writing-files" class="section level2 hasAnchor" number="3.23">
+<h2><span class="header-section-number">3.23</span> Writing files<a href="week-2-working-with-files.html#writing-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We’ve been able to do a lot of work with files that already exist, but what if we want to write our own files? We’re not going to type in a FASTA file, but we’ll see as we go through other tutorials, there are a lot of reasons we’ll want to write a file, or edit an existing file.</p>
 <p>To add text to files, we’re going to use a text editor called Nano. We’re going to create a file to take notes about what we’ve been doing with the data files in <code>~/MarineGenomics/week2/untrimmed_fastq</code>.</p>
 <p>This is good practice when working in bioinformatics. We can create a file called <code>README.txt</code> that describes the data files in the directory or documents how the files in that directory were generated. As the name suggests, it’s a file that we or others should read to understand the information in that directory.</p>
@@ -1274,7 +1274,7 @@ Which Editor?
 </summary>
 <p>
 <blockquote>
-<h3 id="which-editor">Which Editor?</h3>
+<h3 id="which-editor" class="hasAnchor">Which Editor?<a href="week-2-working-with-files.html#which-editor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When we say, “<code>nano</code> is a text editor,” we really do mean “text”: it can
 only work with plain character data, not tables, images, or any other
 human-friendly media. We use it in examples because it is one of the
@@ -1306,7 +1306,7 @@ press <kbd>Return</kbd> to accept the suggested default of <code>README.txt</cod
 <p>Once our file is saved, we can use <kbd>Ctrl</kbd>-<kbd>X</kbd> to quit the editor and
 return to the shell.</p>
 <blockquote>
-<h3 id="control-ctrl-or-key">Control, Ctrl, or ^ Key</h3>
+<h3 id="control-ctrl-or-key" class="hasAnchor">Control, Ctrl, or ^ Key<a href="week-2-working-with-files.html#control-ctrl-or-key" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The Control key is also called the “Ctrl” key. There are various ways
 in which using the Control key may be described. For example, you may
 see an instruction to press the <kbd>Ctrl</kbd> key and, while holding it down,
@@ -1330,8 +1330,8 @@ Exercise
 </summary>
 <p>
 </div>
-<div id="exercise-8" class="section level2" number="3.24">
-<h2><span class="header-section-number">3.24</span> Exercise</h2>
+<div id="exercise-8" class="section level2 hasAnchor" number="3.24">
+<h2><span class="header-section-number">3.24</span> Exercise<a href="week-2-working-with-files.html#exercise-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Open <code>README.txt</code> and add the date to the top of the file and save the file.</p>
 <details>
 <summary>
@@ -1344,8 +1344,8 @@ Add today’s date and then use <kbd>Ctrl</kbd>-<kbd>X</kbd> followed by <code>y
 </details>
 <p> </p>
 </div>
-<div id="writing-scripts" class="section level2" number="3.25">
-<h2><span class="header-section-number">3.25</span> Writing scripts</h2>
+<div id="writing-scripts" class="section level2 hasAnchor" number="3.25">
+<h2><span class="header-section-number">3.25</span> Writing scripts<a href="week-2-working-with-files.html#writing-scripts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A really powerful thing about the command line is that you can write scripts. Scripts let you save commands to run them and also lets you put multiple commands together. Though writing scripts may require an additional time investment initially, this can save you time as you run them repeatedly. Scripts can also address the challenge of reproducibility: if you need to repeat an analysis, you retain a record of your command history within the script.</p>
 <p>One thing we will commonly want to do with sequencing results is pull out bad reads and write them to a file to see if we can figure out what’s going on with them. We’re going to look for reads with long sequences of N’s like we did before, but now we’re going to write a script, so we can run it each time we get new sequences, rather than type the code in by hand each time.</p>
 <p>We’re going to create a new file to put this command in. We’ll call it <code>bad-reads-script.sh</code>. The <code>sh</code> isn’t required, but using that extension tells us that it’s a shell script.</p>
@@ -1353,7 +1353,7 @@ Add today’s date and then use <kbd>Ctrl</kbd>-<kbd>X</kbd> followed by <code>y
 <p>Bad reads have a lot of N’s, so we’re going to look for <code>NNNNNNNNNN</code> with <code>grep</code>. We want the whole FASTQ record, so we’re also going to get the one line above the sequence and the two lines below. We also want to look in all the files that end with <code>.fastq</code>, so we’re going to use the <code>*</code> wildcard.</p>
 <div class="sourceCode" id="cb150"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb150-1"><a href="week-2-working-with-files.html#cb150-1" aria-hidden="true" tabindex="-1"></a>grep -B1 -A2 -h NNNNNNNNNN *.fastq | grep -v &#39;^--&#39; &gt; scripted_bad_reads.txt</span></code></pre></div>
 <blockquote>
-<h3 id="custom-grep-control-1">Custom <code>grep</code> control</h3>
+<h3 id="custom-grep-control-1" class="hasAnchor">Custom <code>grep</code> control<a href="week-2-working-with-files.html#custom-grep-control-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We introduced the <code>-v</code> option in <a href="http://www.datacarpentry.org/shell-genomics/04-redirection/">the previous episode</a>, now we
 are using <code>-h</code> to “Suppress the prefixing of file names on output” according to the documentation shown by <code>man grep</code>.</p>
 </blockquote>
@@ -1362,8 +1362,8 @@ are using <code>-h</code> to “Suppress the prefixing of file names on output�
 <div class="sourceCode" id="cb151"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb151-1"><a href="week-2-working-with-files.html#cb151-1" aria-hidden="true" tabindex="-1"></a>$ bash bad-reads-script.sh</span></code></pre></div>
 <p>It will look like nothing happened, but now if you look at <code>scripted_bad_reads.txt</code>, you can see that there are now reads in the file.</p>
 </div>
-<div id="exercise-9" class="section level2" number="3.26">
-<h2><span class="header-section-number">3.26</span> Exercise</h2>
+<div id="exercise-9" class="section level2 hasAnchor" number="3.26">
+<h2><span class="header-section-number">3.26</span> Exercise<a href="week-2-working-with-files.html#exercise-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We want the script to tell us when it’s done.<br />
 1. Open <code>bad-reads-script.sh</code> and add the line <code>echo "Script finished!"</code> after the <code>grep</code> command and save the file.<br />
 2. Run the updated script.</p>
@@ -1378,8 +1378,8 @@ Script finished!</code></pre>
 </details>
 <p> </p>
 </div>
-<div id="making-the-script-into-a-program" class="section level2" number="3.27">
-<h2><span class="header-section-number">3.27</span> Making the script into a program</h2>
+<div id="making-the-script-into-a-program" class="section level2 hasAnchor" number="3.27">
+<h2><span class="header-section-number">3.27</span> Making the script into a program<a href="week-2-working-with-files.html#making-the-script-into-a-program" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We had to type <code>bash</code> because we needed to tell the computer what program to use to run this script. Instead, we can turn this script into its own program. We need to tell it that it’s a program by making it executable. We can do this by changing the file permissions. We talked about permissions in <a href="http://www.datacarpentry.org/shell-genomics/03-working-with-files/">an earlier episode</a>.</p>
 <p>First, let’s look at the current permissions.</p>
 <div class="sourceCode" id="cb153"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb153-1"><a href="week-2-working-with-files.html#cb153-1" aria-hidden="true" tabindex="-1"></a>$ ls -l bad-reads-script.sh</span></code></pre></div>
@@ -1394,8 +1394,8 @@ Script finished!</code></pre>
 <div class="sourceCode" id="cb158"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb158-1"><a href="week-2-working-with-files.html#cb158-1" aria-hidden="true" tabindex="-1"></a>$ ./bad-reads-script.sh</span></code></pre></div>
 <p>The script should run the same way as before, but now we’ve created our very own computer program!</p>
 </div>
-<div id="creature-of-the-week-1" class="section level2" number="3.28">
-<h2><span class="header-section-number">3.28</span> Creature of the Week!</h2>
+<div id="creature-of-the-week-1" class="section level2 hasAnchor" number="3.28">
+<h2><span class="header-section-number">3.28</span> Creature of the Week!<a href="week-2-working-with-files.html#creature-of-the-week-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="figure">
 <img src="figs/creatures/Chlamydoselachus_anguineus_head.jpg" alt="" />
 <p class="caption">The Frilled shark!</p>

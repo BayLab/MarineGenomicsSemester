@@ -156,7 +156,7 @@ lrt_filt<-lrt_filt[-c(which(lrt_filt$pvalue == "NaN" ),
                       which(lrt_filt$LRT == "Inf")),]
                       
 #get pvalues
-lrt_filt$pvalue<-dchisq(lrt_filt$LRT, df=1)
+lrt_filt$pvalue<-pchisq(lrt_filt$LRT, df=1, lower=F)
 ```
 
 ```{r, label='8-2', echo=T}

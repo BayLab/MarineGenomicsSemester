@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>14 Genomics is a BLAST | Semester.knit</title>
   <meta name="description" content="" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="14 Genomics is a BLAST | Semester.knit" />
   <meta property="og:type" content="book" />
-  
   
   
   
@@ -21,6 +20,7 @@
   
   
 
+<meta name="author" content="" />
 
 
 
@@ -31,7 +31,6 @@
   
 <link rel="prev" href="population-structure-via-construct.html"/>
 <link rel="next" href="final-week-r-markdown-tutorial.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -49,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -349,12 +349,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="genomics-is-a-blast" class="section level1" number="14">
-<h1><span class="header-section-number">14</span> Genomics is a BLAST</h1>
+<div id="genomics-is-a-blast" class="section level1 hasAnchor" number="14">
+<h1><span class="header-section-number">14</span> Genomics is a BLAST<a href="genomics-is-a-blast.html#genomics-is-a-blast" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Through this course we’ve taken genomic data in the form of whole genome sequences or reduced representation sequences (i.e., RADtags) and searched for correlations between phenotypes (via GWAS) and population structure (Fst Outliers) to identify “candidate SNP” that may have some role in producing the phenotypes we’re interested in.</p>
 <p>The next logical step when you’ve identified a candidate SNP is to ask “what’s the function of the gene region near the candidate SNP?” This seems like a straight forward question, as the main goal of many of these studies is to identify the genetic basis of a given phenotype. However, as we dig into this question we will see that it is rather opaque. First we need to consider whether the SNP we identified is “the” SNP itself that is under selection or is the SNP associated through physical linkage (aka hitchhiking), with the gene or gene region that is under selection?</p>
-<div id="genome-annotation-and-blast-searches" class="section level2" number="14.1">
-<h2><span class="header-section-number">14.1</span> Genome Annotation and BLAST searches</h2>
+<div id="genome-annotation-and-blast-searches" class="section level2 hasAnchor" number="14.1">
+<h2><span class="header-section-number">14.1</span> Genome Annotation and BLAST searches<a href="genomics-is-a-blast.html#genome-annotation-and-blast-searches" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This question can be addressed through whole genome resequencing and identification of regions with reduced heterozygosity which indicate patterns of linked-selection. This is reviewed more fully <a href="http://cooplab.github.io/popgen-notes/#the-effect-of-linked-selection-on-patterns-of-neutral-diversity">here</a></p>
 <p>Once a region under selection is identified we can refer to a genome annotation to determine whether this gene region is a coding or non-coding sequence (does it produce a protein or not?) and make some guesses as to the functionalization of this region. Your ability to do this is heavily influenced by the species you’re working on and the degree to which your genome is successfully annotated (if at all). This is described in more detail in the lecture for the week <a href="https://github.com/BayLab/MarineGenomicsSemester/blob/main/ppt/MarineGenomics_Lecture_w13.pdf">here</a></p>
 <p>For this weeks exercise we’ll go through a brief illustration of the difficulties in “assigning” putative function to a region surrounding a candidate SNP, using the Fst outliers that we identified in week 7 with the sea cucumber (<strong>Parastichipus californicus</strong>) data published by <a href="http://www2.bio.ulaval.ca/louisbernatchez/pdf/(417)%20Xuereb_Molecular_Ecology_2018.pdf">Xuereb et al.</a></p>
@@ -362,49 +362,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>I selected a region spanning 20kb around each SNP from the closely related Parastichipus parvimensis genome.This is a relatively large region which should capture any coding sequences that may occur near our SNP. For these regions we will performed a “small scale” annotation by identifying coding regions with the program transdecoder and then running these regions through ncbi-blast which will provide us with a list of similar sequences in other organisms and their gene ids.</p>
 <p><img src="figs/week10_figure.png" /></p>
 </div>
-<div id="download-the-data-4" class="section level2" number="14.2">
-<h2><span class="header-section-number">14.2</span> Download the data</h2>
+<div id="download-the-data-4" class="section level2 hasAnchor" number="14.2">
+<h2><span class="header-section-number">14.2</span> Download the data<a href="genomics-is-a-blast.html#download-the-data-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>You’ll download one fasta file that contains the 17 regions in which we found our Fst outlier SNPs.</p>
-<div class="sourceCode" id="cb585"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb585-1"><a href="genomics-is-a-blast.html#cb585-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb585-2"><a href="genomics-is-a-blast.html#cb585-2" aria-hidden="true" tabindex="-1"></a>wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week13_semester.tar.gz</span>
-<span id="cb585-3"><a href="genomics-is-a-blast.html#cb585-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb585-4"><a href="genomics-is-a-blast.html#cb585-4" aria-hidden="true" tabindex="-1"></a>tar -xzvf week13_semester.tar.gz</span></code></pre></div>
+<div class="sourceCode" id="cb576"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb576-1"><a href="genomics-is-a-blast.html#cb576-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-2"><a href="genomics-is-a-blast.html#cb576-2" aria-hidden="true" tabindex="-1"></a>wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week13_semester.tar.gz</span>
+<span id="cb576-3"><a href="genomics-is-a-blast.html#cb576-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb576-4"><a href="genomics-is-a-blast.html#cb576-4" aria-hidden="true" tabindex="-1"></a>tar -xzvf week13_semester.tar.gz</span></code></pre></div>
 </div>
-<div id="install-transdecoder" class="section level2" number="14.3">
-<h2><span class="header-section-number">14.3</span> Install Transdecoder</h2>
+<div id="install-transdecoder" class="section level2 hasAnchor" number="14.3">
+<h2><span class="header-section-number">14.3</span> Install Transdecoder<a href="genomics-is-a-blast.html#install-transdecoder" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We’ll use transdecoder to identify coding regions in our nucleotide sequences.</p>
-<div class="sourceCode" id="cb586"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb586-1"><a href="genomics-is-a-blast.html#cb586-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb586-2"><a href="genomics-is-a-blast.html#cb586-2" aria-hidden="true" tabindex="-1"></a>sudo apt update #this just updates our currently installed packages</span>
-<span id="cb586-3"><a href="genomics-is-a-blast.html#cb586-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb586-4"><a href="genomics-is-a-blast.html#cb586-4" aria-hidden="true" tabindex="-1"></a>sudo apt install transdecoder</span></code></pre></div>
+<div class="sourceCode" id="cb577"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb577-1"><a href="genomics-is-a-blast.html#cb577-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb577-2"><a href="genomics-is-a-blast.html#cb577-2" aria-hidden="true" tabindex="-1"></a>sudo apt update #this just updates our currently installed packages</span>
+<span id="cb577-3"><a href="genomics-is-a-blast.html#cb577-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb577-4"><a href="genomics-is-a-blast.html#cb577-4" aria-hidden="true" tabindex="-1"></a>sudo apt install transdecoder</span></code></pre></div>
 </div>
-<div id="run-transdecoder" class="section level2" number="14.4">
-<h2><span class="header-section-number">14.4</span> Run Transdecoder</h2>
+<div id="run-transdecoder" class="section level2 hasAnchor" number="14.4">
+<h2><span class="header-section-number">14.4</span> Run Transdecoder<a href="genomics-is-a-blast.html#run-transdecoder" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Transdecoder is run in two parts, the first <code>TransDecoder.LongOrfs</code> identifies open read frames or regions that contain either a start or stop codon. This is followed by <code>TransDecoder.Predict</code> which</p>
-<div class="sourceCode" id="cb587"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb587-1"><a href="genomics-is-a-blast.html#cb587-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb587-2"><a href="genomics-is-a-blast.html#cb587-2" aria-hidden="true" tabindex="-1"></a>TransDecoder.LongOrfs -t candidate_fastas.fa</span>
-<span id="cb587-3"><a href="genomics-is-a-blast.html#cb587-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb587-4"><a href="genomics-is-a-blast.html#cb587-4" aria-hidden="true" tabindex="-1"></a>TransDecoder.Predict -t candidate_fastas.fa</span></code></pre></div>
+<div class="sourceCode" id="cb578"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb578-1"><a href="genomics-is-a-blast.html#cb578-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb578-2"><a href="genomics-is-a-blast.html#cb578-2" aria-hidden="true" tabindex="-1"></a>TransDecoder.LongOrfs -t candidate_fastas.fa</span>
+<span id="cb578-3"><a href="genomics-is-a-blast.html#cb578-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb578-4"><a href="genomics-is-a-blast.html#cb578-4" aria-hidden="true" tabindex="-1"></a>TransDecoder.Predict -t candidate_fastas.fa</span></code></pre></div>
 <p>This produces an output directory and pulls from that several files with different extensions (.gff3, .bed, .cds, .pep) which correspond to different formats specifically, <code>.gff3</code> is a general feature format file (version 3) and contains information about each of our sequences. The <code>.bed</code> format is a browser extensible data format which describes the chromosome, position and length of our sequences, the <code>.cds</code> contains the nucleotide sequences for the open reading frames, and finally the file we want is the <code>.pep</code> file which contains our open reading frames from our regions converted into protein codes.</p>
 </div>
-<div id="run-ncbi-blast" class="section level2" number="14.5">
-<h2><span class="header-section-number">14.5</span> Run NCBI-BLAST</h2>
+<div id="run-ncbi-blast" class="section level2 hasAnchor" number="14.5">
+<h2><span class="header-section-number">14.5</span> Run NCBI-BLAST<a href="genomics-is-a-blast.html#run-ncbi-blast" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>NCBI-BLAST is commonly called “blast” and stands for Basic Local Alignment Search Tool. This program is often a part of the annotation process as it compares your sequences (or query) to those contained in a database. As such blast results are highly dependent on the database in which you search for results and whether your species of interest (or a close relative) is present in that database. This program can be run in the command line, but in my testing I found it to be incredibly slow on jetstream. So We’re going to run our file on the NCBI-BLAST web browser which should only take a few minutes as we only have 14 protein sequences.</p>
 <p>Once you have the <code>.pep</code> file from transdecoder, navigate to the web browser on jetstream (the default is firefox). Search for NCBI-Blast.</p>
 <p>We’ll do a protein to protein search (blastp) against the nr database, which contains protein sequences from a variety of taxa, but does not include SRA data (which would include the genome sequence for our sea cucumbers).</p>
 </div>
-<div id="what-did-we-find" class="section level2" number="14.6">
-<h2><span class="header-section-number">14.6</span> What did we find?</h2>
+<div id="what-did-we-find" class="section level2 hasAnchor" number="14.6">
+<h2><span class="header-section-number">14.6</span> What did we find?<a href="genomics-is-a-blast.html#what-did-we-find" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Nine out of our 14 protein sequences came back with a blast hit. Many of those that found a hit in Blast were for the other sea cucumber species Parastichipus ja. Many of these sequences are listed as “uncharacterized” or “hypothetical” protein meaning that there has not yet been any downstream classification of these sequences. This is a pretty common result for marine organisms, as they are rarely as highly studied as model organisms such as Drosophila or zebra fish.</p>
 </div>
-<div id="the-importance-of-genomic-architecture" class="section level2" number="14.7">
-<h2><span class="header-section-number">14.7</span> The importance of Genomic Architecture</h2>
+<div id="the-importance-of-genomic-architecture" class="section level2 hasAnchor" number="14.7">
+<h2><span class="header-section-number">14.7</span> The importance of Genomic Architecture<a href="genomics-is-a-blast.html#the-importance-of-genomic-architecture" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Even though we often don’t get satisfying answers about which genes are doing what in Marine Genomics, we can learn a lot about trait evolution from using Fst outliers and tests of Genome Wide Association. These tests give us some idea of the number of genes and their effect on a given trait and that in turn has big implications on how that trait can respond to evolution. And that in turn has implications for climate change, conservation, and biodiversity.</p>
 </div>
-<div id="exercises-4" class="section level2" number="14.8">
-<h2><span class="header-section-number">14.8</span> Exercises</h2>
+<div id="exercises-4" class="section level2 hasAnchor" number="14.8">
+<h2><span class="header-section-number">14.8</span> Exercises<a href="genomics-is-a-blast.html#exercises-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <blockquote>
-<h1 id="practice-questions-2">Practice Questions:</h1>
+<h1 id="practice-questions-2" class="hasAnchor">Practice Questions:<a href="genomics-is-a-blast.html#practice-questions-2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 </blockquote>
 <blockquote>
 <ol style="list-style-type: decimal">
@@ -416,7 +416,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span style="color: SeaGreen;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="genomics-is-a-blast.html#cb588-1" aria-hidden="true" tabindex="-1"></a><span class="co">#coming soon :) </span></span></code></pre></div>
+<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="genomics-is-a-blast.html#cb579-1" aria-hidden="true" tabindex="-1"></a><span class="co">#coming soon :) </span></span></code></pre></div>
 </p>
 </details>
 <blockquote>
@@ -429,7 +429,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span style="color: SeaGreen;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="genomics-is-a-blast.html#cb589-1" aria-hidden="true" tabindex="-1"></a><span class="co">#coming soon :) </span></span></code></pre></div>
+<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="genomics-is-a-blast.html#cb580-1" aria-hidden="true" tabindex="-1"></a><span class="co">#coming soon :) </span></span></code></pre></div>
 </p>
 </details>
 

@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8 Week 7 For loops and the apply family of functions | Semester.knit</title>
   <meta name="description" content="" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8 Week 7 For loops and the apply family of functions | Semester.knit" />
   <meta property="og:type" content="book" />
-  
   
   
   
@@ -21,6 +20,7 @@
   
   
 
+<meta name="author" content="" />
 
 
 
@@ -31,7 +31,6 @@
   
 <link rel="prev" href="week-6--r-continued.html"/>
 <link rel="next" href="week-8--principle-component-analyses.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -49,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -349,60 +349,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="week-7-for-loops-and-the-apply-family-of-functions" class="section level1" number="8">
-<h1><span class="header-section-number">8</span> Week 7 For loops and the apply family of functions</h1>
+<div id="week-7-for-loops-and-the-apply-family-of-functions" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">8</span> Week 7 For loops and the apply family of functions<a href="week-7-for-loops-and-the-apply-family-of-functions.html#week-7-for-loops-and-the-apply-family-of-functions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>A few useful commands: function(), is.na, which, var, length, for(){ },
 points, print, paste, plot, unique, sample</p>
 <p>for loops:
 In many languages, the best way to repeat a calculation is to use a for-loop:
 For example, we could square each number 1 to 10</p>
-<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-1" aria-hidden="true" tabindex="-1"></a>squares <span class="ot">=</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">10</span>) <span class="co"># use rep to create a vector length 10 of NAs to store the result</span></span>
-<span id="cb461-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) { <span class="co"># for loop</span></span>
-<span id="cb461-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-3" aria-hidden="true" tabindex="-1"></a>  squares[i] <span class="ot">=</span> i<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb461-4"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb461-5"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-5" aria-hidden="true" tabindex="-1"></a>squares</span>
-<span id="cb461-6"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1]   1   4   9  16  25  36  49  64  81 100</span></span></code></pre></div>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb457-1" aria-hidden="true" tabindex="-1"></a>squares <span class="ot">=</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">10</span>) <span class="co"># use rep to create a vector length 10 of NAs to store the result</span></span>
+<span id="cb457-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb457-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) { <span class="co"># for loop</span></span>
+<span id="cb457-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb457-3" aria-hidden="true" tabindex="-1"></a>  squares[i] <span class="ot">=</span> i<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb457-4"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb457-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb457-5"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb457-5" aria-hidden="true" tabindex="-1"></a>squares</span>
+<span id="cb457-6"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb457-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1]   1   4   9  16  25  36  49  64  81 100</span></span></code></pre></div>
 <p>An alternative to for-loops in R is using the ‘apply’ family, while for-loops apply a function to one item at a time and then go on to the next one, “apply” applies functions to every item at once
 ## apply family
 ### sapply
 There are several apply functions that vary in the output the return and vary somewhat in the input they require. We’ll go over <strong>sapply</strong> “simplifying” apply which returns a vector, first.</p>
-<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-1" aria-hidden="true" tabindex="-1"></a><span class="co">#?sapply </span></span>
-<span id="cb462-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-2" aria-hidden="true" tabindex="-1"></a><span class="co"># syntax: sapply(X = object_to_repeat_over, FUN = function_to_repeat)</span></span>
-<span id="cb462-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-3" aria-hidden="true" tabindex="-1"></a><span class="co"># simple example of sapply over a vector</span></span>
-<span id="cb462-4"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-4" aria-hidden="true" tabindex="-1"></a><span class="co"># we can use an in-line function definition</span></span>
-<span id="cb462-5"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cf">function</span>(x)  x<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb462-6"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1]   1   4   9  16  25  36  49  64  81 100</span></span>
-<span id="cb462-7"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-7" aria-hidden="true" tabindex="-1"></a><span class="co"># equivalently, we can define our own functions separately for sapply</span></span>
-<span id="cb462-8"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-8" aria-hidden="true" tabindex="-1"></a><span class="co"># e.g. a function that calculates the area of a circle radius r, pi*r^2</span></span>
-<span id="cb462-9"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-9" aria-hidden="true" tabindex="-1"></a>areaCircle <span class="ot">=</span> <span class="cf">function</span>(r){</span>
-<span id="cb462-10"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(pi <span class="sc">*</span> r<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb462-11"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb462-12"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-12" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, areaCircle)</span>
-<span id="cb462-13"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1]   3.141593  12.566371  28.274334  50.265482  78.539816 113.097336 153.938040 201.061930 254.469005 314.159265</span></span>
-<span id="cb462-14"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-14" aria-hidden="true" tabindex="-1"></a><span class="co"># in R, we can also just use short-hand for simple vector calculations:</span></span>
-<span id="cb462-15"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-15" aria-hidden="true" tabindex="-1"></a>pi<span class="sc">*</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb462-16"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1]   3.141593  12.566371  28.274334  50.265482  78.539816 113.097336 153.938040 201.061930 254.469005 314.159265</span></span>
-<span id="cb462-17"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-17" aria-hidden="true" tabindex="-1"></a><span class="co"># but unlike the short-hand, sapply can also iterate over elements in a list</span></span>
-<span id="cb462-18"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-18" aria-hidden="true" tabindex="-1"></a>listy <span class="ot">=</span> <span class="fu">list</span>(<span class="at">a =</span> <span class="cn">TRUE</span>, <span class="at">b =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), <span class="at">c =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">100</span>)</span>
-<span id="cb462-19"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-19" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(listy) <span class="co"># look at the structure of &#39;listy&#39;</span></span>
-<span id="cb462-20"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; List of 3</span></span>
-<span id="cb462-21"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ a: logi TRUE</span></span>
-<span id="cb462-22"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ b: chr [1:3] &quot;a&quot; &quot;b&quot; &quot;c&quot;</span></span>
-<span id="cb462-23"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ c: int [1:91] 10 11 12 13 14 15 16 17 18 19 ...</span></span>
-<span id="cb462-24"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-24" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(listy) <span class="co"># look at the length of &#39;listy&#39;</span></span>
-<span id="cb462-25"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3</span></span>
-<span id="cb462-26"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-26" aria-hidden="true" tabindex="-1"></a><span class="co"># use sapply to return a vector for length of each object within the list</span></span>
-<span id="cb462-27"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-27" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(listy, <span class="at">FUN =</span> length) </span>
-<span id="cb462-28"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  a  b  c </span></span>
-<span id="cb462-29"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1  3 91</span></span></code></pre></div>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-1" aria-hidden="true" tabindex="-1"></a><span class="co">#?sapply </span></span>
+<span id="cb458-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-2" aria-hidden="true" tabindex="-1"></a><span class="co"># syntax: sapply(X = object_to_repeat_over, FUN = function_to_repeat)</span></span>
+<span id="cb458-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-3" aria-hidden="true" tabindex="-1"></a><span class="co"># simple example of sapply over a vector</span></span>
+<span id="cb458-4"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-4" aria-hidden="true" tabindex="-1"></a><span class="co"># we can use an in-line function definition</span></span>
+<span id="cb458-5"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cf">function</span>(x)  x<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb458-6"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1]   1   4   9  16  25  36  49  64  81 100</span></span>
+<span id="cb458-7"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-7" aria-hidden="true" tabindex="-1"></a><span class="co"># equivalently, we can define our own functions separately for sapply</span></span>
+<span id="cb458-8"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-8" aria-hidden="true" tabindex="-1"></a><span class="co"># e.g. a function that calculates the area of a circle radius r, pi*r^2</span></span>
+<span id="cb458-9"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-9" aria-hidden="true" tabindex="-1"></a>areaCircle <span class="ot">=</span> <span class="cf">function</span>(r){</span>
+<span id="cb458-10"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(pi <span class="sc">*</span> r<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb458-11"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb458-12"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-12" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, areaCircle)</span>
+<span id="cb458-13"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1]   3.141593  12.566371  28.274334  50.265482  78.539816 113.097336 153.938040 201.061930 254.469005</span></span>
+<span id="cb458-14"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [10] 314.159265</span></span>
+<span id="cb458-15"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-15" aria-hidden="true" tabindex="-1"></a><span class="co"># in R, we can also just use short-hand for simple vector calculations:</span></span>
+<span id="cb458-16"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-16" aria-hidden="true" tabindex="-1"></a>pi<span class="sc">*</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb458-17"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1]   3.141593  12.566371  28.274334  50.265482  78.539816 113.097336 153.938040 201.061930 254.469005</span></span>
+<span id="cb458-18"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [10] 314.159265</span></span>
+<span id="cb458-19"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-19" aria-hidden="true" tabindex="-1"></a><span class="co"># but unlike the short-hand, sapply can also iterate over elements in a list</span></span>
+<span id="cb458-20"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-20" aria-hidden="true" tabindex="-1"></a>listy <span class="ot">=</span> <span class="fu">list</span>(<span class="at">a =</span> <span class="cn">TRUE</span>, <span class="at">b =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), <span class="at">c =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">100</span>)</span>
+<span id="cb458-21"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-21" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(listy) <span class="co"># look at the structure of &#39;listy&#39;</span></span>
+<span id="cb458-22"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; List of 3</span></span>
+<span id="cb458-23"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ a: logi TRUE</span></span>
+<span id="cb458-24"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ b: chr [1:3] &quot;a&quot; &quot;b&quot; &quot;c&quot;</span></span>
+<span id="cb458-25"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ c: int [1:91] 10 11 12 13 14 15 16 17 18 19 ...</span></span>
+<span id="cb458-26"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-26" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(listy) <span class="co"># look at the length of &#39;listy&#39;</span></span>
+<span id="cb458-27"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3</span></span>
+<span id="cb458-28"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-28" aria-hidden="true" tabindex="-1"></a><span class="co"># use sapply to return a vector for length of each object within the list</span></span>
+<span id="cb458-29"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-29" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(listy, <span class="at">FUN =</span> length) </span>
+<span id="cb458-30"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  a  b  c </span></span>
+<span id="cb458-31"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb458-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1  3 91</span></span></code></pre></div>
 <p>You can also use sapply to create plots! For example, use sapply to plot these 4 dataframes at once:</p>
-<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb463-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y1 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
-<span id="cb463-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb463-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x2 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y2 =</span> <span class="sc">-</span><span class="dv">1</span><span class="sc">:-</span><span class="dv">10</span>)</span>
-<span id="cb463-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb463-3" aria-hidden="true" tabindex="-1"></a>df3 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x3 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y3 =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">1</span>)</span>
-<span id="cb463-4"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb463-4" aria-hidden="true" tabindex="-1"></a>df4 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x4 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y4 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
-<span id="cb463-5"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb463-5" aria-hidden="true" tabindex="-1"></a>my_list <span class="ot">=</span> <span class="fu">list</span>(df1, df2, df3, df4) <span class="co"># put 4 data frames together in a list</span></span>
-<span id="cb463-6"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb463-6" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)) <span class="co"># set up frame for 4 plots</span></span>
-<span id="cb463-7"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb463-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(my_list, plot) <span class="co"># plot my_list with sapply</span></span></code></pre></div>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb459-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y1 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb459-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb459-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x2 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y2 =</span> <span class="sc">-</span><span class="dv">1</span><span class="sc">:-</span><span class="dv">10</span>)</span>
+<span id="cb459-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb459-3" aria-hidden="true" tabindex="-1"></a>df3 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x3 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y3 =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">1</span>)</span>
+<span id="cb459-4"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb459-4" aria-hidden="true" tabindex="-1"></a>df4 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x4 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y4 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb459-5"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb459-5" aria-hidden="true" tabindex="-1"></a>my_list <span class="ot">=</span> <span class="fu">list</span>(df1, df2, df3, df4) <span class="co"># put 4 data frames together in a list</span></span>
+<span id="cb459-6"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb459-6" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)) <span class="co"># set up frame for 4 plots</span></span>
+<span id="cb459-7"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb459-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(my_list, plot) <span class="co"># plot my_list with sapply</span></span></code></pre></div>
 <p><img src="Semester_files/figure-html/5-33-1.png" width="768" style="display: block; margin: auto;" /></p>
 <pre><code>#&gt; [[1]]
 #&gt; NULL
@@ -415,34 +417,34 @@ There are several apply functions that vary in the output the return and vary so
 #&gt; 
 #&gt; [[4]]
 #&gt; NULL</code></pre>
-<div id="apply" class="section level3" number="8.0.1">
-<h3><span class="header-section-number">8.0.1</span> apply</h3>
+<div id="apply" class="section level3 hasAnchor" number="8.0.1">
+<h3><span class="header-section-number">8.0.1</span> apply<a href="week-7-for-loops-and-the-apply-family-of-functions.html#apply" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The apply function is highly useful for applying a function to rows or columns of a dataframe or matrix.
 Example syntax for the dataframe or matrix X:
 <code>apply(X = over this object, MARGIN 1 for rows or 2 for columns,FUN = apply this function)</code>
 You can also use apply on a dataframe we worked with earlier the states data to plot each column against Population</p>
-<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb465-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load in the data</span></span>
-<span id="cb465-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb465-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(state)</span>
-<span id="cb465-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb465-3" aria-hidden="true" tabindex="-1"></a>states <span class="ot">=</span> <span class="fu">as.data.frame</span>(state.x77) <span class="co"># convert data to a familiar format - data frame</span></span>
-<span id="cb465-4"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb465-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(states) <span class="co"># let&#39;s take a look at the dataframe</span></span>
-<span id="cb465-5"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb465-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &#39;data.frame&#39;:    50 obs. of  8 variables:</span></span>
-<span id="cb465-6"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb465-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Population: num  3615 365 2212 2110 21198 ...</span></span>
-<span id="cb465-7"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb465-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Income    : num  3624 6315 4530 3378 5114 ...</span></span>
-<span id="cb465-8"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb465-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Illiteracy: num  2.1 1.5 1.8 1.9 1.1 0.7 1.1 0.9 1.3 2 ...</span></span>
-<span id="cb465-9"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb465-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Life Exp  : num  69 69.3 70.5 70.7 71.7 ...</span></span>
-<span id="cb465-10"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb465-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Murder    : num  15.1 11.3 7.8 10.1 10.3 6.8 3.1 6.2 10.7 13.9 ...</span></span>
-<span id="cb465-11"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb465-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ HS Grad   : num  41.3 66.7 58.1 39.9 62.6 63.9 56 54.6 52.6 40.6 ...</span></span>
-<span id="cb465-12"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb465-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Frost     : num  20 152 15 65 20 166 139 103 11 60 ...</span></span>
-<span id="cb465-13"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb465-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Area      : num  50708 566432 113417 51945 156361 ...</span></span>
-<span id="cb465-14"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb465-14" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the mean for each column</span></span>
-<span id="cb465-15"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb465-15" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states, <span class="dv">2</span>, mean)</span>
-<span id="cb465-16"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb465-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Population     Income Illiteracy   Life Exp     Murder    HS Grad      Frost       Area </span></span>
-<span id="cb465-17"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb465-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4246.4200  4435.8000     1.1700    70.8786     7.3780    53.1080   104.4600 70735.8800</span></span>
-<span id="cb465-18"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb465-18" aria-hidden="true" tabindex="-1"></a><span class="co"># note you could get this with colMeans() or summary(), along with the min and max and other values, but there may be instances where you only want the mean</span></span>
-<span id="cb465-19"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb465-19" aria-hidden="true" tabindex="-1"></a><span class="co"># you could also plot each column against Population in ggplot</span></span></code></pre></div>
-<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb466-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states, <span class="dv">2</span>, <span class="at">FUN =</span> <span class="cf">function</span>(i) <span class="fu">ggplot</span>(states, <span class="fu">aes</span>(<span class="at">x=</span>Population, <span class="at">y =</span> i))<span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>)<span class="sc">+</span><span class="fu">theme_classic</span>())</span>
-<span id="cb466-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb466-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $Population</span></span>
-<span id="cb466-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb466-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; `geom_smooth()` using formula &#39;y ~ x&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load in the data</span></span>
+<span id="cb461-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(state)</span>
+<span id="cb461-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-3" aria-hidden="true" tabindex="-1"></a>states <span class="ot">=</span> <span class="fu">as.data.frame</span>(state.x77) <span class="co"># convert data to a familiar format - data frame</span></span>
+<span id="cb461-4"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(states) <span class="co"># let&#39;s take a look at the dataframe</span></span>
+<span id="cb461-5"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &#39;data.frame&#39;:    50 obs. of  8 variables:</span></span>
+<span id="cb461-6"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Population: num  3615 365 2212 2110 21198 ...</span></span>
+<span id="cb461-7"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Income    : num  3624 6315 4530 3378 5114 ...</span></span>
+<span id="cb461-8"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Illiteracy: num  2.1 1.5 1.8 1.9 1.1 0.7 1.1 0.9 1.3 2 ...</span></span>
+<span id="cb461-9"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Life Exp  : num  69 69.3 70.5 70.7 71.7 ...</span></span>
+<span id="cb461-10"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Murder    : num  15.1 11.3 7.8 10.1 10.3 6.8 3.1 6.2 10.7 13.9 ...</span></span>
+<span id="cb461-11"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ HS Grad   : num  41.3 66.7 58.1 39.9 62.6 63.9 56 54.6 52.6 40.6 ...</span></span>
+<span id="cb461-12"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Frost     : num  20 152 15 65 20 166 139 103 11 60 ...</span></span>
+<span id="cb461-13"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Area      : num  50708 566432 113417 51945 156361 ...</span></span>
+<span id="cb461-14"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-14" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the mean for each column</span></span>
+<span id="cb461-15"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-15" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states, <span class="dv">2</span>, mean)</span>
+<span id="cb461-16"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Population     Income Illiteracy   Life Exp     Murder    HS Grad      Frost       Area </span></span>
+<span id="cb461-17"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4246.4200  4435.8000     1.1700    70.8786     7.3780    53.1080   104.4600 70735.8800</span></span>
+<span id="cb461-18"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-18" aria-hidden="true" tabindex="-1"></a><span class="co"># note you could get this with colMeans() or summary(), along with the min and max and other values, but there may be instances where you only want the mean</span></span>
+<span id="cb461-19"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb461-19" aria-hidden="true" tabindex="-1"></a><span class="co"># you could also plot each column against Population in ggplot</span></span></code></pre></div>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states, <span class="dv">2</span>, <span class="at">FUN =</span> <span class="cf">function</span>(i) <span class="fu">ggplot</span>(states, <span class="fu">aes</span>(<span class="at">x=</span>Population, <span class="at">y =</span> i))<span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>)<span class="sc">+</span><span class="fu">theme_classic</span>())</span>
+<span id="cb462-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $Population</span></span>
+<span id="cb462-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb462-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; `geom_smooth()` using formula &#39;y ~ x&#39;</span></span></code></pre></div>
 <p><img src="Semester_files/figure-html/5-29-1.png" width="768" style="display: block; margin: auto;" /></p>
 <pre><code>#&gt; 
 #&gt; $Income
@@ -473,124 +475,126 @@ You can also use apply on a dataframe we worked with earlier the states data to 
 #&gt; `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="Semester_files/figure-html/5-29-8.png" width="768" style="display: block; margin: auto;" />
 We can do the same things across all rows. But if you want to plot all the rows as we did the columns above, I suggest you do that with a smaller dataset than the states dataframe.</p>
-<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb474-1" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate the sum across each row in states</span></span>
-<span id="cb474-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb474-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states, <span class="dv">1</span>, sum)</span>
-<span id="cb474-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb474-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        Alabama         Alaska        Arizona       Arkansas     California       Colorado    Connecticut       Delaware </span></span>
-<span id="cb474-4"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb474-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       58094.55      573412.81      120312.25       57620.56      182838.71      111500.46       13581.68        7604.76 </span></span>
-<span id="cb474-5"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb474-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        Florida        Georgia         Hawaii          Idaho       Illinois        Indiana           Iowa         Kansas </span></span>
-<span id="cb474-6"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb474-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       67328.26       67280.04       12399.60       87872.27       72312.94       46121.58       63704.36       88987.58 </span></span>
-<span id="cb474-7"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb474-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       Kentucky      Louisiana          Maine       Maryland  Massachusetts       Michigan      Minnesota    Mississippi </span></span>
-<span id="cb474-8"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb474-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       46964.80       52419.96       35961.49       19544.92       18632.73       70939.43       88178.46       52908.99 </span></span>
-<span id="cb474-9"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb474-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       Missouri        Montana       Nebraska         Nevada  New Hampshire     New Jersey     New Mexico       New York </span></span>
-<span id="cb474-10"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb474-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       78253.59      150970.36       82809.40      115962.23       14426.83       20335.73      126414.42       71027.55 </span></span>
-<span id="cb474-11"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb474-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; North Carolina   North Dakota           Ohio       Oklahoma         Oregon   Pennsylvania   Rhode Island South Carolina </span></span>
-<span id="cb474-12"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb474-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       58314.61       75308.28       56527.22       75692.52      103308.93       61528.73        6787.00       36860.66 </span></span>
-<span id="cb474-13"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb474-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   South Dakota      Tennessee          Texas           Utah        Vermont       Virginia     Washington  West Virginia </span></span>
-<span id="cb474-14"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb474-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       81102.58       49516.61      278726.70       87603.30       13948.84       49675.78       75165.12       29705.18 </span></span>
-<span id="cb474-15"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb474-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Wisconsin        Wyoming </span></span>
-<span id="cb474-16"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb474-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       63800.68      102458.69</span></span></code></pre></div>
+<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb470-1" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate the sum across each row in states</span></span>
+<span id="cb470-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb470-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states, <span class="dv">1</span>, sum)</span>
+<span id="cb470-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb470-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        Alabama         Alaska        Arizona       Arkansas     California       Colorado    Connecticut </span></span>
+<span id="cb470-4"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb470-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       58094.55      573412.81      120312.25       57620.56      182838.71      111500.46       13581.68 </span></span>
+<span id="cb470-5"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb470-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       Delaware        Florida        Georgia         Hawaii          Idaho       Illinois        Indiana </span></span>
+<span id="cb470-6"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb470-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        7604.76       67328.26       67280.04       12399.60       87872.27       72312.94       46121.58 </span></span>
+<span id="cb470-7"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb470-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           Iowa         Kansas       Kentucky      Louisiana          Maine       Maryland  Massachusetts </span></span>
+<span id="cb470-8"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb470-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       63704.36       88987.58       46964.80       52419.96       35961.49       19544.92       18632.73 </span></span>
+<span id="cb470-9"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb470-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       Michigan      Minnesota    Mississippi       Missouri        Montana       Nebraska         Nevada </span></span>
+<span id="cb470-10"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb470-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       70939.43       88178.46       52908.99       78253.59      150970.36       82809.40      115962.23 </span></span>
+<span id="cb470-11"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb470-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  New Hampshire     New Jersey     New Mexico       New York North Carolina   North Dakota           Ohio </span></span>
+<span id="cb470-12"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb470-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       14426.83       20335.73      126414.42       71027.55       58314.61       75308.28       56527.22 </span></span>
+<span id="cb470-13"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb470-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       Oklahoma         Oregon   Pennsylvania   Rhode Island South Carolina   South Dakota      Tennessee </span></span>
+<span id="cb470-14"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb470-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       75692.52      103308.93       61528.73        6787.00       36860.66       81102.58       49516.61 </span></span>
+<span id="cb470-15"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb470-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          Texas           Utah        Vermont       Virginia     Washington  West Virginia      Wisconsin </span></span>
+<span id="cb470-16"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb470-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      278726.70       87603.30       13948.84       49675.78       75165.12       29705.18       63800.68 </span></span>
+<span id="cb470-17"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb470-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        Wyoming </span></span>
+<span id="cb470-18"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb470-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      102458.69</span></span></code></pre></div>
 </div>
-<div id="lapply-list-apply" class="section level3" number="8.0.2">
-<h3><span class="header-section-number">8.0.2</span> lapply – “list” apply</h3>
+<div id="lapply-list-apply" class="section level3 hasAnchor" number="8.0.2">
+<h3><span class="header-section-number">8.0.2</span> lapply – “list” apply<a href="week-7-for-loops-and-the-apply-family-of-functions.html#lapply-list-apply" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We’ll just show a quick example of lapply. It works in the same way as sapply, but returns a list instead of a vector.</p>
-<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cf">function</span>(x)  x<span class="sc">^</span><span class="dv">2</span>) <span class="co"># lapply returns list</span></span>
-<span id="cb475-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[1]]</span></span>
-<span id="cb475-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
-<span id="cb475-4"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb475-5"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[2]]</span></span>
-<span id="cb475-6"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 4</span></span>
-<span id="cb475-7"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb475-8"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[3]]</span></span>
-<span id="cb475-9"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 9</span></span>
-<span id="cb475-10"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb475-11"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[4]]</span></span>
-<span id="cb475-12"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 16</span></span>
-<span id="cb475-13"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb475-14"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[5]]</span></span>
-<span id="cb475-15"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 25</span></span>
-<span id="cb475-16"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb475-17"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[6]]</span></span>
-<span id="cb475-18"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 36</span></span>
-<span id="cb475-19"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb475-20"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[7]]</span></span>
-<span id="cb475-21"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 49</span></span>
-<span id="cb475-22"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb475-23"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[8]]</span></span>
-<span id="cb475-24"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 64</span></span>
-<span id="cb475-25"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb475-26"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[9]]</span></span>
-<span id="cb475-27"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 81</span></span>
-<span id="cb475-28"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb475-29"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[10]]</span></span>
-<span id="cb475-30"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 100</span></span>
-<span id="cb475-31"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-31" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cf">function</span>(x)  x<span class="sc">^</span><span class="dv">2</span>, <span class="at">simplify =</span> <span class="cn">FALSE</span>) <span class="co"># same as an lapply</span></span>
-<span id="cb475-32"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[1]]</span></span>
-<span id="cb475-33"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
-<span id="cb475-34"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb475-35"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[2]]</span></span>
-<span id="cb475-36"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 4</span></span>
-<span id="cb475-37"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb475-38"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[3]]</span></span>
-<span id="cb475-39"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 9</span></span>
-<span id="cb475-40"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb475-41"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[4]]</span></span>
-<span id="cb475-42"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 16</span></span>
-<span id="cb475-43"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb475-44"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[5]]</span></span>
-<span id="cb475-45"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 25</span></span>
-<span id="cb475-46"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb475-47"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[6]]</span></span>
-<span id="cb475-48"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 36</span></span>
-<span id="cb475-49"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb475-50"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[7]]</span></span>
-<span id="cb475-51"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-51" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 49</span></span>
-<span id="cb475-52"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-52" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb475-53"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-53" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[8]]</span></span>
-<span id="cb475-54"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-54" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 64</span></span>
-<span id="cb475-55"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-55" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb475-56"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-56" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[9]]</span></span>
-<span id="cb475-57"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-57" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 81</span></span>
-<span id="cb475-58"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-58" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb475-59"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-59" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[10]]</span></span>
-<span id="cb475-60"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-60" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 100</span></span>
-<span id="cb475-61"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-61" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cf">function</span>(x)  x<span class="sc">^</span><span class="dv">2</span>) <span class="co"># default is simplify = TRUE which retuns a vector</span></span>
-<span id="cb475-62"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-62" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1]   1   4   9  16  25  36  49  64  81 100</span></span></code></pre></div>
+<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cf">function</span>(x)  x<span class="sc">^</span><span class="dv">2</span>) <span class="co"># lapply returns list</span></span>
+<span id="cb471-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[1]]</span></span>
+<span id="cb471-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
+<span id="cb471-4"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb471-5"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[2]]</span></span>
+<span id="cb471-6"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 4</span></span>
+<span id="cb471-7"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb471-8"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[3]]</span></span>
+<span id="cb471-9"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 9</span></span>
+<span id="cb471-10"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb471-11"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[4]]</span></span>
+<span id="cb471-12"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 16</span></span>
+<span id="cb471-13"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb471-14"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[5]]</span></span>
+<span id="cb471-15"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 25</span></span>
+<span id="cb471-16"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb471-17"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[6]]</span></span>
+<span id="cb471-18"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 36</span></span>
+<span id="cb471-19"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb471-20"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[7]]</span></span>
+<span id="cb471-21"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 49</span></span>
+<span id="cb471-22"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb471-23"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[8]]</span></span>
+<span id="cb471-24"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 64</span></span>
+<span id="cb471-25"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb471-26"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[9]]</span></span>
+<span id="cb471-27"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 81</span></span>
+<span id="cb471-28"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb471-29"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[10]]</span></span>
+<span id="cb471-30"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 100</span></span>
+<span id="cb471-31"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-31" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cf">function</span>(x)  x<span class="sc">^</span><span class="dv">2</span>, <span class="at">simplify =</span> <span class="cn">FALSE</span>) <span class="co"># same as an lapply</span></span>
+<span id="cb471-32"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[1]]</span></span>
+<span id="cb471-33"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
+<span id="cb471-34"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb471-35"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[2]]</span></span>
+<span id="cb471-36"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 4</span></span>
+<span id="cb471-37"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb471-38"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[3]]</span></span>
+<span id="cb471-39"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 9</span></span>
+<span id="cb471-40"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb471-41"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[4]]</span></span>
+<span id="cb471-42"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 16</span></span>
+<span id="cb471-43"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb471-44"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[5]]</span></span>
+<span id="cb471-45"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 25</span></span>
+<span id="cb471-46"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb471-47"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[6]]</span></span>
+<span id="cb471-48"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 36</span></span>
+<span id="cb471-49"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb471-50"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[7]]</span></span>
+<span id="cb471-51"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-51" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 49</span></span>
+<span id="cb471-52"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-52" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb471-53"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-53" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[8]]</span></span>
+<span id="cb471-54"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-54" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 64</span></span>
+<span id="cb471-55"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-55" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb471-56"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-56" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[9]]</span></span>
+<span id="cb471-57"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-57" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 81</span></span>
+<span id="cb471-58"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-58" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb471-59"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-59" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[10]]</span></span>
+<span id="cb471-60"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-60" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 100</span></span>
+<span id="cb471-61"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-61" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cf">function</span>(x)  x<span class="sc">^</span><span class="dv">2</span>) <span class="co"># default is simplify = TRUE which retuns a vector</span></span>
+<span id="cb471-62"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb471-62" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1]   1   4   9  16  25  36  49  64  81 100</span></span></code></pre></div>
 </div>
-<div id="tapply---per-type-apply" class="section level3" number="8.0.3">
-<h3><span class="header-section-number">8.0.3</span> tapply - “per Type” apply</h3>
+<div id="tapply---per-type-apply" class="section level3 hasAnchor" number="8.0.3">
+<h3><span class="header-section-number">8.0.3</span> tapply - “per Type” apply<a href="week-7-for-loops-and-the-apply-family-of-functions.html#tapply---per-type-apply" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The tapply function is one of my favorites because it is a really great way to sumarize data that has multiple categorical variables that can be</p>
-<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load state data again, you can skip this if you already have it loaded</span></span>
-<span id="cb476-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(state)</span>
-<span id="cb476-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-3" aria-hidden="true" tabindex="-1"></a>states <span class="ot">=</span> <span class="fu">as.data.frame</span>(state.x77) <span class="co"># convert data to a familiar format - data frame</span></span>
-<span id="cb476-4"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(states) <span class="co"># let&#39;s take a look at the dataframe</span></span>
-<span id="cb476-5"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &#39;data.frame&#39;:    50 obs. of  8 variables:</span></span>
-<span id="cb476-6"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Population: num  3615 365 2212 2110 21198 ...</span></span>
-<span id="cb476-7"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Income    : num  3624 6315 4530 3378 5114 ...</span></span>
-<span id="cb476-8"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Illiteracy: num  2.1 1.5 1.8 1.9 1.1 0.7 1.1 0.9 1.3 2 ...</span></span>
-<span id="cb476-9"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Life Exp  : num  69 69.3 70.5 70.7 71.7 ...</span></span>
-<span id="cb476-10"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Murder    : num  15.1 11.3 7.8 10.1 10.3 6.8 3.1 6.2 10.7 13.9 ...</span></span>
-<span id="cb476-11"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ HS Grad   : num  41.3 66.7 58.1 39.9 62.6 63.9 56 54.6 52.6 40.6 ...</span></span>
-<span id="cb476-12"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Frost     : num  20 152 15 65 20 166 139 103 11 60 ...</span></span>
-<span id="cb476-13"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Area      : num  50708 566432 113417 51945 156361 ...</span></span>
-<span id="cb476-14"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-14" aria-hidden="true" tabindex="-1"></a><span class="co"># example syntax --- tapply(variable of interest, grouping variable, function)</span></span>
-<span id="cb476-15"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-15" aria-hidden="true" tabindex="-1"></a><span class="co"># for each US region in our dataset, finds the mean of Frost for states in that region</span></span>
-<span id="cb476-16"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-16" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(states<span class="sc">$</span>Frost, state.region, mean) <span class="co"># state.region contains the region information for each state</span></span>
-<span id="cb476-17"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Northeast         South North Central          West </span></span>
-<span id="cb476-18"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      132.7778       64.6250      138.8333      102.1538</span></span>
-<span id="cb476-19"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-19" aria-hidden="true" tabindex="-1"></a><span class="co"># you can nest apply statements! Let&#39;s find the region average for all the variables in the states dataset</span></span>
-<span id="cb476-20"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-20" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states,</span>
-<span id="cb476-21"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-21" aria-hidden="true" tabindex="-1"></a>      <span class="dv">2</span>, <span class="co"># apply over columns of my_states</span></span>
-<span id="cb476-22"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-22" aria-hidden="true" tabindex="-1"></a>      <span class="cf">function</span>(x) <span class="fu">tapply</span>(x, state.region, mean)) <span class="co"># each column = variable of interest for tapply</span></span>
-<span id="cb476-23"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;               Population   Income Illiteracy Life Exp    Murder  HS Grad    Frost      Area</span></span>
-<span id="cb476-24"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Northeast       5495.111 4570.222   1.000000 71.26444  4.722222 53.96667 132.7778  18141.00</span></span>
-<span id="cb476-25"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; South           4208.125 4011.938   1.737500 69.70625 10.581250 44.34375  64.6250  54605.12</span></span>
-<span id="cb476-26"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; North Central   4803.000 4611.083   0.700000 71.76667  5.275000 54.51667 138.8333  62652.00</span></span>
-<span id="cb476-27"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb476-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; West            2915.308 4702.615   1.023077 71.23462  7.215385 62.00000 102.1538 134463.00</span></span></code></pre></div>
+<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load state data again, you can skip this if you already have it loaded</span></span>
+<span id="cb472-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(state)</span>
+<span id="cb472-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-3" aria-hidden="true" tabindex="-1"></a>states <span class="ot">=</span> <span class="fu">as.data.frame</span>(state.x77) <span class="co"># convert data to a familiar format - data frame</span></span>
+<span id="cb472-4"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(states) <span class="co"># let&#39;s take a look at the dataframe</span></span>
+<span id="cb472-5"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &#39;data.frame&#39;:    50 obs. of  8 variables:</span></span>
+<span id="cb472-6"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Population: num  3615 365 2212 2110 21198 ...</span></span>
+<span id="cb472-7"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Income    : num  3624 6315 4530 3378 5114 ...</span></span>
+<span id="cb472-8"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Illiteracy: num  2.1 1.5 1.8 1.9 1.1 0.7 1.1 0.9 1.3 2 ...</span></span>
+<span id="cb472-9"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Life Exp  : num  69 69.3 70.5 70.7 71.7 ...</span></span>
+<span id="cb472-10"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Murder    : num  15.1 11.3 7.8 10.1 10.3 6.8 3.1 6.2 10.7 13.9 ...</span></span>
+<span id="cb472-11"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ HS Grad   : num  41.3 66.7 58.1 39.9 62.6 63.9 56 54.6 52.6 40.6 ...</span></span>
+<span id="cb472-12"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Frost     : num  20 152 15 65 20 166 139 103 11 60 ...</span></span>
+<span id="cb472-13"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Area      : num  50708 566432 113417 51945 156361 ...</span></span>
+<span id="cb472-14"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-14" aria-hidden="true" tabindex="-1"></a><span class="co"># example syntax --- tapply(variable of interest, grouping variable, function)</span></span>
+<span id="cb472-15"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-15" aria-hidden="true" tabindex="-1"></a><span class="co"># for each US region in our dataset, finds the mean of Frost for states in that region</span></span>
+<span id="cb472-16"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-16" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(states<span class="sc">$</span>Frost, state.region, mean) <span class="co"># state.region contains the region information for each state</span></span>
+<span id="cb472-17"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Northeast         South North Central          West </span></span>
+<span id="cb472-18"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      132.7778       64.6250      138.8333      102.1538</span></span>
+<span id="cb472-19"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-19" aria-hidden="true" tabindex="-1"></a><span class="co"># you can nest apply statements! Let&#39;s find the region average for all the variables in the states dataset</span></span>
+<span id="cb472-20"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-20" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states,</span>
+<span id="cb472-21"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-21" aria-hidden="true" tabindex="-1"></a>      <span class="dv">2</span>, <span class="co"># apply over columns of my_states</span></span>
+<span id="cb472-22"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-22" aria-hidden="true" tabindex="-1"></a>      <span class="cf">function</span>(x) <span class="fu">tapply</span>(x, state.region, mean)) <span class="co"># each column = variable of interest for tapply</span></span>
+<span id="cb472-23"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;               Population   Income Illiteracy Life Exp    Murder  HS Grad    Frost      Area</span></span>
+<span id="cb472-24"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Northeast       5495.111 4570.222   1.000000 71.26444  4.722222 53.96667 132.7778  18141.00</span></span>
+<span id="cb472-25"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; South           4208.125 4011.938   1.737500 69.70625 10.581250 44.34375  64.6250  54605.12</span></span>
+<span id="cb472-26"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; North Central   4803.000 4611.083   0.700000 71.76667  5.275000 54.51667 138.8333  62652.00</span></span>
+<span id="cb472-27"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb472-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; West            2915.308 4702.615   1.023077 71.23462  7.215385 62.00000 102.1538 134463.00</span></span></code></pre></div>
 </div>
-<div id="exercise-2.3-apply-and-tapply" class="section level2" number="8.1">
-<h2><span class="header-section-number">8.1</span> Exercise 2.3 apply and tapply</h2>
+<div id="exercise-2.3-apply-and-tapply" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Exercise 2.3 apply and tapply<a href="week-7-for-loops-and-the-apply-family-of-functions.html#exercise-2.3-apply-and-tapply" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <blockquote>
-<h1 id="exercise-2.3">Exercise 2.3</h1>
+<h1 id="exercise-2.3" class="hasAnchor">Exercise 2.3<a href="week-7-for-loops-and-the-apply-family-of-functions.html#exercise-2.3" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>A few useful commands: function(){ }, apply(), tapply(), hist(), dim(), prod(), sd()
 1. what is the average population, income, and area of all 50 states ins the <code>states</code> dataset</p>
 </blockquote>
@@ -599,18 +603,18 @@ We can do the same things across all rows. But if you want to plot all the rows 
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb477-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load state data</span></span>
-<span id="cb477-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb477-2" aria-hidden="true" tabindex="-1"></a><span class="co">#?state</span></span>
-<span id="cb477-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb477-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(state)</span>
-<span id="cb477-4"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb477-4" aria-hidden="true" tabindex="-1"></a><span class="co"># this data is stored in a slightly different way than other datasets we&#39;ve used so far</span></span>
-<span id="cb477-5"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb477-5" aria-hidden="true" tabindex="-1"></a>states <span class="ot">=</span> <span class="fu">as.data.frame</span>(state.x77) <span class="co"># run this line of code to avoid later confusion</span></span>
-<span id="cb477-6"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb477-6" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states,<span class="dv">2</span>,mean)</span>
-<span id="cb477-7"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb477-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Population     Income Illiteracy   Life Exp     Murder    HS Grad      Frost       Area </span></span>
-<span id="cb477-8"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb477-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4246.4200  4435.8000     1.1700    70.8786     7.3780    53.1080   104.4600 70735.8800</span></span>
-<span id="cb477-9"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb477-9" aria-hidden="true" tabindex="-1"></a><span class="co">#or an alternative that will get you only the columns requested</span></span>
-<span id="cb477-10"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb477-10" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(states[,<span class="fu">c</span>(<span class="st">&quot;Population&quot;</span>, <span class="st">&quot;Income&quot;</span>, <span class="st">&quot;Area&quot;</span>)])</span>
-<span id="cb477-11"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb477-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Population     Income       Area </span></span>
-<span id="cb477-12"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb477-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    4246.42    4435.80   70735.88</span></span></code></pre></div>
+<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load state data</span></span>
+<span id="cb473-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-2" aria-hidden="true" tabindex="-1"></a><span class="co">#?state</span></span>
+<span id="cb473-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(state)</span>
+<span id="cb473-4"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-4" aria-hidden="true" tabindex="-1"></a><span class="co"># this data is stored in a slightly different way than other datasets we&#39;ve used so far</span></span>
+<span id="cb473-5"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-5" aria-hidden="true" tabindex="-1"></a>states <span class="ot">=</span> <span class="fu">as.data.frame</span>(state.x77) <span class="co"># run this line of code to avoid later confusion</span></span>
+<span id="cb473-6"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-6" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states,<span class="dv">2</span>,mean)</span>
+<span id="cb473-7"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Population     Income Illiteracy   Life Exp     Murder    HS Grad      Frost       Area </span></span>
+<span id="cb473-8"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4246.4200  4435.8000     1.1700    70.8786     7.3780    53.1080   104.4600 70735.8800</span></span>
+<span id="cb473-9"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-9" aria-hidden="true" tabindex="-1"></a><span class="co">#or an alternative that will get you only the columns requested</span></span>
+<span id="cb473-10"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-10" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(states[,<span class="fu">c</span>(<span class="st">&quot;Population&quot;</span>, <span class="st">&quot;Income&quot;</span>, <span class="st">&quot;Area&quot;</span>)])</span>
+<span id="cb473-11"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Population     Income       Area </span></span>
+<span id="cb473-12"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb473-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    4246.42    4435.80   70735.88</span></span></code></pre></div>
 </p>
 </details>
 <blockquote>
@@ -624,9 +628,9 @@ Hint: use the object state.region in your environment</li>
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb478-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(states<span class="sc">$</span>Area, state.region, mean)</span>
-<span id="cb478-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb478-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Northeast         South North Central          West </span></span>
-<span id="cb478-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb478-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      18141.00      54605.12      62652.00     134463.00</span></span></code></pre></div>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb474-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(states<span class="sc">$</span>Area, state.region, mean)</span>
+<span id="cb474-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb474-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Northeast         South North Central          West </span></span>
+<span id="cb474-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb474-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      18141.00      54605.12      62652.00     134463.00</span></span></code></pre></div>
 <p>
 </details>
 <blockquote>
@@ -639,11 +643,11 @@ Hint: use the object state.region in your environment</li>
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb479-1" aria-hidden="true" tabindex="-1"></a><span class="co">#how many columns do we have? </span></span>
-<span id="cb479-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb479-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(states)</span>
-<span id="cb479-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb479-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 50  8</span></span>
-<span id="cb479-4"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb479-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)) <span class="co"># make your plot window show 2 rows and 2 columns at once</span></span>
-<span id="cb479-5"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb479-5" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states, <span class="dv">2</span>, hist)</span></code></pre></div>
+<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-1" aria-hidden="true" tabindex="-1"></a><span class="co">#how many columns do we have? </span></span>
+<span id="cb475-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(states)</span>
+<span id="cb475-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 50  8</span></span>
+<span id="cb475-4"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)) <span class="co"># make your plot window show 2 rows and 2 columns at once</span></span>
+<span id="cb475-5"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb475-5" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states, <span class="dv">2</span>, hist)</span></code></pre></div>
 <p><img src="Semester_files/figure-html/5-32-1.png" width="768" style="display: block; margin: auto;" /><img src="Semester_files/figure-html/5-32-2.png" width="768" style="display: block; margin: auto;" /></p>
 <pre><code>#&gt; $Population
 #&gt; $breaks
@@ -833,12 +837,12 @@ What 10 states should we avoid? # hint use prod(); and maybe order()</li>
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb481-1" aria-hidden="true" tabindex="-1"></a>livability <span class="ot">&lt;-</span> <span class="fu">apply</span>(states[,<span class="fu">c</span>(<span class="st">&quot;Illiteracy&quot;</span>, <span class="st">&quot;Murder&quot;</span>, <span class="st">&quot;Frost&quot;</span>)], <span class="dv">1</span>, prod) <span class="co"># subset to variables of interest</span></span>
-<span id="cb481-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb481-2" aria-hidden="true" tabindex="-1"></a>livability[<span class="fu">order</span>(livability, <span class="at">decreasing =</span> T)][<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>] <span class="co"># top ten least livable states</span></span>
-<span id="cb481-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb481-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         Alaska     New Mexico South Carolina        Georgia       Kentucky North Carolina    Mississippi      Tennessee </span></span>
-<span id="cb481-4"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb481-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        2576.40        2560.80        1734.20        1668.00        1611.20        1598.40        1500.00        1309.00 </span></span>
-<span id="cb481-5"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb481-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       New York       Michigan </span></span>
-<span id="cb481-6"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb481-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        1251.32        1248.75</span></span></code></pre></div>
+<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb477-1" aria-hidden="true" tabindex="-1"></a>livability <span class="ot">&lt;-</span> <span class="fu">apply</span>(states[,<span class="fu">c</span>(<span class="st">&quot;Illiteracy&quot;</span>, <span class="st">&quot;Murder&quot;</span>, <span class="st">&quot;Frost&quot;</span>)], <span class="dv">1</span>, prod) <span class="co"># subset to variables of interest</span></span>
+<span id="cb477-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb477-2" aria-hidden="true" tabindex="-1"></a>livability[<span class="fu">order</span>(livability, <span class="at">decreasing =</span> T)][<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>] <span class="co"># top ten least livable states</span></span>
+<span id="cb477-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb477-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         Alaska     New Mexico South Carolina        Georgia       Kentucky North Carolina    Mississippi </span></span>
+<span id="cb477-4"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb477-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        2576.40        2560.80        1734.20        1668.00        1611.20        1598.40        1500.00 </span></span>
+<span id="cb477-5"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb477-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Tennessee       New York       Michigan </span></span>
+<span id="cb477-6"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb477-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        1309.00        1251.32        1248.75</span></span></code></pre></div>
 </p>
 </details>
 <blockquote>
@@ -847,23 +851,23 @@ What 10 states should we avoid? # hint use prod(); and maybe order()</li>
 For extra style, title the plot by it’s color, e.g. the red plot is titled “red”</li>
 </ol>
 </blockquote>
-<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-1" aria-hidden="true" tabindex="-1"></a>data_to_plot <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb482-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))<span class="co"># run this line to set your plot to make 4 plots in total (2rows, 2columns)</span></span></code></pre></div>
+<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb478-1" aria-hidden="true" tabindex="-1"></a>data_to_plot <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb478-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb478-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))<span class="co"># run this line to set your plot to make 4 plots in total (2rows, 2columns)</span></span></code></pre></div>
 <details>
 <summary>
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb483-1" aria-hidden="true" tabindex="-1"></a>data_to_plot <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb483-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb483-2" aria-hidden="true" tabindex="-1"></a>my_colors <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;deeppink&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>)</span>
-<span id="cb483-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb483-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)) <span class="co"># extra styling, plots in a 2x2 grid</span></span>
-<span id="cb483-4"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb483-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(my_colors, <span class="at">FUN =</span> <span class="cf">function</span>(i) <span class="fu">hist</span>(data_to_plot, <span class="at">main =</span> i, <span class="at">col =</span> i))</span></code></pre></div>
+<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb479-1" aria-hidden="true" tabindex="-1"></a>data_to_plot <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb479-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb479-2" aria-hidden="true" tabindex="-1"></a>my_colors <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;deeppink&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>)</span>
+<span id="cb479-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb479-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)) <span class="co"># extra styling, plots in a 2x2 grid</span></span>
+<span id="cb479-4"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb479-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(my_colors, <span class="at">FUN =</span> <span class="cf">function</span>(i) <span class="fu">hist</span>(data_to_plot, <span class="at">main =</span> i, <span class="at">col =</span> i))</span></code></pre></div>
 <p><img src="Semester_files/figure-html/5-30-1.png" width="768" style="display: block; margin: auto;" /></p>
 <pre><code>#&gt;          deeppink       red            blue           darkgreen     
-#&gt; breaks   Integer,6      Integer,6      Integer,6      Integer,6     
-#&gt; counts   Integer,5      Integer,5      Integer,5      Integer,5     
-#&gt; density  Numeric,5      Numeric,5      Numeric,5      Numeric,5     
-#&gt; mids     Numeric,5      Numeric,5      Numeric,5      Numeric,5     
+#&gt; breaks   integer,6      integer,6      integer,6      integer,6     
+#&gt; counts   integer,5      integer,5      integer,5      integer,5     
+#&gt; density  numeric,5      numeric,5      numeric,5      numeric,5     
+#&gt; mids     numeric,5      numeric,5      numeric,5      numeric,5     
 #&gt; xname    &quot;data_to_plot&quot; &quot;data_to_plot&quot; &quot;data_to_plot&quot; &quot;data_to_plot&quot;
 #&gt; equidist TRUE           TRUE           TRUE           TRUE</code></pre>
 </p>
@@ -879,25 +883,25 @@ Hint: to standardize a variable, you subtract the mean and divide by the standar
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb485-1" aria-hidden="true" tabindex="-1"></a>states_standardized <span class="ot">=</span> <span class="fu">apply</span>(states, <span class="dv">2</span>, <span class="cf">function</span>(x) (x<span class="sc">-</span><span class="fu">mean</span>(x))<span class="sc">/</span><span class="fu">sd</span>(x))</span>
-<span id="cb485-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb485-2" aria-hidden="true" tabindex="-1"></a><span class="co"># original:</span></span>
-<span id="cb485-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb485-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(states)</span>
-<span id="cb485-4"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb485-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            Population Income Illiteracy Life Exp Murder HS Grad Frost   Area</span></span>
-<span id="cb485-5"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb485-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Alabama          3615   3624        2.1    69.05   15.1    41.3    20  50708</span></span>
-<span id="cb485-6"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb485-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Alaska            365   6315        1.5    69.31   11.3    66.7   152 566432</span></span>
-<span id="cb485-7"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb485-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Arizona          2212   4530        1.8    70.55    7.8    58.1    15 113417</span></span>
-<span id="cb485-8"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb485-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Arkansas         2110   3378        1.9    70.66   10.1    39.9    65  51945</span></span>
-<span id="cb485-9"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb485-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; California      21198   5114        1.1    71.71   10.3    62.6    20 156361</span></span>
-<span id="cb485-10"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb485-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Colorado         2541   4884        0.7    72.06    6.8    63.9   166 103766</span></span>
-<span id="cb485-11"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb485-11" aria-hidden="true" tabindex="-1"></a><span class="co"># standardized</span></span>
-<span id="cb485-12"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb485-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(states_standardized)</span>
-<span id="cb485-13"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb485-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            Population     Income Illiteracy   Life Exp     Murder    HS Grad      Frost       Area</span></span>
-<span id="cb485-14"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb485-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Alabama    -0.1414316 -1.3211387   1.525758 -1.3621937  2.0918101 -1.4619293 -1.6248292 -0.2347183</span></span>
-<span id="cb485-15"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb485-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Alaska     -0.8693980  3.0582456   0.541398 -1.1685098  1.0624293  1.6828035  0.9145676  5.8093497</span></span>
-<span id="cb485-16"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb485-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Arizona    -0.4556891  0.1533029   1.033578 -0.2447866  0.1143154  0.6180514 -1.7210185  0.5002047</span></span>
-<span id="cb485-17"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb485-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Arkansas   -0.4785360 -1.7214837   1.197638 -0.1628435  0.7373617 -1.6352611 -0.7591257 -0.2202212</span></span>
-<span id="cb485-18"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb485-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; California  3.7969790  1.1037155  -0.114842  0.6193415  0.7915396  1.1751891 -1.6248292  1.0034903</span></span>
-<span id="cb485-19"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb485-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Colorado   -0.3819965  0.7294092  -0.771082  0.8800698 -0.1565742  1.3361400  1.1838976  0.3870991</span></span></code></pre></div>
+<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb481-1" aria-hidden="true" tabindex="-1"></a>states_standardized <span class="ot">=</span> <span class="fu">apply</span>(states, <span class="dv">2</span>, <span class="cf">function</span>(x) (x<span class="sc">-</span><span class="fu">mean</span>(x))<span class="sc">/</span><span class="fu">sd</span>(x))</span>
+<span id="cb481-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb481-2" aria-hidden="true" tabindex="-1"></a><span class="co"># original:</span></span>
+<span id="cb481-3"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb481-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(states)</span>
+<span id="cb481-4"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb481-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            Population Income Illiteracy Life Exp Murder HS Grad Frost   Area</span></span>
+<span id="cb481-5"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb481-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Alabama          3615   3624        2.1    69.05   15.1    41.3    20  50708</span></span>
+<span id="cb481-6"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb481-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Alaska            365   6315        1.5    69.31   11.3    66.7   152 566432</span></span>
+<span id="cb481-7"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb481-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Arizona          2212   4530        1.8    70.55    7.8    58.1    15 113417</span></span>
+<span id="cb481-8"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb481-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Arkansas         2110   3378        1.9    70.66   10.1    39.9    65  51945</span></span>
+<span id="cb481-9"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb481-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; California      21198   5114        1.1    71.71   10.3    62.6    20 156361</span></span>
+<span id="cb481-10"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb481-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Colorado         2541   4884        0.7    72.06    6.8    63.9   166 103766</span></span>
+<span id="cb481-11"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb481-11" aria-hidden="true" tabindex="-1"></a><span class="co"># standardized</span></span>
+<span id="cb481-12"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb481-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(states_standardized)</span>
+<span id="cb481-13"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb481-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            Population     Income Illiteracy   Life Exp     Murder    HS Grad      Frost       Area</span></span>
+<span id="cb481-14"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb481-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Alabama    -0.1414316 -1.3211387   1.525758 -1.3621937  2.0918101 -1.4619293 -1.6248292 -0.2347183</span></span>
+<span id="cb481-15"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb481-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Alaska     -0.8693980  3.0582456   0.541398 -1.1685098  1.0624293  1.6828035  0.9145676  5.8093497</span></span>
+<span id="cb481-16"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb481-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Arizona    -0.4556891  0.1533029   1.033578 -0.2447866  0.1143154  0.6180514 -1.7210185  0.5002047</span></span>
+<span id="cb481-17"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb481-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Arkansas   -0.4785360 -1.7214837   1.197638 -0.1628435  0.7373617 -1.6352611 -0.7591257 -0.2202212</span></span>
+<span id="cb481-18"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb481-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; California  3.7969790  1.1037155  -0.114842  0.6193415  0.7915396  1.1751891 -1.6248292  1.0034903</span></span>
+<span id="cb481-19"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb481-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Colorado   -0.3819965  0.7294092  -0.771082  0.8800698 -0.1565742  1.3361400  1.1838976  0.3870991</span></span></code></pre></div>
 </p>
 </details>
 <blockquote>
@@ -911,24 +915,31 @@ Hint: instead of using apply to iterate over the columns themselves, you can oft
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb486-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb486-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb486-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="fu">colnames</span>(states), <span class="cf">function</span>(x)<span class="fu">hist</span>(states[ , x],<span class="at">main =</span> x, <span class="at">xlab =</span> x,<span class="at">col =</span> <span class="st">&quot;darkblue&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb482-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb482-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="fu">colnames</span>(states), <span class="cf">function</span>(x)<span class="fu">hist</span>(states[ , x],<span class="at">main =</span> x, <span class="at">xlab =</span> x,<span class="at">col =</span> <span class="st">&quot;darkblue&quot;</span>))</span></code></pre></div>
 <p><img src="Semester_files/figure-html/5-31-1.png" width="768" style="display: block; margin: auto;" /><img src="Semester_files/figure-html/5-31-2.png" width="768" style="display: block; margin: auto;" /></p>
-<pre><code>#&gt;          Population    Income        Illiteracy    Life Exp      Murder        HS Grad       Frost         Area         
-#&gt; breaks   Numeric,6     Integer,8     Numeric,6     Integer,8     Numeric,9     Integer,8     Numeric,11    Numeric,7    
-#&gt; counts   Integer,5     Integer,7     Integer,5     Integer,7     Integer,8     Integer,7     Integer,10    Integer,6    
-#&gt; density  Numeric,5     Numeric,7     Numeric,5     Numeric,7     Numeric,8     Numeric,7     Numeric,10    Numeric,6    
-#&gt; mids     Numeric,5     Numeric,7     Numeric,5     Numeric,7     Numeric,8     Numeric,7     Numeric,10    Numeric,6    
-#&gt; xname    &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot;
-#&gt; equidist TRUE          TRUE          TRUE          TRUE          TRUE          TRUE          TRUE          TRUE</code></pre>
+<pre><code>#&gt;          Population    Income        Illiteracy    Life Exp      Murder        HS Grad      
+#&gt; breaks   numeric,6     integer,8     numeric,6     integer,8     numeric,9     integer,8    
+#&gt; counts   integer,5     integer,7     integer,5     integer,7     integer,8     integer,7    
+#&gt; density  numeric,5     numeric,7     numeric,5     numeric,7     numeric,8     numeric,7    
+#&gt; mids     numeric,5     numeric,7     numeric,5     numeric,7     numeric,8     numeric,7    
+#&gt; xname    &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot;
+#&gt; equidist TRUE          TRUE          TRUE          TRUE          TRUE          TRUE         
+#&gt;          Frost         Area         
+#&gt; breaks   numeric,11    numeric,7    
+#&gt; counts   integer,10    integer,6    
+#&gt; density  numeric,10    numeric,6    
+#&gt; mids     numeric,10    numeric,6    
+#&gt; xname    &quot;states[, x]&quot; &quot;states[, x]&quot;
+#&gt; equidist TRUE          TRUE</code></pre>
 </p>
 </details>
 <p>For the final day covering basics in R we will have a coding session where we tackle a challenge exercise on a dataset.</p>
 <p>Please download the exercise here</p>
-<div class="sourceCode" id="cb488"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb488-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb488-1" aria-hidden="true" tabindex="-1"></a>wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/R_Final_Challenges/chickWeightChallenge_week7_semester.R</span></code></pre></div>
+<div class="sourceCode" id="cb484"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb484-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb484-1" aria-hidden="true" tabindex="-1"></a>wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/R_Final_Challenges/chickWeightChallenge_week7_semester.R</span></code></pre></div>
 <p>And the solutions are here</p>
-<div class="sourceCode" id="cb489"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb489-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb489-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb489-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb489-2" aria-hidden="true" tabindex="-1"></a>wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/R_Final_Challenges/ChickWeight_Challenge_SOLUTIONS.pdf</span></code></pre></div>
+<div class="sourceCode" id="cb485"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb485-1"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb485-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb485-2"><a href="week-7-for-loops-and-the-apply-family-of-functions.html#cb485-2" aria-hidden="true" tabindex="-1"></a>wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/R_Final_Challenges/ChickWeight_Challenge_SOLUTIONS.pdf</span></code></pre></div>
 
 </div>
 </div>
