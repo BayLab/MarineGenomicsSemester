@@ -1,5 +1,6 @@
 marine-genomics-semester-edition
 cloud-computing-versus-individual-laptops
+meet-your-instructors
 assessment
 short-recorded-demonstrations
 final-demonstration

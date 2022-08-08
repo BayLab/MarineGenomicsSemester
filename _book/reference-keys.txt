@@ -176,3 +176,6 @@ explore-the-data-1
 make-a-plot-1
 exercises-5
 final-tips-and-tricks
+meet-your-instructors
+to-export-as-a-pdf
+to-transfer-your-rmarkdown-files-and-submit-your-final-assignment

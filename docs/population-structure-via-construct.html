@@ -138,9 +138,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Marine Genomics Semester edition</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#cloud-computing-versus-individual-laptops"><i class="fa fa-check"></i><b>1.1</b> Cloud computing versus individual laptops</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#assessment"><i class="fa fa-check"></i><b>1.2</b> Assessment</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#short-recorded-demonstrations"><i class="fa fa-check"></i><b>1.3</b> Short recorded demonstrations</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#final-demonstration"><i class="fa fa-check"></i><b>1.4</b> Final demonstration</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#meet-your-instructors"><i class="fa fa-check"></i><b>1.2</b> Meet your instructors!</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#assessment"><i class="fa fa-check"></i><b>1.3</b> Assessment</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#short-recorded-demonstrations"><i class="fa fa-check"></i><b>1.4</b> Short recorded demonstrations</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#final-demonstration"><i class="fa fa-check"></i><b>1.5</b> Final demonstration</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="week-1--welcome.html"><a href="week-1--welcome.html"><i class="fa fa-check"></i><b>2</b> Week 1- Welcome!</a>
 <ul>
@@ -497,14 +498,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb571-14"><a href="population-structure-via-construct.html#cb571-14" aria-hidden="true" tabindex="-1"></a><span class="fu">make.structure.plot</span>(<span class="at">admix.proportions =</span> admix.props,</span>
 <span id="cb571-15"><a href="population-structure-via-construct.html#cb571-15" aria-hidden="true" tabindex="-1"></a>                    <span class="at">sample.names=</span><span class="fu">row.names</span>(sites),</span>
 <span id="cb571-16"><a href="population-structure-via-construct.html#cb571-16" aria-hidden="true" tabindex="-1"></a>                    <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>))</span></code></pre></div>
-<p><img src="Semester_files/figure-html/unnamed-chunk-119-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="Semester_files/figure-html/unnamed-chunk-141-1.png" width="768" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="population-structure-via-construct.html#cb572-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb572-2"><a href="population-structure-via-construct.html#cb572-2" aria-hidden="true" tabindex="-1"></a><span class="co">#let&#39;s also make a pie chart</span></span>
 <span id="cb572-3"><a href="population-structure-via-construct.html#cb572-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb572-4"><a href="population-structure-via-construct.html#cb572-4" aria-hidden="true" tabindex="-1"></a><span class="fu">make.admix.pie.plot</span>(<span class="at">admix.proportions =</span> admix.props,</span>
 <span id="cb572-5"><a href="population-structure-via-construct.html#cb572-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">coords =</span> data.block<span class="sc">$</span>coords,</span>
 <span id="cb572-6"><a href="population-structure-via-construct.html#cb572-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>))</span></code></pre></div>
-<p><img src="Semester_files/figure-html/unnamed-chunk-119-2.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="Semester_files/figure-html/unnamed-chunk-141-2.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 <div id="incoorporate-geographic-distances-in-a-spatial-model" class="section level2 hasAnchor" number="13.7">
 <h2><span class="header-section-number">13.7</span> Incoorporate geographic distances in a spatial model<a href="population-structure-via-construct.html#incoorporate-geographic-distances-in-a-spatial-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -540,8 +541,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb573-27"><a href="population-structure-via-construct.html#cb573-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb573-28"><a href="population-structure-via-construct.html#cb573-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; SAMPLING FOR MODEL &#39;space_multiK&#39; NOW (CHAIN 1).</span></span>
 <span id="cb573-29"><a href="population-structure-via-construct.html#cb573-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: </span></span>
-<span id="cb573-30"><a href="population-structure-via-construct.html#cb573-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: Gradient evaluation took 0.01 seconds</span></span>
-<span id="cb573-31"><a href="population-structure-via-construct.html#cb573-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 100 seconds.</span></span>
+<span id="cb573-30"><a href="population-structure-via-construct.html#cb573-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: Gradient evaluation took 0.007 seconds</span></span>
+<span id="cb573-31"><a href="population-structure-via-construct.html#cb573-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 70 seconds.</span></span>
 <span id="cb573-32"><a href="population-structure-via-construct.html#cb573-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: Adjust your expectations accordingly!</span></span>
 <span id="cb573-33"><a href="population-structure-via-construct.html#cb573-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: </span></span>
 <span id="cb573-34"><a href="population-structure-via-construct.html#cb573-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: </span></span>
@@ -559,9 +560,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb573-46"><a href="population-structure-via-construct.html#cb573-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: Iteration: 9 / 10 [ 90%]  (Sampling)</span></span>
 <span id="cb573-47"><a href="population-structure-via-construct.html#cb573-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: Iteration: 10 / 10 [100%]  (Sampling)</span></span>
 <span id="cb573-48"><a href="population-structure-via-construct.html#cb573-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1: </span></span>
-<span id="cb573-49"><a href="population-structure-via-construct.html#cb573-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1:  Elapsed Time: 0.101 seconds (Warm-up)</span></span>
-<span id="cb573-50"><a href="population-structure-via-construct.html#cb573-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1:                0.092 seconds (Sampling)</span></span>
-<span id="cb573-51"><a href="population-structure-via-construct.html#cb573-51" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1:                0.193 seconds (Total)</span></span>
+<span id="cb573-49"><a href="population-structure-via-construct.html#cb573-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1:  Elapsed Time: 0.07 seconds (Warm-up)</span></span>
+<span id="cb573-50"><a href="population-structure-via-construct.html#cb573-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1:                1.076 seconds (Sampling)</span></span>
+<span id="cb573-51"><a href="population-structure-via-construct.html#cb573-51" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1:                1.146 seconds (Total)</span></span>
 <span id="cb573-52"><a href="population-structure-via-construct.html#cb573-52" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chain 1:</span></span>
 <span id="cb573-53"><a href="population-structure-via-construct.html#cb573-53" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb573-54"><a href="population-structure-via-construct.html#cb573-54" aria-hidden="true" tabindex="-1"></a></span>
@@ -580,14 +581,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb573-67"><a href="population-structure-via-construct.html#cb573-67" aria-hidden="true" tabindex="-1"></a><span class="fu">make.structure.plot</span>(<span class="at">admix.proportions =</span> admix.props,</span>
 <span id="cb573-68"><a href="population-structure-via-construct.html#cb573-68" aria-hidden="true" tabindex="-1"></a>                    <span class="at">sample.names=</span><span class="fu">row.names</span>(sites),</span>
 <span id="cb573-69"><a href="population-structure-via-construct.html#cb573-69" aria-hidden="true" tabindex="-1"></a>                    <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>))</span></code></pre></div>
-<p><img src="Semester_files/figure-html/unnamed-chunk-120-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="Semester_files/figure-html/unnamed-chunk-142-1.png" width="768" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="population-structure-via-construct.html#cb574-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb574-2"><a href="population-structure-via-construct.html#cb574-2" aria-hidden="true" tabindex="-1"></a><span class="co">#and a pie chart</span></span>
 <span id="cb574-3"><a href="population-structure-via-construct.html#cb574-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb574-4"><a href="population-structure-via-construct.html#cb574-4" aria-hidden="true" tabindex="-1"></a><span class="fu">make.admix.pie.plot</span>(<span class="at">admix.proportions =</span> admix.props,</span>
 <span id="cb574-5"><a href="population-structure-via-construct.html#cb574-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">coords =</span> data.block<span class="sc">$</span>coords,</span>
 <span id="cb574-6"><a href="population-structure-via-construct.html#cb574-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>))</span></code></pre></div>
-<p><img src="Semester_files/figure-html/unnamed-chunk-120-2.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="Semester_files/figure-html/unnamed-chunk-142-2.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 <div id="comparisons-across-different-values-of-k" class="section level2 hasAnchor" number="13.8">
 <h2><span class="header-section-number">13.8</span> Comparisons across different values of K<a href="population-structure-via-construct.html#comparisons-across-different-values-of-k" class="anchor-section" aria-label="Anchor link to header"></a></h2>

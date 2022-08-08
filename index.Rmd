@@ -15,9 +15,10 @@ knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6, fig.align = "cen
 
 <center>
 
-<img src="figs/intro/MarineGenomics_Icon.jpg" width="300" height="300" />
+<img src="figs/margen.logo.jpg" width="300" height="300" />
 
 </center>
+
 
 Welcome to Marine Genomics! This is a course on learning how to analyze genomic data for undergraduate and graduate students. We focused on marine organisms but these lessons can easily be applied to any taxa. We required that students have a background in biology and have completed the general biology series. Additionally, it is helpful if students have taken a course in Evolution, though this was not a requirement. We did not require any coding experience in R or Bash/UNIX. 
 
@@ -36,6 +37,27 @@ Jetstream is a unique user-friendly cloud computing resource in that it provides
 Jetstream educational allocations can be applied for through [XSEDE](https://portal.xsede.org/jetstream#allocations:education). The process of applying for a jetstream allocation for educational purposes is relatively straightforward and simply requires a course description, the number of students anticipated to participate, and a calculation of the computing resources required, and the instructors CV. Allocations are typically approved in two to three days and can be submitted ~2 weeks prior to the start of the course.
 
 Alternatively, these course materials can be used on students and instructors individual laptops. The file paths will need to be modified and we cannot guarantee that the installation of programs and R packages will proceed as they did on Jetstream. Thus, progam installation will need to be verified for each week by the instructor.
+
+## Meet your instructors!
+<center>
+
+<img src="figs/Serena.JPG" width="150" height="150" />
+
+</center>
+
+Dr. Serena Caplins, Postdoc, course developer and lead instructor (sacaplins@ucdavis.edu)-- [Website](https://scaplins@wordpress.com).
+
+
+<center>
+
+<img src="figs/PatrickKrug.JPG" width="150" height="150" />
+
+</center>
+
+Dr. Patrick Krug, holding a seahare, Professor, co-instructor (pkrug@calstatela.edu)-- [Website](https://patkrug70.wixsite.com/website).
+
+
+
 
 ## Assessment
 

@@ -138,9 +138,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Marine Genomics Semester edition</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#cloud-computing-versus-individual-laptops"><i class="fa fa-check"></i><b>1.1</b> Cloud computing versus individual laptops</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#assessment"><i class="fa fa-check"></i><b>1.2</b> Assessment</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#short-recorded-demonstrations"><i class="fa fa-check"></i><b>1.3</b> Short recorded demonstrations</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#final-demonstration"><i class="fa fa-check"></i><b>1.4</b> Final demonstration</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#meet-your-instructors"><i class="fa fa-check"></i><b>1.2</b> Meet your instructors!</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#assessment"><i class="fa fa-check"></i><b>1.3</b> Assessment</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#short-recorded-demonstrations"><i class="fa fa-check"></i><b>1.4</b> Short recorded demonstrations</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#final-demonstration"><i class="fa fa-check"></i><b>1.5</b> Final demonstration</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="week-1--welcome.html"><a href="week-1--welcome.html"><i class="fa fa-check"></i><b>2</b> Week 1- Welcome!</a>
 <ul>
@@ -357,527 +358,627 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">12.1</span> Download the data<a href="genome-environment-association.html#download-the-data-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>For this week we are again using data from the wonderful Xuereb et al. 2018 paper <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/mec.14589?casa_token=aBVeQUaZ6UEAAAAA:vt9cQFbQ-65F1erD-1Uq0DAWEaZ75fDhepkPomc4RMPAqQgntIcm0btk842SxvaraM2VdlZ5nwoHUhCy">here</a>
 And consistes of a vcf file with 3966 Snps from 685 pacific sea cucumbers.</p>
-<div class="sourceCode" id="cb552"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb552-1"><a href="genome-environment-association.html#cb552-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb552-2"><a href="genome-environment-association.html#cb552-2" aria-hidden="true" tabindex="-1"></a>wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week11_semester.tar.gz</span>
-<span id="cb552-3"><a href="genome-environment-association.html#cb552-3" aria-hidden="true" tabindex="-1"></a>tar -xzvf week11_semester.tar.gz</span></code></pre></div>
+<div class="sourceCode" id="cb550"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb550-1"><a href="genome-environment-association.html#cb550-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb550-2"><a href="genome-environment-association.html#cb550-2" aria-hidden="true" tabindex="-1"></a>wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week11_semester.tar.gz</span>
+<span id="cb550-3"><a href="genome-environment-association.html#cb550-3" aria-hidden="true" tabindex="-1"></a>tar -xzvf week11_semester.tar.gz</span></code></pre></div>
 </div>
 <div id="install-a-compiler-for-unixbash" class="section level2 hasAnchor" number="12.2">
 <h2><span class="header-section-number">12.2</span> install a compiler for Unix/bash<a href="genome-environment-association.html#install-a-compiler-for-unixbash" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Run this command below in the terminal. It’s necesary to install several R packages.</p>
-<div class="sourceCode" id="cb553"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb553-1"><a href="genome-environment-association.html#cb553-1" aria-hidden="true" tabindex="-1"></a>sudo apt install libgdal-dev</span></code></pre></div>
+<div class="sourceCode" id="cb551"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb551-1"><a href="genome-environment-association.html#cb551-1" aria-hidden="true" tabindex="-1"></a>sudo apt install libgdal-dev</span></code></pre></div>
 </div>
 <div id="install-r-packages" class="section level2 hasAnchor" number="12.3">
 <h2><span class="header-section-number">12.3</span> install R packages<a href="genome-environment-association.html#install-r-packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="genome-environment-association.html#cb554-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb554-2"><a href="genome-environment-association.html#cb554-2" aria-hidden="true" tabindex="-1"></a><span class="co"># devtools::install_github(&quot;bcm-uga/lfmm&quot;)</span></span>
-<span id="cb554-3"><a href="genome-environment-association.html#cb554-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb554-4"><a href="genome-environment-association.html#cb554-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb554-5"><a href="genome-environment-association.html#cb554-5" aria-hidden="true" tabindex="-1"></a><span class="co"># # get packages</span></span>
-<span id="cb554-6"><a href="genome-environment-association.html#cb554-6" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(c(&#39;lfmm&#39;,&#39;psych&#39;,&#39;vegan&#39;,&#39;ggplot2&#39;,&#39;data.table&#39;,&#39;sdmpredictors&#39;,&#39;rgdal&#39;,&#39;raster&#39;), dependencies = T)</span></span>
-<span id="cb554-7"><a href="genome-environment-association.html#cb554-7" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;BiocManager&quot;)</span></span>
-<span id="cb554-8"><a href="genome-environment-association.html#cb554-8" aria-hidden="true" tabindex="-1"></a><span class="co"># BiocManager::install(&quot;LEA&quot;, force=T)</span></span>
-<span id="cb554-9"><a href="genome-environment-association.html#cb554-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb554-10"><a href="genome-environment-association.html#cb554-10" aria-hidden="true" tabindex="-1"></a><span class="co"># call programs</span></span>
-<span id="cb554-11"><a href="genome-environment-association.html#cb554-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lfmm)</span>
-<span id="cb554-12"><a href="genome-environment-association.html#cb554-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
-<span id="cb554-13"><a href="genome-environment-association.html#cb554-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
-<span id="cb554-14"><a href="genome-environment-association.html#cb554-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(LEA)</span>
-<span id="cb554-15"><a href="genome-environment-association.html#cb554-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb554-16"><a href="genome-environment-association.html#cb554-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sdmpredictors)</span>
-<span id="cb554-17"><a href="genome-environment-association.html#cb554-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
-<span id="cb554-18"><a href="genome-environment-association.html#cb554-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb554-19"><a href="genome-environment-association.html#cb554-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rgdal)</span>
-<span id="cb554-20"><a href="genome-environment-association.html#cb554-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(raster)</span></code></pre></div>
+<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="genome-environment-association.html#cb552-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb552-2"><a href="genome-environment-association.html#cb552-2" aria-hidden="true" tabindex="-1"></a><span class="co"># devtools::install_github(&quot;bcm-uga/lfmm&quot;)</span></span>
+<span id="cb552-3"><a href="genome-environment-association.html#cb552-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb552-4"><a href="genome-environment-association.html#cb552-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb552-5"><a href="genome-environment-association.html#cb552-5" aria-hidden="true" tabindex="-1"></a><span class="co"># # get packages</span></span>
+<span id="cb552-6"><a href="genome-environment-association.html#cb552-6" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(c(&#39;lfmm&#39;,&#39;psych&#39;,&#39;vegan&#39;,&#39;ggplot2&#39;,&#39;data.table&#39;,&#39;sdmpredictors&#39;,&#39;rgdal&#39;,&#39;raster&#39;), dependencies = T)</span></span>
+<span id="cb552-7"><a href="genome-environment-association.html#cb552-7" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;BiocManager&quot;)</span></span>
+<span id="cb552-8"><a href="genome-environment-association.html#cb552-8" aria-hidden="true" tabindex="-1"></a><span class="co"># BiocManager::install(&quot;LEA&quot;, force=T)</span></span>
+<span id="cb552-9"><a href="genome-environment-association.html#cb552-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb552-10"><a href="genome-environment-association.html#cb552-10" aria-hidden="true" tabindex="-1"></a><span class="co"># call programs</span></span>
+<span id="cb552-11"><a href="genome-environment-association.html#cb552-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lfmm)</span>
+<span id="cb552-12"><a href="genome-environment-association.html#cb552-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb552-13"><a href="genome-environment-association.html#cb552-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
+<span id="cb552-14"><a href="genome-environment-association.html#cb552-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(LEA)</span>
+<span id="cb552-15"><a href="genome-environment-association.html#cb552-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb552-16"><a href="genome-environment-association.html#cb552-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sdmpredictors)</span>
+<span id="cb552-17"><a href="genome-environment-association.html#cb552-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
+<span id="cb552-18"><a href="genome-environment-association.html#cb552-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb552-19"><a href="genome-environment-association.html#cb552-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rgdal)</span>
+<span id="cb552-20"><a href="genome-environment-association.html#cb552-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(raster)</span></code></pre></div>
 </div>
 <div id="get-the-environmental-data" class="section level2 hasAnchor" number="12.4">
 <h2><span class="header-section-number">12.4</span> Get the Environmental Data<a href="genome-environment-association.html#get-the-environmental-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>now we need to download the environmental data for our study. We’re just going to look at a few variables but there are many others that you could choose from here: <a href="https://www.bio-oracle.org/explore-data.php" class="uri">https://www.bio-oracle.org/explore-data.php</a></p>
 <p>Note that this step is rather time consuming, thus it’s best to download the data once and save it as an environment file, which you can upload each time you want to modify your script.</p>
-<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="genome-environment-association.html#cb555-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb555-2"><a href="genome-environment-association.html#cb555-2" aria-hidden="true" tabindex="-1"></a><span class="co">#load the environmental data and store it as objects that we can use later</span></span>
-<span id="cb555-3"><a href="genome-environment-association.html#cb555-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb555-4"><a href="genome-environment-association.html#cb555-4" aria-hidden="true" tabindex="-1"></a>environ <span class="ot">&lt;-</span> <span class="fu">load_layers</span>(<span class="at">layercodes =</span> <span class="fu">c</span>(<span class="st">&quot;BO_chlomean&quot;</span>,<span class="st">&quot;BO_ph&quot;</span>, <span class="st">&quot;BO_salinity&quot;</span>,<span class="st">&quot;BO_sstmax&quot;</span>,<span class="st">&quot;BO_sstmean&quot;</span>))</span>
-<span id="cb555-5"><a href="genome-environment-association.html#cb555-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb555-6"><a href="genome-environment-association.html#cb555-6" aria-hidden="true" tabindex="-1"></a><span class="co">#now put each layer into it&#39;s own object</span></span>
-<span id="cb555-7"><a href="genome-environment-association.html#cb555-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb555-8"><a href="genome-environment-association.html#cb555-8" aria-hidden="true" tabindex="-1"></a>chlomean<span class="ot">&lt;-</span><span class="fu">load_layers</span>(<span class="st">&quot;BO_chlomean&quot;</span>)</span>
-<span id="cb555-9"><a href="genome-environment-association.html#cb555-9" aria-hidden="true" tabindex="-1"></a>ph<span class="ot">&lt;-</span><span class="fu">load_layers</span>(<span class="st">&quot;BO_ph&quot;</span>)</span>
-<span id="cb555-10"><a href="genome-environment-association.html#cb555-10" aria-hidden="true" tabindex="-1"></a>salinity<span class="ot">&lt;-</span><span class="fu">load_layers</span>(<span class="st">&quot;BO_salinity&quot;</span>)</span>
-<span id="cb555-11"><a href="genome-environment-association.html#cb555-11" aria-hidden="true" tabindex="-1"></a>sst_max<span class="ot">&lt;-</span><span class="fu">load_layers</span>(<span class="st">&quot;BO_sstmax&quot;</span>)</span>
-<span id="cb555-12"><a href="genome-environment-association.html#cb555-12" aria-hidden="true" tabindex="-1"></a>sst_mean<span class="ot">&lt;-</span><span class="fu">load_layers</span>(<span class="st">&quot;BO_sstmean&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="genome-environment-association.html#cb553-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb553-2"><a href="genome-environment-association.html#cb553-2" aria-hidden="true" tabindex="-1"></a><span class="co">#load the environmental data and store it as objects that we can use later</span></span>
+<span id="cb553-3"><a href="genome-environment-association.html#cb553-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb553-4"><a href="genome-environment-association.html#cb553-4" aria-hidden="true" tabindex="-1"></a>environ <span class="ot">&lt;-</span> <span class="fu">load_layers</span>(<span class="at">layercodes =</span> <span class="fu">c</span>(<span class="st">&quot;BO_chlomean&quot;</span>,<span class="st">&quot;BO_ph&quot;</span>, <span class="st">&quot;BO_salinity&quot;</span>,<span class="st">&quot;BO_sstmax&quot;</span>,<span class="st">&quot;BO_sstmean&quot;</span>))</span>
+<span id="cb553-5"><a href="genome-environment-association.html#cb553-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb553-6"><a href="genome-environment-association.html#cb553-6" aria-hidden="true" tabindex="-1"></a><span class="co">#now put each layer into it&#39;s own object</span></span>
+<span id="cb553-7"><a href="genome-environment-association.html#cb553-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb553-8"><a href="genome-environment-association.html#cb553-8" aria-hidden="true" tabindex="-1"></a>chlomean<span class="ot">&lt;-</span><span class="fu">load_layers</span>(<span class="st">&quot;BO_chlomean&quot;</span>)</span>
+<span id="cb553-9"><a href="genome-environment-association.html#cb553-9" aria-hidden="true" tabindex="-1"></a>ph<span class="ot">&lt;-</span><span class="fu">load_layers</span>(<span class="st">&quot;BO_ph&quot;</span>)</span>
+<span id="cb553-10"><a href="genome-environment-association.html#cb553-10" aria-hidden="true" tabindex="-1"></a>salinity<span class="ot">&lt;-</span><span class="fu">load_layers</span>(<span class="st">&quot;BO_salinity&quot;</span>)</span>
+<span id="cb553-11"><a href="genome-environment-association.html#cb553-11" aria-hidden="true" tabindex="-1"></a>sst_max<span class="ot">&lt;-</span><span class="fu">load_layers</span>(<span class="st">&quot;BO_sstmax&quot;</span>)</span>
+<span id="cb553-12"><a href="genome-environment-association.html#cb553-12" aria-hidden="true" tabindex="-1"></a>sst_mean<span class="ot">&lt;-</span><span class="fu">load_layers</span>(<span class="st">&quot;BO_sstmean&quot;</span>)</span></code></pre></div>
 <p>Now we’ll read in our metadata, which has lat and lon for each sample</p>
-<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="genome-environment-association.html#cb556-1" aria-hidden="true" tabindex="-1"></a>meta<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;californicus_metadata.csv&quot;</span>)</span>
-<span id="cb556-2"><a href="genome-environment-association.html#cb556-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb556-3"><a href="genome-environment-association.html#cb556-3" aria-hidden="true" tabindex="-1"></a><span class="co">#make a new dataframe that just contains the lat and lon and label them &quot;lat&quot; and &quot;long&quot;</span></span>
-<span id="cb556-4"><a href="genome-environment-association.html#cb556-4" aria-hidden="true" tabindex="-1"></a><span class="co">#notice that the original metafile mislabels lat and lon, oops!</span></span>
-<span id="cb556-5"><a href="genome-environment-association.html#cb556-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb556-6"><a href="genome-environment-association.html#cb556-6" aria-hidden="true" tabindex="-1"></a>sites<span class="ot">&lt;-</span><span class="fu">cbind</span>(<span class="st">&quot;lat&quot;</span> <span class="ot">=</span>  meta<span class="sc">$</span>LONG, <span class="st">&quot;lon&quot;</span> <span class="ot">=</span> meta<span class="sc">$</span>LAT)</span>
-<span id="cb556-7"><a href="genome-environment-association.html#cb556-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb556-8"><a href="genome-environment-association.html#cb556-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sites)</span>
-<span id="cb556-9"><a href="genome-environment-association.html#cb556-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            lat     lon</span></span>
-<span id="cb556-10"><a href="genome-environment-association.html#cb556-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,] -126.5646 50.5212</span></span>
-<span id="cb556-11"><a href="genome-environment-association.html#cb556-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,] -126.5646 50.5212</span></span>
-<span id="cb556-12"><a href="genome-environment-association.html#cb556-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,] -126.5646 50.5212</span></span>
-<span id="cb556-13"><a href="genome-environment-association.html#cb556-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,] -126.5646 50.5212</span></span>
-<span id="cb556-14"><a href="genome-environment-association.html#cb556-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [5,] -126.5646 50.5212</span></span>
-<span id="cb556-15"><a href="genome-environment-association.html#cb556-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [6,] -126.5646 50.5212</span></span></code></pre></div>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="genome-environment-association.html#cb554-1" aria-hidden="true" tabindex="-1"></a>meta<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;californicus_metadata.csv&quot;</span>)</span>
+<span id="cb554-2"><a href="genome-environment-association.html#cb554-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb554-3"><a href="genome-environment-association.html#cb554-3" aria-hidden="true" tabindex="-1"></a><span class="co">#make a new dataframe that just contains the lat and lon and label them &quot;lat&quot; and &quot;long&quot;</span></span>
+<span id="cb554-4"><a href="genome-environment-association.html#cb554-4" aria-hidden="true" tabindex="-1"></a><span class="co">#notice that the original metafile mislabels lat and lon, oops!</span></span>
+<span id="cb554-5"><a href="genome-environment-association.html#cb554-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb554-6"><a href="genome-environment-association.html#cb554-6" aria-hidden="true" tabindex="-1"></a>sites<span class="ot">&lt;-</span><span class="fu">cbind</span>(<span class="st">&quot;lat&quot;</span> <span class="ot">=</span>  meta<span class="sc">$</span>LONG, <span class="st">&quot;lon&quot;</span> <span class="ot">=</span> meta<span class="sc">$</span>LAT)</span>
+<span id="cb554-7"><a href="genome-environment-association.html#cb554-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb554-8"><a href="genome-environment-association.html#cb554-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sites)</span>
+<span id="cb554-9"><a href="genome-environment-association.html#cb554-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            lat     lon</span></span>
+<span id="cb554-10"><a href="genome-environment-association.html#cb554-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,] -126.5646 50.5212</span></span>
+<span id="cb554-11"><a href="genome-environment-association.html#cb554-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,] -126.5646 50.5212</span></span>
+<span id="cb554-12"><a href="genome-environment-association.html#cb554-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,] -126.5646 50.5212</span></span>
+<span id="cb554-13"><a href="genome-environment-association.html#cb554-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,] -126.5646 50.5212</span></span>
+<span id="cb554-14"><a href="genome-environment-association.html#cb554-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [5,] -126.5646 50.5212</span></span>
+<span id="cb554-15"><a href="genome-environment-association.html#cb554-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [6,] -126.5646 50.5212</span></span></code></pre></div>
 </div>
 <div id="extract-site-specific-information-from-our-envirornmental-layers" class="section level2 hasAnchor" number="12.5">
 <h2><span class="header-section-number">12.5</span> Extract Site Specific Information from our Envirornmental Layers<a href="genome-environment-association.html#extract-site-specific-information-from-our-envirornmental-layers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The data we downloaded</p>
-<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="genome-environment-association.html#cb557-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb557-2"><a href="genome-environment-association.html#cb557-2" aria-hidden="true" tabindex="-1"></a>sites_environ <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Name=</span>sites, <span class="fu">extract</span>(environ,sites))</span>
-<span id="cb557-3"><a href="genome-environment-association.html#cb557-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sites_environ)</span>
-<span id="cb557-4"><a href="genome-environment-association.html#cb557-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Name.lat Name.lon BO_chlomean BO_ph BO_salinity BO_sstmax BO_sstmean</span></span>
-<span id="cb557-5"><a href="genome-environment-association.html#cb557-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 -126.5646  50.5212        3.85 8.212      30.496    12.137        8.1</span></span>
-<span id="cb557-6"><a href="genome-environment-association.html#cb557-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 -126.5646  50.5212        3.85 8.212      30.496    12.137        8.1</span></span>
-<span id="cb557-7"><a href="genome-environment-association.html#cb557-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 -126.5646  50.5212        3.85 8.212      30.496    12.137        8.1</span></span>
-<span id="cb557-8"><a href="genome-environment-association.html#cb557-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 -126.5646  50.5212        3.85 8.212      30.496    12.137        8.1</span></span>
-<span id="cb557-9"><a href="genome-environment-association.html#cb557-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 -126.5646  50.5212        3.85 8.212      30.496    12.137        8.1</span></span>
-<span id="cb557-10"><a href="genome-environment-association.html#cb557-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 -126.5646  50.5212        3.85 8.212      30.496    12.137        8.1</span></span></code></pre></div>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="genome-environment-association.html#cb555-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb555-2"><a href="genome-environment-association.html#cb555-2" aria-hidden="true" tabindex="-1"></a>sites_environ <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Name=</span>sites, <span class="fu">extract</span>(environ,sites))</span>
+<span id="cb555-3"><a href="genome-environment-association.html#cb555-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sites_environ)</span>
+<span id="cb555-4"><a href="genome-environment-association.html#cb555-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Name.lat Name.lon BO_chlomean BO_ph BO_salinity BO_sstmax BO_sstmean</span></span>
+<span id="cb555-5"><a href="genome-environment-association.html#cb555-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 -126.5646  50.5212        3.85 8.212      30.496    12.137        8.1</span></span>
+<span id="cb555-6"><a href="genome-environment-association.html#cb555-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 -126.5646  50.5212        3.85 8.212      30.496    12.137        8.1</span></span>
+<span id="cb555-7"><a href="genome-environment-association.html#cb555-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 -126.5646  50.5212        3.85 8.212      30.496    12.137        8.1</span></span>
+<span id="cb555-8"><a href="genome-environment-association.html#cb555-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 -126.5646  50.5212        3.85 8.212      30.496    12.137        8.1</span></span>
+<span id="cb555-9"><a href="genome-environment-association.html#cb555-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 -126.5646  50.5212        3.85 8.212      30.496    12.137        8.1</span></span>
+<span id="cb555-10"><a href="genome-environment-association.html#cb555-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 -126.5646  50.5212        3.85 8.212      30.496    12.137        8.1</span></span></code></pre></div>
 <p>That produces for us a site specific environment file. We now need to convert this file into a format that we can save it as a matrix and export it as an environment file (i.e., in the format that the next step need it to be in which we do below)</p>
-<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="genome-environment-association.html#cb558-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb558-2"><a href="genome-environment-association.html#cb558-2" aria-hidden="true" tabindex="-1"></a><span class="co">#remove lat and lon and convert to matrix</span></span>
-<span id="cb558-3"><a href="genome-environment-association.html#cb558-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb558-4"><a href="genome-environment-association.html#cb558-4" aria-hidden="true" tabindex="-1"></a>sites_environ_matrix<span class="ot">&lt;-</span><span class="fu">as.matrix</span>(sites_environ[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)])</span>
-<span id="cb558-5"><a href="genome-environment-association.html#cb558-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb558-6"><a href="genome-environment-association.html#cb558-6" aria-hidden="true" tabindex="-1"></a><span class="co">#remove any Na&#39;s</span></span>
-<span id="cb558-7"><a href="genome-environment-association.html#cb558-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb558-8"><a href="genome-environment-association.html#cb558-8" aria-hidden="true" tabindex="-1"></a>sites_environ_matrix_nas<span class="ot">&lt;-</span><span class="fu">na.omit</span>(sites_environ_matrix)</span>
-<span id="cb558-9"><a href="genome-environment-association.html#cb558-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb558-10"><a href="genome-environment-association.html#cb558-10" aria-hidden="true" tabindex="-1"></a><span class="co">#write the file to an env file</span></span>
-<span id="cb558-11"><a href="genome-environment-association.html#cb558-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb558-12"><a href="genome-environment-association.html#cb558-12" aria-hidden="true" tabindex="-1"></a><span class="fu">write.env</span>(sites_environ_matrix_nas, <span class="st">&quot;sites_environ_matrix.env&quot;</span>)</span>
-<span id="cb558-13"><a href="genome-environment-association.html#cb558-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;sites_environ_matrix.env&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="genome-environment-association.html#cb556-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb556-2"><a href="genome-environment-association.html#cb556-2" aria-hidden="true" tabindex="-1"></a><span class="co">#remove lat and lon and convert to matrix</span></span>
+<span id="cb556-3"><a href="genome-environment-association.html#cb556-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb556-4"><a href="genome-environment-association.html#cb556-4" aria-hidden="true" tabindex="-1"></a>sites_environ_matrix<span class="ot">&lt;-</span><span class="fu">as.matrix</span>(sites_environ[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)])</span>
+<span id="cb556-5"><a href="genome-environment-association.html#cb556-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb556-6"><a href="genome-environment-association.html#cb556-6" aria-hidden="true" tabindex="-1"></a><span class="co">#remove any Na&#39;s</span></span>
+<span id="cb556-7"><a href="genome-environment-association.html#cb556-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb556-8"><a href="genome-environment-association.html#cb556-8" aria-hidden="true" tabindex="-1"></a>sites_environ_matrix_nas<span class="ot">&lt;-</span><span class="fu">na.omit</span>(sites_environ_matrix)</span>
+<span id="cb556-9"><a href="genome-environment-association.html#cb556-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb556-10"><a href="genome-environment-association.html#cb556-10" aria-hidden="true" tabindex="-1"></a><span class="co">#write the file to an env file</span></span>
+<span id="cb556-11"><a href="genome-environment-association.html#cb556-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb556-12"><a href="genome-environment-association.html#cb556-12" aria-hidden="true" tabindex="-1"></a><span class="fu">write.env</span>(sites_environ_matrix_nas, <span class="st">&quot;sites_environ_matrix.env&quot;</span>)</span>
+<span id="cb556-13"><a href="genome-environment-association.html#cb556-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;sites_environ_matrix.env&quot;</span></span></code></pre></div>
 </div>
 <div id="make-a-map-of-our-environmental-data" class="section level2 hasAnchor" number="12.6">
 <h2><span class="header-section-number">12.6</span> Make a Map of our environmental data<a href="genome-environment-association.html#make-a-map-of-our-environmental-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We now have enough information to make a pretty plot of one of our environmental parameters.</p>
-<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="genome-environment-association.html#cb559-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sdmpredictors)</span>
-<span id="cb559-2"><a href="genome-environment-association.html#cb559-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb559-3"><a href="genome-environment-association.html#cb559-3" aria-hidden="true" tabindex="-1"></a><span class="co">#download a raster file for env variable that we want to look at</span></span>
-<span id="cb559-4"><a href="genome-environment-association.html#cb559-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb559-5"><a href="genome-environment-association.html#cb559-5" aria-hidden="true" tabindex="-1"></a><span class="co">#what are are min amd max lat and lon</span></span>
-<span id="cb559-6"><a href="genome-environment-association.html#cb559-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb559-7"><a href="genome-environment-association.html#cb559-7" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(sites_environ<span class="sc">$</span>Name.lon)</span>
-<span id="cb559-8"><a href="genome-environment-association.html#cb559-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 48.40822 57.82796</span></span>
-<span id="cb559-9"><a href="genome-environment-association.html#cb559-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb559-10"><a href="genome-environment-association.html#cb559-10" aria-hidden="true" tabindex="-1"></a><span class="co">#crop file to fit the area we want</span></span>
-<span id="cb559-11"><a href="genome-environment-association.html#cb559-11" aria-hidden="true" tabindex="-1"></a>ne.pacific<span class="ot">&lt;-</span><span class="fu">extent</span>(<span class="sc">-</span><span class="dv">140</span>, <span class="sc">-</span><span class="dv">120</span>, <span class="dv">40</span>, <span class="dv">60</span>)</span>
-<span id="cb559-12"><a href="genome-environment-association.html#cb559-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb559-13"><a href="genome-environment-association.html#cb559-13" aria-hidden="true" tabindex="-1"></a>sst_max.crop<span class="ot">&lt;-</span><span class="fu">crop</span>(sst_max, ne.pacific)</span>
-<span id="cb559-14"><a href="genome-environment-association.html#cb559-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb559-15"><a href="genome-environment-association.html#cb559-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb559-16"><a href="genome-environment-association.html#cb559-16" aria-hidden="true" tabindex="-1"></a><span class="co">#make a nice color ramp and plot the map</span></span>
-<span id="cb559-17"><a href="genome-environment-association.html#cb559-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb559-18"><a href="genome-environment-association.html#cb559-18" aria-hidden="true" tabindex="-1"></a>my.colors <span class="ot">=</span> <span class="fu">colorRampPalette</span>(<span class="fu">c</span>(<span class="st">&quot;#5E85B8&quot;</span>,<span class="st">&quot;#EDF0C0&quot;</span>,<span class="st">&quot;#C13127&quot;</span>))</span>
-<span id="cb559-19"><a href="genome-environment-association.html#cb559-19" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sst_max.crop,<span class="at">col=</span><span class="fu">my.colors</span>(<span class="dv">1000</span>),<span class="at">axes=</span><span class="cn">FALSE</span>, <span class="at">box=</span><span class="cn">FALSE</span>)</span>
-<span id="cb559-20"><a href="genome-environment-association.html#cb559-20" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="at">cex.sub =</span> <span class="fl">1.25</span>, <span class="at">sub =</span> <span class="st">&quot;Maximum temperature at the sea surface (ºC)&quot;</span>)</span></code></pre></div>
-<p><img src="Semester_files/figure-html/geamap-1.png" width="768" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="genome-environment-association.html#cb557-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sdmpredictors)</span>
+<span id="cb557-2"><a href="genome-environment-association.html#cb557-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb557-3"><a href="genome-environment-association.html#cb557-3" aria-hidden="true" tabindex="-1"></a><span class="co">#download a raster file for env variable that we want to look at</span></span>
+<span id="cb557-4"><a href="genome-environment-association.html#cb557-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb557-5"><a href="genome-environment-association.html#cb557-5" aria-hidden="true" tabindex="-1"></a><span class="co">#what are are min amd max lat and lon</span></span>
+<span id="cb557-6"><a href="genome-environment-association.html#cb557-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb557-7"><a href="genome-environment-association.html#cb557-7" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(sites_environ<span class="sc">$</span>Name.lon)</span>
+<span id="cb557-8"><a href="genome-environment-association.html#cb557-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 48.40822 57.82796</span></span></code></pre></div>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="genome-environment-association.html#cb558-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb558-2"><a href="genome-environment-association.html#cb558-2" aria-hidden="true" tabindex="-1"></a><span class="co">#crop file to fit the area we want</span></span>
+<span id="cb558-3"><a href="genome-environment-association.html#cb558-3" aria-hidden="true" tabindex="-1"></a>ne.pacific<span class="ot">&lt;-</span><span class="fu">extent</span>(<span class="sc">-</span><span class="dv">140</span>, <span class="sc">-</span><span class="dv">120</span>, <span class="dv">40</span>, <span class="dv">60</span>)</span>
+<span id="cb558-4"><a href="genome-environment-association.html#cb558-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb558-5"><a href="genome-environment-association.html#cb558-5" aria-hidden="true" tabindex="-1"></a>sst_max.crop<span class="ot">&lt;-</span><span class="fu">crop</span>(sst_max, ne.pacific)</span>
+<span id="cb558-6"><a href="genome-environment-association.html#cb558-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb558-7"><a href="genome-environment-association.html#cb558-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb558-8"><a href="genome-environment-association.html#cb558-8" aria-hidden="true" tabindex="-1"></a><span class="co">#make a nice color ramp and plot the map</span></span>
+<span id="cb558-9"><a href="genome-environment-association.html#cb558-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb558-10"><a href="genome-environment-association.html#cb558-10" aria-hidden="true" tabindex="-1"></a>my.colors <span class="ot">=</span> <span class="fu">colorRampPalette</span>(<span class="fu">c</span>(<span class="st">&quot;#5E85B8&quot;</span>,<span class="st">&quot;#EDF0C0&quot;</span>,<span class="st">&quot;#C13127&quot;</span>))</span>
+<span id="cb558-11"><a href="genome-environment-association.html#cb558-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sst_max.crop,<span class="at">col=</span><span class="fu">my.colors</span>(<span class="dv">1000</span>),<span class="at">axes=</span><span class="cn">FALSE</span>, <span class="at">box=</span><span class="cn">FALSE</span>)</span>
+<span id="cb558-12"><a href="genome-environment-association.html#cb558-12" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="at">cex.sub =</span> <span class="fl">1.25</span>, <span class="at">sub =</span> <span class="st">&quot;Maximum temperature at the sea surface (ºC)&quot;</span>)</span></code></pre></div>
+<p><img src="Semester_files/figure-html/geamap2-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 <div id="load-in-genetic-data" class="section level2 hasAnchor" number="12.7">
 <h2><span class="header-section-number">12.7</span> Load in genetic data<a href="genome-environment-association.html#load-in-genetic-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Now we need to load in our genetic data. We have data in a vcf file format and the first few steps will be to convert it to the format needed by the lfmm package.</p>
+<p>loading the data in using these functions will output a lot to the console regarding the number of individuals (in this example 685) and loci (3699). It’s a good idea to look at these to make sure you have the number of individuals and loci that you expect. But it’s a but messy here so we’ve silenced that output.</p>
+<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="genome-environment-association.html#cb559-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb559-2"><a href="genome-environment-association.html#cb559-2" aria-hidden="true" tabindex="-1"></a><span class="co">#convert our vcf file to lfmm</span></span>
+<span id="cb559-3"><a href="genome-environment-association.html#cb559-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb559-4"><a href="genome-environment-association.html#cb559-4" aria-hidden="true" tabindex="-1"></a><span class="fu">vcf2lfmm</span>(<span class="st">&#39;filtered_3699snps_californicus_685inds.recode.vcf&#39;</span>, <span class="st">&#39;filtered_3699snps_californicus.lfmm&#39;</span>)</span>
+<span id="cb559-5"><a href="genome-environment-association.html#cb559-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb559-6"><a href="genome-environment-association.html#cb559-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  - number of detected individuals:   685</span></span>
+<span id="cb559-7"><a href="genome-environment-association.html#cb559-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  - number of detected loci:      3699</span></span>
+<span id="cb559-8"><a href="genome-environment-association.html#cb559-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb559-9"><a href="genome-environment-association.html#cb559-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; For SNP info, please check ./filtered_3699snps_californicus_685inds.recode.vcfsnp.</span></span>
+<span id="cb559-10"><a href="genome-environment-association.html#cb559-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb559-11"><a href="genome-environment-association.html#cb559-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 0 line(s) were removed because these are not SNPs.</span></span>
+<span id="cb559-12"><a href="genome-environment-association.html#cb559-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Please, check ./filtered_3699snps_californicus_685inds.recode.removed file, for more informations.</span></span>
+<span id="cb559-13"><a href="genome-environment-association.html#cb559-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb559-14"><a href="genome-environment-association.html#cb559-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb559-15"><a href="genome-environment-association.html#cb559-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  - number of detected individuals:   685</span></span>
+<span id="cb559-16"><a href="genome-environment-association.html#cb559-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  - number of detected loci:      3699</span></span>
+<span id="cb559-17"><a href="genome-environment-association.html#cb559-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;./filtered_3699snps_californicus_685inds.recode.lfmm&quot;</span></span>
+<span id="cb559-18"><a href="genome-environment-association.html#cb559-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb559-19"><a href="genome-environment-association.html#cb559-19" aria-hidden="true" tabindex="-1"></a>sea_cuc_lfmm<span class="ot">&lt;-</span><span class="fu">read.lfmm</span>(<span class="st">&#39;filtered_3699snps_californicus_685inds.recode.lfmm&#39;</span>)</span>
+<span id="cb559-20"><a href="genome-environment-association.html#cb559-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb559-21"><a href="genome-environment-association.html#cb559-21" aria-hidden="true" tabindex="-1"></a><span class="co">#and convert to geno</span></span>
+<span id="cb559-22"><a href="genome-environment-association.html#cb559-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb559-23"><a href="genome-environment-association.html#cb559-23" aria-hidden="true" tabindex="-1"></a><span class="fu">lfmm2geno</span>(<span class="st">&#39;filtered_3699snps_californicus_685inds.recode.lfmm&#39;</span>, <span class="st">&#39;filtered_3699snps_californicus_685inds.recode.geno&#39;</span>)</span>
+<span id="cb559-24"><a href="genome-environment-association.html#cb559-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb559-25"><a href="genome-environment-association.html#cb559-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  - number of detected individuals:   685</span></span>
+<span id="cb559-26"><a href="genome-environment-association.html#cb559-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  - number of detected loci:      3699</span></span>
+<span id="cb559-27"><a href="genome-environment-association.html#cb559-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;filtered_3699snps_californicus_685inds.recode.geno&quot;</span></span>
+<span id="cb559-28"><a href="genome-environment-association.html#cb559-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb559-29"><a href="genome-environment-association.html#cb559-29" aria-hidden="true" tabindex="-1"></a><span class="co">#read in geno file</span></span>
+<span id="cb559-30"><a href="genome-environment-association.html#cb559-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb559-31"><a href="genome-environment-association.html#cb559-31" aria-hidden="true" tabindex="-1"></a>sea_cuc_geno<span class="ot">&lt;-</span><span class="fu">read.geno</span>(<span class="st">&#39;filtered_3699snps_californicus_685inds.recode.geno&#39;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="genome-environment-association.html#cb560-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb560-2"><a href="genome-environment-association.html#cb560-2" aria-hidden="true" tabindex="-1"></a><span class="co">#convert our vcf file to lfmm</span></span>
-<span id="cb560-3"><a href="genome-environment-association.html#cb560-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb560-4"><a href="genome-environment-association.html#cb560-4" aria-hidden="true" tabindex="-1"></a><span class="fu">vcf2lfmm</span>(<span class="st">&#39;filtered_3699snps_californicus_685inds.recode.vcf&#39;</span>, <span class="st">&#39;filtered_3699snps_californicus.lfmm&#39;</span>)</span>
-<span id="cb560-5"><a href="genome-environment-association.html#cb560-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb560-6"><a href="genome-environment-association.html#cb560-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  - number of detected individuals:   685</span></span>
-<span id="cb560-7"><a href="genome-environment-association.html#cb560-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  - number of detected loci:      3699</span></span>
+<span id="cb560-2"><a href="genome-environment-association.html#cb560-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-3"><a href="genome-environment-association.html#cb560-3" aria-hidden="true" tabindex="-1"></a><span class="co"># create a snmf object</span></span>
+<span id="cb560-4"><a href="genome-environment-association.html#cb560-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-5"><a href="genome-environment-association.html#cb560-5" aria-hidden="true" tabindex="-1"></a>sea_cuc200.snmf <span class="ot">&lt;-</span> <span class="fu">snmf</span>(<span class="st">&quot;filtered_3699snps_californicus_685.geno&quot;</span>, <span class="at">K =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">entropy=</span>T, <span class="at">ploidy =</span> <span class="dv">2</span>, <span class="at">project =</span> <span class="st">&quot;new&quot;</span>)</span>
+<span id="cb560-6"><a href="genome-environment-association.html#cb560-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The project is saved into :</span></span>
+<span id="cb560-7"><a href="genome-environment-association.html#cb560-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  filtered_3699snps_californicus_685.snmfProject </span></span>
 <span id="cb560-8"><a href="genome-environment-association.html#cb560-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb560-9"><a href="genome-environment-association.html#cb560-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; For SNP info, please check ./filtered_3699snps_californicus_685inds.recode.vcfsnp.</span></span>
-<span id="cb560-10"><a href="genome-environment-association.html#cb560-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb560-11"><a href="genome-environment-association.html#cb560-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 0 line(s) were removed because these are not SNPs.</span></span>
-<span id="cb560-12"><a href="genome-environment-association.html#cb560-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Please, check ./filtered_3699snps_californicus_685inds.recode.removed file, for more informations.</span></span>
-<span id="cb560-13"><a href="genome-environment-association.html#cb560-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb560-9"><a href="genome-environment-association.html#cb560-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To load the project, use:</span></span>
+<span id="cb560-10"><a href="genome-environment-association.html#cb560-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  project = load.snmfProject(&quot;filtered_3699snps_californicus_685.snmfProject&quot;)</span></span>
+<span id="cb560-11"><a href="genome-environment-association.html#cb560-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb560-12"><a href="genome-environment-association.html#cb560-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To remove the project, use:</span></span>
+<span id="cb560-13"><a href="genome-environment-association.html#cb560-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  remove.snmfProject(&quot;filtered_3699snps_californicus_685.snmfProject&quot;)</span></span>
 <span id="cb560-14"><a href="genome-environment-association.html#cb560-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb560-15"><a href="genome-environment-association.html#cb560-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  - number of detected individuals:   685</span></span>
-<span id="cb560-16"><a href="genome-environment-association.html#cb560-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  - number of detected loci:      3699</span></span>
-<span id="cb560-17"><a href="genome-environment-association.html#cb560-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;./filtered_3699snps_californicus_685inds.recode.lfmm&quot;</span></span>
-<span id="cb560-18"><a href="genome-environment-association.html#cb560-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb560-19"><a href="genome-environment-association.html#cb560-19" aria-hidden="true" tabindex="-1"></a>sea_cuc_lfmm<span class="ot">&lt;-</span><span class="fu">read.lfmm</span>(<span class="st">&#39;filtered_3699snps_californicus_685inds.recode.lfmm&#39;</span>)</span>
-<span id="cb560-20"><a href="genome-environment-association.html#cb560-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb560-21"><a href="genome-environment-association.html#cb560-21" aria-hidden="true" tabindex="-1"></a><span class="co">#and convert to geno</span></span>
+<span id="cb560-15"><a href="genome-environment-association.html#cb560-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1746910971</span></span>
+<span id="cb560-16"><a href="genome-environment-association.html#cb560-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;*************************************&quot;</span></span>
+<span id="cb560-17"><a href="genome-environment-association.html#cb560-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;*          create.dataset            *&quot;</span></span>
+<span id="cb560-18"><a href="genome-environment-association.html#cb560-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;*************************************&quot;</span></span>
+<span id="cb560-19"><a href="genome-environment-association.html#cb560-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb560-20"><a href="genome-environment-association.html#cb560-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ERROR: unable to open file C:\Users\SAPCaps\MarineGenomicsSemester\data\Week11_gea\filtered_3699snps_californicus_685.geno. Please, check that the name of the file you provided is correct.</span></span>
+<span id="cb560-21"><a href="genome-environment-association.html#cb560-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in create.dataset(input.file, masked.file, s, percentage): internal error in trio library</span></span>
 <span id="cb560-22"><a href="genome-environment-association.html#cb560-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb560-23"><a href="genome-environment-association.html#cb560-23" aria-hidden="true" tabindex="-1"></a><span class="fu">lfmm2geno</span>(<span class="st">&#39;filtered_3699snps_californicus_685inds.recode.lfmm&#39;</span>, <span class="st">&#39;filtered_3699snps_californicus_685inds.recode.geno&#39;</span>)</span>
-<span id="cb560-24"><a href="genome-environment-association.html#cb560-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb560-25"><a href="genome-environment-association.html#cb560-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  - number of detected individuals:   685</span></span>
-<span id="cb560-26"><a href="genome-environment-association.html#cb560-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  - number of detected loci:      3699</span></span>
-<span id="cb560-27"><a href="genome-environment-association.html#cb560-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;filtered_3699snps_californicus_685inds.recode.geno&quot;</span></span>
-<span id="cb560-28"><a href="genome-environment-association.html#cb560-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb560-29"><a href="genome-environment-association.html#cb560-29" aria-hidden="true" tabindex="-1"></a><span class="co">#read in geno file</span></span>
-<span id="cb560-30"><a href="genome-environment-association.html#cb560-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb560-31"><a href="genome-environment-association.html#cb560-31" aria-hidden="true" tabindex="-1"></a>sea_cuc_geno<span class="ot">&lt;-</span><span class="fu">read.geno</span>(<span class="st">&#39;filtered_3699snps_californicus_685inds.recode.geno&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="genome-environment-association.html#cb561-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb561-2"><a href="genome-environment-association.html#cb561-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb561-3"><a href="genome-environment-association.html#cb561-3" aria-hidden="true" tabindex="-1"></a><span class="co"># create a snmf object</span></span>
-<span id="cb561-4"><a href="genome-environment-association.html#cb561-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb561-5"><a href="genome-environment-association.html#cb561-5" aria-hidden="true" tabindex="-1"></a>sea_cuc200.snmf <span class="ot">&lt;-</span> <span class="fu">snmf</span>(<span class="st">&quot;filtered_3699snps_californicus_685.geno&quot;</span>, <span class="at">K =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">entropy=</span>T, <span class="at">ploidy =</span> <span class="dv">2</span>, <span class="at">project =</span> <span class="st">&quot;new&quot;</span>)</span>
-<span id="cb561-6"><a href="genome-environment-association.html#cb561-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning in normalizePath(path.expand(path), winslash, mustWork):</span></span>
-<span id="cb561-7"><a href="genome-environment-association.html#cb561-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; path[1]=&quot;filtered_3699snps_californicus_685.geno&quot;: The system cannot find the file specified</span></span>
-<span id="cb561-8"><a href="genome-environment-association.html#cb561-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning in normalizePath(path.expand(path), winslash, mustWork): path[1]=&quot;C:</span></span>
-<span id="cb561-9"><a href="genome-environment-association.html#cb561-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; \Users\SAPCaps\MarineGenomicsSemester\data\Week11_gea\filtered_3699snps_californicus_685.geno&quot;: The system</span></span>
-<span id="cb561-10"><a href="genome-environment-association.html#cb561-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; cannot find the file specified</span></span>
-<span id="cb561-11"><a href="genome-environment-association.html#cb561-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb561-12"><a href="genome-environment-association.html#cb561-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning in normalizePath(path.expand(path), winslash, mustWork): path[1]=&quot;C:</span></span>
-<span id="cb561-13"><a href="genome-environment-association.html#cb561-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; \Users\SAPCaps\MarineGenomicsSemester\data\Week11_gea\filtered_3699snps_californicus_685.geno&quot;: The system</span></span>
-<span id="cb561-14"><a href="genome-environment-association.html#cb561-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; cannot find the file specified</span></span>
-<span id="cb561-15"><a href="genome-environment-association.html#cb561-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The project is saved into :</span></span>
-<span id="cb561-16"><a href="genome-environment-association.html#cb561-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  filtered_3699snps_californicus_685.snmfProject </span></span>
-<span id="cb561-17"><a href="genome-environment-association.html#cb561-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb561-18"><a href="genome-environment-association.html#cb561-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To load the project, use:</span></span>
-<span id="cb561-19"><a href="genome-environment-association.html#cb561-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  project = load.snmfProject(&quot;filtered_3699snps_californicus_685.snmfProject&quot;)</span></span>
-<span id="cb561-20"><a href="genome-environment-association.html#cb561-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb561-21"><a href="genome-environment-association.html#cb561-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To remove the project, use:</span></span>
-<span id="cb561-22"><a href="genome-environment-association.html#cb561-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  remove.snmfProject(&quot;filtered_3699snps_californicus_685.snmfProject&quot;)</span></span>
-<span id="cb561-23"><a href="genome-environment-association.html#cb561-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb561-24"><a href="genome-environment-association.html#cb561-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 2115070273</span></span>
-<span id="cb561-25"><a href="genome-environment-association.html#cb561-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;*************************************&quot;</span></span>
-<span id="cb561-26"><a href="genome-environment-association.html#cb561-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;*          create.dataset            *&quot;</span></span>
-<span id="cb561-27"><a href="genome-environment-association.html#cb561-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;*************************************&quot;</span></span>
-<span id="cb561-28"><a href="genome-environment-association.html#cb561-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb561-29"><a href="genome-environment-association.html#cb561-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ERROR: unable to open file C:\Users\SAPCaps\MarineGenomicsSemester\data\Week11_gea\filtered_3699snps_californicus_685.geno. Please, check that the name of the file you provided is correct.</span></span>
-<span id="cb561-30"><a href="genome-environment-association.html#cb561-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in create.dataset(input.file, masked.file, s, percentage): internal error in trio library</span></span>
-<span id="cb561-31"><a href="genome-environment-association.html#cb561-31" aria-hidden="true" tabindex="-1"></a>project<span class="ot">=</span><span class="fu">load.snmfProject</span>(<span class="st">&quot;filtered_3699snps_californicus.snmfProject&quot;</span>)</span>
-<span id="cb561-32"><a href="genome-environment-association.html#cb561-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb561-33"><a href="genome-environment-association.html#cb561-33" aria-hidden="true" tabindex="-1"></a><span class="co">#plot values of cross-entropy criteron of k</span></span>
-<span id="cb561-34"><a href="genome-environment-association.html#cb561-34" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sea_cuc200.snmf)</span>
-<span id="cb561-35"><a href="genome-environment-association.html#cb561-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;plot&#39;: object &#39;sea_cuc200.snmf&#39; not found</span></span></code></pre></div>
+<span id="cb560-23"><a href="genome-environment-association.html#cb560-23" aria-hidden="true" tabindex="-1"></a>project<span class="ot">=</span><span class="fu">load.snmfProject</span>(<span class="st">&quot;filtered_3699snps_californicus_685.snmfProject&quot;</span>)</span>
+<span id="cb560-24"><a href="genome-environment-association.html#cb560-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-25"><a href="genome-environment-association.html#cb560-25" aria-hidden="true" tabindex="-1"></a><span class="co">#plot values of cross-entropy criteron of k</span></span>
+<span id="cb560-26"><a href="genome-environment-association.html#cb560-26" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sea_cuc200.snmf)</span>
+<span id="cb560-27"><a href="genome-environment-association.html#cb560-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;plot&#39;: object &#39;sea_cuc200.snmf&#39; not found</span></span></code></pre></div>
 <p>This plot tells us which value of K we should use when running the next analyses. We’re looking for a region where the cross-entropy is lowest and ideally it plateaus. We don’t get a plateau in our case but you can see our lowest value is at 3. So we would use a K of 3 in the next step.</p>
 <p>However, for the purposes of time we’re going to do the next step with a k=1 and a rep=1.</p>
-<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="genome-environment-association.html#cb562-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb562-2"><a href="genome-environment-association.html#cb562-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Genome scan for selection using environmental variables </span></span>
-<span id="cb562-3"><a href="genome-environment-association.html#cb562-3" aria-hidden="true" tabindex="-1"></a><span class="co">#remove.lfmmProject(&#39;Spurp.prelim.snps24.lfmmProject&#39;)</span></span>
-<span id="cb562-4"><a href="genome-environment-association.html#cb562-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb562-5"><a href="genome-environment-association.html#cb562-5" aria-hidden="true" tabindex="-1"></a>sea_cuc_lfmm <span class="ot">&lt;-</span> <span class="fu">lfmm</span>(<span class="st">&quot;filtered_3699snps_californicus_685inds.recode.lfmm&quot;</span>, <span class="st">&quot;sites_environ_matrix.env&quot;</span>, <span class="at">K=</span><span class="dv">1</span>, <span class="at">rep=</span><span class="dv">1</span>, <span class="at">project =</span> <span class="st">&quot;new&quot;</span>)</span>
-<span id="cb562-6"><a href="genome-environment-association.html#cb562-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The project is saved into :</span></span>
-<span id="cb562-7"><a href="genome-environment-association.html#cb562-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  filtered_3699snps_californicus_685inds.lfmmProject </span></span>
-<span id="cb562-8"><a href="genome-environment-association.html#cb562-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-9"><a href="genome-environment-association.html#cb562-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To load the project, use:</span></span>
-<span id="cb562-10"><a href="genome-environment-association.html#cb562-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  project = load.lfmmProject(&quot;filtered_3699snps_californicus_685inds.lfmmProject&quot;)</span></span>
-<span id="cb562-11"><a href="genome-environment-association.html#cb562-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-12"><a href="genome-environment-association.html#cb562-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To remove the project, use:</span></span>
-<span id="cb562-13"><a href="genome-environment-association.html#cb562-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  remove.lfmmProject(&quot;filtered_3699snps_californicus_685inds.lfmmProject&quot;)</span></span>
-<span id="cb562-14"><a href="genome-environment-association.html#cb562-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-15"><a href="genome-environment-association.html#cb562-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;********************************&quot;</span></span>
-<span id="cb562-16"><a href="genome-environment-association.html#cb562-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;* K = 1  repetition 1  d = 1   *&quot;</span></span>
-<span id="cb562-17"><a href="genome-environment-association.html#cb562-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;********************************&quot;</span></span>
-<span id="cb562-18"><a href="genome-environment-association.html#cb562-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Summary of the options:</span></span>
-<span id="cb562-19"><a href="genome-environment-association.html#cb562-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-20"><a href="genome-environment-association.html#cb562-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -n (number of individuals)      685</span></span>
-<span id="cb562-21"><a href="genome-environment-association.html#cb562-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -L (number of loci)             3699</span></span>
-<span id="cb562-22"><a href="genome-environment-association.html#cb562-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -K (number of latent factors)   1</span></span>
-<span id="cb562-23"><a href="genome-environment-association.html#cb562-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -o (output file)                filtered_3699snps_californicus_685inds.lfmm/K1/run1/filtered_3699snps_californicus_685inds.recode_r1</span></span>
-<span id="cb562-24"><a href="genome-environment-association.html#cb562-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -i (number of iterations)       10000</span></span>
-<span id="cb562-25"><a href="genome-environment-association.html#cb562-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -b (burnin)                     5000</span></span>
-<span id="cb562-26"><a href="genome-environment-association.html#cb562-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -s (seed random init)           1098420030</span></span>
-<span id="cb562-27"><a href="genome-environment-association.html#cb562-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -p (number of processes (CPU))  1</span></span>
-<span id="cb562-28"><a href="genome-environment-association.html#cb562-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -x (genotype file)              filtered_3699snps_californicus_685inds.recode.lfmm</span></span>
-<span id="cb562-29"><a href="genome-environment-association.html#cb562-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -v (variable file)              sites_environ_matrix.env</span></span>
-<span id="cb562-30"><a href="genome-environment-association.html#cb562-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -D (number of covariables)      5</span></span>
-<span id="cb562-31"><a href="genome-environment-association.html#cb562-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -d (the dth covariable)         1</span></span>
-<span id="cb562-32"><a href="genome-environment-association.html#cb562-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-33"><a href="genome-environment-association.html#cb562-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Read variable file:</span></span>
-<span id="cb562-34"><a href="genome-environment-association.html#cb562-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      sites_environ_matrix.env        OK.</span></span>
-<span id="cb562-35"><a href="genome-environment-association.html#cb562-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-36"><a href="genome-environment-association.html#cb562-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Read genotype file:</span></span>
-<span id="cb562-37"><a href="genome-environment-association.html#cb562-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      filtered_3699snps_californicus_685inds.recode.lfmm      OK.</span></span>
-<span id="cb562-38"><a href="genome-environment-association.html#cb562-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-39"><a href="genome-environment-association.html#cb562-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;&lt;&lt;&lt;</span></span>
-<span id="cb562-40"><a href="genome-environment-association.html#cb562-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Analyse for variable 1</span></span>
-<span id="cb562-41"><a href="genome-environment-association.html#cb562-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-42"><a href="genome-environment-association.html#cb562-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Start of the Gibbs Sampler algorithm.</span></span>
-<span id="cb562-43"><a href="genome-environment-association.html#cb562-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-44"><a href="genome-environment-association.html#cb562-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [                                                                           ]</span></span>
-<span id="cb562-45"><a href="genome-environment-association.html#cb562-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [===========================================================================]</span></span>
-<span id="cb562-46"><a href="genome-environment-association.html#cb562-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-47"><a href="genome-environment-association.html#cb562-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      End of the Gibbs Sampler algorithm.</span></span>
-<span id="cb562-48"><a href="genome-environment-association.html#cb562-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-49"><a href="genome-environment-association.html#cb562-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ED:2533818.095   DIC: 2533819.067 </span></span>
-<span id="cb562-50"><a href="genome-environment-association.html#cb562-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-51"><a href="genome-environment-association.html#cb562-51" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The statistics for the run are registered in:</span></span>
-<span id="cb562-52"><a href="genome-environment-association.html#cb562-52" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          filtered_3699snps_californicus_685inds.lfmm/K1/run1/filtered_3699snps_californicus_685inds.recode_r1_s1.1.dic.</span></span>
-<span id="cb562-53"><a href="genome-environment-association.html#cb562-53" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-54"><a href="genome-environment-association.html#cb562-54" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The zscores for variable 1 are registered in:</span></span>
-<span id="cb562-55"><a href="genome-environment-association.html#cb562-55" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          filtered_3699snps_californicus_685inds.lfmm/K1/run1/filtered_3699snps_californicus_685inds.recode_r1_s1.1.zscore.</span></span>
-<span id="cb562-56"><a href="genome-environment-association.html#cb562-56" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The columns are: zscores, -log10(p-values), p-values.</span></span>
-<span id="cb562-57"><a href="genome-environment-association.html#cb562-57" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-58"><a href="genome-environment-association.html#cb562-58" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  -------------------------</span></span>
-<span id="cb562-59"><a href="genome-environment-association.html#cb562-59" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The execution for variable 1 worked without error.</span></span>
-<span id="cb562-60"><a href="genome-environment-association.html#cb562-60" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &gt;&gt;&gt;&gt;</span></span>
-<span id="cb562-61"><a href="genome-environment-association.html#cb562-61" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-62"><a href="genome-environment-association.html#cb562-62" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The project is saved into :</span></span>
-<span id="cb562-63"><a href="genome-environment-association.html#cb562-63" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  filtered_3699snps_californicus_685inds.lfmmProject </span></span>
-<span id="cb562-64"><a href="genome-environment-association.html#cb562-64" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-65"><a href="genome-environment-association.html#cb562-65" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To load the project, use:</span></span>
-<span id="cb562-66"><a href="genome-environment-association.html#cb562-66" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  project = load.lfmmProject(&quot;filtered_3699snps_californicus_685inds.lfmmProject&quot;)</span></span>
-<span id="cb562-67"><a href="genome-environment-association.html#cb562-67" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-68"><a href="genome-environment-association.html#cb562-68" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To remove the project, use:</span></span>
-<span id="cb562-69"><a href="genome-environment-association.html#cb562-69" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  remove.lfmmProject(&quot;filtered_3699snps_californicus_685inds.lfmmProject&quot;)</span></span>
-<span id="cb562-70"><a href="genome-environment-association.html#cb562-70" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-71"><a href="genome-environment-association.html#cb562-71" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;********************************&quot;</span></span>
-<span id="cb562-72"><a href="genome-environment-association.html#cb562-72" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;* K = 1  repetition 1  d = 2   *&quot;</span></span>
-<span id="cb562-73"><a href="genome-environment-association.html#cb562-73" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;********************************&quot;</span></span>
-<span id="cb562-74"><a href="genome-environment-association.html#cb562-74" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Summary of the options:</span></span>
-<span id="cb562-75"><a href="genome-environment-association.html#cb562-75" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-76"><a href="genome-environment-association.html#cb562-76" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -n (number of individuals)      685</span></span>
-<span id="cb562-77"><a href="genome-environment-association.html#cb562-77" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -L (number of loci)             3699</span></span>
-<span id="cb562-78"><a href="genome-environment-association.html#cb562-78" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -K (number of latent factors)   1</span></span>
-<span id="cb562-79"><a href="genome-environment-association.html#cb562-79" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -o (output file)                filtered_3699snps_californicus_685inds.lfmm/K1/run2/filtered_3699snps_californicus_685inds.recode_r2</span></span>
-<span id="cb562-80"><a href="genome-environment-association.html#cb562-80" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -i (number of iterations)       10000</span></span>
-<span id="cb562-81"><a href="genome-environment-association.html#cb562-81" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -b (burnin)                     5000</span></span>
-<span id="cb562-82"><a href="genome-environment-association.html#cb562-82" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -s (seed random init)           1098420030</span></span>
-<span id="cb562-83"><a href="genome-environment-association.html#cb562-83" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -p (number of processes (CPU))  1</span></span>
-<span id="cb562-84"><a href="genome-environment-association.html#cb562-84" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -x (genotype file)              filtered_3699snps_californicus_685inds.recode.lfmm</span></span>
-<span id="cb562-85"><a href="genome-environment-association.html#cb562-85" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -v (variable file)              sites_environ_matrix.env</span></span>
-<span id="cb562-86"><a href="genome-environment-association.html#cb562-86" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -D (number of covariables)      5</span></span>
-<span id="cb562-87"><a href="genome-environment-association.html#cb562-87" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -d (the dth covariable)         2</span></span>
-<span id="cb562-88"><a href="genome-environment-association.html#cb562-88" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-89"><a href="genome-environment-association.html#cb562-89" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Read variable file:</span></span>
-<span id="cb562-90"><a href="genome-environment-association.html#cb562-90" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      sites_environ_matrix.env        OK.</span></span>
-<span id="cb562-91"><a href="genome-environment-association.html#cb562-91" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-92"><a href="genome-environment-association.html#cb562-92" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Read genotype file:</span></span>
-<span id="cb562-93"><a href="genome-environment-association.html#cb562-93" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      filtered_3699snps_californicus_685inds.recode.lfmm      OK.</span></span>
-<span id="cb562-94"><a href="genome-environment-association.html#cb562-94" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-95"><a href="genome-environment-association.html#cb562-95" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;&lt;&lt;&lt;</span></span>
-<span id="cb562-96"><a href="genome-environment-association.html#cb562-96" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Analyse for variable 2</span></span>
-<span id="cb562-97"><a href="genome-environment-association.html#cb562-97" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-98"><a href="genome-environment-association.html#cb562-98" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Start of the Gibbs Sampler algorithm.</span></span>
-<span id="cb562-99"><a href="genome-environment-association.html#cb562-99" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-100"><a href="genome-environment-association.html#cb562-100" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [                                                                           ]</span></span>
-<span id="cb562-101"><a href="genome-environment-association.html#cb562-101" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [===========================================================================]</span></span>
-<span id="cb562-102"><a href="genome-environment-association.html#cb562-102" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-103"><a href="genome-environment-association.html#cb562-103" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      End of the Gibbs Sampler algorithm.</span></span>
-<span id="cb562-104"><a href="genome-environment-association.html#cb562-104" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-105"><a href="genome-environment-association.html#cb562-105" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ED:2533818.011   DIC: 2533819.009 </span></span>
-<span id="cb562-106"><a href="genome-environment-association.html#cb562-106" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-107"><a href="genome-environment-association.html#cb562-107" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The statistics for the run are registered in:</span></span>
-<span id="cb562-108"><a href="genome-environment-association.html#cb562-108" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          filtered_3699snps_californicus_685inds.lfmm/K1/run2/filtered_3699snps_californicus_685inds.recode_r2_s2.1.dic.</span></span>
-<span id="cb562-109"><a href="genome-environment-association.html#cb562-109" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-110"><a href="genome-environment-association.html#cb562-110" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The zscores for variable 2 are registered in:</span></span>
-<span id="cb562-111"><a href="genome-environment-association.html#cb562-111" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          filtered_3699snps_californicus_685inds.lfmm/K1/run2/filtered_3699snps_californicus_685inds.recode_r2_s2.1.zscore.</span></span>
-<span id="cb562-112"><a href="genome-environment-association.html#cb562-112" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The columns are: zscores, -log10(p-values), p-values.</span></span>
-<span id="cb562-113"><a href="genome-environment-association.html#cb562-113" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-114"><a href="genome-environment-association.html#cb562-114" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  -------------------------</span></span>
-<span id="cb562-115"><a href="genome-environment-association.html#cb562-115" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The execution for variable 2 worked without error.</span></span>
-<span id="cb562-116"><a href="genome-environment-association.html#cb562-116" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &gt;&gt;&gt;&gt;</span></span>
-<span id="cb562-117"><a href="genome-environment-association.html#cb562-117" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-118"><a href="genome-environment-association.html#cb562-118" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The project is saved into :</span></span>
-<span id="cb562-119"><a href="genome-environment-association.html#cb562-119" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  filtered_3699snps_californicus_685inds.lfmmProject </span></span>
-<span id="cb562-120"><a href="genome-environment-association.html#cb562-120" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-121"><a href="genome-environment-association.html#cb562-121" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To load the project, use:</span></span>
-<span id="cb562-122"><a href="genome-environment-association.html#cb562-122" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  project = load.lfmmProject(&quot;filtered_3699snps_californicus_685inds.lfmmProject&quot;)</span></span>
-<span id="cb562-123"><a href="genome-environment-association.html#cb562-123" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-124"><a href="genome-environment-association.html#cb562-124" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To remove the project, use:</span></span>
-<span id="cb562-125"><a href="genome-environment-association.html#cb562-125" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  remove.lfmmProject(&quot;filtered_3699snps_californicus_685inds.lfmmProject&quot;)</span></span>
-<span id="cb562-126"><a href="genome-environment-association.html#cb562-126" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-127"><a href="genome-environment-association.html#cb562-127" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;********************************&quot;</span></span>
-<span id="cb562-128"><a href="genome-environment-association.html#cb562-128" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;* K = 1  repetition 1  d = 3   *&quot;</span></span>
-<span id="cb562-129"><a href="genome-environment-association.html#cb562-129" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;********************************&quot;</span></span>
-<span id="cb562-130"><a href="genome-environment-association.html#cb562-130" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Summary of the options:</span></span>
-<span id="cb562-131"><a href="genome-environment-association.html#cb562-131" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-132"><a href="genome-environment-association.html#cb562-132" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -n (number of individuals)      685</span></span>
-<span id="cb562-133"><a href="genome-environment-association.html#cb562-133" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -L (number of loci)             3699</span></span>
-<span id="cb562-134"><a href="genome-environment-association.html#cb562-134" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -K (number of latent factors)   1</span></span>
-<span id="cb562-135"><a href="genome-environment-association.html#cb562-135" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -o (output file)                filtered_3699snps_californicus_685inds.lfmm/K1/run3/filtered_3699snps_californicus_685inds.recode_r3</span></span>
-<span id="cb562-136"><a href="genome-environment-association.html#cb562-136" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -i (number of iterations)       10000</span></span>
-<span id="cb562-137"><a href="genome-environment-association.html#cb562-137" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -b (burnin)                     5000</span></span>
-<span id="cb562-138"><a href="genome-environment-association.html#cb562-138" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -s (seed random init)           1098420030</span></span>
-<span id="cb562-139"><a href="genome-environment-association.html#cb562-139" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -p (number of processes (CPU))  1</span></span>
-<span id="cb562-140"><a href="genome-environment-association.html#cb562-140" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -x (genotype file)              filtered_3699snps_californicus_685inds.recode.lfmm</span></span>
-<span id="cb562-141"><a href="genome-environment-association.html#cb562-141" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -v (variable file)              sites_environ_matrix.env</span></span>
-<span id="cb562-142"><a href="genome-environment-association.html#cb562-142" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -D (number of covariables)      5</span></span>
-<span id="cb562-143"><a href="genome-environment-association.html#cb562-143" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -d (the dth covariable)         3</span></span>
-<span id="cb562-144"><a href="genome-environment-association.html#cb562-144" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-145"><a href="genome-environment-association.html#cb562-145" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Read variable file:</span></span>
-<span id="cb562-146"><a href="genome-environment-association.html#cb562-146" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      sites_environ_matrix.env        OK.</span></span>
-<span id="cb562-147"><a href="genome-environment-association.html#cb562-147" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-148"><a href="genome-environment-association.html#cb562-148" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Read genotype file:</span></span>
-<span id="cb562-149"><a href="genome-environment-association.html#cb562-149" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      filtered_3699snps_californicus_685inds.recode.lfmm      OK.</span></span>
-<span id="cb562-150"><a href="genome-environment-association.html#cb562-150" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-151"><a href="genome-environment-association.html#cb562-151" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;&lt;&lt;&lt;</span></span>
-<span id="cb562-152"><a href="genome-environment-association.html#cb562-152" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Analyse for variable 3</span></span>
-<span id="cb562-153"><a href="genome-environment-association.html#cb562-153" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-154"><a href="genome-environment-association.html#cb562-154" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Start of the Gibbs Sampler algorithm.</span></span>
-<span id="cb562-155"><a href="genome-environment-association.html#cb562-155" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-156"><a href="genome-environment-association.html#cb562-156" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [                                                                           ]</span></span>
-<span id="cb562-157"><a href="genome-environment-association.html#cb562-157" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [===========================================================================]</span></span>
-<span id="cb562-158"><a href="genome-environment-association.html#cb562-158" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-159"><a href="genome-environment-association.html#cb562-159" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      End of the Gibbs Sampler algorithm.</span></span>
-<span id="cb562-160"><a href="genome-environment-association.html#cb562-160" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-161"><a href="genome-environment-association.html#cb562-161" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ED:2533818.15    DIC: 2533819.192 </span></span>
-<span id="cb562-162"><a href="genome-environment-association.html#cb562-162" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-163"><a href="genome-environment-association.html#cb562-163" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The statistics for the run are registered in:</span></span>
-<span id="cb562-164"><a href="genome-environment-association.html#cb562-164" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          filtered_3699snps_californicus_685inds.lfmm/K1/run3/filtered_3699snps_californicus_685inds.recode_r3_s3.1.dic.</span></span>
-<span id="cb562-165"><a href="genome-environment-association.html#cb562-165" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-166"><a href="genome-environment-association.html#cb562-166" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The zscores for variable 3 are registered in:</span></span>
-<span id="cb562-167"><a href="genome-environment-association.html#cb562-167" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          filtered_3699snps_californicus_685inds.lfmm/K1/run3/filtered_3699snps_californicus_685inds.recode_r3_s3.1.zscore.</span></span>
-<span id="cb562-168"><a href="genome-environment-association.html#cb562-168" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The columns are: zscores, -log10(p-values), p-values.</span></span>
-<span id="cb562-169"><a href="genome-environment-association.html#cb562-169" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-170"><a href="genome-environment-association.html#cb562-170" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  -------------------------</span></span>
-<span id="cb562-171"><a href="genome-environment-association.html#cb562-171" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The execution for variable 3 worked without error.</span></span>
-<span id="cb562-172"><a href="genome-environment-association.html#cb562-172" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &gt;&gt;&gt;&gt;</span></span>
-<span id="cb562-173"><a href="genome-environment-association.html#cb562-173" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-174"><a href="genome-environment-association.html#cb562-174" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The project is saved into :</span></span>
-<span id="cb562-175"><a href="genome-environment-association.html#cb562-175" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  filtered_3699snps_californicus_685inds.lfmmProject </span></span>
-<span id="cb562-176"><a href="genome-environment-association.html#cb562-176" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-177"><a href="genome-environment-association.html#cb562-177" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To load the project, use:</span></span>
-<span id="cb562-178"><a href="genome-environment-association.html#cb562-178" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  project = load.lfmmProject(&quot;filtered_3699snps_californicus_685inds.lfmmProject&quot;)</span></span>
-<span id="cb562-179"><a href="genome-environment-association.html#cb562-179" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-180"><a href="genome-environment-association.html#cb562-180" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To remove the project, use:</span></span>
-<span id="cb562-181"><a href="genome-environment-association.html#cb562-181" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  remove.lfmmProject(&quot;filtered_3699snps_californicus_685inds.lfmmProject&quot;)</span></span>
-<span id="cb562-182"><a href="genome-environment-association.html#cb562-182" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-183"><a href="genome-environment-association.html#cb562-183" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;********************************&quot;</span></span>
-<span id="cb562-184"><a href="genome-environment-association.html#cb562-184" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;* K = 1  repetition 1  d = 4   *&quot;</span></span>
-<span id="cb562-185"><a href="genome-environment-association.html#cb562-185" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;********************************&quot;</span></span>
-<span id="cb562-186"><a href="genome-environment-association.html#cb562-186" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Summary of the options:</span></span>
-<span id="cb562-187"><a href="genome-environment-association.html#cb562-187" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-188"><a href="genome-environment-association.html#cb562-188" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -n (number of individuals)      685</span></span>
-<span id="cb562-189"><a href="genome-environment-association.html#cb562-189" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -L (number of loci)             3699</span></span>
-<span id="cb562-190"><a href="genome-environment-association.html#cb562-190" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -K (number of latent factors)   1</span></span>
-<span id="cb562-191"><a href="genome-environment-association.html#cb562-191" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -o (output file)                filtered_3699snps_californicus_685inds.lfmm/K1/run4/filtered_3699snps_californicus_685inds.recode_r4</span></span>
-<span id="cb562-192"><a href="genome-environment-association.html#cb562-192" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -i (number of iterations)       10000</span></span>
-<span id="cb562-193"><a href="genome-environment-association.html#cb562-193" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -b (burnin)                     5000</span></span>
-<span id="cb562-194"><a href="genome-environment-association.html#cb562-194" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -s (seed random init)           1098420030</span></span>
-<span id="cb562-195"><a href="genome-environment-association.html#cb562-195" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -p (number of processes (CPU))  1</span></span>
-<span id="cb562-196"><a href="genome-environment-association.html#cb562-196" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -x (genotype file)              filtered_3699snps_californicus_685inds.recode.lfmm</span></span>
-<span id="cb562-197"><a href="genome-environment-association.html#cb562-197" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -v (variable file)              sites_environ_matrix.env</span></span>
-<span id="cb562-198"><a href="genome-environment-association.html#cb562-198" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -D (number of covariables)      5</span></span>
-<span id="cb562-199"><a href="genome-environment-association.html#cb562-199" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -d (the dth covariable)         4</span></span>
-<span id="cb562-200"><a href="genome-environment-association.html#cb562-200" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-201"><a href="genome-environment-association.html#cb562-201" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Read variable file:</span></span>
-<span id="cb562-202"><a href="genome-environment-association.html#cb562-202" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      sites_environ_matrix.env        OK.</span></span>
-<span id="cb562-203"><a href="genome-environment-association.html#cb562-203" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-204"><a href="genome-environment-association.html#cb562-204" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Read genotype file:</span></span>
-<span id="cb562-205"><a href="genome-environment-association.html#cb562-205" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      filtered_3699snps_californicus_685inds.recode.lfmm      OK.</span></span>
-<span id="cb562-206"><a href="genome-environment-association.html#cb562-206" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-207"><a href="genome-environment-association.html#cb562-207" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;&lt;&lt;&lt;</span></span>
-<span id="cb562-208"><a href="genome-environment-association.html#cb562-208" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Analyse for variable 4</span></span>
-<span id="cb562-209"><a href="genome-environment-association.html#cb562-209" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-210"><a href="genome-environment-association.html#cb562-210" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Start of the Gibbs Sampler algorithm.</span></span>
-<span id="cb562-211"><a href="genome-environment-association.html#cb562-211" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-212"><a href="genome-environment-association.html#cb562-212" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [                                                                           ]</span></span>
-<span id="cb562-213"><a href="genome-environment-association.html#cb562-213" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [===========================================================================]</span></span>
-<span id="cb562-214"><a href="genome-environment-association.html#cb562-214" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-215"><a href="genome-environment-association.html#cb562-215" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      End of the Gibbs Sampler algorithm.</span></span>
-<span id="cb562-216"><a href="genome-environment-association.html#cb562-216" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-217"><a href="genome-environment-association.html#cb562-217" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ED:2533818.096   DIC: 2533819.108 </span></span>
-<span id="cb562-218"><a href="genome-environment-association.html#cb562-218" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-219"><a href="genome-environment-association.html#cb562-219" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The statistics for the run are registered in:</span></span>
-<span id="cb562-220"><a href="genome-environment-association.html#cb562-220" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          filtered_3699snps_californicus_685inds.lfmm/K1/run4/filtered_3699snps_californicus_685inds.recode_r4_s4.1.dic.</span></span>
-<span id="cb562-221"><a href="genome-environment-association.html#cb562-221" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-222"><a href="genome-environment-association.html#cb562-222" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The zscores for variable 4 are registered in:</span></span>
-<span id="cb562-223"><a href="genome-environment-association.html#cb562-223" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          filtered_3699snps_californicus_685inds.lfmm/K1/run4/filtered_3699snps_californicus_685inds.recode_r4_s4.1.zscore.</span></span>
-<span id="cb562-224"><a href="genome-environment-association.html#cb562-224" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The columns are: zscores, -log10(p-values), p-values.</span></span>
-<span id="cb562-225"><a href="genome-environment-association.html#cb562-225" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-226"><a href="genome-environment-association.html#cb562-226" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  -------------------------</span></span>
-<span id="cb562-227"><a href="genome-environment-association.html#cb562-227" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The execution for variable 4 worked without error.</span></span>
-<span id="cb562-228"><a href="genome-environment-association.html#cb562-228" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &gt;&gt;&gt;&gt;</span></span>
-<span id="cb562-229"><a href="genome-environment-association.html#cb562-229" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-230"><a href="genome-environment-association.html#cb562-230" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The project is saved into :</span></span>
-<span id="cb562-231"><a href="genome-environment-association.html#cb562-231" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  filtered_3699snps_californicus_685inds.lfmmProject </span></span>
-<span id="cb562-232"><a href="genome-environment-association.html#cb562-232" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-233"><a href="genome-environment-association.html#cb562-233" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To load the project, use:</span></span>
-<span id="cb562-234"><a href="genome-environment-association.html#cb562-234" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  project = load.lfmmProject(&quot;filtered_3699snps_californicus_685inds.lfmmProject&quot;)</span></span>
-<span id="cb562-235"><a href="genome-environment-association.html#cb562-235" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-236"><a href="genome-environment-association.html#cb562-236" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To remove the project, use:</span></span>
-<span id="cb562-237"><a href="genome-environment-association.html#cb562-237" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  remove.lfmmProject(&quot;filtered_3699snps_californicus_685inds.lfmmProject&quot;)</span></span>
-<span id="cb562-238"><a href="genome-environment-association.html#cb562-238" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-239"><a href="genome-environment-association.html#cb562-239" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;********************************&quot;</span></span>
-<span id="cb562-240"><a href="genome-environment-association.html#cb562-240" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;* K = 1  repetition 1  d = 5   *&quot;</span></span>
-<span id="cb562-241"><a href="genome-environment-association.html#cb562-241" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;********************************&quot;</span></span>
-<span id="cb562-242"><a href="genome-environment-association.html#cb562-242" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Summary of the options:</span></span>
-<span id="cb562-243"><a href="genome-environment-association.html#cb562-243" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-244"><a href="genome-environment-association.html#cb562-244" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -n (number of individuals)      685</span></span>
-<span id="cb562-245"><a href="genome-environment-association.html#cb562-245" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -L (number of loci)             3699</span></span>
-<span id="cb562-246"><a href="genome-environment-association.html#cb562-246" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -K (number of latent factors)   1</span></span>
-<span id="cb562-247"><a href="genome-environment-association.html#cb562-247" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -o (output file)                filtered_3699snps_californicus_685inds.lfmm/K1/run5/filtered_3699snps_californicus_685inds.recode_r5</span></span>
-<span id="cb562-248"><a href="genome-environment-association.html#cb562-248" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -i (number of iterations)       10000</span></span>
-<span id="cb562-249"><a href="genome-environment-association.html#cb562-249" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -b (burnin)                     5000</span></span>
-<span id="cb562-250"><a href="genome-environment-association.html#cb562-250" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -s (seed random init)           1098420030</span></span>
-<span id="cb562-251"><a href="genome-environment-association.html#cb562-251" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -p (number of processes (CPU))  1</span></span>
-<span id="cb562-252"><a href="genome-environment-association.html#cb562-252" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -x (genotype file)              filtered_3699snps_californicus_685inds.recode.lfmm</span></span>
-<span id="cb562-253"><a href="genome-environment-association.html#cb562-253" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -v (variable file)              sites_environ_matrix.env</span></span>
-<span id="cb562-254"><a href="genome-environment-association.html#cb562-254" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -D (number of covariables)      5</span></span>
-<span id="cb562-255"><a href="genome-environment-association.html#cb562-255" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -d (the dth covariable)         5</span></span>
-<span id="cb562-256"><a href="genome-environment-association.html#cb562-256" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-257"><a href="genome-environment-association.html#cb562-257" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Read variable file:</span></span>
-<span id="cb562-258"><a href="genome-environment-association.html#cb562-258" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      sites_environ_matrix.env        OK.</span></span>
-<span id="cb562-259"><a href="genome-environment-association.html#cb562-259" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-260"><a href="genome-environment-association.html#cb562-260" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Read genotype file:</span></span>
-<span id="cb562-261"><a href="genome-environment-association.html#cb562-261" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      filtered_3699snps_californicus_685inds.recode.lfmm      OK.</span></span>
-<span id="cb562-262"><a href="genome-environment-association.html#cb562-262" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-263"><a href="genome-environment-association.html#cb562-263" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;&lt;&lt;&lt;</span></span>
-<span id="cb562-264"><a href="genome-environment-association.html#cb562-264" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Analyse for variable 5</span></span>
-<span id="cb562-265"><a href="genome-environment-association.html#cb562-265" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-266"><a href="genome-environment-association.html#cb562-266" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Start of the Gibbs Sampler algorithm.</span></span>
-<span id="cb562-267"><a href="genome-environment-association.html#cb562-267" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-268"><a href="genome-environment-association.html#cb562-268" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [                                                                           ]</span></span>
-<span id="cb562-269"><a href="genome-environment-association.html#cb562-269" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [===========================================================================]</span></span>
-<span id="cb562-270"><a href="genome-environment-association.html#cb562-270" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-271"><a href="genome-environment-association.html#cb562-271" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      End of the Gibbs Sampler algorithm.</span></span>
-<span id="cb562-272"><a href="genome-environment-association.html#cb562-272" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-273"><a href="genome-environment-association.html#cb562-273" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ED:2533818.015   DIC: 2533819.047 </span></span>
-<span id="cb562-274"><a href="genome-environment-association.html#cb562-274" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-275"><a href="genome-environment-association.html#cb562-275" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The statistics for the run are registered in:</span></span>
-<span id="cb562-276"><a href="genome-environment-association.html#cb562-276" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          filtered_3699snps_californicus_685inds.lfmm/K1/run5/filtered_3699snps_californicus_685inds.recode_r5_s5.1.dic.</span></span>
-<span id="cb562-277"><a href="genome-environment-association.html#cb562-277" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-278"><a href="genome-environment-association.html#cb562-278" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The zscores for variable 5 are registered in:</span></span>
-<span id="cb562-279"><a href="genome-environment-association.html#cb562-279" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          filtered_3699snps_californicus_685inds.lfmm/K1/run5/filtered_3699snps_californicus_685inds.recode_r5_s5.1.zscore.</span></span>
-<span id="cb562-280"><a href="genome-environment-association.html#cb562-280" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The columns are: zscores, -log10(p-values), p-values.</span></span>
-<span id="cb562-281"><a href="genome-environment-association.html#cb562-281" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-282"><a href="genome-environment-association.html#cb562-282" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  -------------------------</span></span>
-<span id="cb562-283"><a href="genome-environment-association.html#cb562-283" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The execution for variable 5 worked without error.</span></span>
-<span id="cb562-284"><a href="genome-environment-association.html#cb562-284" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &gt;&gt;&gt;&gt;</span></span>
-<span id="cb562-285"><a href="genome-environment-association.html#cb562-285" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-286"><a href="genome-environment-association.html#cb562-286" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The project is saved into :</span></span>
-<span id="cb562-287"><a href="genome-environment-association.html#cb562-287" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  filtered_3699snps_californicus_685inds.lfmmProject </span></span>
-<span id="cb562-288"><a href="genome-environment-association.html#cb562-288" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-289"><a href="genome-environment-association.html#cb562-289" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To load the project, use:</span></span>
-<span id="cb562-290"><a href="genome-environment-association.html#cb562-290" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  project = load.lfmmProject(&quot;filtered_3699snps_californicus_685inds.lfmmProject&quot;)</span></span>
-<span id="cb562-291"><a href="genome-environment-association.html#cb562-291" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb562-292"><a href="genome-environment-association.html#cb562-292" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To remove the project, use:</span></span>
-<span id="cb562-293"><a href="genome-environment-association.html#cb562-293" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  remove.lfmmProject(&quot;filtered_3699snps_californicus_685inds.lfmmProject&quot;)</span></span>
-<span id="cb562-294"><a href="genome-environment-association.html#cb562-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb562-295"><a href="genome-environment-association.html#cb562-295" aria-hidden="true" tabindex="-1"></a><span class="co"># load project</span></span>
-<span id="cb562-296"><a href="genome-environment-association.html#cb562-296" aria-hidden="true" tabindex="-1"></a>project <span class="ot">=</span> <span class="fu">load.lfmmProject</span>(<span class="st">&quot;filtered_3699snps_californicus_685inds.lfmmProject&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="genome-environment-association.html#cb561-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb561-2"><a href="genome-environment-association.html#cb561-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Genome scan for selection using environmental variables </span></span>
+<span id="cb561-3"><a href="genome-environment-association.html#cb561-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb561-4"><a href="genome-environment-association.html#cb561-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb561-5"><a href="genome-environment-association.html#cb561-5" aria-hidden="true" tabindex="-1"></a>sea_cuc_lfmm <span class="ot">&lt;-</span> <span class="fu">lfmm</span>(<span class="st">&quot;filtered_3699snps_californicus_685inds.recode.lfmm&quot;</span>, <span class="st">&quot;sites_environ_matrix.env&quot;</span>, <span class="at">K=</span><span class="dv">1</span>, <span class="at">rep=</span><span class="dv">1</span>, <span class="at">project =</span> <span class="st">&quot;new&quot;</span>)</span>
+<span id="cb561-6"><a href="genome-environment-association.html#cb561-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The project is saved into :</span></span>
+<span id="cb561-7"><a href="genome-environment-association.html#cb561-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  filtered_3699snps_californicus_685inds.lfmmProject </span></span>
+<span id="cb561-8"><a href="genome-environment-association.html#cb561-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-9"><a href="genome-environment-association.html#cb561-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To load the project, use:</span></span>
+<span id="cb561-10"><a href="genome-environment-association.html#cb561-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  project = load.lfmmProject(&quot;filtered_3699snps_californicus_685inds.lfmmProject&quot;)</span></span>
+<span id="cb561-11"><a href="genome-environment-association.html#cb561-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-12"><a href="genome-environment-association.html#cb561-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To remove the project, use:</span></span>
+<span id="cb561-13"><a href="genome-environment-association.html#cb561-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  remove.lfmmProject(&quot;filtered_3699snps_californicus_685inds.lfmmProject&quot;)</span></span>
+<span id="cb561-14"><a href="genome-environment-association.html#cb561-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-15"><a href="genome-environment-association.html#cb561-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;********************************&quot;</span></span>
+<span id="cb561-16"><a href="genome-environment-association.html#cb561-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;* K = 1  repetition 1  d = 1   *&quot;</span></span>
+<span id="cb561-17"><a href="genome-environment-association.html#cb561-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;********************************&quot;</span></span>
+<span id="cb561-18"><a href="genome-environment-association.html#cb561-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Summary of the options:</span></span>
+<span id="cb561-19"><a href="genome-environment-association.html#cb561-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-20"><a href="genome-environment-association.html#cb561-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -n (number of individuals)      685</span></span>
+<span id="cb561-21"><a href="genome-environment-association.html#cb561-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -L (number of loci)             3699</span></span>
+<span id="cb561-22"><a href="genome-environment-association.html#cb561-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -K (number of latent factors)   1</span></span>
+<span id="cb561-23"><a href="genome-environment-association.html#cb561-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -o (output file)                filtered_3699snps_californicus_685inds.lfmm/K1/run1/filtered_3699snps_californicus_685inds.recode_r1</span></span>
+<span id="cb561-24"><a href="genome-environment-association.html#cb561-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -i (number of iterations)       10000</span></span>
+<span id="cb561-25"><a href="genome-environment-association.html#cb561-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -b (burnin)                     5000</span></span>
+<span id="cb561-26"><a href="genome-environment-association.html#cb561-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -s (seed random init)           1323687087</span></span>
+<span id="cb561-27"><a href="genome-environment-association.html#cb561-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -p (number of processes (CPU))  1</span></span>
+<span id="cb561-28"><a href="genome-environment-association.html#cb561-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -x (genotype file)              filtered_3699snps_californicus_685inds.recode.lfmm</span></span>
+<span id="cb561-29"><a href="genome-environment-association.html#cb561-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -v (variable file)              sites_environ_matrix.env</span></span>
+<span id="cb561-30"><a href="genome-environment-association.html#cb561-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -D (number of covariables)      5</span></span>
+<span id="cb561-31"><a href="genome-environment-association.html#cb561-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -d (the dth covariable)         1</span></span>
+<span id="cb561-32"><a href="genome-environment-association.html#cb561-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-33"><a href="genome-environment-association.html#cb561-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Read variable file:</span></span>
+<span id="cb561-34"><a href="genome-environment-association.html#cb561-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      sites_environ_matrix.env        OK.</span></span>
+<span id="cb561-35"><a href="genome-environment-association.html#cb561-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-36"><a href="genome-environment-association.html#cb561-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Read genotype file:</span></span>
+<span id="cb561-37"><a href="genome-environment-association.html#cb561-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      filtered_3699snps_californicus_685inds.recode.lfmm      OK.</span></span>
+<span id="cb561-38"><a href="genome-environment-association.html#cb561-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-39"><a href="genome-environment-association.html#cb561-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;&lt;&lt;&lt;</span></span>
+<span id="cb561-40"><a href="genome-environment-association.html#cb561-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Analyse for variable 1</span></span>
+<span id="cb561-41"><a href="genome-environment-association.html#cb561-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-42"><a href="genome-environment-association.html#cb561-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Start of the Gibbs Sampler algorithm.</span></span>
+<span id="cb561-43"><a href="genome-environment-association.html#cb561-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-44"><a href="genome-environment-association.html#cb561-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [                                                                           ]</span></span>
+<span id="cb561-45"><a href="genome-environment-association.html#cb561-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [===========================================================================]</span></span>
+<span id="cb561-46"><a href="genome-environment-association.html#cb561-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-47"><a href="genome-environment-association.html#cb561-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      End of the Gibbs Sampler algorithm.</span></span>
+<span id="cb561-48"><a href="genome-environment-association.html#cb561-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-49"><a href="genome-environment-association.html#cb561-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ED:2533818.018   DIC: 2533818.979 </span></span>
+<span id="cb561-50"><a href="genome-environment-association.html#cb561-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-51"><a href="genome-environment-association.html#cb561-51" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The statistics for the run are registered in:</span></span>
+<span id="cb561-52"><a href="genome-environment-association.html#cb561-52" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          filtered_3699snps_californicus_685inds.lfmm/K1/run1/filtered_3699snps_californicus_685inds.recode_r1_s1.1.dic.</span></span>
+<span id="cb561-53"><a href="genome-environment-association.html#cb561-53" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-54"><a href="genome-environment-association.html#cb561-54" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The zscores for variable 1 are registered in:</span></span>
+<span id="cb561-55"><a href="genome-environment-association.html#cb561-55" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          filtered_3699snps_californicus_685inds.lfmm/K1/run1/filtered_3699snps_californicus_685inds.recode_r1_s1.1.zscore.</span></span>
+<span id="cb561-56"><a href="genome-environment-association.html#cb561-56" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The columns are: zscores, -log10(p-values), p-values.</span></span>
+<span id="cb561-57"><a href="genome-environment-association.html#cb561-57" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-58"><a href="genome-environment-association.html#cb561-58" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  -------------------------</span></span>
+<span id="cb561-59"><a href="genome-environment-association.html#cb561-59" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The execution for variable 1 worked without error.</span></span>
+<span id="cb561-60"><a href="genome-environment-association.html#cb561-60" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &gt;&gt;&gt;&gt;</span></span>
+<span id="cb561-61"><a href="genome-environment-association.html#cb561-61" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-62"><a href="genome-environment-association.html#cb561-62" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The project is saved into :</span></span>
+<span id="cb561-63"><a href="genome-environment-association.html#cb561-63" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  filtered_3699snps_californicus_685inds.lfmmProject </span></span>
+<span id="cb561-64"><a href="genome-environment-association.html#cb561-64" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-65"><a href="genome-environment-association.html#cb561-65" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To load the project, use:</span></span>
+<span id="cb561-66"><a href="genome-environment-association.html#cb561-66" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  project = load.lfmmProject(&quot;filtered_3699snps_californicus_685inds.lfmmProject&quot;)</span></span>
+<span id="cb561-67"><a href="genome-environment-association.html#cb561-67" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-68"><a href="genome-environment-association.html#cb561-68" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To remove the project, use:</span></span>
+<span id="cb561-69"><a href="genome-environment-association.html#cb561-69" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  remove.lfmmProject(&quot;filtered_3699snps_californicus_685inds.lfmmProject&quot;)</span></span>
+<span id="cb561-70"><a href="genome-environment-association.html#cb561-70" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-71"><a href="genome-environment-association.html#cb561-71" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;********************************&quot;</span></span>
+<span id="cb561-72"><a href="genome-environment-association.html#cb561-72" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;* K = 1  repetition 1  d = 2   *&quot;</span></span>
+<span id="cb561-73"><a href="genome-environment-association.html#cb561-73" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;********************************&quot;</span></span>
+<span id="cb561-74"><a href="genome-environment-association.html#cb561-74" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Summary of the options:</span></span>
+<span id="cb561-75"><a href="genome-environment-association.html#cb561-75" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-76"><a href="genome-environment-association.html#cb561-76" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -n (number of individuals)      685</span></span>
+<span id="cb561-77"><a href="genome-environment-association.html#cb561-77" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -L (number of loci)             3699</span></span>
+<span id="cb561-78"><a href="genome-environment-association.html#cb561-78" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -K (number of latent factors)   1</span></span>
+<span id="cb561-79"><a href="genome-environment-association.html#cb561-79" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -o (output file)                filtered_3699snps_californicus_685inds.lfmm/K1/run2/filtered_3699snps_californicus_685inds.recode_r2</span></span>
+<span id="cb561-80"><a href="genome-environment-association.html#cb561-80" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -i (number of iterations)       10000</span></span>
+<span id="cb561-81"><a href="genome-environment-association.html#cb561-81" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -b (burnin)                     5000</span></span>
+<span id="cb561-82"><a href="genome-environment-association.html#cb561-82" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -s (seed random init)           1323687087</span></span>
+<span id="cb561-83"><a href="genome-environment-association.html#cb561-83" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -p (number of processes (CPU))  1</span></span>
+<span id="cb561-84"><a href="genome-environment-association.html#cb561-84" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -x (genotype file)              filtered_3699snps_californicus_685inds.recode.lfmm</span></span>
+<span id="cb561-85"><a href="genome-environment-association.html#cb561-85" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -v (variable file)              sites_environ_matrix.env</span></span>
+<span id="cb561-86"><a href="genome-environment-association.html#cb561-86" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -D (number of covariables)      5</span></span>
+<span id="cb561-87"><a href="genome-environment-association.html#cb561-87" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -d (the dth covariable)         2</span></span>
+<span id="cb561-88"><a href="genome-environment-association.html#cb561-88" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-89"><a href="genome-environment-association.html#cb561-89" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Read variable file:</span></span>
+<span id="cb561-90"><a href="genome-environment-association.html#cb561-90" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      sites_environ_matrix.env        OK.</span></span>
+<span id="cb561-91"><a href="genome-environment-association.html#cb561-91" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-92"><a href="genome-environment-association.html#cb561-92" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Read genotype file:</span></span>
+<span id="cb561-93"><a href="genome-environment-association.html#cb561-93" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      filtered_3699snps_californicus_685inds.recode.lfmm      OK.</span></span>
+<span id="cb561-94"><a href="genome-environment-association.html#cb561-94" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-95"><a href="genome-environment-association.html#cb561-95" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;&lt;&lt;&lt;</span></span>
+<span id="cb561-96"><a href="genome-environment-association.html#cb561-96" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Analyse for variable 2</span></span>
+<span id="cb561-97"><a href="genome-environment-association.html#cb561-97" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-98"><a href="genome-environment-association.html#cb561-98" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Start of the Gibbs Sampler algorithm.</span></span>
+<span id="cb561-99"><a href="genome-environment-association.html#cb561-99" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-100"><a href="genome-environment-association.html#cb561-100" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [                                                                           ]</span></span>
+<span id="cb561-101"><a href="genome-environment-association.html#cb561-101" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [===========================================================================]</span></span>
+<span id="cb561-102"><a href="genome-environment-association.html#cb561-102" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-103"><a href="genome-environment-association.html#cb561-103" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      End of the Gibbs Sampler algorithm.</span></span>
+<span id="cb561-104"><a href="genome-environment-association.html#cb561-104" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-105"><a href="genome-environment-association.html#cb561-105" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ED:2533818.034   DIC: 2533819.004 </span></span>
+<span id="cb561-106"><a href="genome-environment-association.html#cb561-106" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-107"><a href="genome-environment-association.html#cb561-107" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The statistics for the run are registered in:</span></span>
+<span id="cb561-108"><a href="genome-environment-association.html#cb561-108" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          filtered_3699snps_californicus_685inds.lfmm/K1/run2/filtered_3699snps_californicus_685inds.recode_r2_s2.1.dic.</span></span>
+<span id="cb561-109"><a href="genome-environment-association.html#cb561-109" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-110"><a href="genome-environment-association.html#cb561-110" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The zscores for variable 2 are registered in:</span></span>
+<span id="cb561-111"><a href="genome-environment-association.html#cb561-111" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          filtered_3699snps_californicus_685inds.lfmm/K1/run2/filtered_3699snps_californicus_685inds.recode_r2_s2.1.zscore.</span></span>
+<span id="cb561-112"><a href="genome-environment-association.html#cb561-112" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The columns are: zscores, -log10(p-values), p-values.</span></span>
+<span id="cb561-113"><a href="genome-environment-association.html#cb561-113" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-114"><a href="genome-environment-association.html#cb561-114" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  -------------------------</span></span>
+<span id="cb561-115"><a href="genome-environment-association.html#cb561-115" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The execution for variable 2 worked without error.</span></span>
+<span id="cb561-116"><a href="genome-environment-association.html#cb561-116" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &gt;&gt;&gt;&gt;</span></span>
+<span id="cb561-117"><a href="genome-environment-association.html#cb561-117" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-118"><a href="genome-environment-association.html#cb561-118" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The project is saved into :</span></span>
+<span id="cb561-119"><a href="genome-environment-association.html#cb561-119" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  filtered_3699snps_californicus_685inds.lfmmProject </span></span>
+<span id="cb561-120"><a href="genome-environment-association.html#cb561-120" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-121"><a href="genome-environment-association.html#cb561-121" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To load the project, use:</span></span>
+<span id="cb561-122"><a href="genome-environment-association.html#cb561-122" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  project = load.lfmmProject(&quot;filtered_3699snps_californicus_685inds.lfmmProject&quot;)</span></span>
+<span id="cb561-123"><a href="genome-environment-association.html#cb561-123" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-124"><a href="genome-environment-association.html#cb561-124" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To remove the project, use:</span></span>
+<span id="cb561-125"><a href="genome-environment-association.html#cb561-125" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  remove.lfmmProject(&quot;filtered_3699snps_californicus_685inds.lfmmProject&quot;)</span></span>
+<span id="cb561-126"><a href="genome-environment-association.html#cb561-126" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-127"><a href="genome-environment-association.html#cb561-127" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;********************************&quot;</span></span>
+<span id="cb561-128"><a href="genome-environment-association.html#cb561-128" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;* K = 1  repetition 1  d = 3   *&quot;</span></span>
+<span id="cb561-129"><a href="genome-environment-association.html#cb561-129" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;********************************&quot;</span></span>
+<span id="cb561-130"><a href="genome-environment-association.html#cb561-130" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Summary of the options:</span></span>
+<span id="cb561-131"><a href="genome-environment-association.html#cb561-131" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-132"><a href="genome-environment-association.html#cb561-132" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -n (number of individuals)      685</span></span>
+<span id="cb561-133"><a href="genome-environment-association.html#cb561-133" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -L (number of loci)             3699</span></span>
+<span id="cb561-134"><a href="genome-environment-association.html#cb561-134" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -K (number of latent factors)   1</span></span>
+<span id="cb561-135"><a href="genome-environment-association.html#cb561-135" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -o (output file)                filtered_3699snps_californicus_685inds.lfmm/K1/run3/filtered_3699snps_californicus_685inds.recode_r3</span></span>
+<span id="cb561-136"><a href="genome-environment-association.html#cb561-136" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -i (number of iterations)       10000</span></span>
+<span id="cb561-137"><a href="genome-environment-association.html#cb561-137" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -b (burnin)                     5000</span></span>
+<span id="cb561-138"><a href="genome-environment-association.html#cb561-138" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -s (seed random init)           1323687087</span></span>
+<span id="cb561-139"><a href="genome-environment-association.html#cb561-139" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -p (number of processes (CPU))  1</span></span>
+<span id="cb561-140"><a href="genome-environment-association.html#cb561-140" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -x (genotype file)              filtered_3699snps_californicus_685inds.recode.lfmm</span></span>
+<span id="cb561-141"><a href="genome-environment-association.html#cb561-141" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -v (variable file)              sites_environ_matrix.env</span></span>
+<span id="cb561-142"><a href="genome-environment-association.html#cb561-142" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -D (number of covariables)      5</span></span>
+<span id="cb561-143"><a href="genome-environment-association.html#cb561-143" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -d (the dth covariable)         3</span></span>
+<span id="cb561-144"><a href="genome-environment-association.html#cb561-144" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-145"><a href="genome-environment-association.html#cb561-145" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Read variable file:</span></span>
+<span id="cb561-146"><a href="genome-environment-association.html#cb561-146" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      sites_environ_matrix.env        OK.</span></span>
+<span id="cb561-147"><a href="genome-environment-association.html#cb561-147" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-148"><a href="genome-environment-association.html#cb561-148" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Read genotype file:</span></span>
+<span id="cb561-149"><a href="genome-environment-association.html#cb561-149" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      filtered_3699snps_californicus_685inds.recode.lfmm      OK.</span></span>
+<span id="cb561-150"><a href="genome-environment-association.html#cb561-150" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-151"><a href="genome-environment-association.html#cb561-151" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;&lt;&lt;&lt;</span></span>
+<span id="cb561-152"><a href="genome-environment-association.html#cb561-152" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Analyse for variable 3</span></span>
+<span id="cb561-153"><a href="genome-environment-association.html#cb561-153" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-154"><a href="genome-environment-association.html#cb561-154" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Start of the Gibbs Sampler algorithm.</span></span>
+<span id="cb561-155"><a href="genome-environment-association.html#cb561-155" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-156"><a href="genome-environment-association.html#cb561-156" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [                                                                           ]</span></span>
+<span id="cb561-157"><a href="genome-environment-association.html#cb561-157" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [===========================================================================]</span></span>
+<span id="cb561-158"><a href="genome-environment-association.html#cb561-158" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-159"><a href="genome-environment-association.html#cb561-159" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      End of the Gibbs Sampler algorithm.</span></span>
+<span id="cb561-160"><a href="genome-environment-association.html#cb561-160" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-161"><a href="genome-environment-association.html#cb561-161" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ED:2533818.023   DIC: 2533818.988 </span></span>
+<span id="cb561-162"><a href="genome-environment-association.html#cb561-162" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-163"><a href="genome-environment-association.html#cb561-163" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The statistics for the run are registered in:</span></span>
+<span id="cb561-164"><a href="genome-environment-association.html#cb561-164" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          filtered_3699snps_californicus_685inds.lfmm/K1/run3/filtered_3699snps_californicus_685inds.recode_r3_s3.1.dic.</span></span>
+<span id="cb561-165"><a href="genome-environment-association.html#cb561-165" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-166"><a href="genome-environment-association.html#cb561-166" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The zscores for variable 3 are registered in:</span></span>
+<span id="cb561-167"><a href="genome-environment-association.html#cb561-167" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          filtered_3699snps_californicus_685inds.lfmm/K1/run3/filtered_3699snps_californicus_685inds.recode_r3_s3.1.zscore.</span></span>
+<span id="cb561-168"><a href="genome-environment-association.html#cb561-168" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The columns are: zscores, -log10(p-values), p-values.</span></span>
+<span id="cb561-169"><a href="genome-environment-association.html#cb561-169" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-170"><a href="genome-environment-association.html#cb561-170" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  -------------------------</span></span>
+<span id="cb561-171"><a href="genome-environment-association.html#cb561-171" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The execution for variable 3 worked without error.</span></span>
+<span id="cb561-172"><a href="genome-environment-association.html#cb561-172" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &gt;&gt;&gt;&gt;</span></span>
+<span id="cb561-173"><a href="genome-environment-association.html#cb561-173" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-174"><a href="genome-environment-association.html#cb561-174" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The project is saved into :</span></span>
+<span id="cb561-175"><a href="genome-environment-association.html#cb561-175" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  filtered_3699snps_californicus_685inds.lfmmProject </span></span>
+<span id="cb561-176"><a href="genome-environment-association.html#cb561-176" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-177"><a href="genome-environment-association.html#cb561-177" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To load the project, use:</span></span>
+<span id="cb561-178"><a href="genome-environment-association.html#cb561-178" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  project = load.lfmmProject(&quot;filtered_3699snps_californicus_685inds.lfmmProject&quot;)</span></span>
+<span id="cb561-179"><a href="genome-environment-association.html#cb561-179" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-180"><a href="genome-environment-association.html#cb561-180" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To remove the project, use:</span></span>
+<span id="cb561-181"><a href="genome-environment-association.html#cb561-181" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  remove.lfmmProject(&quot;filtered_3699snps_californicus_685inds.lfmmProject&quot;)</span></span>
+<span id="cb561-182"><a href="genome-environment-association.html#cb561-182" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-183"><a href="genome-environment-association.html#cb561-183" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;********************************&quot;</span></span>
+<span id="cb561-184"><a href="genome-environment-association.html#cb561-184" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;* K = 1  repetition 1  d = 4   *&quot;</span></span>
+<span id="cb561-185"><a href="genome-environment-association.html#cb561-185" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;********************************&quot;</span></span>
+<span id="cb561-186"><a href="genome-environment-association.html#cb561-186" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Summary of the options:</span></span>
+<span id="cb561-187"><a href="genome-environment-association.html#cb561-187" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-188"><a href="genome-environment-association.html#cb561-188" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -n (number of individuals)      685</span></span>
+<span id="cb561-189"><a href="genome-environment-association.html#cb561-189" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -L (number of loci)             3699</span></span>
+<span id="cb561-190"><a href="genome-environment-association.html#cb561-190" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -K (number of latent factors)   1</span></span>
+<span id="cb561-191"><a href="genome-environment-association.html#cb561-191" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -o (output file)                filtered_3699snps_californicus_685inds.lfmm/K1/run4/filtered_3699snps_californicus_685inds.recode_r4</span></span>
+<span id="cb561-192"><a href="genome-environment-association.html#cb561-192" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -i (number of iterations)       10000</span></span>
+<span id="cb561-193"><a href="genome-environment-association.html#cb561-193" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -b (burnin)                     5000</span></span>
+<span id="cb561-194"><a href="genome-environment-association.html#cb561-194" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -s (seed random init)           1323687087</span></span>
+<span id="cb561-195"><a href="genome-environment-association.html#cb561-195" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -p (number of processes (CPU))  1</span></span>
+<span id="cb561-196"><a href="genome-environment-association.html#cb561-196" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -x (genotype file)              filtered_3699snps_californicus_685inds.recode.lfmm</span></span>
+<span id="cb561-197"><a href="genome-environment-association.html#cb561-197" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -v (variable file)              sites_environ_matrix.env</span></span>
+<span id="cb561-198"><a href="genome-environment-association.html#cb561-198" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -D (number of covariables)      5</span></span>
+<span id="cb561-199"><a href="genome-environment-association.html#cb561-199" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -d (the dth covariable)         4</span></span>
+<span id="cb561-200"><a href="genome-environment-association.html#cb561-200" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-201"><a href="genome-environment-association.html#cb561-201" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Read variable file:</span></span>
+<span id="cb561-202"><a href="genome-environment-association.html#cb561-202" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      sites_environ_matrix.env        OK.</span></span>
+<span id="cb561-203"><a href="genome-environment-association.html#cb561-203" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-204"><a href="genome-environment-association.html#cb561-204" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Read genotype file:</span></span>
+<span id="cb561-205"><a href="genome-environment-association.html#cb561-205" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      filtered_3699snps_californicus_685inds.recode.lfmm      OK.</span></span>
+<span id="cb561-206"><a href="genome-environment-association.html#cb561-206" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-207"><a href="genome-environment-association.html#cb561-207" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;&lt;&lt;&lt;</span></span>
+<span id="cb561-208"><a href="genome-environment-association.html#cb561-208" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Analyse for variable 4</span></span>
+<span id="cb561-209"><a href="genome-environment-association.html#cb561-209" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-210"><a href="genome-environment-association.html#cb561-210" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Start of the Gibbs Sampler algorithm.</span></span>
+<span id="cb561-211"><a href="genome-environment-association.html#cb561-211" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-212"><a href="genome-environment-association.html#cb561-212" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [                                                                           ]</span></span>
+<span id="cb561-213"><a href="genome-environment-association.html#cb561-213" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [===========================================================================]</span></span>
+<span id="cb561-214"><a href="genome-environment-association.html#cb561-214" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-215"><a href="genome-environment-association.html#cb561-215" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      End of the Gibbs Sampler algorithm.</span></span>
+<span id="cb561-216"><a href="genome-environment-association.html#cb561-216" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-217"><a href="genome-environment-association.html#cb561-217" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ED:2533818.017   DIC: 2533819.009 </span></span>
+<span id="cb561-218"><a href="genome-environment-association.html#cb561-218" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-219"><a href="genome-environment-association.html#cb561-219" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The statistics for the run are registered in:</span></span>
+<span id="cb561-220"><a href="genome-environment-association.html#cb561-220" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          filtered_3699snps_californicus_685inds.lfmm/K1/run4/filtered_3699snps_californicus_685inds.recode_r4_s4.1.dic.</span></span>
+<span id="cb561-221"><a href="genome-environment-association.html#cb561-221" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-222"><a href="genome-environment-association.html#cb561-222" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The zscores for variable 4 are registered in:</span></span>
+<span id="cb561-223"><a href="genome-environment-association.html#cb561-223" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          filtered_3699snps_californicus_685inds.lfmm/K1/run4/filtered_3699snps_californicus_685inds.recode_r4_s4.1.zscore.</span></span>
+<span id="cb561-224"><a href="genome-environment-association.html#cb561-224" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The columns are: zscores, -log10(p-values), p-values.</span></span>
+<span id="cb561-225"><a href="genome-environment-association.html#cb561-225" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-226"><a href="genome-environment-association.html#cb561-226" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  -------------------------</span></span>
+<span id="cb561-227"><a href="genome-environment-association.html#cb561-227" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The execution for variable 4 worked without error.</span></span>
+<span id="cb561-228"><a href="genome-environment-association.html#cb561-228" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &gt;&gt;&gt;&gt;</span></span>
+<span id="cb561-229"><a href="genome-environment-association.html#cb561-229" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-230"><a href="genome-environment-association.html#cb561-230" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The project is saved into :</span></span>
+<span id="cb561-231"><a href="genome-environment-association.html#cb561-231" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  filtered_3699snps_californicus_685inds.lfmmProject </span></span>
+<span id="cb561-232"><a href="genome-environment-association.html#cb561-232" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-233"><a href="genome-environment-association.html#cb561-233" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To load the project, use:</span></span>
+<span id="cb561-234"><a href="genome-environment-association.html#cb561-234" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  project = load.lfmmProject(&quot;filtered_3699snps_californicus_685inds.lfmmProject&quot;)</span></span>
+<span id="cb561-235"><a href="genome-environment-association.html#cb561-235" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-236"><a href="genome-environment-association.html#cb561-236" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To remove the project, use:</span></span>
+<span id="cb561-237"><a href="genome-environment-association.html#cb561-237" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  remove.lfmmProject(&quot;filtered_3699snps_californicus_685inds.lfmmProject&quot;)</span></span>
+<span id="cb561-238"><a href="genome-environment-association.html#cb561-238" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-239"><a href="genome-environment-association.html#cb561-239" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;********************************&quot;</span></span>
+<span id="cb561-240"><a href="genome-environment-association.html#cb561-240" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;* K = 1  repetition 1  d = 5   *&quot;</span></span>
+<span id="cb561-241"><a href="genome-environment-association.html#cb561-241" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;********************************&quot;</span></span>
+<span id="cb561-242"><a href="genome-environment-association.html#cb561-242" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Summary of the options:</span></span>
+<span id="cb561-243"><a href="genome-environment-association.html#cb561-243" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-244"><a href="genome-environment-association.html#cb561-244" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -n (number of individuals)      685</span></span>
+<span id="cb561-245"><a href="genome-environment-association.html#cb561-245" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -L (number of loci)             3699</span></span>
+<span id="cb561-246"><a href="genome-environment-association.html#cb561-246" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -K (number of latent factors)   1</span></span>
+<span id="cb561-247"><a href="genome-environment-association.html#cb561-247" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -o (output file)                filtered_3699snps_californicus_685inds.lfmm/K1/run5/filtered_3699snps_californicus_685inds.recode_r5</span></span>
+<span id="cb561-248"><a href="genome-environment-association.html#cb561-248" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -i (number of iterations)       10000</span></span>
+<span id="cb561-249"><a href="genome-environment-association.html#cb561-249" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -b (burnin)                     5000</span></span>
+<span id="cb561-250"><a href="genome-environment-association.html#cb561-250" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -s (seed random init)           1323687087</span></span>
+<span id="cb561-251"><a href="genome-environment-association.html#cb561-251" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -p (number of processes (CPU))  1</span></span>
+<span id="cb561-252"><a href="genome-environment-association.html#cb561-252" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -x (genotype file)              filtered_3699snps_californicus_685inds.recode.lfmm</span></span>
+<span id="cb561-253"><a href="genome-environment-association.html#cb561-253" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -v (variable file)              sites_environ_matrix.env</span></span>
+<span id="cb561-254"><a href="genome-environment-association.html#cb561-254" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -D (number of covariables)      5</span></span>
+<span id="cb561-255"><a href="genome-environment-association.html#cb561-255" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         -d (the dth covariable)         5</span></span>
+<span id="cb561-256"><a href="genome-environment-association.html#cb561-256" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-257"><a href="genome-environment-association.html#cb561-257" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Read variable file:</span></span>
+<span id="cb561-258"><a href="genome-environment-association.html#cb561-258" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      sites_environ_matrix.env        OK.</span></span>
+<span id="cb561-259"><a href="genome-environment-association.html#cb561-259" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-260"><a href="genome-environment-association.html#cb561-260" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Read genotype file:</span></span>
+<span id="cb561-261"><a href="genome-environment-association.html#cb561-261" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      filtered_3699snps_californicus_685inds.recode.lfmm      OK.</span></span>
+<span id="cb561-262"><a href="genome-environment-association.html#cb561-262" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-263"><a href="genome-environment-association.html#cb561-263" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;&lt;&lt;&lt;</span></span>
+<span id="cb561-264"><a href="genome-environment-association.html#cb561-264" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Analyse for variable 5</span></span>
+<span id="cb561-265"><a href="genome-environment-association.html#cb561-265" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-266"><a href="genome-environment-association.html#cb561-266" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Start of the Gibbs Sampler algorithm.</span></span>
+<span id="cb561-267"><a href="genome-environment-association.html#cb561-267" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-268"><a href="genome-environment-association.html#cb561-268" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [                                                                           ]</span></span>
+<span id="cb561-269"><a href="genome-environment-association.html#cb561-269" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [===========================================================================]</span></span>
+<span id="cb561-270"><a href="genome-environment-association.html#cb561-270" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-271"><a href="genome-environment-association.html#cb561-271" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      End of the Gibbs Sampler algorithm.</span></span>
+<span id="cb561-272"><a href="genome-environment-association.html#cb561-272" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-273"><a href="genome-environment-association.html#cb561-273" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ED:2533818.049   DIC: 2533819.021 </span></span>
+<span id="cb561-274"><a href="genome-environment-association.html#cb561-274" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-275"><a href="genome-environment-association.html#cb561-275" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The statistics for the run are registered in:</span></span>
+<span id="cb561-276"><a href="genome-environment-association.html#cb561-276" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          filtered_3699snps_californicus_685inds.lfmm/K1/run5/filtered_3699snps_californicus_685inds.recode_r5_s5.1.dic.</span></span>
+<span id="cb561-277"><a href="genome-environment-association.html#cb561-277" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-278"><a href="genome-environment-association.html#cb561-278" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The zscores for variable 5 are registered in:</span></span>
+<span id="cb561-279"><a href="genome-environment-association.html#cb561-279" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          filtered_3699snps_californicus_685inds.lfmm/K1/run5/filtered_3699snps_californicus_685inds.recode_r5_s5.1.zscore.</span></span>
+<span id="cb561-280"><a href="genome-environment-association.html#cb561-280" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The columns are: zscores, -log10(p-values), p-values.</span></span>
+<span id="cb561-281"><a href="genome-environment-association.html#cb561-281" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-282"><a href="genome-environment-association.html#cb561-282" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  -------------------------</span></span>
+<span id="cb561-283"><a href="genome-environment-association.html#cb561-283" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  The execution for variable 5 worked without error.</span></span>
+<span id="cb561-284"><a href="genome-environment-association.html#cb561-284" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &gt;&gt;&gt;&gt;</span></span>
+<span id="cb561-285"><a href="genome-environment-association.html#cb561-285" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-286"><a href="genome-environment-association.html#cb561-286" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The project is saved into :</span></span>
+<span id="cb561-287"><a href="genome-environment-association.html#cb561-287" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  filtered_3699snps_californicus_685inds.lfmmProject </span></span>
+<span id="cb561-288"><a href="genome-environment-association.html#cb561-288" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-289"><a href="genome-environment-association.html#cb561-289" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To load the project, use:</span></span>
+<span id="cb561-290"><a href="genome-environment-association.html#cb561-290" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  project = load.lfmmProject(&quot;filtered_3699snps_californicus_685inds.lfmmProject&quot;)</span></span>
+<span id="cb561-291"><a href="genome-environment-association.html#cb561-291" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb561-292"><a href="genome-environment-association.html#cb561-292" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; To remove the project, use:</span></span>
+<span id="cb561-293"><a href="genome-environment-association.html#cb561-293" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  remove.lfmmProject(&quot;filtered_3699snps_californicus_685inds.lfmmProject&quot;)</span></span>
+<span id="cb561-294"><a href="genome-environment-association.html#cb561-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb561-295"><a href="genome-environment-association.html#cb561-295" aria-hidden="true" tabindex="-1"></a><span class="co"># load project</span></span>
+<span id="cb561-296"><a href="genome-environment-association.html#cb561-296" aria-hidden="true" tabindex="-1"></a>project <span class="ot">=</span> <span class="fu">load.lfmmProject</span>(<span class="st">&quot;filtered_3699snps_californicus_685inds.lfmmProject&quot;</span>)</span></code></pre></div>
 <p>Now we can check and see which of our environmental variables is association with genomic variation</p>
-<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="genome-environment-association.html#cb563-1" aria-hidden="true" tabindex="-1"></a><span class="co">#get the z scores from each run</span></span>
-<span id="cb563-2"><a href="genome-environment-association.html#cb563-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb563-3"><a href="genome-environment-association.html#cb563-3" aria-hidden="true" tabindex="-1"></a>zs<span class="ot">&lt;-</span><span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="cf">function</span>(x) <span class="fu">z.scores</span>(sea_cuc_lfmm, <span class="at">k=</span><span class="dv">1</span>, <span class="at">d=</span>x))</span>
-<span id="cb563-4"><a href="genome-environment-association.html#cb563-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in z.scores(sea_cuc_lfmm, k = 1, d = x): unused argument (k = 1)</span></span>
-<span id="cb563-5"><a href="genome-environment-association.html#cb563-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb563-6"><a href="genome-environment-association.html#cb563-6" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the genomic inflation factor lambda</span></span>
-<span id="cb563-7"><a href="genome-environment-association.html#cb563-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb563-8"><a href="genome-environment-association.html#cb563-8" aria-hidden="true" tabindex="-1"></a>lambdas<span class="ot">&lt;-</span><span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="cf">function</span>(x) <span class="fu">median</span>(zs[[x]]<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="fu">qchisq</span>(<span class="fl">0.5</span>, <span class="at">df=</span><span class="dv">1</span>)))</span>
-<span id="cb563-9"><a href="genome-environment-association.html#cb563-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in median(zs[[x]]^2/qchisq(0.5, df = 1)): object &#39;zs&#39; not found</span></span>
-<span id="cb563-10"><a href="genome-environment-association.html#cb563-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb563-11"><a href="genome-environment-association.html#cb563-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb563-12"><a href="genome-environment-association.html#cb563-12" aria-hidden="true" tabindex="-1"></a><span class="co">#then compute adjusted p-values</span></span>
-<span id="cb563-13"><a href="genome-environment-association.html#cb563-13" aria-hidden="true" tabindex="-1"></a>adj.p.vals<span class="ot">&lt;-</span><span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="cf">function</span>(x) <span class="fu">pchisq</span>(zs[[x]]<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>lambdas[[x]], <span class="at">df=</span><span class="dv">1</span>, <span class="at">lower=</span>F))</span>
-<span id="cb563-14"><a href="genome-environment-association.html#cb563-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in pchisq(zs[[x]]^2/lambdas[[x]], df = 1, lower = F): object &#39;zs&#39; not found</span></span>
-<span id="cb563-15"><a href="genome-environment-association.html#cb563-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb563-16"><a href="genome-environment-association.html#cb563-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb563-17"><a href="genome-environment-association.html#cb563-17" aria-hidden="true" tabindex="-1"></a><span class="co">#then plot that p-value</span></span>
-<span id="cb563-18"><a href="genome-environment-association.html#cb563-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb563-19"><a href="genome-environment-association.html#cb563-19" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="cf">function</span>(x) <span class="fu">hist</span>(adj.p.vals[[x]], <span class="at">col=</span><span class="st">&quot;blue&quot;</span>))</span>
-<span id="cb563-20"><a href="genome-environment-association.html#cb563-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;hist&#39;: object &#39;adj.p.vals&#39; not found</span></span>
-<span id="cb563-21"><a href="genome-environment-association.html#cb563-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb563-22"><a href="genome-environment-association.html#cb563-22" aria-hidden="true" tabindex="-1"></a><span class="co"># control of false discoveries</span></span>
-<span id="cb563-23"><a href="genome-environment-association.html#cb563-23" aria-hidden="true" tabindex="-1"></a><span class="co"># to correct for multiple testing, we can apply the Benjamini-Hochberg algorithm</span></span>
-<span id="cb563-24"><a href="genome-environment-association.html#cb563-24" aria-hidden="true" tabindex="-1"></a><span class="co"># L is number of loci</span></span>
-<span id="cb563-25"><a href="genome-environment-association.html#cb563-25" aria-hidden="true" tabindex="-1"></a>L<span class="ot">=</span><span class="dv">3699</span></span>
-<span id="cb563-26"><a href="genome-environment-association.html#cb563-26" aria-hidden="true" tabindex="-1"></a><span class="co">#fdr level q</span></span>
-<span id="cb563-27"><a href="genome-environment-association.html#cb563-27" aria-hidden="true" tabindex="-1"></a>q <span class="ot">=</span> <span class="fl">0.1</span></span>
-<span id="cb563-28"><a href="genome-environment-association.html#cb563-28" aria-hidden="true" tabindex="-1"></a>w <span class="ot">=</span> <span class="fu">which</span>(<span class="fu">sort</span>(adj.p.val1) <span class="sc">&lt;</span> q <span class="sc">*</span> (<span class="dv">1</span><span class="sc">:</span>L)<span class="sc">/</span>L)</span>
-<span id="cb563-29"><a href="genome-environment-association.html#cb563-29" aria-hidden="true" tabindex="-1"></a><span class="co"># candidates are then</span></span>
-<span id="cb563-30"><a href="genome-environment-association.html#cb563-30" aria-hidden="true" tabindex="-1"></a>candidates<span class="fl">.1</span> <span class="ot">=</span> <span class="fu">order</span>(adj.p.val1)[w]</span>
-<span id="cb563-31"><a href="genome-environment-association.html#cb563-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb563-32"><a href="genome-environment-association.html#cb563-32" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(candidates<span class="fl">.1</span>)</span>
-<span id="cb563-33"><a href="genome-environment-association.html#cb563-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 86</span></span>
-<span id="cb563-34"><a href="genome-environment-association.html#cb563-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb563-35"><a href="genome-environment-association.html#cb563-35" aria-hidden="true" tabindex="-1"></a><span class="co">#this is for our first variable Mean Chlorphyl</span></span></code></pre></div>
+<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="genome-environment-association.html#cb562-1" aria-hidden="true" tabindex="-1"></a><span class="co">#get the z scores from each run</span></span>
+<span id="cb562-2"><a href="genome-environment-association.html#cb562-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb562-3"><a href="genome-environment-association.html#cb562-3" aria-hidden="true" tabindex="-1"></a>zs<span class="ot">&lt;-</span><span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="cf">function</span>(x) <span class="fu">z.scores</span>(sea_cuc_lfmm, <span class="at">d=</span>x))</span>
+<span id="cb562-4"><a href="genome-environment-association.html#cb562-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb562-5"><a href="genome-environment-association.html#cb562-5" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the genomic inflation factor lambda</span></span>
+<span id="cb562-6"><a href="genome-environment-association.html#cb562-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb562-7"><a href="genome-environment-association.html#cb562-7" aria-hidden="true" tabindex="-1"></a>lambdas<span class="ot">&lt;-</span><span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="cf">function</span>(x) <span class="fu">median</span>(zs[[x]]<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="fu">qchisq</span>(<span class="fl">0.5</span>, <span class="at">df=</span><span class="dv">1</span>)))</span>
+<span id="cb562-8"><a href="genome-environment-association.html#cb562-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb562-9"><a href="genome-environment-association.html#cb562-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb562-10"><a href="genome-environment-association.html#cb562-10" aria-hidden="true" tabindex="-1"></a><span class="co">#then compute adjusted p-values</span></span>
+<span id="cb562-11"><a href="genome-environment-association.html#cb562-11" aria-hidden="true" tabindex="-1"></a>adj.p.vals<span class="ot">&lt;-</span><span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="cf">function</span>(x) <span class="fu">pchisq</span>(zs[[x]]<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>lambdas[[x]], <span class="at">df=</span><span class="dv">1</span>, <span class="at">lower=</span>F))</span>
+<span id="cb562-12"><a href="genome-environment-association.html#cb562-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb562-13"><a href="genome-environment-association.html#cb562-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb562-14"><a href="genome-environment-association.html#cb562-14" aria-hidden="true" tabindex="-1"></a><span class="co">#then plot that p-value</span></span>
+<span id="cb562-15"><a href="genome-environment-association.html#cb562-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb562-16"><a href="genome-environment-association.html#cb562-16" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="cf">function</span>(x) <span class="fu">hist</span>(adj.p.vals[[x]], <span class="at">col=</span><span class="st">&quot;blue&quot;</span>))</span></code></pre></div>
+<p><img src="Semester_files/figure-html/histograms-1.png" width="768" style="display: block; margin: auto;" /><img src="Semester_files/figure-html/histograms-2.png" width="768" style="display: block; margin: auto;" /><img src="Semester_files/figure-html/histograms-3.png" width="768" style="display: block; margin: auto;" /><img src="Semester_files/figure-html/histograms-4.png" width="768" style="display: block; margin: auto;" /><img src="Semester_files/figure-html/histograms-5.png" width="768" style="display: block; margin: auto;" /></p>
+<pre><code>#&gt; [[1]]
+#&gt; $breaks
+#&gt;  [1] 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0
+#&gt; 
+#&gt; $counts
+#&gt;  [1] 565 359 305 310 311 304 384 391 363 407
+#&gt; 
+#&gt; $density
+#&gt;  [1] 1.5274398 0.9705326 0.8245472 0.8380643 0.8407678 0.8218437 1.0381184 1.0570424 0.9813463 1.1002974
+#&gt; 
+#&gt; $mids
+#&gt;  [1] 0.05 0.15 0.25 0.35 0.45 0.55 0.65 0.75 0.85 0.95
+#&gt; 
+#&gt; $xname
+#&gt; [1] &quot;adj.p.vals[[x]]&quot;
+#&gt; 
+#&gt; $equidist
+#&gt; [1] TRUE
+#&gt; 
+#&gt; attr(,&quot;class&quot;)
+#&gt; [1] &quot;histogram&quot;
+#&gt; 
+#&gt; [[2]]
+#&gt; $breaks
+#&gt;  [1] 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0
+#&gt; 
+#&gt; $counts
+#&gt;  [1] 576 332 287 322 333 336 316 419 394 384
+#&gt; 
+#&gt; $density
+#&gt;  [1] 1.5571776 0.8975399 0.7758854 0.8705055 0.9002433 0.9083536 0.8542849 1.1327386 1.0651527 1.0381184
+#&gt; 
+#&gt; $mids
+#&gt;  [1] 0.05 0.15 0.25 0.35 0.45 0.55 0.65 0.75 0.85 0.95
+#&gt; 
+#&gt; $xname
+#&gt; [1] &quot;adj.p.vals[[x]]&quot;
+#&gt; 
+#&gt; $equidist
+#&gt; [1] TRUE
+#&gt; 
+#&gt; attr(,&quot;class&quot;)
+#&gt; [1] &quot;histogram&quot;
+#&gt; 
+#&gt; [[3]]
+#&gt; $breaks
+#&gt;  [1] 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0
+#&gt; 
+#&gt; $counts
+#&gt;  [1] 537 316 306 338 353 323 338 398 426 364
+#&gt; 
+#&gt; $density
+#&gt;  [1] 1.4517437 0.8542849 0.8272506 0.9137605 0.9543120 0.8732090 0.9137605 1.0759665 1.1516626 0.9840497
+#&gt; 
+#&gt; $mids
+#&gt;  [1] 0.05 0.15 0.25 0.35 0.45 0.55 0.65 0.75 0.85 0.95
+#&gt; 
+#&gt; $xname
+#&gt; [1] &quot;adj.p.vals[[x]]&quot;
+#&gt; 
+#&gt; $equidist
+#&gt; [1] TRUE
+#&gt; 
+#&gt; attr(,&quot;class&quot;)
+#&gt; [1] &quot;histogram&quot;
+#&gt; 
+#&gt; [[4]]
+#&gt; $breaks
+#&gt;  [1] 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0
+#&gt; 
+#&gt; $counts
+#&gt;  [1] 587 340 310 274 339 319 379 402 355 394
+#&gt; 
+#&gt; $density
+#&gt;  [1] 1.5869154 0.9191673 0.8380643 0.7407407 0.9164639 0.8623952 1.0246012 1.0867802 0.9597188 1.0651527
+#&gt; 
+#&gt; $mids
+#&gt;  [1] 0.05 0.15 0.25 0.35 0.45 0.55 0.65 0.75 0.85 0.95
+#&gt; 
+#&gt; $xname
+#&gt; [1] &quot;adj.p.vals[[x]]&quot;
+#&gt; 
+#&gt; $equidist
+#&gt; [1] TRUE
+#&gt; 
+#&gt; attr(,&quot;class&quot;)
+#&gt; [1] &quot;histogram&quot;
+#&gt; 
+#&gt; [[5]]
+#&gt; $breaks
+#&gt;  [1] 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0
+#&gt; 
+#&gt; $counts
+#&gt;  [1] 570 338 319 307 316 321 403 380 374 371
+#&gt; 
+#&gt; $density
+#&gt;  [1] 1.5409570 0.9137605 0.8623952 0.8299540 0.8542849 0.8678021 1.0894836 1.0273047 1.0110841 1.0029738
+#&gt; 
+#&gt; $mids
+#&gt;  [1] 0.05 0.15 0.25 0.35 0.45 0.55 0.65 0.75 0.85 0.95
+#&gt; 
+#&gt; $xname
+#&gt; [1] &quot;adj.p.vals[[x]]&quot;
+#&gt; 
+#&gt; $equidist
+#&gt; [1] TRUE
+#&gt; 
+#&gt; attr(,&quot;class&quot;)
+#&gt; [1] &quot;histogram&quot;
+
+# control of false discoveries
+# to correct for multiple testing, we can apply the Benjamini-Hochberg algorithm
+# L is number of loci
+L=3699
+#fdr level q
+q = 0.1
+w = which(sort(adj.p.val1) &lt; q * (1:L)/L)
+# candidates are then
+candidates.1 = order(adj.p.val1)[w]
+
+length(candidates.1)
+#&gt; [1] 86
+
+#this is for our first variable Mean Chlorphyl
+</code></pre>
 </div>
 <div id="exercises-2" class="section level2 hasAnchor" number="12.8">
 <h2><span class="header-section-number">12.8</span> Exercises<a href="genome-environment-association.html#exercises-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -910,7 +1011,7 @@ Now decide which region you want to plot. If you’re interested in getting most
 <span id="cb564-18"><a href="genome-environment-association.html#cb564-18" aria-hidden="true" tabindex="-1"></a>my.colors <span class="ot">=</span> <span class="fu">colorRampPalette</span>(<span class="fu">c</span>(<span class="st">&quot;#5E85B8&quot;</span>,<span class="st">&quot;#EDF0C0&quot;</span>,<span class="st">&quot;#C13127&quot;</span>))</span>
 <span id="cb564-19"><a href="genome-environment-association.html#cb564-19" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(precip_w.crop,<span class="at">col=</span><span class="fu">my.colors</span>(<span class="dv">1000</span>),<span class="at">axes=</span><span class="cn">FALSE</span>, <span class="at">box=</span><span class="cn">FALSE</span>)</span>
 <span id="cb564-20"><a href="genome-environment-association.html#cb564-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">title</span>(<span class="at">cex.sub =</span> <span class="fl">1.25</span>, <span class="at">sub =</span> <span class="st">&quot;Precipitation of the Wettest Month&quot;</span>)</span></code></pre></div>
-<img src="Semester_files/figure-html/unnamed-chunk-113-1.png" width="768" style="display: block; margin: auto;" />
+<img src="Semester_files/figure-html/unnamed-chunk-135-1.png" width="768" style="display: block; margin: auto;" />
 </p>
 </details>
 <ol start="2" style="list-style-type: decimal">

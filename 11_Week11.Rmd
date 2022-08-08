@@ -44,7 +44,7 @@ sudo apt install libgdal-dev
 ## install R packages
 
 
-```{r echo=T, message=FALSE, warning=F}
+```{r echo=T, message=FALSE, warning=F, verbose=F}
 
 # devtools::install_github("bcm-uga/lfmm")
 # 
@@ -76,7 +76,7 @@ now we need to download the environmental data for our study. We're just going t
 
 Note that this step is rather time consuming, thus it's best to download the data once and save it as an environment file, which you can upload each time you want to modify your script.
 
-```{r echo=T, message=FALSE, warning=FALSE, results=F}
+```{r echo=T, message=FALSE, warning=FALSE, results=F, verbose=F}
 
 #load the environmental data and store it as objects that we can use later
 
@@ -153,6 +153,9 @@ library(sdmpredictors)
 #what are are min amd max lat and lon
 
 range(sites_environ$Name.lon)
+```
+
+```{r, label='geamap2', echo=T}
 
 #crop file to fit the area we want
 ne.pacific<-extent(-140, -120, 40, 60)
@@ -166,7 +169,6 @@ my.colors = colorRampPalette(c("#5E85B8","#EDF0C0","#C13127"))
 plot(sst_max.crop,col=my.colors(1000),axes=FALSE, box=FALSE)
 title(cex.sub = 1.25, sub = "Maximum temperature at the sea surface (ºC)")
 
-
 ```
 
 
@@ -176,9 +178,9 @@ title(cex.sub = 1.25, sub = "Maximum temperature at the sea surface (ºC)")
 
 Now we need to load in our genetic data. We have data in a vcf file format and the first few steps will be to convert it to the format needed by the lfmm package.
 
+loading the data in using these functions will output a lot to the console regarding the number of individuals (in this example 685) and loci (3699). It's a good idea to look at these to make sure you have the number of individuals and loci that you expect. But it's a but messy here so we've silenced that output.
 
-
-```{r, echo=T, message=FALSE, warning=FALSE}
+```{r, echo=T, message=FALSE, warning=FALSE, verbose=F}
 
 #convert our vcf file to lfmm
 
@@ -201,13 +203,14 @@ sea_cuc_geno<-read.geno('filtered_3699snps_californicus_685inds.recode.geno')
 
 
 
-```{r, label='gea1', echo=T, message=F}
+```{r, label='gea1', echo=T, message=F, verbose=F, warning=F}
 
 
 # create a snmf object
 
 sea_cuc200.snmf <- snmf("filtered_3699snps_californicus_685.geno", K = 1:10, entropy=T, ploidy = 2, project = "new")
-project=load.snmfProject("filtered_3699snps_californicus.snmfProject")
+
+project=load.snmfProject("filtered_3699snps_californicus_685.snmfProject")
 
 #plot values of cross-entropy criteron of k
 plot(sea_cuc200.snmf)
@@ -223,7 +226,7 @@ However, for the purposes of time we're going to do the next step with a k=1 and
 ```{r, echo=T, message=FALSE}
 
 # Genome scan for selection using environmental variables 
-#remove.lfmmProject('Spurp.prelim.snps24.lfmmProject')
+
 
 sea_cuc_lfmm <- lfmm("filtered_3699snps_californicus_685inds.recode.lfmm", "sites_environ_matrix.env", K=1, rep=1, project = "new")
 
@@ -237,7 +240,7 @@ Now we can check and see which of our environmental variables is association wit
 ```{r, label="histograms", echo=T}
 #get the z scores from each run
 
-zs<-lapply(1:5, function(x) z.scores(sea_cuc_lfmm, k=1, d=x))
+zs<-lapply(1:5, function(x) z.scores(sea_cuc_lfmm, d=x))
 
 # compute the genomic inflation factor lambda
 

@@ -1,5 +1,5 @@
 ---
-title: "Marine Genomics"
+title: 
 author: 
 date:
 output:
@@ -13,11 +13,21 @@ knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6)
 knitr::opts_knit$set(root.dir = "C:/Users/SAPCaps/MarineGenomicsSemester/")
 ```
 
+
 # Week 1- Welcome!
+
+
+<center>
+
+<img src="figs/margen.logo.jpg" width="300" height="300" />
+
+</center>
+
 
 Welcome to Marine Genomics Fall 2021 at Cal State LA!
 
 You will find the lecture for week one [here](https://github.com/BayLab/MarineGenomicsSemester/blob/main/ppt/MarineGenomics_Lecture1.pdf)
+
 
 ## Introduction to shell computing via the data carpentry tutorial
 
