@@ -434,88 +434,105 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">6.5</span> A few tips below for working with objects:<a href="week-5--the-r-environment.html#a-few-tips-below-for-working-with-objects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We can keep track of what objects R is using, with the functions <code>ls()</code> and <code>objects()</code></p>
 <div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="week-5--the-r-environment.html#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
-<pre><code>#&gt;   [1] &quot;a&quot;                        &quot;adj.p.val1&quot;               &quot;adj.p.val2&quot;               &quot;adj.p.val3&quot;               &quot;adj.p.val4&quot;              
-#&gt;   [6] &quot;adj.p.val5&quot;               &quot;adj.p.vals&quot;               &quot;admix.props&quot;              &quot;animals&quot;                  &quot;areaCircle&quot;              
-#&gt;  [11] &quot;babynames&quot;                &quot;beag&quot;                     &quot;beag_allIND&quot;              &quot;beag_allIND_final&quot;        &quot;cali&quot;                    
-#&gt;  [16] &quot;candidates&quot;               &quot;candidates.1&quot;             &quot;candidates.2&quot;             &quot;candidates.3&quot;             &quot;candidates.4&quot;            
-#&gt;  [21] &quot;candidates.5&quot;             &quot;cat&quot;                      &quot;ChickWeight&quot;              &quot;chlomean&quot;                 &quot;conStruct.data&quot;          
-#&gt;  [26] &quot;conStruct.results&quot;        &quot;cov&quot;                      &quot;data&quot;                     &quot;data.block&quot;               &quot;data_to_plot&quot;            
-#&gt;  [31] &quot;df1&quot;                      &quot;df2&quot;                      &quot;df3&quot;                      &quot;df4&quot;                      &quot;dog&quot;                     
-#&gt;  [36] &quot;e&quot;                        &quot;environ&quot;                  &quot;fst&quot;                      &quot;g&quot;                        &quot;G&quot;                       
-#&gt;  [41] &quot;gen&quot;                      &quot;gen_allIND&quot;               &quot;geno&quot;                     &quot;genos&quot;                    &quot;geo_dist&quot;                
-#&gt;  [46] &quot;i&quot;                        &quot;il&quot;                       &quot;iris&quot;                     &quot;L&quot;                        &quot;lambda1&quot;                 
-#&gt;  [51] &quot;lambda2&quot;                  &quot;lambda3&quot;                  &quot;lambda4&quot;                  &quot;lambda5&quot;                  &quot;lambdas&quot;                 
-#&gt;  [56] &quot;listy&quot;                    &quot;livability&quot;               &quot;lrt&quot;                      &quot;lrt_filt&quot;                 &quot;lrt_rando&quot;               
-#&gt;  [61] &quot;meta&quot;                     &quot;meta.path&quot;                &quot;msleep&quot;                   &quot;my.colors&quot;                &quot;my.new&quot;                  
-#&gt;  [66] &quot;my.run&quot;                   &quot;my_colors&quot;                &quot;my_list&quot;                  &quot;n&quot;                        &quot;names&quot;                   
-#&gt;  [71] &quot;ne.pacific&quot;               &quot;number&quot;                   &quot;numbers&quot;                  &quot;OF&quot;                       &quot;outliers&quot;                
-#&gt;  [76] &quot;P1&quot;                       &quot;ph&quot;                       &quot;pheno_chr6&quot;               &quot;precip_seasonality&quot;       &quot;precip_w.crop&quot;           
-#&gt;  [81] &quot;precip_wettest&quot;           &quot;project&quot;                  &quot;q&quot;                        &quot;qval&quot;                     &quot;rando_filt&quot;              
-#&gt;  [86] &quot;salinity&quot;                 &quot;sea_cuc_geno&quot;             &quot;sea_cuc_lfmm&quot;             &quot;setosa1.petallength&quot;      &quot;setosa1.petalwidth&quot;      
-#&gt;  [91] &quot;setosa1area2&quot;             &quot;sites&quot;                    &quot;sites_environ&quot;            &quot;sites_environ_matrix&quot;     &quot;sites_environ_matrix_nas&quot;
-#&gt;  [96] &quot;squares&quot;                  &quot;sst_max&quot;                  &quot;sst_max.crop&quot;             &quot;sst_mean&quot;                 &quot;state.abb&quot;               
-#&gt; [101] &quot;state.area&quot;               &quot;state.center&quot;             &quot;state.division&quot;           &quot;state.name&quot;               &quot;state.region&quot;            
-#&gt; [106] &quot;state.x77&quot;                &quot;states&quot;                   &quot;states_standardized&quot;      &quot;subgen&quot;                   &quot;submeta&quot;                 
-#&gt; [111] &quot;subpops&quot;                  &quot;subsleep&quot;                 &quot;tG&quot;                       &quot;tr_msleep&quot;                &quot;vcf.path&quot;                
-#&gt; [116] &quot;w&quot;                        &quot;x&quot;                        &quot;y&quot;                        &quot;zs&quot;                       &quot;zs1&quot;                     
-#&gt; [121] &quot;zs2&quot;                      &quot;zs3&quot;                      &quot;zs4&quot;                      &quot;zs5&quot;</code></pre>
+<pre><code>#&gt;   [1] &quot;a&quot;                        &quot;adj.p.val1&quot;               &quot;adj.p.val2&quot;               &quot;adj.p.val3&quot;              
+#&gt;   [5] &quot;adj.p.val4&quot;               &quot;adj.p.val5&quot;               &quot;admix.props&quot;              &quot;animals&quot;                 
+#&gt;   [9] &quot;areaCircle&quot;               &quot;babynames&quot;                &quot;beag&quot;                     &quot;beag_allIND&quot;             
+#&gt;  [13] &quot;beag_allIND_final&quot;        &quot;cali&quot;                     &quot;candidates&quot;               &quot;candidates.1&quot;            
+#&gt;  [17] &quot;candidates.2&quot;             &quot;candidates.3&quot;             &quot;candidates.4&quot;             &quot;candidates.5&quot;            
+#&gt;  [21] &quot;cat&quot;                      &quot;ChickWeight&quot;              &quot;chlomean&quot;                 &quot;conStruct.data&quot;          
+#&gt;  [25] &quot;conStruct.results&quot;        &quot;cov&quot;                      &quot;data&quot;                     &quot;data.block&quot;              
+#&gt;  [29] &quot;data_to_plot&quot;             &quot;df1&quot;                      &quot;df2&quot;                      &quot;df3&quot;                     
+#&gt;  [33] &quot;df4&quot;                      &quot;dog&quot;                      &quot;e&quot;                        &quot;environ&quot;                 
+#&gt;  [37] &quot;fst&quot;                      &quot;g&quot;                        &quot;G&quot;                        &quot;gen&quot;                     
+#&gt;  [41] &quot;gen_allIND&quot;               &quot;geno&quot;                     &quot;genos&quot;                    &quot;geo_dist&quot;                
+#&gt;  [45] &quot;i&quot;                        &quot;il&quot;                       &quot;iris&quot;                     &quot;L&quot;                       
+#&gt;  [49] &quot;lambda1&quot;                  &quot;lambda2&quot;                  &quot;lambda3&quot;                  &quot;lambda4&quot;                 
+#&gt;  [53] &quot;lambda5&quot;                  &quot;listy&quot;                    &quot;livability&quot;               &quot;lrt&quot;                     
+#&gt;  [57] &quot;lrt_filt&quot;                 &quot;lrt_rando&quot;                &quot;meta&quot;                     &quot;meta.path&quot;               
+#&gt;  [61] &quot;msleep&quot;                   &quot;my.colors&quot;                &quot;my.new&quot;                   &quot;my.run&quot;                  
+#&gt;  [65] &quot;my_colors&quot;                &quot;my_list&quot;                  &quot;n&quot;                        &quot;names&quot;                   
+#&gt;  [69] &quot;ne.pacific&quot;               &quot;number&quot;                   &quot;numbers&quot;                  &quot;OF&quot;                      
+#&gt;  [73] &quot;outliers&quot;                 &quot;P1&quot;                       &quot;ph&quot;                       &quot;pheno_chr6&quot;              
+#&gt;  [77] &quot;precip_seasonality&quot;       &quot;precip_w.crop&quot;            &quot;precip_wettest&quot;           &quot;project&quot;                 
+#&gt;  [81] &quot;q&quot;                        &quot;qval&quot;                     &quot;rando_filt&quot;               &quot;salinity&quot;                
+#&gt;  [85] &quot;sea_cuc_geno&quot;             &quot;sea_cuc_lfmm&quot;             &quot;setosa1.petallength&quot;      &quot;setosa1.petalwidth&quot;      
+#&gt;  [89] &quot;setosa1area2&quot;             &quot;sites&quot;                    &quot;sites_environ&quot;            &quot;sites_environ_matrix&quot;    
+#&gt;  [93] &quot;sites_environ_matrix_nas&quot; &quot;squares&quot;                  &quot;sst_max&quot;                  &quot;sst_max.crop&quot;            
+#&gt;  [97] &quot;sst_mean&quot;                 &quot;state.abb&quot;                &quot;state.area&quot;               &quot;state.center&quot;            
+#&gt; [101] &quot;state.division&quot;           &quot;state.name&quot;               &quot;state.region&quot;             &quot;state.x77&quot;               
+#&gt; [105] &quot;states&quot;                   &quot;states_standardized&quot;      &quot;subgen&quot;                   &quot;submeta&quot;                 
+#&gt; [109] &quot;subpops&quot;                  &quot;subsleep&quot;                 &quot;tG&quot;                       &quot;tr_msleep&quot;               
+#&gt; [113] &quot;vcf.path&quot;                 &quot;w&quot;                        &quot;x&quot;                        &quot;y&quot;                       
+#&gt; [117] &quot;zs1&quot;                      &quot;zs2&quot;                      &quot;zs3&quot;                      &quot;zs4&quot;                     
+#&gt; [121] &quot;zs5&quot;</code></pre>
 <div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="week-5--the-r-environment.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="fu">objects</span>() <span class="co">#returns the same results as ls() in this case. because we only have objects in our environment.</span></span></code></pre></div>
-<pre><code>#&gt;   [1] &quot;a&quot;                        &quot;adj.p.val1&quot;               &quot;adj.p.val2&quot;               &quot;adj.p.val3&quot;               &quot;adj.p.val4&quot;              
-#&gt;   [6] &quot;adj.p.val5&quot;               &quot;adj.p.vals&quot;               &quot;admix.props&quot;              &quot;animals&quot;                  &quot;areaCircle&quot;              
-#&gt;  [11] &quot;babynames&quot;                &quot;beag&quot;                     &quot;beag_allIND&quot;              &quot;beag_allIND_final&quot;        &quot;cali&quot;                    
-#&gt;  [16] &quot;candidates&quot;               &quot;candidates.1&quot;             &quot;candidates.2&quot;             &quot;candidates.3&quot;             &quot;candidates.4&quot;            
-#&gt;  [21] &quot;candidates.5&quot;             &quot;cat&quot;                      &quot;ChickWeight&quot;              &quot;chlomean&quot;                 &quot;conStruct.data&quot;          
-#&gt;  [26] &quot;conStruct.results&quot;        &quot;cov&quot;                      &quot;data&quot;                     &quot;data.block&quot;               &quot;data_to_plot&quot;            
-#&gt;  [31] &quot;df1&quot;                      &quot;df2&quot;                      &quot;df3&quot;                      &quot;df4&quot;                      &quot;dog&quot;                     
-#&gt;  [36] &quot;e&quot;                        &quot;environ&quot;                  &quot;fst&quot;                      &quot;g&quot;                        &quot;G&quot;                       
-#&gt;  [41] &quot;gen&quot;                      &quot;gen_allIND&quot;               &quot;geno&quot;                     &quot;genos&quot;                    &quot;geo_dist&quot;                
-#&gt;  [46] &quot;i&quot;                        &quot;il&quot;                       &quot;iris&quot;                     &quot;L&quot;                        &quot;lambda1&quot;                 
-#&gt;  [51] &quot;lambda2&quot;                  &quot;lambda3&quot;                  &quot;lambda4&quot;                  &quot;lambda5&quot;                  &quot;lambdas&quot;                 
-#&gt;  [56] &quot;listy&quot;                    &quot;livability&quot;               &quot;lrt&quot;                      &quot;lrt_filt&quot;                 &quot;lrt_rando&quot;               
-#&gt;  [61] &quot;meta&quot;                     &quot;meta.path&quot;                &quot;msleep&quot;                   &quot;my.colors&quot;                &quot;my.new&quot;                  
-#&gt;  [66] &quot;my.run&quot;                   &quot;my_colors&quot;                &quot;my_list&quot;                  &quot;n&quot;                        &quot;names&quot;                   
-#&gt;  [71] &quot;ne.pacific&quot;               &quot;number&quot;                   &quot;numbers&quot;                  &quot;OF&quot;                       &quot;outliers&quot;                
-#&gt;  [76] &quot;P1&quot;                       &quot;ph&quot;                       &quot;pheno_chr6&quot;               &quot;precip_seasonality&quot;       &quot;precip_w.crop&quot;           
-#&gt;  [81] &quot;precip_wettest&quot;           &quot;project&quot;                  &quot;q&quot;                        &quot;qval&quot;                     &quot;rando_filt&quot;              
-#&gt;  [86] &quot;salinity&quot;                 &quot;sea_cuc_geno&quot;             &quot;sea_cuc_lfmm&quot;             &quot;setosa1.petallength&quot;      &quot;setosa1.petalwidth&quot;      
-#&gt;  [91] &quot;setosa1area2&quot;             &quot;sites&quot;                    &quot;sites_environ&quot;            &quot;sites_environ_matrix&quot;     &quot;sites_environ_matrix_nas&quot;
-#&gt;  [96] &quot;squares&quot;                  &quot;sst_max&quot;                  &quot;sst_max.crop&quot;             &quot;sst_mean&quot;                 &quot;state.abb&quot;               
-#&gt; [101] &quot;state.area&quot;               &quot;state.center&quot;             &quot;state.division&quot;           &quot;state.name&quot;               &quot;state.region&quot;            
-#&gt; [106] &quot;state.x77&quot;                &quot;states&quot;                   &quot;states_standardized&quot;      &quot;subgen&quot;                   &quot;submeta&quot;                 
-#&gt; [111] &quot;subpops&quot;                  &quot;subsleep&quot;                 &quot;tG&quot;                       &quot;tr_msleep&quot;                &quot;vcf.path&quot;                
-#&gt; [116] &quot;w&quot;                        &quot;x&quot;                        &quot;y&quot;                        &quot;zs&quot;                       &quot;zs1&quot;                     
-#&gt; [121] &quot;zs2&quot;                      &quot;zs3&quot;                      &quot;zs4&quot;                      &quot;zs5&quot;</code></pre>
+<pre><code>#&gt;   [1] &quot;a&quot;                        &quot;adj.p.val1&quot;               &quot;adj.p.val2&quot;               &quot;adj.p.val3&quot;              
+#&gt;   [5] &quot;adj.p.val4&quot;               &quot;adj.p.val5&quot;               &quot;admix.props&quot;              &quot;animals&quot;                 
+#&gt;   [9] &quot;areaCircle&quot;               &quot;babynames&quot;                &quot;beag&quot;                     &quot;beag_allIND&quot;             
+#&gt;  [13] &quot;beag_allIND_final&quot;        &quot;cali&quot;                     &quot;candidates&quot;               &quot;candidates.1&quot;            
+#&gt;  [17] &quot;candidates.2&quot;             &quot;candidates.3&quot;             &quot;candidates.4&quot;             &quot;candidates.5&quot;            
+#&gt;  [21] &quot;cat&quot;                      &quot;ChickWeight&quot;              &quot;chlomean&quot;                 &quot;conStruct.data&quot;          
+#&gt;  [25] &quot;conStruct.results&quot;        &quot;cov&quot;                      &quot;data&quot;                     &quot;data.block&quot;              
+#&gt;  [29] &quot;data_to_plot&quot;             &quot;df1&quot;                      &quot;df2&quot;                      &quot;df3&quot;                     
+#&gt;  [33] &quot;df4&quot;                      &quot;dog&quot;                      &quot;e&quot;                        &quot;environ&quot;                 
+#&gt;  [37] &quot;fst&quot;                      &quot;g&quot;                        &quot;G&quot;                        &quot;gen&quot;                     
+#&gt;  [41] &quot;gen_allIND&quot;               &quot;geno&quot;                     &quot;genos&quot;                    &quot;geo_dist&quot;                
+#&gt;  [45] &quot;i&quot;                        &quot;il&quot;                       &quot;iris&quot;                     &quot;L&quot;                       
+#&gt;  [49] &quot;lambda1&quot;                  &quot;lambda2&quot;                  &quot;lambda3&quot;                  &quot;lambda4&quot;                 
+#&gt;  [53] &quot;lambda5&quot;                  &quot;listy&quot;                    &quot;livability&quot;               &quot;lrt&quot;                     
+#&gt;  [57] &quot;lrt_filt&quot;                 &quot;lrt_rando&quot;                &quot;meta&quot;                     &quot;meta.path&quot;               
+#&gt;  [61] &quot;msleep&quot;                   &quot;my.colors&quot;                &quot;my.new&quot;                   &quot;my.run&quot;                  
+#&gt;  [65] &quot;my_colors&quot;                &quot;my_list&quot;                  &quot;n&quot;                        &quot;names&quot;                   
+#&gt;  [69] &quot;ne.pacific&quot;               &quot;number&quot;                   &quot;numbers&quot;                  &quot;OF&quot;                      
+#&gt;  [73] &quot;outliers&quot;                 &quot;P1&quot;                       &quot;ph&quot;                       &quot;pheno_chr6&quot;              
+#&gt;  [77] &quot;precip_seasonality&quot;       &quot;precip_w.crop&quot;            &quot;precip_wettest&quot;           &quot;project&quot;                 
+#&gt;  [81] &quot;q&quot;                        &quot;qval&quot;                     &quot;rando_filt&quot;               &quot;salinity&quot;                
+#&gt;  [85] &quot;sea_cuc_geno&quot;             &quot;sea_cuc_lfmm&quot;             &quot;setosa1.petallength&quot;      &quot;setosa1.petalwidth&quot;      
+#&gt;  [89] &quot;setosa1area2&quot;             &quot;sites&quot;                    &quot;sites_environ&quot;            &quot;sites_environ_matrix&quot;    
+#&gt;  [93] &quot;sites_environ_matrix_nas&quot; &quot;squares&quot;                  &quot;sst_max&quot;                  &quot;sst_max.crop&quot;            
+#&gt;  [97] &quot;sst_mean&quot;                 &quot;state.abb&quot;                &quot;state.area&quot;               &quot;state.center&quot;            
+#&gt; [101] &quot;state.division&quot;           &quot;state.name&quot;               &quot;state.region&quot;             &quot;state.x77&quot;               
+#&gt; [105] &quot;states&quot;                   &quot;states_standardized&quot;      &quot;subgen&quot;                   &quot;submeta&quot;                 
+#&gt; [109] &quot;subpops&quot;                  &quot;subsleep&quot;                 &quot;tG&quot;                       &quot;tr_msleep&quot;               
+#&gt; [113] &quot;vcf.path&quot;                 &quot;w&quot;                        &quot;x&quot;                        &quot;y&quot;                       
+#&gt; [117] &quot;zs1&quot;                      &quot;zs2&quot;                      &quot;zs3&quot;                      &quot;zs4&quot;                     
+#&gt; [121] &quot;zs5&quot;</code></pre>
 <div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="week-5--the-r-environment.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="co"># how to get help for a function; you can also write help()</span></span>
 <span id="cb243-2"><a href="week-5--the-r-environment.html#cb243-2" aria-hidden="true" tabindex="-1"></a>?ls</span>
 <span id="cb243-3"><a href="week-5--the-r-environment.html#cb243-3" aria-hidden="true" tabindex="-1"></a><span class="co"># you can get rid of objects you don&#39;t want</span></span>
 <span id="cb243-4"><a href="week-5--the-r-environment.html#cb243-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(numbers)</span>
 <span id="cb243-5"><a href="week-5--the-r-environment.html#cb243-5" aria-hidden="true" tabindex="-1"></a><span class="co"># and make sure it got rid of them</span></span>
 <span id="cb243-6"><a href="week-5--the-r-environment.html#cb243-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
-<pre><code>#&gt;   [1] &quot;a&quot;                        &quot;adj.p.val1&quot;               &quot;adj.p.val2&quot;               &quot;adj.p.val3&quot;               &quot;adj.p.val4&quot;              
-#&gt;   [6] &quot;adj.p.val5&quot;               &quot;adj.p.vals&quot;               &quot;admix.props&quot;              &quot;animals&quot;                  &quot;areaCircle&quot;              
-#&gt;  [11] &quot;babynames&quot;                &quot;beag&quot;                     &quot;beag_allIND&quot;              &quot;beag_allIND_final&quot;        &quot;cali&quot;                    
-#&gt;  [16] &quot;candidates&quot;               &quot;candidates.1&quot;             &quot;candidates.2&quot;             &quot;candidates.3&quot;             &quot;candidates.4&quot;            
-#&gt;  [21] &quot;candidates.5&quot;             &quot;cat&quot;                      &quot;ChickWeight&quot;              &quot;chlomean&quot;                 &quot;conStruct.data&quot;          
-#&gt;  [26] &quot;conStruct.results&quot;        &quot;cov&quot;                      &quot;data&quot;                     &quot;data.block&quot;               &quot;data_to_plot&quot;            
-#&gt;  [31] &quot;df1&quot;                      &quot;df2&quot;                      &quot;df3&quot;                      &quot;df4&quot;                      &quot;dog&quot;                     
-#&gt;  [36] &quot;e&quot;                        &quot;environ&quot;                  &quot;fst&quot;                      &quot;g&quot;                        &quot;G&quot;                       
-#&gt;  [41] &quot;gen&quot;                      &quot;gen_allIND&quot;               &quot;geno&quot;                     &quot;genos&quot;                    &quot;geo_dist&quot;                
-#&gt;  [46] &quot;i&quot;                        &quot;il&quot;                       &quot;iris&quot;                     &quot;L&quot;                        &quot;lambda1&quot;                 
-#&gt;  [51] &quot;lambda2&quot;                  &quot;lambda3&quot;                  &quot;lambda4&quot;                  &quot;lambda5&quot;                  &quot;lambdas&quot;                 
-#&gt;  [56] &quot;listy&quot;                    &quot;livability&quot;               &quot;lrt&quot;                      &quot;lrt_filt&quot;                 &quot;lrt_rando&quot;               
-#&gt;  [61] &quot;meta&quot;                     &quot;meta.path&quot;                &quot;msleep&quot;                   &quot;my.colors&quot;                &quot;my.new&quot;                  
-#&gt;  [66] &quot;my.run&quot;                   &quot;my_colors&quot;                &quot;my_list&quot;                  &quot;n&quot;                        &quot;names&quot;                   
-#&gt;  [71] &quot;ne.pacific&quot;               &quot;number&quot;                   &quot;OF&quot;                       &quot;outliers&quot;                 &quot;P1&quot;                      
-#&gt;  [76] &quot;ph&quot;                       &quot;pheno_chr6&quot;               &quot;precip_seasonality&quot;       &quot;precip_w.crop&quot;            &quot;precip_wettest&quot;          
-#&gt;  [81] &quot;project&quot;                  &quot;q&quot;                        &quot;qval&quot;                     &quot;rando_filt&quot;               &quot;salinity&quot;                
-#&gt;  [86] &quot;sea_cuc_geno&quot;             &quot;sea_cuc_lfmm&quot;             &quot;setosa1.petallength&quot;      &quot;setosa1.petalwidth&quot;       &quot;setosa1area2&quot;            
-#&gt;  [91] &quot;sites&quot;                    &quot;sites_environ&quot;            &quot;sites_environ_matrix&quot;     &quot;sites_environ_matrix_nas&quot; &quot;squares&quot;                 
-#&gt;  [96] &quot;sst_max&quot;                  &quot;sst_max.crop&quot;             &quot;sst_mean&quot;                 &quot;state.abb&quot;                &quot;state.area&quot;              
-#&gt; [101] &quot;state.center&quot;             &quot;state.division&quot;           &quot;state.name&quot;               &quot;state.region&quot;             &quot;state.x77&quot;               
-#&gt; [106] &quot;states&quot;                   &quot;states_standardized&quot;      &quot;subgen&quot;                   &quot;submeta&quot;                  &quot;subpops&quot;                 
-#&gt; [111] &quot;subsleep&quot;                 &quot;tG&quot;                       &quot;tr_msleep&quot;                &quot;vcf.path&quot;                 &quot;w&quot;                       
-#&gt; [116] &quot;x&quot;                        &quot;y&quot;                        &quot;zs&quot;                       &quot;zs1&quot;                      &quot;zs2&quot;                     
-#&gt; [121] &quot;zs3&quot;                      &quot;zs4&quot;                      &quot;zs5&quot;</code></pre>
+<pre><code>#&gt;   [1] &quot;a&quot;                        &quot;adj.p.val1&quot;               &quot;adj.p.val2&quot;               &quot;adj.p.val3&quot;              
+#&gt;   [5] &quot;adj.p.val4&quot;               &quot;adj.p.val5&quot;               &quot;admix.props&quot;              &quot;animals&quot;                 
+#&gt;   [9] &quot;areaCircle&quot;               &quot;babynames&quot;                &quot;beag&quot;                     &quot;beag_allIND&quot;             
+#&gt;  [13] &quot;beag_allIND_final&quot;        &quot;cali&quot;                     &quot;candidates&quot;               &quot;candidates.1&quot;            
+#&gt;  [17] &quot;candidates.2&quot;             &quot;candidates.3&quot;             &quot;candidates.4&quot;             &quot;candidates.5&quot;            
+#&gt;  [21] &quot;cat&quot;                      &quot;ChickWeight&quot;              &quot;chlomean&quot;                 &quot;conStruct.data&quot;          
+#&gt;  [25] &quot;conStruct.results&quot;        &quot;cov&quot;                      &quot;data&quot;                     &quot;data.block&quot;              
+#&gt;  [29] &quot;data_to_plot&quot;             &quot;df1&quot;                      &quot;df2&quot;                      &quot;df3&quot;                     
+#&gt;  [33] &quot;df4&quot;                      &quot;dog&quot;                      &quot;e&quot;                        &quot;environ&quot;                 
+#&gt;  [37] &quot;fst&quot;                      &quot;g&quot;                        &quot;G&quot;                        &quot;gen&quot;                     
+#&gt;  [41] &quot;gen_allIND&quot;               &quot;geno&quot;                     &quot;genos&quot;                    &quot;geo_dist&quot;                
+#&gt;  [45] &quot;i&quot;                        &quot;il&quot;                       &quot;iris&quot;                     &quot;L&quot;                       
+#&gt;  [49] &quot;lambda1&quot;                  &quot;lambda2&quot;                  &quot;lambda3&quot;                  &quot;lambda4&quot;                 
+#&gt;  [53] &quot;lambda5&quot;                  &quot;listy&quot;                    &quot;livability&quot;               &quot;lrt&quot;                     
+#&gt;  [57] &quot;lrt_filt&quot;                 &quot;lrt_rando&quot;                &quot;meta&quot;                     &quot;meta.path&quot;               
+#&gt;  [61] &quot;msleep&quot;                   &quot;my.colors&quot;                &quot;my.new&quot;                   &quot;my.run&quot;                  
+#&gt;  [65] &quot;my_colors&quot;                &quot;my_list&quot;                  &quot;n&quot;                        &quot;names&quot;                   
+#&gt;  [69] &quot;ne.pacific&quot;               &quot;number&quot;                   &quot;OF&quot;                       &quot;outliers&quot;                
+#&gt;  [73] &quot;P1&quot;                       &quot;ph&quot;                       &quot;pheno_chr6&quot;               &quot;precip_seasonality&quot;      
+#&gt;  [77] &quot;precip_w.crop&quot;            &quot;precip_wettest&quot;           &quot;project&quot;                  &quot;q&quot;                       
+#&gt;  [81] &quot;qval&quot;                     &quot;rando_filt&quot;               &quot;salinity&quot;                 &quot;sea_cuc_geno&quot;            
+#&gt;  [85] &quot;sea_cuc_lfmm&quot;             &quot;setosa1.petallength&quot;      &quot;setosa1.petalwidth&quot;       &quot;setosa1area2&quot;            
+#&gt;  [89] &quot;sites&quot;                    &quot;sites_environ&quot;            &quot;sites_environ_matrix&quot;     &quot;sites_environ_matrix_nas&quot;
+#&gt;  [93] &quot;squares&quot;                  &quot;sst_max&quot;                  &quot;sst_max.crop&quot;             &quot;sst_mean&quot;                
+#&gt;  [97] &quot;state.abb&quot;                &quot;state.area&quot;               &quot;state.center&quot;             &quot;state.division&quot;          
+#&gt; [101] &quot;state.name&quot;               &quot;state.region&quot;             &quot;state.x77&quot;                &quot;states&quot;                  
+#&gt; [105] &quot;states_standardized&quot;      &quot;subgen&quot;                   &quot;submeta&quot;                  &quot;subpops&quot;                 
+#&gt; [109] &quot;subsleep&quot;                 &quot;tG&quot;                       &quot;tr_msleep&quot;                &quot;vcf.path&quot;                
+#&gt; [113] &quot;w&quot;                        &quot;x&quot;                        &quot;y&quot;                        &quot;zs1&quot;                     
+#&gt; [117] &quot;zs2&quot;                      &quot;zs3&quot;                      &quot;zs4&quot;                      &quot;zs5&quot;</code></pre>
 </div>
 <div id="exercise-1.1" class="section level2 hasAnchor" number="6.6">
 <h2><span class="header-section-number">6.6</span> EXERCISE 1.1<a href="week-5--the-r-environment.html#exercise-1.1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -605,22 +622,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="week-5--the-r-environment.html#cb254-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;ggplot2&quot;)</span></span>
 <span id="cb254-2"><a href="week-5--the-r-environment.html#cb254-2" aria-hidden="true" tabindex="-1"></a><span class="co">#load the package</span></span>
 <span id="cb254-3"><a href="week-5--the-r-environment.html#cb254-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span> (ggplot2)</span></code></pre></div>
+<pre><code>#&gt; Need help? Try Stackoverflow: https://stackoverflow.com/tags/ggplot2</code></pre>
+<pre><code>#&gt; 
+#&gt; Attaching package: &#39;ggplot2&#39;</code></pre>
+<pre><code>#&gt; The following object is masked _by_ &#39;.GlobalEnv&#39;:
+#&gt; 
+#&gt;     msleep</code></pre>
 <p>Load the data (it’s called msleep).</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="week-5--the-r-environment.html#cb255-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;msleep&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="week-5--the-r-environment.html#cb258-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;msleep&quot;</span>)</span></code></pre></div>
 <p>There are many functions in R that allow us to get an idea of what the data looks like. For example, what are it’s dimensions (how many rows and columns)?</p>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="week-5--the-r-environment.html#cb256-1" aria-hidden="true" tabindex="-1"></a><span class="co"># head() -look at the beginning of the data file</span></span>
-<span id="cb256-2"><a href="week-5--the-r-environment.html#cb256-2" aria-hidden="true" tabindex="-1"></a><span class="co"># tail() -look at the end of the data file</span></span>
-<span id="cb256-3"><a href="week-5--the-r-environment.html#cb256-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(msleep)</span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="week-5--the-r-environment.html#cb259-1" aria-hidden="true" tabindex="-1"></a><span class="co"># head() -look at the beginning of the data file</span></span>
+<span id="cb259-2"><a href="week-5--the-r-environment.html#cb259-2" aria-hidden="true" tabindex="-1"></a><span class="co"># tail() -look at the end of the data file</span></span>
+<span id="cb259-3"><a href="week-5--the-r-environment.html#cb259-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(msleep)</span></code></pre></div>
 <pre><code>#&gt; # A tibble: 6 × 11
-#&gt;   name                       genus      vore  order        conservation sleep_total sleep_rem sleep_cycle awake  brainwt  bodywt
-#&gt;   &lt;chr&gt;                      &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
-#&gt; 1 Cheetah                    Acinonyx   carni Carnivora    lc                  12.1      NA        NA      11.9 NA        50    
-#&gt; 2 Owl monkey                 Aotus      omni  Primates     &lt;NA&gt;                17         1.8      NA       7    0.0155    0.48 
-#&gt; 3 Mountain beaver            Aplodontia herbi Rodentia     nt                  14.4       2.4      NA       9.6 NA         1.35 
-#&gt; 4 Greater short-tailed shrew Blarina    omni  Soricomorpha lc                  14.9       2.3       0.133   9.1  0.00029   0.019
-#&gt; 5 Cow                        Bos        herbi Artiodactyla domesticated         4         0.7       0.667  20    0.423   600    
-#&gt; 6 Three-toed sloth           Bradypus   herbi Pilosa       &lt;NA&gt;                14.4       2.2       0.767   9.6 NA         3.85</code></pre>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="week-5--the-r-environment.html#cb258-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(msleep)</span></code></pre></div>
+#&gt;   name                       genus      vore  order        conservation sleep_total sleep…¹ sleep…² awake  brainwt  bodywt
+#&gt;   &lt;chr&gt;                      &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;              &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
+#&gt; 1 Cheetah                    Acinonyx   carni Carnivora    lc                  12.1    NA    NA      11.9 NA        50    
+#&gt; 2 Owl monkey                 Aotus      omni  Primates     &lt;NA&gt;                17       1.8  NA       7    0.0155    0.48 
+#&gt; 3 Mountain beaver            Aplodontia herbi Rodentia     nt                  14.4     2.4  NA       9.6 NA         1.35 
+#&gt; 4 Greater short-tailed shrew Blarina    omni  Soricomorpha lc                  14.9     2.3   0.133   9.1  0.00029   0.019
+#&gt; 5 Cow                        Bos        herbi Artiodactyla domesticated         4       0.7   0.667  20    0.423   600    
+#&gt; 6 Three-toed sloth           Bradypus   herbi Pilosa       &lt;NA&gt;                14.4     2.2   0.767   9.6 NA         3.85 
+#&gt; # … with abbreviated variable names ¹​sleep_rem, ²​sleep_cycle</code></pre>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="week-5--the-r-environment.html#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(msleep)</span></code></pre></div>
 <pre><code>#&gt; # A tibble: 6 × 11
 #&gt;   name                 genus    vore  order        conservation sleep_total sleep_rem sleep_cycle awake brainwt  bodywt
 #&gt;   &lt;chr&gt;                &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
@@ -630,8 +654,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; 4 Genet                Genetta  carni Carnivora    &lt;NA&gt;                 6.3       1.3      NA      17.7  0.0175   2    
 #&gt; 5 Arctic fox           Vulpes   carni Carnivora    &lt;NA&gt;                12.5      NA        NA      11.5  0.0445   3.38 
 #&gt; 6 Red fox              Vulpes   carni Carnivora    &lt;NA&gt;                 9.8       2.4       0.35   14.2  0.0504   4.23</code></pre>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="week-5--the-r-environment.html#cb260-1" aria-hidden="true" tabindex="-1"></a><span class="co"># str()</span></span>
-<span id="cb260-2"><a href="week-5--the-r-environment.html#cb260-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(msleep)</span></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="week-5--the-r-environment.html#cb263-1" aria-hidden="true" tabindex="-1"></a><span class="co"># str()</span></span>
+<span id="cb263-2"><a href="week-5--the-r-environment.html#cb263-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(msleep)</span></code></pre></div>
 <pre><code>#&gt; tibble [83 × 11] (S3: tbl_df/tbl/data.frame)
 #&gt;  $ name        : chr [1:83] &quot;Cheetah&quot; &quot;Owl monkey&quot; &quot;Mountain beaver&quot; &quot;Greater short-tailed shrew&quot; ...
 #&gt;  $ genus       : chr [1:83] &quot;Acinonyx&quot; &quot;Aotus&quot; &quot;Aplodontia&quot; &quot;Blarina&quot; ...
@@ -654,7 +678,7 @@ colnames(), rownames() - column names, row names</p>
 <p><strong>Quick Tip:</strong>
 Think about “rc cola” or “remote control car” to remember that [5,] means fifth row and [,5] means fifth column!</p>
 <p>Each way has it’s own advantages:</p>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="week-5--the-r-environment.html#cb262-1" aria-hidden="true" tabindex="-1"></a>msleep[,<span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="week-5--the-r-environment.html#cb265-1" aria-hidden="true" tabindex="-1"></a>msleep[,<span class="dv">3</span>]</span></code></pre></div>
 <pre><code>#&gt; # A tibble: 83 × 1
 #&gt;    vore 
 #&gt;    &lt;chr&gt;
@@ -668,9 +692,8 @@ Think about “rc cola” or “remote control car” to remember that [5,] mean
 #&gt;  8 &lt;NA&gt; 
 #&gt;  9 carni
 #&gt; 10 herbi
-#&gt; # … with 73 more rows
-#&gt; # ℹ Use `print(n = ...)` to see more rows</code></pre>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="week-5--the-r-environment.html#cb264-1" aria-hidden="true" tabindex="-1"></a>msleep[, <span class="st">&quot;vore&quot;</span>]</span></code></pre></div>
+#&gt; # … with 73 more rows</code></pre>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="week-5--the-r-environment.html#cb267-1" aria-hidden="true" tabindex="-1"></a>msleep[, <span class="st">&quot;vore&quot;</span>]</span></code></pre></div>
 <pre><code>#&gt; # A tibble: 83 × 1
 #&gt;    vore 
 #&gt;    &lt;chr&gt;
@@ -684,35 +707,35 @@ Think about “rc cola” or “remote control car” to remember that [5,] mean
 #&gt;  8 &lt;NA&gt; 
 #&gt;  9 carni
 #&gt; 10 herbi
-#&gt; # … with 73 more rows
-#&gt; # ℹ Use `print(n = ...)` to see more rows</code></pre>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="week-5--the-r-environment.html#cb266-1" aria-hidden="true" tabindex="-1"></a>msleep<span class="sc">$</span>vore</span></code></pre></div>
-<pre><code>#&gt;  [1] &quot;carni&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;herbi&quot;   &quot;carni&quot;   NA        &quot;carni&quot;   &quot;herbi&quot;   &quot;herbi&quot;   &quot;herbi&quot;   &quot;omni&quot;   
-#&gt; [14] &quot;herbi&quot;   &quot;omni&quot;    &quot;omni&quot;    &quot;omni&quot;    &quot;carni&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;insecti&quot; &quot;herbi&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;omni&quot;   
-#&gt; [27] &quot;herbi&quot;   &quot;carni&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;carni&quot;   &quot;carni&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;herbi&quot;   &quot;carni&quot;   &quot;omni&quot;    &quot;herbi&quot;  
-#&gt; [40] &quot;herbi&quot;   &quot;herbi&quot;   &quot;herbi&quot;   &quot;insecti&quot; &quot;herbi&quot;   &quot;carni&quot;   &quot;herbi&quot;   &quot;carni&quot;   &quot;herbi&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;carni&quot;   &quot;carni&quot;  
-#&gt; [53] &quot;carni&quot;   &quot;omni&quot;    NA        &quot;omni&quot;    NA        NA        &quot;carni&quot;   &quot;carni&quot;   &quot;herbi&quot;   &quot;insecti&quot; NA        &quot;herbi&quot;   &quot;omni&quot;   
-#&gt; [66] &quot;omni&quot;    &quot;insecti&quot; &quot;herbi&quot;   NA        &quot;herbi&quot;   &quot;herbi&quot;   &quot;herbi&quot;   NA        &quot;omni&quot;    &quot;insecti&quot; &quot;herbi&quot;   &quot;herbi&quot;   &quot;omni&quot;   
-#&gt; [79] &quot;omni&quot;    &quot;carni&quot;   &quot;carni&quot;   &quot;carni&quot;   &quot;carni&quot;</code></pre>
+#&gt; # … with 73 more rows</code></pre>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="week-5--the-r-environment.html#cb269-1" aria-hidden="true" tabindex="-1"></a>msleep<span class="sc">$</span>vore</span></code></pre></div>
+<pre><code>#&gt;  [1] &quot;carni&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;herbi&quot;   &quot;carni&quot;   NA        &quot;carni&quot;   &quot;herbi&quot;   &quot;herbi&quot;  
+#&gt; [12] &quot;herbi&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;omni&quot;    &quot;omni&quot;    &quot;omni&quot;    &quot;carni&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;insecti&quot;
+#&gt; [23] &quot;herbi&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;omni&quot;    &quot;herbi&quot;   &quot;carni&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;carni&quot;   &quot;carni&quot;   &quot;herbi&quot;  
+#&gt; [34] &quot;omni&quot;    &quot;herbi&quot;   &quot;herbi&quot;   &quot;carni&quot;   &quot;omni&quot;    &quot;herbi&quot;   &quot;herbi&quot;   &quot;herbi&quot;   &quot;herbi&quot;   &quot;insecti&quot; &quot;herbi&quot;  
+#&gt; [45] &quot;carni&quot;   &quot;herbi&quot;   &quot;carni&quot;   &quot;herbi&quot;   &quot;herbi&quot;   &quot;omni&quot;    &quot;carni&quot;   &quot;carni&quot;   &quot;carni&quot;   &quot;omni&quot;    NA       
+#&gt; [56] &quot;omni&quot;    NA        NA        &quot;carni&quot;   &quot;carni&quot;   &quot;herbi&quot;   &quot;insecti&quot; NA        &quot;herbi&quot;   &quot;omni&quot;    &quot;omni&quot;   
+#&gt; [67] &quot;insecti&quot; &quot;herbi&quot;   NA        &quot;herbi&quot;   &quot;herbi&quot;   &quot;herbi&quot;   NA        &quot;omni&quot;    &quot;insecti&quot; &quot;herbi&quot;   &quot;herbi&quot;  
+#&gt; [78] &quot;omni&quot;    &quot;omni&quot;    &quot;carni&quot;   &quot;carni&quot;   &quot;carni&quot;   &quot;carni&quot;</code></pre>
 <p>Sometimes it is useful to know what class() the column is:</p>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="week-5--the-r-environment.html#cb268-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(msleep<span class="sc">$</span>vore)</span></code></pre></div>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="week-5--the-r-environment.html#cb271-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(msleep<span class="sc">$</span>vore)</span></code></pre></div>
 <pre><code>#&gt; [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="week-5--the-r-environment.html#cb270-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(msleep<span class="sc">$</span>sleep_total)</span></code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="week-5--the-r-environment.html#cb273-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(msleep<span class="sc">$</span>sleep_total)</span></code></pre></div>
 <pre><code>#&gt; [1] &quot;numeric&quot;</code></pre>
 <p>We can also look at a single row at a time. There are two ways to access this: 1. by indicating the row number in square brackets next to the name of the dataframe <code>name[#,]</code> and by calling the actual name of the row (if your rows have names) <code>name["a",]</code>.</p>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="week-5--the-r-environment.html#cb272-1" aria-hidden="true" tabindex="-1"></a>msleep[<span class="dv">43</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="week-5--the-r-environment.html#cb275-1" aria-hidden="true" tabindex="-1"></a>msleep[<span class="dv">43</span>,]</span></code></pre></div>
 <pre><code>#&gt; # A tibble: 1 × 11
 #&gt;   name             genus  vore    order      conservation sleep_total sleep_rem sleep_cycle awake brainwt bodywt
 #&gt;   &lt;chr&gt;            &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
 #&gt; 1 Little brown bat Myotis insecti Chiroptera &lt;NA&gt;                19.9         2         0.2   4.1 0.00025   0.01</code></pre>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="week-5--the-r-environment.html#cb274-1" aria-hidden="true" tabindex="-1"></a>msleep[msleep<span class="sc">$</span>name <span class="sc">==</span> <span class="st">&quot;Mountain beaver&quot;</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="week-5--the-r-environment.html#cb277-1" aria-hidden="true" tabindex="-1"></a>msleep[msleep<span class="sc">$</span>name <span class="sc">==</span> <span class="st">&quot;Mountain beaver&quot;</span>,]</span></code></pre></div>
 <pre><code>#&gt; # A tibble: 1 × 11
 #&gt;   name            genus      vore  order    conservation sleep_total sleep_rem sleep_cycle awake brainwt bodywt
 #&gt;   &lt;chr&gt;           &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
 #&gt; 1 Mountain beaver Aplodontia herbi Rodentia nt                  14.4       2.4          NA   9.6      NA   1.35</code></pre>
 <p>We can select more than one row or column at a time:</p>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="week-5--the-r-environment.html#cb276-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># see two columns</span></span>
-<span id="cb276-2"><a href="week-5--the-r-environment.html#cb276-2" aria-hidden="true" tabindex="-1"></a>msleep[,<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">6</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="week-5--the-r-environment.html#cb279-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># see two columns</span></span>
+<span id="cb279-2"><a href="week-5--the-r-environment.html#cb279-2" aria-hidden="true" tabindex="-1"></a>msleep[,<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">6</span>)]</span></code></pre></div>
 <pre><code>#&gt; # A tibble: 83 × 2
 #&gt;    name                       sleep_total
 #&gt;    &lt;chr&gt;                            &lt;dbl&gt;
@@ -726,13 +749,12 @@ Think about “rc cola” or “remote control car” to remember that [5,] mean
 #&gt;  8 Vesper mouse                       7  
 #&gt;  9 Dog                               10.1
 #&gt; 10 Roe deer                           3  
-#&gt; # … with 73 more rows
-#&gt; # ℹ Use `print(n = ...)` to see more rows</code></pre>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="week-5--the-r-environment.html#cb278-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># and make a new data frame from these subsets</span></span>
-<span id="cb278-2"><a href="week-5--the-r-environment.html#cb278-2" aria-hidden="true" tabindex="-1"></a>subsleep<span class="ot">&lt;-</span>msleep[,<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">6</span>)]</span></code></pre></div>
+#&gt; # … with 73 more rows</code></pre>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="week-5--the-r-environment.html#cb281-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># and make a new data frame from these subsets</span></span>
+<span id="cb281-2"><a href="week-5--the-r-environment.html#cb281-2" aria-hidden="true" tabindex="-1"></a>subsleep<span class="ot">&lt;-</span>msleep[,<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">6</span>)]</span></code></pre></div>
 <p>But what if we actually care about how many <strong>unique</strong> things are in a column?</p>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="week-5--the-r-environment.html#cb279-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># unique()</span></span>
-<span id="cb279-2"><a href="week-5--the-r-environment.html#cb279-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(msleep[, <span class="st">&quot;order&quot;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="week-5--the-r-environment.html#cb282-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># unique()</span></span>
+<span id="cb282-2"><a href="week-5--the-r-environment.html#cb282-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(msleep[, <span class="st">&quot;order&quot;</span>])</span></code></pre></div>
 <pre><code>#&gt; # A tibble: 19 × 1
 #&gt;    order          
 #&gt;    &lt;chr&gt;          
@@ -755,40 +777,41 @@ Think about “rc cola” or “remote control car” to remember that [5,] mean
 #&gt; 17 Monotremata    
 #&gt; 18 Afrosoricida   
 #&gt; 19 Scandentia</code></pre>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="week-5--the-r-environment.html#cb281-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># table()</span></span>
-<span id="cb281-2"><a href="week-5--the-r-environment.html#cb281-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(msleep<span class="sc">$</span>order)</span></code></pre></div>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="week-5--the-r-environment.html#cb284-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># table()</span></span>
+<span id="cb284-2"><a href="week-5--the-r-environment.html#cb284-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(msleep<span class="sc">$</span>order)</span></code></pre></div>
 <pre><code>#&gt; 
-#&gt;    Afrosoricida    Artiodactyla       Carnivora         Cetacea      Chiroptera       Cingulata Didelphimorphia   Diprotodontia 
-#&gt;               1               6              12               3               2               2               2               2 
-#&gt;  Erinaceomorpha      Hyracoidea      Lagomorpha     Monotremata  Perissodactyla          Pilosa        Primates     Proboscidea 
-#&gt;               2               3               1               1               3               1              12               2 
-#&gt;        Rodentia      Scandentia    Soricomorpha 
-#&gt;              22               1               5</code></pre>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="week-5--the-r-environment.html#cb283-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># levels(), if class is factor (and if not we can make it a factor)</span></span>
-<span id="cb283-2"><a href="week-5--the-r-environment.html#cb283-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(<span class="fu">as.factor</span>(msleep<span class="sc">$</span>order))</span></code></pre></div>
-<pre><code>#&gt;  [1] &quot;Afrosoricida&quot;    &quot;Artiodactyla&quot;    &quot;Carnivora&quot;       &quot;Cetacea&quot;         &quot;Chiroptera&quot;      &quot;Cingulata&quot;       &quot;Didelphimorphia&quot;
-#&gt;  [8] &quot;Diprotodontia&quot;   &quot;Erinaceomorpha&quot;  &quot;Hyracoidea&quot;      &quot;Lagomorpha&quot;      &quot;Monotremata&quot;     &quot;Perissodactyla&quot;  &quot;Pilosa&quot;         
-#&gt; [15] &quot;Primates&quot;        &quot;Proboscidea&quot;     &quot;Rodentia&quot;        &quot;Scandentia&quot;      &quot;Soricomorpha&quot;</code></pre>
+#&gt;    Afrosoricida    Artiodactyla       Carnivora         Cetacea      Chiroptera       Cingulata Didelphimorphia 
+#&gt;               1               6              12               3               2               2               2 
+#&gt;   Diprotodontia  Erinaceomorpha      Hyracoidea      Lagomorpha     Monotremata  Perissodactyla          Pilosa 
+#&gt;               2               2               3               1               1               3               1 
+#&gt;        Primates     Proboscidea        Rodentia      Scandentia    Soricomorpha 
+#&gt;              12               2              22               1               5</code></pre>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="week-5--the-r-environment.html#cb286-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># levels(), if class is factor (and if not we can make it a factor)</span></span>
+<span id="cb286-2"><a href="week-5--the-r-environment.html#cb286-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(<span class="fu">as.factor</span>(msleep<span class="sc">$</span>order))</span></code></pre></div>
+<pre><code>#&gt;  [1] &quot;Afrosoricida&quot;    &quot;Artiodactyla&quot;    &quot;Carnivora&quot;       &quot;Cetacea&quot;         &quot;Chiroptera&quot;      &quot;Cingulata&quot;      
+#&gt;  [7] &quot;Didelphimorphia&quot; &quot;Diprotodontia&quot;   &quot;Erinaceomorpha&quot;  &quot;Hyracoidea&quot;      &quot;Lagomorpha&quot;      &quot;Monotremata&quot;    
+#&gt; [13] &quot;Perissodactyla&quot;  &quot;Pilosa&quot;          &quot;Primates&quot;        &quot;Proboscidea&quot;     &quot;Rodentia&quot;        &quot;Scandentia&quot;     
+#&gt; [19] &quot;Soricomorpha&quot;</code></pre>
 </div>
 <div id="data-manipulation" class="section level2 hasAnchor" number="6.9">
 <h2><span class="header-section-number">6.9</span> Data Manipulation<a href="week-5--the-r-environment.html#data-manipulation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If your data is transposed in a way that isn’t useful to you, you can switch it. Note that this often changes the class of each column!</p>
 <p>In R, each column must have the same type of data:</p>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="week-5--the-r-environment.html#cb285-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># t()</span></span>
-<span id="cb285-2"><a href="week-5--the-r-environment.html#cb285-2" aria-hidden="true" tabindex="-1"></a>tr_msleep<span class="ot">&lt;-</span><span class="fu">t</span>(msleep)</span>
-<span id="cb285-3"><a href="week-5--the-r-environment.html#cb285-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(tr_msleep)</span></code></pre></div>
-<pre><code>#&gt;  chr [1:11, 1:83] &quot;Cheetah&quot; &quot;Acinonyx&quot; &quot;carni&quot; &quot;Carnivora&quot; &quot;lc&quot; &quot;12.1&quot; NA NA &quot;11.90&quot; NA &quot;  50.000&quot; &quot;Owl monkey&quot; &quot;Aotus&quot; &quot;omni&quot; ...
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="week-5--the-r-environment.html#cb288-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># t()</span></span>
+<span id="cb288-2"><a href="week-5--the-r-environment.html#cb288-2" aria-hidden="true" tabindex="-1"></a>tr_msleep<span class="ot">&lt;-</span><span class="fu">t</span>(msleep)</span>
+<span id="cb288-3"><a href="week-5--the-r-environment.html#cb288-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(tr_msleep)</span></code></pre></div>
+<pre><code>#&gt;  chr [1:11, 1:83] &quot;Cheetah&quot; &quot;Acinonyx&quot; &quot;carni&quot; &quot;Carnivora&quot; &quot;lc&quot; &quot;12.1&quot; NA NA &quot;11.90&quot; NA &quot;  50.000&quot; &quot;Owl monkey&quot; ...
 #&gt;  - attr(*, &quot;dimnames&quot;)=List of 2
 #&gt;   ..$ : chr [1:11] &quot;name&quot; &quot;genus&quot; &quot;vore&quot; &quot;order&quot; ...
 #&gt;   ..$ : NULL</code></pre>
 <p>It’s important to know the class of data if you want to manipulate it. For example, you can’t add characters.
 <code>msleep</code> contains several different types of data.</p>
 <p>Some common classes are: factors, numeric, integers, characters, logical</p>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="week-5--the-r-environment.html#cb287-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># class()</span></span>
-<span id="cb287-2"><a href="week-5--the-r-environment.html#cb287-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(msleep)</span></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="week-5--the-r-environment.html#cb290-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># class()</span></span>
+<span id="cb290-2"><a href="week-5--the-r-environment.html#cb290-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(msleep)</span></code></pre></div>
 <pre><code>#&gt; [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="week-5--the-r-environment.html#cb289-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># str()</span></span>
-<span id="cb289-2"><a href="week-5--the-r-environment.html#cb289-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(msleep)</span></code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="week-5--the-r-environment.html#cb292-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># str()</span></span>
+<span id="cb292-2"><a href="week-5--the-r-environment.html#cb292-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(msleep)</span></code></pre></div>
 <pre><code>#&gt; tibble [83 × 11] (S3: tbl_df/tbl/data.frame)
 #&gt;  $ name        : chr [1:83] &quot;Cheetah&quot; &quot;Owl monkey&quot; &quot;Mountain beaver&quot; &quot;Greater short-tailed shrew&quot; ...
 #&gt;  $ genus       : chr [1:83] &quot;Acinonyx&quot; &quot;Aotus&quot; &quot;Aplodontia&quot; &quot;Blarina&quot; ...
@@ -802,34 +825,35 @@ Think about “rc cola” or “remote control car” to remember that [5,] mean
 #&gt;  $ brainwt     : num [1:83] NA 0.0155 NA 0.00029 0.423 NA NA NA 0.07 0.0982 ...
 #&gt;  $ bodywt      : num [1:83] 50 0.48 1.35 0.019 600 ...</code></pre>
 <p>Often we want to summarize data. There are many ways of doing this in R:</p>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="week-5--the-r-environment.html#cb291-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># calculate mean() of a column</span></span>
-<span id="cb291-2"><a href="week-5--the-r-environment.html#cb291-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(msleep<span class="sc">$</span>sleep_total)</span></code></pre></div>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="week-5--the-r-environment.html#cb294-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># calculate mean() of a column</span></span>
+<span id="cb294-2"><a href="week-5--the-r-environment.html#cb294-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(msleep<span class="sc">$</span>sleep_total)</span></code></pre></div>
 <pre><code>#&gt; [1] 10.43373</code></pre>
-<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="week-5--the-r-environment.html#cb293-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># max()</span></span>
-<span id="cb293-2"><a href="week-5--the-r-environment.html#cb293-2" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(msleep<span class="sc">$</span>sleep_total)</span></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="week-5--the-r-environment.html#cb296-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># max()</span></span>
+<span id="cb296-2"><a href="week-5--the-r-environment.html#cb296-2" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(msleep<span class="sc">$</span>sleep_total)</span></code></pre></div>
 <pre><code>#&gt; [1] 19.9</code></pre>
-<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="week-5--the-r-environment.html#cb295-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># min()</span></span>
-<span id="cb295-2"><a href="week-5--the-r-environment.html#cb295-2" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(msleep<span class="sc">$</span>sleep_total)</span></code></pre></div>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="week-5--the-r-environment.html#cb298-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># min()</span></span>
+<span id="cb298-2"><a href="week-5--the-r-environment.html#cb298-2" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(msleep<span class="sc">$</span>sleep_total)</span></code></pre></div>
 <pre><code>#&gt; [1] 1.9</code></pre>
-<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="week-5--the-r-environment.html#cb297-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># summary()</span></span>
-<span id="cb297-2"><a href="week-5--the-r-environment.html#cb297-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(msleep<span class="sc">$</span>sleep_total)</span></code></pre></div>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="week-5--the-r-environment.html#cb300-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># summary()</span></span>
+<span id="cb300-2"><a href="week-5--the-r-environment.html#cb300-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(msleep<span class="sc">$</span>sleep_total)</span></code></pre></div>
 <pre><code>#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 #&gt;    1.90    7.85   10.10   10.43   13.75   19.90</code></pre>
 <p>Sometimes, the values we care about aren’t provided in a data set. When this happens, we can create a new column that contains the values we’re interested in:</p>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="week-5--the-r-environment.html#cb299-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># what if what we cared about was our sleep_total/sleep_rem ratio?</span></span>
-<span id="cb299-2"><a href="week-5--the-r-environment.html#cb299-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add a sleep_total/sleep_rem ratio column to our msleep dataframe with $</span></span>
-<span id="cb299-3"><a href="week-5--the-r-environment.html#cb299-3" aria-hidden="true" tabindex="-1"></a>msleep<span class="sc">$</span>total_rem<span class="ot">&lt;-</span>msleep<span class="sc">$</span>sleep_total<span class="sc">/</span>msleep<span class="sc">$</span>sleep_rem</span>
-<span id="cb299-4"><a href="week-5--the-r-environment.html#cb299-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># look at our dataframe again. It now contains 12 columns, one of them being the one we just created.</span></span>
-<span id="cb299-5"><a href="week-5--the-r-environment.html#cb299-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(msleep)</span></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="week-5--the-r-environment.html#cb302-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># what if what we cared about was our sleep_total/sleep_rem ratio?</span></span>
+<span id="cb302-2"><a href="week-5--the-r-environment.html#cb302-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add a sleep_total/sleep_rem ratio column to our msleep dataframe with $</span></span>
+<span id="cb302-3"><a href="week-5--the-r-environment.html#cb302-3" aria-hidden="true" tabindex="-1"></a>msleep<span class="sc">$</span>total_rem<span class="ot">&lt;-</span>msleep<span class="sc">$</span>sleep_total<span class="sc">/</span>msleep<span class="sc">$</span>sleep_rem</span>
+<span id="cb302-4"><a href="week-5--the-r-environment.html#cb302-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># look at our dataframe again. It now contains 12 columns, one of them being the one we just created.</span></span>
+<span id="cb302-5"><a href="week-5--the-r-environment.html#cb302-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(msleep)</span></code></pre></div>
 <pre><code>#&gt; # A tibble: 6 × 12
-#&gt;   name                       genus      vore  order        conservation sleep_total sleep_rem sleep_cycle awake  brainwt  bodywt total_rem
-#&gt;   &lt;chr&gt;                      &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
-#&gt; 1 Cheetah                    Acinonyx   carni Carnivora    lc                  12.1      NA        NA      11.9 NA        50         NA   
-#&gt; 2 Owl monkey                 Aotus      omni  Primates     &lt;NA&gt;                17         1.8      NA       7    0.0155    0.48       9.44
-#&gt; 3 Mountain beaver            Aplodontia herbi Rodentia     nt                  14.4       2.4      NA       9.6 NA         1.35       6   
-#&gt; 4 Greater short-tailed shrew Blarina    omni  Soricomorpha lc                  14.9       2.3       0.133   9.1  0.00029   0.019      6.48
-#&gt; 5 Cow                        Bos        herbi Artiodactyla domesticated         4         0.7       0.667  20    0.423   600          5.71
-#&gt; 6 Three-toed sloth           Bradypus   herbi Pilosa       &lt;NA&gt;                14.4       2.2       0.767   9.6 NA         3.85       6.55</code></pre>
+#&gt;   name                       genus      vore  order        conser…¹ sleep…² sleep…³ sleep…⁴ awake  brainwt  bodywt total…⁵
+#&gt;   &lt;chr&gt;                      &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+#&gt; 1 Cheetah                    Acinonyx   carni Carnivora    lc          12.1    NA    NA      11.9 NA        50       NA   
+#&gt; 2 Owl monkey                 Aotus      omni  Primates     &lt;NA&gt;        17       1.8  NA       7    0.0155    0.48     9.44
+#&gt; 3 Mountain beaver            Aplodontia herbi Rodentia     nt          14.4     2.4  NA       9.6 NA         1.35     6   
+#&gt; 4 Greater short-tailed shrew Blarina    omni  Soricomorpha lc          14.9     2.3   0.133   9.1  0.00029   0.019    6.48
+#&gt; 5 Cow                        Bos        herbi Artiodactyla domesti…     4       0.7   0.667  20    0.423   600        5.71
+#&gt; 6 Three-toed sloth           Bradypus   herbi Pilosa       &lt;NA&gt;        14.4     2.2   0.767   9.6 NA         3.85     6.55
+#&gt; # … with abbreviated variable names ¹​conservation, ²​sleep_total, ³​sleep_rem, ⁴​sleep_cycle, ⁵​total_rem</code></pre>
 </div>
 <div id="exercise-1.2" class="section level2 hasAnchor" number="6.10">
 <h2><span class="header-section-number">6.10</span> EXERCISE 1.2<a href="week-5--the-r-environment.html#exercise-1.2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -847,8 +871,8 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="week-5--the-r-environment.html#cb301-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
-<span id="cb301-2"><a href="week-5--the-r-environment.html#cb301-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="week-5--the-r-environment.html#cb304-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
+<span id="cb304-2"><a href="week-5--the-r-environment.html#cb304-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(iris)</span></code></pre></div>
 <pre><code>#&gt; [1] 150</code></pre>
 </p>
 </details>
@@ -863,9 +887,9 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="week-5--the-r-environment.html#cb303-1" aria-hidden="true" tabindex="-1"></a><span class="co">#nrows</span></span>
-<span id="cb303-2"><a href="week-5--the-r-environment.html#cb303-2" aria-hidden="true" tabindex="-1"></a><span class="co">#str</span></span>
-<span id="cb303-3"><a href="week-5--the-r-environment.html#cb303-3" aria-hidden="true" tabindex="-1"></a><span class="co">#dim</span></span></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="week-5--the-r-environment.html#cb306-1" aria-hidden="true" tabindex="-1"></a><span class="co">#nrows</span></span>
+<span id="cb306-2"><a href="week-5--the-r-environment.html#cb306-2" aria-hidden="true" tabindex="-1"></a><span class="co">#str</span></span>
+<span id="cb306-3"><a href="week-5--the-r-environment.html#cb306-3" aria-hidden="true" tabindex="-1"></a><span class="co">#dim</span></span></code></pre></div>
 </p>
 </details>
 <p> </p>
@@ -879,7 +903,7 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="week-5--the-r-environment.html#cb304-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(iris<span class="sc">$</span>Species)</span></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="week-5--the-r-environment.html#cb307-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(iris<span class="sc">$</span>Species)</span></code></pre></div>
 <pre><code>#&gt; [1] &quot;setosa&quot;     &quot;versicolor&quot; &quot;virginica&quot;</code></pre>
 </p>
 </details>
@@ -894,7 +918,7 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="week-5--the-r-environment.html#cb306-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="week-5--the-r-environment.html#cb309-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(iris)</span></code></pre></div>
 <pre><code>#&gt; [1] &quot;data.frame&quot;</code></pre>
 </p>
 </details>
@@ -909,7 +933,7 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="week-5--the-r-environment.html#cb308-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="week-5--the-r-environment.html#cb311-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(iris)</span></code></pre></div>
 <pre><code>#&gt; [1] &quot;Sepal.Length&quot; &quot;Sepal.Width&quot;  &quot;Petal.Length&quot; &quot;Petal.Width&quot;  &quot;Species&quot;</code></pre>
 </p>
 </details>
@@ -924,7 +948,7 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="week-5--the-r-environment.html#cb310-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="week-5--the-r-environment.html#cb313-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(iris)</span></code></pre></div>
 <pre><code>#&gt; &#39;data.frame&#39;:    150 obs. of  5 variables:
 #&gt;  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
 #&gt;  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
@@ -944,8 +968,8 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="week-5--the-r-environment.html#cb312-1" aria-hidden="true" tabindex="-1"></a>setosa1.petalwidth<span class="ot">&lt;-</span>iris[<span class="dv">1</span>,<span class="dv">2</span>]</span>
-<span id="cb312-2"><a href="week-5--the-r-environment.html#cb312-2" aria-hidden="true" tabindex="-1"></a>setosa1.petallength<span class="ot">&lt;-</span>iris[<span class="dv">1</span>,<span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="week-5--the-r-environment.html#cb315-1" aria-hidden="true" tabindex="-1"></a>setosa1.petalwidth<span class="ot">&lt;-</span>iris[<span class="dv">1</span>,<span class="dv">2</span>]</span>
+<span id="cb315-2"><a href="week-5--the-r-environment.html#cb315-2" aria-hidden="true" tabindex="-1"></a>setosa1.petallength<span class="ot">&lt;-</span>iris[<span class="dv">1</span>,<span class="dv">3</span>]</span></code></pre></div>
 </p>
 </details>
 <p> </p>
@@ -959,8 +983,8 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="week-5--the-r-environment.html#cb313-1" aria-hidden="true" tabindex="-1"></a><span class="co">#using our premade objects</span></span>
-<span id="cb313-2"><a href="week-5--the-r-environment.html#cb313-2" aria-hidden="true" tabindex="-1"></a>setosa1area2<span class="ot">&lt;-</span>setosa1.petalwidth<span class="sc">*</span>setosa1.petallength</span></code></pre></div>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="week-5--the-r-environment.html#cb316-1" aria-hidden="true" tabindex="-1"></a><span class="co">#using our premade objects</span></span>
+<span id="cb316-2"><a href="week-5--the-r-environment.html#cb316-2" aria-hidden="true" tabindex="-1"></a>setosa1area2<span class="ot">&lt;-</span>setosa1.petalwidth<span class="sc">*</span>setosa1.petallength</span></code></pre></div>
 </p>
 </details>
 <p> </p>
@@ -974,7 +998,7 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="week-5--the-r-environment.html#cb314-1" aria-hidden="true" tabindex="-1"></a>iris<span class="sc">$</span>PetalArea<span class="ot">&lt;-</span>iris<span class="sc">$</span>Petal.Length<span class="sc">*</span>iris<span class="sc">$</span>Petal.Width</span></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="week-5--the-r-environment.html#cb317-1" aria-hidden="true" tabindex="-1"></a>iris<span class="sc">$</span>PetalArea<span class="ot">&lt;-</span>iris<span class="sc">$</span>Petal.Length<span class="sc">*</span>iris<span class="sc">$</span>Petal.Width</span></code></pre></div>
 </p>
 </details>
 <p> </p>
@@ -988,7 +1012,7 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="week-5--the-r-environment.html#cb315-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(iris<span class="sc">$</span>Sepal.Length)</span></code></pre></div>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="week-5--the-r-environment.html#cb318-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(iris<span class="sc">$</span>Sepal.Length)</span></code></pre></div>
 <pre><code>#&gt; [1] 7.9</code></pre>
 </p>
 </details>
@@ -1003,7 +1027,7 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="week-5--the-r-environment.html#cb317-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(iris<span class="sc">$</span>Sepal.Length)</span></code></pre></div>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="week-5--the-r-environment.html#cb320-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(iris<span class="sc">$</span>Sepal.Length)</span></code></pre></div>
 <pre><code>#&gt; [1] 5.843333</code></pre>
 </p>
 </details>
@@ -1018,9 +1042,9 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="week-5--the-r-environment.html#cb319-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(iris<span class="sc">$</span>Sepal.Length)</span></code></pre></div>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="week-5--the-r-environment.html#cb322-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(iris<span class="sc">$</span>Sepal.Length)</span></code></pre></div>
 <pre><code>#&gt; [1] 4.3</code></pre>
-<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="week-5--the-r-environment.html#cb321-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(iris<span class="sc">$</span>Sepal.Length)</span></code></pre></div>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="week-5--the-r-environment.html#cb324-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(iris<span class="sc">$</span>Sepal.Length)</span></code></pre></div>
 <pre><code>#&gt; [1] 5.8</code></pre>
 </p>
 </details>
@@ -1032,62 +1056,62 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <p>Reminder there are two assignment operators in R <code>&lt;-</code> and a single equals sign <code>=</code>. The one you use really depends on how you learned to use R, and are otherwise equivalent.</p>
 <p><strong>Logical conditions vs. assignment operators:</strong></p>
 <p>Logical values of TRUE and FALSE are special in R. What class is a logical value?</p>
-<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="week-5--the-r-environment.html#cb323-1" aria-hidden="true" tabindex="-1"></a><span class="cn">TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="week-5--the-r-environment.html#cb326-1" aria-hidden="true" tabindex="-1"></a><span class="cn">TRUE</span></span></code></pre></div>
 <pre><code>#&gt; [1] TRUE</code></pre>
-<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="week-5--the-r-environment.html#cb325-1" aria-hidden="true" tabindex="-1"></a><span class="cn">FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="week-5--the-r-environment.html#cb328-1" aria-hidden="true" tabindex="-1"></a><span class="cn">FALSE</span></span></code></pre></div>
 <pre><code>#&gt; [1] FALSE</code></pre>
-<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="week-5--the-r-environment.html#cb327-1" aria-hidden="true" tabindex="-1"></a><span class="co"># what class is a logical value?</span></span>
-<span id="cb327-2"><a href="week-5--the-r-environment.html#cb327-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="week-5--the-r-environment.html#cb330-1" aria-hidden="true" tabindex="-1"></a><span class="co"># what class is a logical value?</span></span>
+<span id="cb330-2"><a href="week-5--the-r-environment.html#cb330-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>#&gt; [1] &quot;logical&quot;</code></pre>
 <p>Logical values are stored as 0 for FALSE and 1 for TRUE. Which means you can do math with them!</p>
-<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="week-5--the-r-environment.html#cb329-1" aria-hidden="true" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="week-5--the-r-environment.html#cb332-1" aria-hidden="true" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
 <pre><code>#&gt; [1] 2</code></pre>
-<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="week-5--the-r-environment.html#cb331-1" aria-hidden="true" tabindex="-1"></a><span class="cn">FALSE</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="week-5--the-r-environment.html#cb334-1" aria-hidden="true" tabindex="-1"></a><span class="cn">FALSE</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
 <pre><code>#&gt; [1] 1</code></pre>
-<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="week-5--the-r-environment.html#cb333-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">FALSE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="week-5--the-r-environment.html#cb336-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">FALSE</span>))</span></code></pre></div>
 <pre><code>#&gt; [1] 2</code></pre>
-<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="week-5--the-r-environment.html#cb335-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="cn">TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="week-5--the-r-environment.html#cb338-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="cn">TRUE</span></span></code></pre></div>
 <pre><code>#&gt; [1] FALSE</code></pre>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="week-5--the-r-environment.html#cb337-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="week-5--the-r-environment.html#cb340-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>#&gt; [1] FALSE FALSE  TRUE  TRUE</code></pre>
 <p>Logicals will be the output of various tests:</p>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="week-5--the-r-environment.html#cb339-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="week-5--the-r-environment.html#cb342-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">1</span></span></code></pre></div>
 <pre><code>#&gt; [1] TRUE</code></pre>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="week-5--the-r-environment.html#cb341-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="week-5--the-r-environment.html#cb344-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>#&gt; [1] FALSE</code></pre>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="week-5--the-r-environment.html#cb343-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># does not equal</span></span>
-<span id="cb343-2"><a href="week-5--the-r-environment.html#cb343-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">!=</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="week-5--the-r-environment.html#cb346-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># does not equal</span></span>
+<span id="cb346-2"><a href="week-5--the-r-environment.html#cb346-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">!=</span> <span class="dv">1</span></span></code></pre></div>
 <pre><code>#&gt; [1] FALSE</code></pre>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="week-5--the-r-environment.html#cb345-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">!=</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="week-5--the-r-environment.html#cb348-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">!=</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>#&gt; [1] TRUE</code></pre>
-<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="week-5--the-r-environment.html#cb347-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># greater than</span></span>
-<span id="cb347-2"><a href="week-5--the-r-environment.html#cb347-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">&gt;</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="week-5--the-r-environment.html#cb350-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># greater than</span></span>
+<span id="cb350-2"><a href="week-5--the-r-environment.html#cb350-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">&gt;</span> <span class="dv">1</span></span></code></pre></div>
 <pre><code>#&gt; [1] FALSE</code></pre>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="week-5--the-r-environment.html#cb349-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">&gt;=</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="week-5--the-r-environment.html#cb352-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">&gt;=</span> <span class="dv">1</span></span></code></pre></div>
 <pre><code>#&gt; [1] TRUE</code></pre>
-<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="week-5--the-r-environment.html#cb351-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># less than</span></span>
-<span id="cb351-2"><a href="week-5--the-r-environment.html#cb351-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">&lt;</span> <span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="week-5--the-r-environment.html#cb354-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># less than</span></span>
+<span id="cb354-2"><a href="week-5--the-r-environment.html#cb354-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">&lt;</span> <span class="dv">3</span></span></code></pre></div>
 <pre><code>#&gt; [1] TRUE</code></pre>
-<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="week-5--the-r-environment.html#cb353-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># combining logical conditions with and (&amp;), or(|)</span></span>
-<span id="cb353-2"><a href="week-5--the-r-environment.html#cb353-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="week-5--the-r-environment.html#cb356-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># combining logical conditions with and (&amp;), or(|)</span></span>
+<span id="cb356-2"><a href="week-5--the-r-environment.html#cb356-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>#&gt; [1] TRUE</code></pre>
-<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="week-5--the-r-environment.html#cb355-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> <span class="dv">1</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="week-5--the-r-environment.html#cb358-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> <span class="dv">1</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>#&gt; [1] FALSE</code></pre>
-<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="week-5--the-r-environment.html#cb357-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">1</span> <span class="sc">|</span> <span class="dv">1</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="week-5--the-r-environment.html#cb360-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">1</span> <span class="sc">|</span> <span class="dv">1</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>#&gt; [1] TRUE</code></pre>
-<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="week-5--the-r-environment.html#cb359-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># we can take the opposite of a logical by using !</span></span>
-<span id="cb359-2"><a href="week-5--the-r-environment.html#cb359-2" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="cn">TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="week-5--the-r-environment.html#cb362-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># we can take the opposite of a logical by using !</span></span>
+<span id="cb362-2"><a href="week-5--the-r-environment.html#cb362-2" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="cn">TRUE</span></span></code></pre></div>
 <pre><code>#&gt; [1] FALSE</code></pre>
 <p>This is very useful because we can use logicals to query a data frame or vector.</p>
-<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="week-5--the-r-environment.html#cb361-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># Which numbers in 1:10 are greater than 3?</span></span>
-<span id="cb361-2"><a href="week-5--the-r-environment.html#cb361-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="sc">&gt;</span> <span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="week-5--the-r-environment.html#cb364-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># Which numbers in 1:10 are greater than 3?</span></span>
+<span id="cb364-2"><a href="week-5--the-r-environment.html#cb364-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="sc">&gt;</span> <span class="dv">3</span></span></code></pre></div>
 <pre><code>#&gt;  [1] FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
-<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="week-5--the-r-environment.html#cb363-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># How many numbers in 1:10 are greater than 3?</span></span>
-<span id="cb363-2"><a href="week-5--the-r-environment.html#cb363-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="sc">&gt;</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="week-5--the-r-environment.html#cb366-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># How many numbers in 1:10 are greater than 3?</span></span>
+<span id="cb366-2"><a href="week-5--the-r-environment.html#cb366-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="sc">&gt;</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>#&gt; [1] 7</code></pre>
-<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="week-5--the-r-environment.html#cb365-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in our msleep data frame, which species have total sleep greater than 18 hours?</span></span>
-<span id="cb365-2"><a href="week-5--the-r-environment.html#cb365-2" aria-hidden="true" tabindex="-1"></a><span class="co"># reload the msleep data with library(ggplot2) and data(msleep) if you need to</span></span>
-<span id="cb365-3"><a href="week-5--the-r-environment.html#cb365-3" aria-hidden="true" tabindex="-1"></a>msleep[,<span class="st">&quot;sleep_total&quot;</span>]<span class="sc">&gt;</span><span class="dv">18</span></span></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="week-5--the-r-environment.html#cb368-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in our msleep data frame, which species have total sleep greater than 18 hours?</span></span>
+<span id="cb368-2"><a href="week-5--the-r-environment.html#cb368-2" aria-hidden="true" tabindex="-1"></a><span class="co"># reload the msleep data with library(ggplot2) and data(msleep) if you need to</span></span>
+<span id="cb368-3"><a href="week-5--the-r-environment.html#cb368-3" aria-hidden="true" tabindex="-1"></a>msleep[,<span class="st">&quot;sleep_total&quot;</span>]<span class="sc">&gt;</span><span class="dv">18</span></span></code></pre></div>
 <pre><code>#&gt;       sleep_total
 #&gt;  [1,]       FALSE
 #&gt;  [2,]       FALSE
@@ -1172,27 +1196,29 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 #&gt; [81,]       FALSE
 #&gt; [82,]       FALSE
 #&gt; [83,]       FALSE</code></pre>
-<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="week-5--the-r-environment.html#cb367-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># Using which() to identify which rows match the logical values (TRUE) and length to count how many species there are</span></span>
-<span id="cb367-2"><a href="week-5--the-r-environment.html#cb367-2" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(msleep[,<span class="st">&quot;sleep_total&quot;</span>]<span class="sc">&gt;</span><span class="dv">18</span>)  <span class="co">#22 37 43 62 --&gt; the rows that contain organisms that sleep more than 18 hrs</span></span></code></pre></div>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="week-5--the-r-environment.html#cb370-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># Using which() to identify which rows match the logical values (TRUE) and length to count how many species there are</span></span>
+<span id="cb370-2"><a href="week-5--the-r-environment.html#cb370-2" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(msleep[,<span class="st">&quot;sleep_total&quot;</span>]<span class="sc">&gt;</span><span class="dv">18</span>)  <span class="co">#22 37 43 62 --&gt; the rows that contain organisms that sleep more than 18 hrs</span></span></code></pre></div>
 <pre><code>#&gt; [1] 22 37 43 62</code></pre>
-<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="week-5--the-r-environment.html#cb369-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">which</span>(msleep[,<span class="st">&quot;sleep_total&quot;</span>]<span class="sc">&gt;</span><span class="dv">18</span>)) <span class="co">#4 --&gt; number of species that sleep more than 18 hrs </span></span></code></pre></div>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="week-5--the-r-environment.html#cb372-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">which</span>(msleep[,<span class="st">&quot;sleep_total&quot;</span>]<span class="sc">&gt;</span><span class="dv">18</span>)) <span class="co">#4 --&gt; number of species that sleep more than 18 hrs </span></span></code></pre></div>
 <pre><code>#&gt; [1] 4</code></pre>
-<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="week-5--the-r-environment.html#cb371-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># which four species are these?</span></span>
-<span id="cb371-2"><a href="week-5--the-r-environment.html#cb371-2" aria-hidden="true" tabindex="-1"></a>msleep[<span class="fu">which</span>(msleep[,<span class="st">&quot;sleep_total&quot;</span>]<span class="sc">&gt;</span><span class="dv">18</span>),]</span></code></pre></div>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="week-5--the-r-environment.html#cb374-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># which four species are these?</span></span>
+<span id="cb374-2"><a href="week-5--the-r-environment.html#cb374-2" aria-hidden="true" tabindex="-1"></a>msleep[<span class="fu">which</span>(msleep[,<span class="st">&quot;sleep_total&quot;</span>]<span class="sc">&gt;</span><span class="dv">18</span>),]</span></code></pre></div>
 <pre><code>#&gt; # A tibble: 4 × 12
-#&gt;   name                 genus      vore    order           conservation sleep_total sleep_rem sleep_cycle awake  brainwt bodywt total_rem
-#&gt;   &lt;chr&gt;                &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;           &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
-#&gt; 1 Big brown bat        Eptesicus  insecti Chiroptera      lc                  19.7       3.9       0.117   4.3  0.0003   0.023      5.05
-#&gt; 2 Thick-tailed opposum Lutreolina carni   Didelphimorphia lc                  19.4       6.6      NA       4.6 NA        0.37       2.94
-#&gt; 3 Little brown bat     Myotis     insecti Chiroptera      &lt;NA&gt;                19.9       2         0.2     4.1  0.00025  0.01       9.95
-#&gt; 4 Giant armadillo      Priodontes insecti Cingulata       en                  18.1       6.1      NA       5.9  0.081   60          2.97</code></pre>
-<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="week-5--the-r-environment.html#cb373-1" aria-hidden="true" tabindex="-1"></a><span class="co"># what if we only want to see the bats that sleep more than 18 hours per 24 hour period?</span></span>
-<span id="cb373-2"><a href="week-5--the-r-environment.html#cb373-2" aria-hidden="true" tabindex="-1"></a>msleep[<span class="fu">which</span>(msleep[,<span class="st">&quot;sleep_total&quot;</span>]<span class="sc">&gt;</span><span class="dv">18</span> <span class="sc">&amp;</span> msleep[,<span class="st">&quot;order&quot;</span>] <span class="sc">==</span> <span class="st">&quot;Chiroptera&quot;</span>),]</span></code></pre></div>
+#&gt;   name                 genus      vore    order           conservat…¹ sleep…² sleep…³ sleep…⁴ awake brainwt bodywt total…⁵
+#&gt;   &lt;chr&gt;                &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;           &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+#&gt; 1 Big brown bat        Eptesicus  insecti Chiroptera      lc             19.7     3.9   0.117   4.3  3  e-4  0.023    5.05
+#&gt; 2 Thick-tailed opposum Lutreolina carni   Didelphimorphia lc             19.4     6.6  NA       4.6 NA       0.37     2.94
+#&gt; 3 Little brown bat     Myotis     insecti Chiroptera      &lt;NA&gt;           19.9     2     0.2     4.1  2.5e-4  0.01     9.95
+#&gt; 4 Giant armadillo      Priodontes insecti Cingulata       en             18.1     6.1  NA       5.9  8.1e-2 60        2.97
+#&gt; # … with abbreviated variable names ¹​conservation, ²​sleep_total, ³​sleep_rem, ⁴​sleep_cycle, ⁵​total_rem</code></pre>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="week-5--the-r-environment.html#cb376-1" aria-hidden="true" tabindex="-1"></a><span class="co"># what if we only want to see the bats that sleep more than 18 hours per 24 hour period?</span></span>
+<span id="cb376-2"><a href="week-5--the-r-environment.html#cb376-2" aria-hidden="true" tabindex="-1"></a>msleep[<span class="fu">which</span>(msleep[,<span class="st">&quot;sleep_total&quot;</span>]<span class="sc">&gt;</span><span class="dv">18</span> <span class="sc">&amp;</span> msleep[,<span class="st">&quot;order&quot;</span>] <span class="sc">==</span> <span class="st">&quot;Chiroptera&quot;</span>),]</span></code></pre></div>
 <pre><code>#&gt; # A tibble: 2 × 12
-#&gt;   name             genus     vore    order      conservation sleep_total sleep_rem sleep_cycle awake brainwt bodywt total_rem
-#&gt;   &lt;chr&gt;            &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
-#&gt; 1 Big brown bat    Eptesicus insecti Chiroptera lc                  19.7       3.9       0.117   4.3 0.0003   0.023      5.05
-#&gt; 2 Little brown bat Myotis    insecti Chiroptera &lt;NA&gt;                19.9       2         0.2     4.1 0.00025  0.01       9.95</code></pre>
+#&gt;   name             genus     vore    order      conservation sleep_total sleep_rem sleep_cy…¹ awake brainwt bodywt total…²
+#&gt;   &lt;chr&gt;            &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+#&gt; 1 Big brown bat    Eptesicus insecti Chiroptera lc                  19.7       3.9      0.117   4.3 0.0003   0.023    5.05
+#&gt; 2 Little brown bat Myotis    insecti Chiroptera &lt;NA&gt;                19.9       2        0.2     4.1 0.00025  0.01     9.95
+#&gt; # … with abbreviated variable names ¹​sleep_cycle, ²​total_rem</code></pre>
 </div>
 <div id="exercise-1.3-indexing-by-logical-statements" class="section level2 hasAnchor" number="6.12">
 <h2><span class="header-section-number">6.12</span> EXERCISE 1.3 indexing by logical statements<a href="week-5--the-r-environment.html#exercise-1.3-indexing-by-logical-statements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -1205,8 +1231,8 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="week-5--the-r-environment.html#cb375-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">=</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
-<span id="cb375-2"><a href="week-5--the-r-environment.html#cb375-2" aria-hidden="true" tabindex="-1"></a>a <span class="do">## let&#39;s print to screen and make sure it is stored in this variable</span></span></code></pre></div>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="week-5--the-r-environment.html#cb378-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">=</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb378-2"><a href="week-5--the-r-environment.html#cb378-2" aria-hidden="true" tabindex="-1"></a>a <span class="do">## let&#39;s print to screen and make sure it is stored in this variable</span></span></code></pre></div>
 <pre><code>#&gt; [1]  TRUE  TRUE FALSE FALSE  TRUE FALSE</code></pre>
 </p>
 </details>
@@ -1220,9 +1246,9 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="week-5--the-r-environment.html#cb377-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(a)  <span class="do">## which gives you the index of TRUE values automatically</span></span></code></pre></div>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="week-5--the-r-environment.html#cb380-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(a)  <span class="do">## which gives you the index of TRUE values automatically</span></span></code></pre></div>
 <pre><code>#&gt; [1] 1 2 5</code></pre>
-<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="week-5--the-r-environment.html#cb379-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(a <span class="sc">==</span> <span class="cn">TRUE</span>)   <span class="do">## but sometimes it&#39;s reassuring to state exactly what you&#39;re doing</span></span></code></pre></div>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="week-5--the-r-environment.html#cb382-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(a <span class="sc">==</span> <span class="cn">TRUE</span>)   <span class="do">## but sometimes it&#39;s reassuring to state exactly what you&#39;re doing</span></span></code></pre></div>
 <pre><code>#&gt; [1] 1 2 5</code></pre>
 </p>
 </details>
@@ -1236,9 +1262,9 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="week-5--the-r-environment.html#cb381-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="sc">!</span>a)</span></code></pre></div>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="week-5--the-r-environment.html#cb384-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="sc">!</span>a)</span></code></pre></div>
 <pre><code>#&gt; [1] 3 4 6</code></pre>
-<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="week-5--the-r-environment.html#cb383-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(a <span class="sc">==</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="week-5--the-r-environment.html#cb386-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(a <span class="sc">==</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>#&gt; [1] 3 4 6</code></pre>
 </p>
 </details>
@@ -1251,10 +1277,10 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="week-5--the-r-environment.html#cb385-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)  <span class="do">## this reloads the data set in case you&#39;ve closed R since using iris</span></span>
-<span id="cb385-2"><a href="week-5--the-r-environment.html#cb385-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(iris[,<span class="st">&#39;Sepal.Length&#39;</span>]<span class="sc">&lt;</span><span class="fl">5.5</span>)  <span class="do">## remember TRUE&#39;s are 1 and FALSE&#39;s are 0</span></span></code></pre></div>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="week-5--the-r-environment.html#cb388-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)  <span class="do">## this reloads the data set in case you&#39;ve closed R since using iris</span></span>
+<span id="cb388-2"><a href="week-5--the-r-environment.html#cb388-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(iris[,<span class="st">&#39;Sepal.Length&#39;</span>]<span class="sc">&lt;</span><span class="fl">5.5</span>)  <span class="do">## remember TRUE&#39;s are 1 and FALSE&#39;s are 0</span></span></code></pre></div>
 <pre><code>#&gt; [1] 52</code></pre>
-<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="week-5--the-r-environment.html#cb387-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">which</span>(iris[,<span class="st">&#39;Sepal.Length&#39;</span>]<span class="sc">&lt;</span><span class="fl">5.5</span>))  <span class="do">## here, which() will only return the index of TRUE values, so we&#39;re counting how many there are</span></span></code></pre></div>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="week-5--the-r-environment.html#cb390-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">which</span>(iris[,<span class="st">&#39;Sepal.Length&#39;</span>]<span class="sc">&lt;</span><span class="fl">5.5</span>))  <span class="do">## here, which() will only return the index of TRUE values, so we&#39;re counting how many there are</span></span></code></pre></div>
 <pre><code>#&gt; [1] 52</code></pre>
 </p>
 </details>
@@ -1268,14 +1294,14 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="week-5--the-r-environment.html#cb389-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>])  <span class="do">## this gives us the length of the longest petal</span></span></code></pre></div>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="week-5--the-r-environment.html#cb392-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>])  <span class="do">## this gives us the length of the longest petal</span></span></code></pre></div>
 <pre><code>#&gt; [1] 6.9</code></pre>
-<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="week-5--the-r-environment.html#cb391-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>] <span class="sc">==</span> <span class="fu">max</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>]))  <span class="do">## this gives us the index of the individual with the longest petal</span></span></code></pre></div>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="week-5--the-r-environment.html#cb394-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>] <span class="sc">==</span> <span class="fu">max</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>]))  <span class="do">## this gives us the index of the individual with the longest petal</span></span></code></pre></div>
 <pre><code>#&gt; [1] 119</code></pre>
-<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="week-5--the-r-environment.html#cb393-1" aria-hidden="true" tabindex="-1"></a>iris[,<span class="st">&#39;Petal.Width&#39;</span>][<span class="fu">which</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>] <span class="sc">==</span> <span class="fu">max</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>]))] <span class="do">## now we&#39;re subsetting the Petal.Width column by the index of the individual with the longest petal</span></span></code></pre></div>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="week-5--the-r-environment.html#cb396-1" aria-hidden="true" tabindex="-1"></a>iris[,<span class="st">&#39;Petal.Width&#39;</span>][<span class="fu">which</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>] <span class="sc">==</span> <span class="fu">max</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>]))] <span class="do">## now we&#39;re subsetting the Petal.Width column by the index of the individual with the longest petal</span></span></code></pre></div>
 <pre><code>#&gt; [1] 2.3</code></pre>
-<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="week-5--the-r-environment.html#cb395-1" aria-hidden="true" tabindex="-1"></a><span class="do">## another way to do this would be to use the index of the individual with the longest petal to pick rows, and the Petal.Width name to pick columns and subset the entire data frame</span></span>
-<span id="cb395-2"><a href="week-5--the-r-environment.html#cb395-2" aria-hidden="true" tabindex="-1"></a>iris[<span class="fu">which</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>] <span class="sc">==</span> <span class="fu">max</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>])) , <span class="st">&#39;Petal.Width&#39;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="week-5--the-r-environment.html#cb398-1" aria-hidden="true" tabindex="-1"></a><span class="do">## another way to do this would be to use the index of the individual with the longest petal to pick rows, and the Petal.Width name to pick columns and subset the entire data frame</span></span>
+<span id="cb398-2"><a href="week-5--the-r-environment.html#cb398-2" aria-hidden="true" tabindex="-1"></a>iris[<span class="fu">which</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>] <span class="sc">==</span> <span class="fu">max</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>])) , <span class="st">&#39;Petal.Width&#39;</span>]</span></code></pre></div>
 <pre><code>#&gt; [1] 2.3</code></pre>
 </p>
 </details>
@@ -1289,9 +1315,9 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="week-5--the-r-environment.html#cb397-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(iris[,<span class="st">&#39;Species&#39;</span>]<span class="sc">==</span><span class="st">&#39;versicolor&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="week-5--the-r-environment.html#cb400-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(iris[,<span class="st">&#39;Species&#39;</span>]<span class="sc">==</span><span class="st">&#39;versicolor&#39;</span>)</span></code></pre></div>
 <pre><code>#&gt; [1] 50</code></pre>
-<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="week-5--the-r-environment.html#cb399-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(iris[,<span class="st">&#39;Species&#39;</span>]) <span class="do">## this gets us all three species</span></span></code></pre></div>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="week-5--the-r-environment.html#cb402-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(iris[,<span class="st">&#39;Species&#39;</span>]) <span class="do">## this gets us all three species</span></span></code></pre></div>
 <pre><code>#&gt; 
 #&gt;     setosa versicolor  virginica 
 #&gt;         50         50         50</code></pre>
@@ -1307,7 +1333,7 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="week-5--the-r-environment.html#cb401-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>] <span class="sc">&gt;</span> <span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="week-5--the-r-environment.html#cb404-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>] <span class="sc">&gt;</span> <span class="dv">6</span>)</span></code></pre></div>
 <pre><code>#&gt; [1] 9</code></pre>
 </p>
 </details>
@@ -1321,20 +1347,22 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="week-5--the-r-environment.html#cb403-1" aria-hidden="true" tabindex="-1"></a>iris[,<span class="st">&#39;Species&#39;</span>][iris[,<span class="st">&#39;Sepal.Length&#39;</span>]<span class="sc">&gt;</span><span class="dv">6</span>]</span></code></pre></div>
-<pre><code>#&gt;  [1] versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor
-#&gt; [13] versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor virginica  virginica  virginica  virginica 
-#&gt; [25] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
-#&gt; [37] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
-#&gt; [49] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="week-5--the-r-environment.html#cb406-1" aria-hidden="true" tabindex="-1"></a>iris[,<span class="st">&#39;Species&#39;</span>][iris[,<span class="st">&#39;Sepal.Length&#39;</span>]<span class="sc">&gt;</span><span class="dv">6</span>]</span></code></pre></div>
+<pre><code>#&gt;  [1] versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor
+#&gt; [11] versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor
+#&gt; [21] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+#&gt; [31] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+#&gt; [41] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+#&gt; [51] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
 #&gt; [61] virginica 
 #&gt; Levels: setosa versicolor virginica</code></pre>
-<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="week-5--the-r-environment.html#cb405-1" aria-hidden="true" tabindex="-1"></a>iris[iris[,<span class="st">&#39;Sepal.Length&#39;</span>]<span class="sc">&gt;</span><span class="dv">6</span>, <span class="st">&#39;Species&#39;</span>] <span class="do">## alternatively, we can put the logical vector in the row part, and Species in the column part, to get a vector back</span></span></code></pre></div>
-<pre><code>#&gt;  [1] versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor
-#&gt; [13] versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor virginica  virginica  virginica  virginica 
-#&gt; [25] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
-#&gt; [37] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
-#&gt; [49] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="week-5--the-r-environment.html#cb408-1" aria-hidden="true" tabindex="-1"></a>iris[iris[,<span class="st">&#39;Sepal.Length&#39;</span>]<span class="sc">&gt;</span><span class="dv">6</span>, <span class="st">&#39;Species&#39;</span>] <span class="do">## alternatively, we can put the logical vector in the row part, and Species in the column part, to get a vector back</span></span></code></pre></div>
+<pre><code>#&gt;  [1] versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor
+#&gt; [11] versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor versicolor
+#&gt; [21] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+#&gt; [31] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+#&gt; [41] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
+#&gt; [51] virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica  virginica 
 #&gt; [61] virginica 
 #&gt; Levels: setosa versicolor virginica</code></pre>
 </p>
@@ -1349,7 +1377,7 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="week-5--the-r-environment.html#cb407-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>( iris[,<span class="st">&#39;Sepal.Length&#39;</span>] <span class="sc">&lt;</span> <span class="dv">5</span> <span class="sc">&amp;</span> iris[,<span class="st">&#39;Sepal.Width&#39;</span>] <span class="sc">&gt;</span> <span class="dv">3</span> )</span></code></pre></div>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="week-5--the-r-environment.html#cb410-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>( iris[,<span class="st">&#39;Sepal.Length&#39;</span>] <span class="sc">&lt;</span> <span class="dv">5</span> <span class="sc">&amp;</span> iris[,<span class="st">&#39;Sepal.Width&#39;</span>] <span class="sc">&gt;</span> <span class="dv">3</span> )</span></code></pre></div>
 <pre><code>#&gt; [1] 13</code></pre>
 </p>
 </details>
@@ -1363,7 +1391,7 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="week-5--the-r-environment.html#cb409-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>( iris[,<span class="st">&#39;Petal.Width&#39;</span>] <span class="sc">&lt;</span> <span class="fl">0.2</span> <span class="sc">|</span> iris[,<span class="st">&#39;Petal.Length&#39;</span>] <span class="sc">&lt;</span> <span class="fl">1.5</span> )</span></code></pre></div>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="week-5--the-r-environment.html#cb412-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>( iris[,<span class="st">&#39;Petal.Width&#39;</span>] <span class="sc">&lt;</span> <span class="fl">0.2</span> <span class="sc">|</span> iris[,<span class="st">&#39;Petal.Length&#39;</span>] <span class="sc">&lt;</span> <span class="fl">1.5</span> )</span></code></pre></div>
 <pre><code>#&gt; [1] 26</code></pre>
 </p>
 </details>
@@ -1377,9 +1405,9 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="week-5--the-r-environment.html#cb411-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>( iris[,<span class="st">&#39;Sepal.Width&#39;</span>][iris[,<span class="st">&#39;Sepal.Length&#39;</span>] <span class="sc">&gt;</span> <span class="dv">5</span>][iris[,<span class="st">&#39;Species&#39;</span>]<span class="sc">==</span><span class="st">&#39;setosa&#39;</span>]) <span class="do">## convince yourself the second part is a logical vector that subsets iris[,&#39;Sepal.Width&#39;]</span></span></code></pre></div>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="week-5--the-r-environment.html#cb414-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>( iris[,<span class="st">&#39;Sepal.Width&#39;</span>][iris[,<span class="st">&#39;Sepal.Length&#39;</span>] <span class="sc">&gt;</span> <span class="dv">5</span>][iris[,<span class="st">&#39;Species&#39;</span>]<span class="sc">==</span><span class="st">&#39;setosa&#39;</span>]) <span class="do">## convince yourself the second part is a logical vector that subsets iris[,&#39;Sepal.Width&#39;]</span></span></code></pre></div>
 <pre><code>#&gt; [1] 3.22</code></pre>
-<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="week-5--the-r-environment.html#cb413-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>( iris[iris[,<span class="st">&#39;Sepal.Length&#39;</span>] <span class="sc">&gt;</span> <span class="dv">5</span>, <span class="st">&#39;Sepal.Width&#39;</span>][iris[,<span class="st">&#39;Species&#39;</span>]<span class="sc">==</span><span class="st">&#39;setosa&#39;</span>]) <span class="do">## again, we can alternatively subset using logical vectors in the row position</span></span></code></pre></div>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="week-5--the-r-environment.html#cb416-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>( iris[iris[,<span class="st">&#39;Sepal.Length&#39;</span>] <span class="sc">&gt;</span> <span class="dv">5</span>, <span class="st">&#39;Sepal.Width&#39;</span>][iris[,<span class="st">&#39;Species&#39;</span>]<span class="sc">==</span><span class="st">&#39;setosa&#39;</span>]) <span class="do">## again, we can alternatively subset using logical vectors in the row position</span></span></code></pre></div>
 <pre><code>#&gt; [1] 3.22</code></pre>
 </p>
 </details>
@@ -1393,7 +1421,7 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="week-5--the-r-environment.html#cb415-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>][iris[,<span class="st">&#39;Species&#39;</span>]<span class="sc">==</span><span class="st">&#39;virginica&#39;</span>]) <span class="sc">-</span> <span class="fu">min</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>][iris[,<span class="st">&#39;Species&#39;</span>]<span class="sc">==</span><span class="st">&#39;virginica&#39;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="week-5--the-r-environment.html#cb418-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>][iris[,<span class="st">&#39;Species&#39;</span>]<span class="sc">==</span><span class="st">&#39;virginica&#39;</span>]) <span class="sc">-</span> <span class="fu">min</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>][iris[,<span class="st">&#39;Species&#39;</span>]<span class="sc">==</span><span class="st">&#39;virginica&#39;</span>])</span></code></pre></div>
 <pre><code>#&gt; [1] 2.4</code></pre>
 </p>
 </details>
@@ -1407,7 +1435,7 @@ We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="week-5--the-r-environment.html#cb417-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(iris[,<span class="st">&#39;Petal.Width&#39;</span>] <span class="sc">&gt;</span> <span class="dv">1</span> ) <span class="sc">/</span> <span class="fu">nrow</span>(iris) <span class="do">## here, we&#39;re counting up how many are wider than 1 cm, and dividing by the total number of flowers to get a proportion</span></span></code></pre></div>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="week-5--the-r-environment.html#cb420-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(iris[,<span class="st">&#39;Petal.Width&#39;</span>] <span class="sc">&gt;</span> <span class="dv">1</span> ) <span class="sc">/</span> <span class="fu">nrow</span>(iris) <span class="do">## here, we&#39;re counting up how many are wider than 1 cm, and dividing by the total number of flowers to get a proportion</span></span></code></pre></div>
 <pre><code>#&gt; [1] 0.62</code></pre>
 </p>
 </details>
@@ -1424,12 +1452,12 @@ How many plants with short sepals are there? How many long?</li>
 <span style="color: blue;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="week-5--the-r-environment.html#cb419-1" aria-hidden="true" tabindex="-1"></a><span class="co"># new column for long</span></span>
-<span id="cb419-2"><a href="week-5--the-r-environment.html#cb419-2" aria-hidden="true" tabindex="-1"></a>iris[,<span class="st">&#39;sepalCategory&#39;</span>] <span class="ot">=</span> <span class="st">&#39;long&#39;</span>  <span class="do">## this sets ever entry in the column equal to &#39;long&#39;</span></span>
-<span id="cb419-3"><a href="week-5--the-r-environment.html#cb419-3" aria-hidden="true" tabindex="-1"></a><span class="co"># new column for short (&lt; 5.5 cm)</span></span>
-<span id="cb419-4"><a href="week-5--the-r-environment.html#cb419-4" aria-hidden="true" tabindex="-1"></a>iris[,<span class="st">&#39;sepalCategory&#39;</span>][iris[,<span class="st">&#39;Sepal.Length&#39;</span>]<span class="sc">&lt;</span><span class="fl">5.5</span>] <span class="ot">=</span> <span class="st">&#39;short&#39;</span>  <span class="do">## this sets only those entries that match our condition to &#39;short&#39;</span></span>
-<span id="cb419-5"><a href="week-5--the-r-environment.html#cb419-5" aria-hidden="true" tabindex="-1"></a><span class="co"># how many plants with short sepals are there? How many long?</span></span>
-<span id="cb419-6"><a href="week-5--the-r-environment.html#cb419-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(iris[,<span class="st">&#39;sepalCategory&#39;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="week-5--the-r-environment.html#cb422-1" aria-hidden="true" tabindex="-1"></a><span class="co"># new column for long</span></span>
+<span id="cb422-2"><a href="week-5--the-r-environment.html#cb422-2" aria-hidden="true" tabindex="-1"></a>iris[,<span class="st">&#39;sepalCategory&#39;</span>] <span class="ot">=</span> <span class="st">&#39;long&#39;</span>  <span class="do">## this sets ever entry in the column equal to &#39;long&#39;</span></span>
+<span id="cb422-3"><a href="week-5--the-r-environment.html#cb422-3" aria-hidden="true" tabindex="-1"></a><span class="co"># new column for short (&lt; 5.5 cm)</span></span>
+<span id="cb422-4"><a href="week-5--the-r-environment.html#cb422-4" aria-hidden="true" tabindex="-1"></a>iris[,<span class="st">&#39;sepalCategory&#39;</span>][iris[,<span class="st">&#39;Sepal.Length&#39;</span>]<span class="sc">&lt;</span><span class="fl">5.5</span>] <span class="ot">=</span> <span class="st">&#39;short&#39;</span>  <span class="do">## this sets only those entries that match our condition to &#39;short&#39;</span></span>
+<span id="cb422-5"><a href="week-5--the-r-environment.html#cb422-5" aria-hidden="true" tabindex="-1"></a><span class="co"># how many plants with short sepals are there? How many long?</span></span>
+<span id="cb422-6"><a href="week-5--the-r-environment.html#cb422-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(iris[,<span class="st">&#39;sepalCategory&#39;</span>])</span></code></pre></div>
 <pre><code>#&gt; 
 #&gt;  long short 
 #&gt;    98    52</code></pre>

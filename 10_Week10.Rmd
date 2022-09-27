@@ -22,7 +22,18 @@ The lecture for this week can be found [here](https://github.com/BayLab/MarineGe
 
 ## load in the data 
 
-The data for this week consist of several files in beagle format, a genome index file (.fai), and a few small text files.
+The data for this week consist of several files: our genotypes in an imputed beagle format, a genome index file (.fai), and a few small text files.
+
+Reminder we used files that contain each samples genotypes (in .bam format) to generate a genotype likelihood file in week 4 where we learned to map sample reads to a reference genome.
+
+It is *highly* recommended to "impute" the genotype likelihood files prior to running the gwas. What does impute mean?
+
+Our genotype file does not contain a single genotype for each sample at every site, but instead has a range of likelihoods for each possible genotype for every site. Imputing this file reduces this range of possibility and also infers the genotype of un-sampled sites. Imputation has been shown to greatly improve the accuracy of GWA studies.
+
+Imputation can be done in beagle version 3, which can be found [here](http://faculty.washington.edu/browning/beagle/b3.html) or a direct link to the [jar file](http://faculty.washington.edu/browning/beagle/beagle.jar)
+
+Instructions to impute the genotype likelihood file can be found [here](https://faculty.washington.edu/browning/beagle/beagle_3.3.2_31Oct11.pdf)
+
 
 ```html
 
